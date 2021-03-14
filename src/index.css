@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Lato", sans-serif;
+}
+
+::-webkit-input-placeholder {
+  font-size: 16px !important;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  font-size: 16px !important;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 16px !important;
+}
+
+:-ms-input-placeholder {
+  font-size: 16px !important;
+}

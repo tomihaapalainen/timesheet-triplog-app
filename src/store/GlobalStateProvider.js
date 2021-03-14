@@ -1,0 +1,35 @@
+import React, { createContext, useContext, useState } from "react";
+
+const GlobalStateContext = createContext({});
+
+const GlobalStateProvider = ({ children }) => {
+  const [activeUntil, setActiveUntil] = useState("");
+  const [isActive, setIsActive] = useState(false);
+  const [projects, setProjects] = useState([]);
+  const [workTimes, setWorkTimes] = useState([]);
+  const [invitationToken, setInvitationToken] = useState("");
+  const [language, setLanguage] = useState("fi");
+
+  const values = {
+    activeUntil,
+    setActiveUntil,
+    isActive,
+    setIsActive,
+    projects,
+    setProjects,
+    workTimes,
+    setWorkTimes,
+    invitationToken,
+    setInvitationToken,
+    language,
+    setLanguage,
+  };
+
+  return <GlobalStateContext.Provider value={values}>{children}</GlobalStateContext.Provider>;
+};
+
+export function useGSC() {
+  return useContext(GlobalStateContext);
+}
+
+export default GlobalStateProvider;

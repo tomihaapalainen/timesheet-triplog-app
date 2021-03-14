@@ -1,0 +1,10 @@
+.app-info-bg {
+  background: linear-gradient(
+    300deg,
+    rgba(0, 74, 116, 1) 0%,
+    rgba(7, 104, 159, 1) 25%,
+    rgba(7, 104, 159, 1) 50%,
+    rgba(7, 104, 159, 1) 75%,
+    rgba(0, 74, 116, 1) 100%
+  );
+}
