@@ -1,0 +1,15 @@
+.toast {
+  position: absolute;
+  bottom: 20px;
+  height: 150px;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.summary-column {
+  border: 1px solid lightgrey;
+}

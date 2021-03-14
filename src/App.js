@@ -1,25 +1,27 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import BrowserRouter from "react-router-dom/BrowserRouter";
+import Switch from "react-router-dom/Switch";
+import Route from "react-router-dom/Route";
 import "./App.css";
-import AppPage from "./pages/app/AppPage";
-import SignInPage from "./pages/authentication/SignInPage";
-import SignUpPage from "./pages/authentication/SignUpPage";
-import WorkTimePage from "./pages/app/WorkTimePage";
-import TripLogPage from "./pages/app/TripLogPage";
 import { AuthProvider } from "./contexts/AuthContext";
-import PrivateRoute from "./components/routes/PrivateRoute";
-import SignInRoute from "./components/routes/SignInRoute";
-import NavigationBar from "./components/nav/NavigationBar";
+import LandingPage from "./Landing/LandingPage";
+import SignInPage from "./Authentication/SignInPage";
+import SignUpPage from "./Authentication/SignUpPage";
+import WorkTimePage from "./WorkTime/WorkTimePage";
+import TripLogPage from "./TripLog/TripLogPage";
+import PrivateRoute from "./Routes/PrivateRoute";
+import SignInRoute from "./Routes/SignInRoute";
+import NavigationBar from "./Navigation/NavigationBar";
 import GlobalStateProvider from "./store/GlobalStateProvider";
-import UserDataPage from "./pages/app/UserDataPage";
-import { Application } from "react-rainbow-components";
-import ResetPasswordPage from "./pages/authentication/ResetPasswordPage";
-import DownloadReports from "./pages/app/DownloadReports";
-import PurchasePage from "./pages/purchase/PurchasePage";
-import CheckoutPage from "./pages/purchase/CheckoutPage";
-import ConfirmationPage from "./pages/purchase/ConfirmationPage";
-import TermsAndDataProtectionPage from "./pages/purchase/TermsAndDataProtectionPage";
-import CheckoutRedirectPage from "./pages/purchase/CheckoutRedirectPage";
+import UserDataPage from "./UserData/UserDataPage";
+import Application from "react-rainbow-components/components/Application";
+import ResetPasswordPage from "./Authentication/ResetPasswordPage";
+import ReportsPage from "./Reports/ReportsPage";
+import PurchasePage from "./Purchase/PurchasePage";
+import CheckoutPage from "./Purchase/CheckoutPage";
+import ConfirmationPage from "./Purchase/ConfirmationPage";
+import TermsAndDataProtectionPage from "./Purchase/TermsAndDataProtectionPage";
+import CheckoutRedirectPage from "./Purchase/CheckoutRedirectPage";
 
 const theme = {
   rainbow: {
@@ -31,7 +33,7 @@ const theme = {
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <GlobalStateProvider>
         <AuthProvider>
           <Application theme={theme} style={{ fontSize: 16 }}>
@@ -43,18 +45,18 @@ function App() {
               <PrivateRoute path="/app/order-confirmation" component={ConfirmationPage} />
               <PrivateRoute path="/app/checkout" component={CheckoutPage} />
               <PrivateRoute path="/app/purchase" component={PurchasePage} />
-              <PrivateRoute path="/app/downloads" component={DownloadReports} />
+              <PrivateRoute path="/app/downloads" component={ReportsPage} />
               <PrivateRoute path="/app/userdata" component={UserDataPage} />
               <PrivateRoute path="/app/worktime" component={WorkTimePage} />
               <PrivateRoute path="/app/triplog" component={TripLogPage} />
-              <PrivateRoute path="/app" component={AppPage} />
+              <PrivateRoute path="/app" component={LandingPage} />
               <SignInRoute path="/register" component={SignUpPage} />
               <SignInRoute path="/" component={SignInPage} />
             </Switch>
           </Application>
         </AuthProvider>
       </GlobalStateProvider>
-    </Router>
+    </BrowserRouter>
   );
 }
 
