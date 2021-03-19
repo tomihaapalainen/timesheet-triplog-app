@@ -5,7 +5,3 @@ a:link {
 a:active {
   color: black;
 }
-
-.app-icon:hover {
-  opacity: 0.8;
-}

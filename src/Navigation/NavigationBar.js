@@ -84,7 +84,6 @@ export default function NavigationBar() {
             src={pulikkaIcon}
             alt="logo"
             style={{ width: 40, height: 40, marginRight: "10px" }}
-            className="app-icon"
           />
           {currentUser === null && (
             <p
