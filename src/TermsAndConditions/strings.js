@@ -35,7 +35,7 @@ const strings = new LocalizedStrings({
     sourcesOfInformationInfo:
       "Information is collected from the customer during registration and during checkout process.",
     dataTransferInfo:
-      "Customer data is managed by Pulikka.fi, payment intermediary Klarna and website host Google LLC. Information is not disclosed to third parties. Information is kept partly in a database hosted by Google LLC. Data processing terms for that can be found here:",
+      "Customer data is managed by Pulikka.fi, payment intermediary Visma and website host Google LLC. Information is not disclosed to third parties. Information is kept partly in a database hosted by Google LLC. Data processing terms for that can be found here:",
     securityInfo: "The registrar uses adequate data protection to secure customer data.",
     inspectionAndRectificationInfo:
       "The customer has the right inspect personal data held in the register and receive a copy of the information. The information may be requested once a year by contacting customer support. The customer can request rectification of information.",
@@ -77,7 +77,7 @@ const strings = new LocalizedStrings({
     sourcesOfInformationInfo:
       "Rekisteriin tallennettavat tiedot saadaan asiakkaalta tämän rekisteröityessä palveluun ja tilauksen tekemisen yhteydessä.",
     dataTransferInfo:
-      "Tietojasi käsittelevät yrityksemme ja sen työntekijät, maksunvälittäjä, joka vastaanottaa sinulta maksun ja IT-yritys (Google LLC) joka ylläpitää verkkosivuja. Tietoja ei luovuteta ulkopuolisille tahoille. Tietoja säilytetään palvelussa, jonka tarjoaa Google LLC. Sitä koskevat ehdot löytyy täältä:",
+      "Tietojasi käsittelevät yrityksemme ja sen työntekijät, maksunvälittäjä Visma ja IT-yritys (Google LLC) joka ylläpitää verkkosivuja. Tietoja ei luovuteta ulkopuolisille tahoille. Tietoja säilytetään palvelussa, jonka tarjoaa Google LLC. Sitä koskevat ehdot löytyy täältä:",
     securityInfo:
       "Rekisterinpitäjä varmistaa asiakkaiden henkilötietojen käsittelyn tietoturvallisuuden ja henkilötietojen luottamuksellisuuden huolehtimalla asianmukaisesta tietoturvasta.",
     inspectionAndRectificationInfo:

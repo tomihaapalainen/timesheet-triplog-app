@@ -7,7 +7,7 @@ const strings = new LocalizedStrings({
     purchase: "Purchase",
     errorLoadingOfferings: "Error loading offerings. Please try again later.",
     pickOrderDurationAndProceedToCheckout: "Pick your order duration and proceed to checkout",
-    pricesIncludeVAT: "Prices include VAT 24%",
+    pricesIncludeVAT: "Prices include VAT 24%. Payments are processed in Finland.",
     paymentInfo:
       "Right to use the application is paid upfront for the selected duration, and the right will become effective immediately after a successful checkout. In case you are unable to use the application within 24 hours, please contact customer suppport at ",
     noRefunds: "Notice that paid subscriptions will not be refunded.",
@@ -21,7 +21,7 @@ const strings = new LocalizedStrings({
     errorLoadingOfferings:
       "Virhe ladattaessa ostotarjouksia. Ole hyvä, ja yritä myöhemmin uudelleen",
     pickOrderDurationAndProceedToCheckout: "Valitse tilausjakson pituus ja siirry maksamaan",
-    pricesIncludeVAT: "Hinnat sisältävät alv. 24%",
+    pricesIncludeVAT: "Hinnat sisältävät alv. 24%. Maksut käsitellään Suomessa.",
     paymentInfo:
       "Palvelun käyttöoikeus maksetaan ajanjaksolle ennakkoon, ja käyttöoikeus astuu voimaan välittömästi onnistuneen maksutapahtuman jälkeen. Mikäli et saa palvelua käyttöösi 24 tunnin sisällä, ota yhteyttä asiakaspalveluun: ",
     noRefunds: "Huomaa, että jo maksetulla käyttöoikeudella ei ole palautusoikeutta.",

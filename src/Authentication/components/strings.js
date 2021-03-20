@@ -49,6 +49,7 @@ const strings = new LocalizedStrings({
     toTimesheets: "timesheets",
     toTripLogging: "trip logging",
     toReports: "extensive timesheet reports and trip log reports",
+    serviceUnavailable: "Service is currently unavailable! Check back later.",
   },
   fi: {
     signInWithGoogle: "Kirjaudu Google-tilillä",
@@ -97,6 +98,7 @@ const strings = new LocalizedStrings({
     toTimesheets: "työajanseurantaan",
     toTripLogging: "ajopäiväkirjan pitämiseen",
     toReports: "kattavien työaikaraporttien ja ajopäiväkirjojen lataamiseen",
+    serviceUnavailable: "Palvelu ei ole vielä käytössä! Palaa myöhemmin.",
   },
 });
 

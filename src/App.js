@@ -18,8 +18,6 @@ import Application from "react-rainbow-components/components/Application";
 import ResetPasswordPage from "./Authentication/ResetPasswordPage";
 import ReportsPage from "./Reports/ReportsPage";
 import PurchasePage from "./VismaPurchase/PurchasePage";
-import ConfirmationPage from "./Purchase/ConfirmationPage";
-import CheckoutRedirectPage from "./Purchase/CheckoutRedirectPage";
 import TermsAndConditionsPage from "./TermsAndConditions/TermsAndConditionsPage";
 
 const theme = {
@@ -40,8 +38,6 @@ function App() {
             <Switch position="fixed">
               <Route path="/reset-password" component={ResetPasswordPage} />
               <Route path="/terms" component={TermsAndConditionsPage} />
-              <PrivateRoute path="/app/checkout-redirect" component={CheckoutRedirectPage} />
-              <PrivateRoute path="/app/order-confirmation" component={ConfirmationPage} />
               <PrivateRoute path="/app/purchase" component={PurchasePage} />
               <PrivateRoute path="/app/downloads" component={ReportsPage} />
               <PrivateRoute path="/app/userdata" component={UserDataPage} />

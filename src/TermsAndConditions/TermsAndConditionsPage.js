@@ -26,7 +26,7 @@ const TermsAndConditionsPage = () => {
       <Container>
         <h5 className="lead my-3">{strings.termsAndConditions}</h5>
       </Container>
-      <Container className="my-3">
+      {/* <Container className="my-3">
         <p className="info-p">
           <strong>1. {strings.agreement}</strong>
           <br />
@@ -126,7 +126,7 @@ const TermsAndConditionsPage = () => {
       </Container>
       <Container className="my-3">
         <p className="info-p">{strings.inspectionAndRectificationInfo}</p>
-      </Container>
+      </Container> */}
     </Container>
   );
 };
