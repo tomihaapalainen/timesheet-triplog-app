@@ -49,7 +49,7 @@ const strings = new LocalizedStrings({
     toTimesheets: "timesheets",
     toTripLogging: "trip logging",
     toReports: "extensive timesheet reports and trip log reports",
-    serviceUnavailable: "Service is currently unavailable! Check back later.",
+    serviceUnavailable: "Service is not yet available! Check back later.",
   },
   fi: {
     signInWithGoogle: "Kirjaudu Google-tilillä",

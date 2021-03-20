@@ -21,12 +21,7 @@ const strings = new LocalizedStrings({
     orderingInfo:
       "Ordering the application is for a fixed term. You may order the application for a fixed term of 3 months or 12 months at a time. The customer must renew the order at the of the term to continue using the application. After the free trial period, the application is usable immediately after a successful checkout.",
     payments: "Payments",
-    paymentsInfo:
-      "Visma Pay (Paybyway Oy, business-id FI24865594) is the payment facilitator of the online shop. Paybyway Oy is a payment facilitator authorized by the Financial Supervisory Authority of Finland. The payment process is conducted in the online service of Visma Pay. Visma Pay or Paybyway Oy is shown as the receiver of your payment in the bank account listing and in your invoice. Paying with Visma Pay is safe. All information is exchanged through secured connections.The trade happens between the online customer and the online shop. The online shop is responsible for all obligations related to the trade.",
-    paymentsInfo2: "Read more about Visma Pay ",
-    paymentsInfoHere: "here",
-    paymentsInfo3:
-      "With Visma Pay you can pay your order by an internet banking account, a wallet, a payment card (credit/debit), an invoice or a partial payment. The following methods of payment are supported: Osuuspankki, Nordea, Danske Bank, Oma Säästöpankki, Säästöpankki, Aktia, Paikallisosuuspankit, S-Pankki, Handelsbanken, Ålandsbanken, Jousto, Enterpay Company Invoice, MobilePay, Masterpass, Pivo, Visa-, Visa Debit-, Visa Electron-, MasterCard- and Debit MasterCard payment cards.",
+    paymentsInfo: "To be added...",
     registrar: "Registrar",
     registerName: "Register name",
     registerNameInfo: "Pulikka.fi customer register",
@@ -62,13 +57,7 @@ const strings = new LocalizedStrings({
     orderingInfo:
       "Sovelluksen käyttöoikeus määräaikainen. Sovelluksen voi tilata joko 3 tai 12 kuukaudeksi kerrallaan. Asiakkaan tulee uusia tilaus jakson päätyttyä jatkaakseen sovelluksen käyttöä. Ilmaisen kokeilun jälkeen sovellus on asiakkaan käytettävissä välittömästi maksutapahtuman onnistuttua.",
     payments: "Maksut",
-    paymentsInfo:
-      "Verkkokaupan maksuvälittäjänä toimii Visma Pay (Paybyway Oy, y-tunnus 2486559-4), joka on rekisteröity Finanssivalvonnan ylläpitämään maksulaitosrekisteriin. Maksamiseen siirrytään Visma Payn verkkopalvelun kautta ja tiliotteella ja laskulla maksun saajana näkyy Visma Pay tai Paybyway Oy. Visma Pay välittää maksut verkkokauppiaalle. Maksaminen on turvallista, sillä kaikki maksutapahtumaa koskevat tiedot välitetään salattua yhteyttä käyttäen niin ettei kukaan ulkopuolinen taho näe maksutapahtuman tietoja. Kauppa syntyy verkkokaupan asiakkaan ja verkkokaupan välille. Verkkokaupan vastuulla ovat kaikki kauppaan liittyvät velvoitteet.",
-    paymentsInfo2: "Lue lisää Visma Paysta ",
-    paymentsInfoHere: "täällä",
-
-    paymentsInfo3:
-      "Visma Pay -palvelun kautta voit maksaa verkkopankkitunnuksilla, lompakolla, maksukorteilla (credit/debit), laskulla tai osamaksulla. Käytettävissä ovat seuraavat maksutavat: Osuuspankki, Nordea, Danske Bank, Oma Säästöpankki, Säästöpankki, Aktia, Paikallisosuuspankit, S-Pankki, Handelsbanken, Ålandsbanken, MobilePay, Masterpass, Pivo, Visa-, Visa Debit-, Visa Electron-, MasterCard- ja Debit MasterCard -kortit, sekä Jousto ja Enterpay Lasku yritykselle.",
+    paymentsInfo: "Lisätään myöhemmin...",
     registrar: "Rekisterin pitäjä",
     registerName: "Rekisterin nimi",
     registerNameInfo: "Pulikka.fi asiakasrekisteri",
@@ -77,7 +66,7 @@ const strings = new LocalizedStrings({
     sourcesOfInformationInfo:
       "Rekisteriin tallennettavat tiedot saadaan asiakkaalta tämän rekisteröityessä palveluun ja tilauksen tekemisen yhteydessä.",
     dataTransferInfo:
-      "Tietojasi käsittelevät yrityksemme ja sen työntekijät, maksunvälittäjä Visma ja IT-yritys (Google LLC) joka ylläpitää verkkosivuja. Tietoja ei luovuteta ulkopuolisille tahoille. Tietoja säilytetään palvelussa, jonka tarjoaa Google LLC. Sitä koskevat ehdot löytyy täältä:",
+      "Tietojasi käsittelevät yrityksemme ja sen työntekijät, maksunvälittäjä ja IT-yritys (Google LLC) joka ylläpitää verkkosivuja. Tietoja ei luovuteta ulkopuolisille tahoille. Tietoja säilytetään palvelussa, jonka tarjoaa Google LLC. Sitä koskevat ehdot löytyy täältä:",
     securityInfo:
       "Rekisterinpitäjä varmistaa asiakkaiden henkilötietojen käsittelyn tietoturvallisuuden ja henkilötietojen luottamuksellisuuden huolehtimalla asianmukaisesta tietoturvasta.",
     inspectionAndRectificationInfo:

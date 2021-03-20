@@ -17,7 +17,7 @@ import UserDataPage from "./UserData/UserDataPage";
 import Application from "react-rainbow-components/components/Application";
 import ResetPasswordPage from "./Authentication/ResetPasswordPage";
 import ReportsPage from "./Reports/ReportsPage";
-import PurchasePage from "./VismaPurchase/PurchasePage";
+import PurchasePage from "./Purchase/PurchasePage";
 import TermsAndConditionsPage from "./TermsAndConditions/TermsAndConditionsPage";
 
 const theme = {

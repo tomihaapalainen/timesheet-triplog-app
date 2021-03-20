@@ -7,8 +7,13 @@ import ApplicationInformation from "./components/ApplicationInformation";
 import PricingInformation from "./components/PricingInformation";
 import Footer from "../Navigation/Footer";
 import strings from "./components/strings";
+import { useGSC } from "../store/GlobalStateProvider";
 
 export default function SignInPage() {
+  const { language } = useGSC();
+
+  strings.setLanguage(language);
+
   useEffect(() => {
     if (/\/[a-z0-9]+/.test(window.location.pathname)) {
       let referrerToken = window.location.pathname.substring(
@@ -22,8 +27,8 @@ export default function SignInPage() {
 
   return (
     <Container fluid className="p-0 m-0">
-      <Container>
-        <p className="text-warning">{strings.serviceUnavailable}</p>
+      <Container fluid className="d-flex justify-content-center align-items-center">
+        <p className="text-warning my-4 lead">{strings.serviceUnavailable}</p>
       </Container>
       <TryForFree />
       <SignInForm />

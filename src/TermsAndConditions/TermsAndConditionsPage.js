@@ -66,18 +66,6 @@ const TermsAndConditionsPage = () => {
           <br />
         </p>
         <p>{strings.paymentsInfo} </p>
-        <p className="mt-2">
-          {strings.paymentsInfo2}
-          <a
-            className="text-primary"
-            href="https://www.visma.fi/vismapay/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {strings.paymentsInfoHere}.
-          </a>
-        </p>
-        <p className="mt-2">{strings.paymentsInfo3}</p>
       </Container>
       <Container className="my-4 w-75" style={{ border: "1px solid black" }} />
       <Container className="my-3">
