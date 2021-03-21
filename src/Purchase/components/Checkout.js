@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
 import { loadStripe } from "@stripe/stripe-js";
 import { FaArrowLeft } from "react-icons/fa";
 import { useGSC } from "../../store/GlobalStateProvider";
@@ -25,27 +27,19 @@ export default function Checkout({ offering, setOffering }) {
     return price.toFixed(2);
   };
 
-  const getBillingInfo = (duration) => {
-    return duration === 3 ? strings.threeMonthInfo : strings.annualInfo;
-  };
-
   const startCheckout = async (event) => {
     const stripe = await stripePromise;
 
     let idToken = await currentUser.getIdToken(true);
     const response = await axios.post(
-      `${baseUrl}/create-checkout-session`,
+      `${baseUrl}/purchases/create-checkout-session`,
       { duration: offering.duration, language: language },
       {
         headers: { Authorization: `Bearer ${idToken}` },
       }
     );
 
-    console.log(response);
-
     const result = await stripe.redirectToCheckout({ sessionId: response.data.id });
-
-    console.log(result);
 
     if (result.error) {
       setErrorMessage(result.error.message);
@@ -54,9 +48,6 @@ export default function Checkout({ offering, setOffering }) {
 
   return (
     <Container>
-      <Button className="bg-light mt-3" onClick={() => setOffering(null)}>
-        <FaArrowLeft className="text-primary pointer" size={30} />
-      </Button>
       {errorMessage && (
         <Container>
           <p className="lead text-error">
@@ -66,20 +57,29 @@ export default function Checkout({ offering, setOffering }) {
       )}
       <Card className="mx-auto my-4" style={{ maxWidth: "600px" }}>
         <Card.Header className="bg-primary">
-          <p style={{ color: "white", fontSize: 17, fontWeight: "bold" }}>
-            {offering.duration} {strings.months}
-          </p>
+          <Row>
+            <Col xs={2}>
+              <Button className="border-light" onClick={() => setOffering(null)}>
+                <FaArrowLeft className="pointer" size={30} />
+              </Button>
+            </Col>
+            <Col xs={10} className="d-flex align-items-center justify-content-start">
+              <p style={{ color: "white", fontSize: 17, fontWeight: "bold" }}>
+                {offering.duration} {strings.months}
+              </p>
+            </Col>
+          </Row>
         </Card.Header>
         <Card.Body>
           <Container className="d-flex flex-column justify-content-center align-items-start">
             <p className="my-1">
-              {strings.yourPrice} {calculateDiscountedPrice(offering)} €
+              {strings.yourPrice} <strong>{calculateDiscountedPrice(offering)} €</strong>
             </p>
-            <p className="my-1">{getBillingInfo(offering.duration)}</p>
+            <p className="my-1">{strings.purchaseInfo}</p>
           </Container>
         </Card.Body>
         <Card.Footer style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
-          <Button onClick={startCheckout}>{strings.purchase}</Button>
+          <Button onClick={startCheckout}>{strings.moveToCheckout}</Button>
         </Card.Footer>
       </Card>
     </Container>

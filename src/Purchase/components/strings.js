@@ -5,7 +5,7 @@ const strings = new LocalizedStrings({
     months: "months",
     yourPrice: "Your price",
     moveToCheckout: "Checkout",
-    purchase: "Pay",
+    choose: "Choose",
     errorLoadingOfferings: "Error loading offerings. Please try again later.",
     pickOrderDurationAndProceedToCheckout: "Pick your order duration and proceed to checkout",
     pricesIncludeVAT: "Prices include VAT 24%.",
@@ -14,12 +14,8 @@ const strings = new LocalizedStrings({
     noRefunds: "Notice that paid subscriptions will not be refunded.",
     customerServiceEmail: "asiakaspalvelu@pulikka.fi",
     unavailable: "Purchase unavailable.",
-    threeMonthInfo:
-      "3 month subscription is a recurring payment that will be charged from your card at the start of each billing period. You may cancel the subscription at any time: the subscription ends at the end of your last billed period. Billed subscriptions cannot be refunded.",
-    annualInfo:
-      "12 month order will be charged beforehand. Payment is non-recurring: the payment must be made again at the end of your billing period in order to keep using the application.",
-    threeMonths: "3 months recurring",
-    twelveMonths: "12 months one time payment",
+    purchaseInfo:
+      "Order will be charged beforehand. The payment must be made again at the end of your billing period in order to keep using the application.",
     month: "month",
     errorCheckingOut: "Error when transferring to checkout:",
   },
@@ -27,7 +23,7 @@ const strings = new LocalizedStrings({
     months: "kuukautta",
     yourPrice: "Hintasi",
     moveToCheckout: "Siirry maksamaan",
-    purchase: "Maksa",
+    choose: "Valitse",
     errorLoadingOfferings:
       "Virhe ladattaessa ostotarjouksia. Ole hyvä, ja yritä myöhemmin uudelleen",
     pickOrderDurationAndProceedToCheckout: "Valitse tilausjakson pituus ja siirry maksamaan",
@@ -37,12 +33,8 @@ const strings = new LocalizedStrings({
     noRefunds: "Huomaa, että jo maksetulla käyttöoikeudella ei ole palautusoikeutta.",
     customerServiceEmail: "asiakaspalvelu@pulikka.fi",
     unavailable: "Ostaminen ei ole käytössä.",
-    threeMonthInfo:
-      "3 kuukauden tilaus on jatkuva. Maksu veloitetaan tililtäsi jokaisen maksukauden alussa. Voit peruuttaa tilauksen milloin vain: tilaus päättyy viimeisen maksetun tilausjakson päättymiseen. Jo maksettuja tilauksia ei palauteta.",
-    annualInfo:
-      "12 kuukauden tilaus suoritetaan etukäteen kertamaksulla. Maksu täytyy uusia erikseen tilausjakson päätyttyä mikäli sovelluksen käyttöä halutaan jatkaa.",
-    threeMonths: "3 kuukauden jatkuva tilaus",
-    twelveMonths: "12 kuukautta kertamaksulla",
+    purchaseInfo:
+      "Maksu suoritetaan etukäteen kortilla. Tilausjakson päätyttyä maksu on suoritettava uudelleen mikäli sovelluksen käyttöä halutaan jatkaa.",
     month: "kk",
     errorCheckingOut: "Virhe siirryttäessä maksunvälittäjän palveluun:",
   },

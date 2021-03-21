@@ -26,7 +26,7 @@ const TermsAndConditionsPage = () => {
       <Container>
         <h5 className="lead my-3">{strings.termsAndConditions}</h5>
       </Container>
-      {/* <Container className="my-3">
+      <Container className="my-3">
         <p className="info-p">
           <strong>1. {strings.agreement}</strong>
           <br />
@@ -66,6 +66,9 @@ const TermsAndConditionsPage = () => {
           <br />
         </p>
         <p>{strings.paymentsInfo} </p>
+        <a className="text-primary" href="https://stripe.com" target="_blank" rel="noreferrer">
+          https://stripe.com
+        </a>
       </Container>
       <Container className="my-4 w-75" style={{ border: "1px solid black" }} />
       <Container className="my-3">
@@ -114,7 +117,7 @@ const TermsAndConditionsPage = () => {
       </Container>
       <Container className="my-3">
         <p className="info-p">{strings.inspectionAndRectificationInfo}</p>
-      </Container> */}
+      </Container>
     </Container>
   );
 };

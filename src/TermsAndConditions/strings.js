@@ -21,7 +21,7 @@ const strings = new LocalizedStrings({
     orderingInfo:
       "Ordering the application is for a fixed term. You may order the application for a fixed term of 3 months or 12 months at a time. The customer must renew the order at the of the term to continue using the application. After the free trial period, the application is usable immediately after a successful checkout.",
     payments: "Payments",
-    paymentsInfo: "To be added...",
+    paymentsInfo: "Payments are made by card. Payments are processed by Stripe. Read more here: ",
     registrar: "Registrar",
     registerName: "Register name",
     registerNameInfo: "Pulikka.fi customer register",
@@ -30,7 +30,7 @@ const strings = new LocalizedStrings({
     sourcesOfInformationInfo:
       "Information is collected from the customer during registration and during checkout process.",
     dataTransferInfo:
-      "Customer data is managed by Pulikka.fi, payment intermediary Visma and website host Google LLC. Information is not disclosed to third parties. Information is kept partly in a database hosted by Google LLC. Data processing terms for that can be found here:",
+      "Customer data is managed by Pulikka.fi, payment intermediary Stripe and website host Google LLC. Information is not disclosed to third parties. Information is kept partly in a database hosted by Google LLC. Data processing terms for that can be found here:",
     securityInfo: "The registrar uses adequate data protection to secure customer data.",
     inspectionAndRectificationInfo:
       "The customer has the right inspect personal data held in the register and receive a copy of the information. The information may be requested once a year by contacting customer support. The customer can request rectification of information.",
@@ -57,7 +57,7 @@ const strings = new LocalizedStrings({
     orderingInfo:
       "Sovelluksen käyttöoikeus määräaikainen. Sovelluksen voi tilata joko 3 tai 12 kuukaudeksi kerrallaan. Asiakkaan tulee uusia tilaus jakson päätyttyä jatkaakseen sovelluksen käyttöä. Ilmaisen kokeilun jälkeen sovellus on asiakkaan käytettävissä välittömästi maksutapahtuman onnistuttua.",
     payments: "Maksut",
-    paymentsInfo: "Lisätään myöhemmin...",
+    paymentsInfo: "Maksut suoritetaan kortilla. Maksunvälittäjänä toimii Stripe. Lue lisää täältä:",
     registrar: "Rekisterin pitäjä",
     registerName: "Rekisterin nimi",
     registerNameInfo: "Pulikka.fi asiakasrekisteri",
@@ -66,7 +66,7 @@ const strings = new LocalizedStrings({
     sourcesOfInformationInfo:
       "Rekisteriin tallennettavat tiedot saadaan asiakkaalta tämän rekisteröityessä palveluun ja tilauksen tekemisen yhteydessä.",
     dataTransferInfo:
-      "Tietojasi käsittelevät yrityksemme ja sen työntekijät, maksunvälittäjä ja IT-yritys (Google LLC) joka ylläpitää verkkosivuja. Tietoja ei luovuteta ulkopuolisille tahoille. Tietoja säilytetään palvelussa, jonka tarjoaa Google LLC. Sitä koskevat ehdot löytyy täältä:",
+      "Tietojasi käsittelevät yrityksemme ja sen työntekijät, maksunvälittäjä Stripe ja IT-yritys (Google LLC) joka ylläpitää verkkosivuja. Tietoja ei luovuteta ulkopuolisille tahoille. Tietoja säilytetään palvelussa, jonka tarjoaa Google LLC. Sitä koskevat ehdot löytyy täältä:",
     securityInfo:
       "Rekisterinpitäjä varmistaa asiakkaiden henkilötietojen käsittelyn tietoturvallisuuden ja henkilötietojen luottamuksellisuuden huolehtimalla asianmukaisesta tietoturvasta.",
     inspectionAndRectificationInfo:

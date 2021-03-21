@@ -42,8 +42,8 @@ const strings = new LocalizedStrings({
     pricing: "Pricing",
     pricingInfo:
       "Using pulikka.fi will not break the bank: affordable prices that can even be lowered by inviting new users to the application!",
-    threeMonths: "3 months recurring",
-    twelveMonths: "12 months one time payment",
+    threeMonths: "3 months",
+    twelveMonths: "12 months",
     priceIncludesVAT: "Price includes 24% VAT",
     allPricesInclude: "All prices include full access to",
     toTimesheets: "timesheets",
@@ -92,8 +92,8 @@ const strings = new LocalizedStrings({
     pricing: "Hinnasto",
     pricingInfo:
       "Pulikan käyttäminen ei tee lovea liikevaihtoosi: edulliset hinnat joista on lisäksi mahdollista saada pysyvää alennusta kutsumalla sovellukseen lisää käyttäjiä!",
-    threeMonths: "3 kuukauden jatkuva tilaus",
-    twelveMonths: "12 kuukautta kertamaksulla",
+    threeMonths: "3 kuukautta",
+    twelveMonths: "12 kuukautta",
     priceIncludesVAT: "Hinta sisältää 24% alv.",
     allPricesInclude: "Kaikki hinnat sisältävät täyden käyttöoikeuden",
     toTimesheets: "työajanseurantaan",

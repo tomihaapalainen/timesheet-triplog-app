@@ -29,7 +29,7 @@ export default function Offering({ setSelectedOffering, offering }) {
     <Card className="mx-auto my-4">
       <Card.Header className="bg-primary">
         <p style={{ color: "white", fontSize: 17, fontWeight: "bold" }}>
-          {offering.duration === 3 ? strings.threeMonths : strings.twelveMonths}
+          {offering.duration} {strings.months}
         </p>
       </Card.Header>
       <Card.Body className="offering-card-body">
@@ -56,7 +56,7 @@ export default function Offering({ setSelectedOffering, offering }) {
         </p>
       </Card.Body>
       <Card.Footer style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
-        <Button onClick={() => setSelectedOffering(offering)}>{strings.purchase}</Button>
+        <Button onClick={() => setSelectedOffering(offering)}>{strings.choose}</Button>
       </Card.Footer>
     </Card>
   );

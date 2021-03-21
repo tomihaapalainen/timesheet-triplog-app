@@ -29,13 +29,19 @@ export default function Offerings({ setSelectedOffering }) {
 
         if (response.status === 200) {
           setOfferings(response.data);
+          sessionStorage.setItem("offerings-cache", JSON.stringify(response.data));
         }
       } catch (error) {
         setErrorMessage(strings.errorLoadingOfferings);
       }
     };
 
-    fetchData();
+    let data = sessionStorage.getItem("offerings-cache");
+    if (data !== null) {
+      setOfferings(JSON.parse(data));
+    } else {
+      fetchData();
+    }
   }, []);
 
   if (errorMessage) {

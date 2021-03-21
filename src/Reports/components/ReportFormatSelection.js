@@ -20,15 +20,10 @@ export default function ReportFormatSelection({ selectedFormat, setSelectedForma
           <Button
             onClick={() => setSelectedFormat("xlsx")}
             className="bg-light"
-            style={{ borderWidth: selectedFormat === "xlsx" ? "4px" : "1px" }}
+            style={{ borderWidth: selectedFormat === "xlsx" ? "4px" : "1px", width: "125px" }}
           >
             <p className="my-0 py-0 text-dark">Excel</p>
-            <Image
-              src={excelLogo}
-              alt="excel"
-              roundedCircle
-              style={{ width: "45%", maxWidth: "125px" }}
-            />
+            <Image src={excelLogo} alt="excel" roundedCircle />
           </Button>
         </Col>
         <Col
@@ -40,15 +35,10 @@ export default function ReportFormatSelection({ selectedFormat, setSelectedForma
           <Button
             onClick={() => setSelectedFormat("csv")}
             className="bg-light"
-            style={{ borderWidth: selectedFormat === "csv" ? "4px" : "1px" }}
+            style={{ borderWidth: selectedFormat === "csv" ? "4px" : "1px", width: "125px" }}
           >
             <p className="my-0 py-0 text-dark">CSV</p>
-            <Image
-              src={csvLogo}
-              alt="csv"
-              roundedCircle
-              style={{ width: "45%", maxWidth: "125px" }}
-            />
+            <Image src={csvLogo} alt="csv" roundedCircle />
           </Button>
         </Col>
       </Row>
