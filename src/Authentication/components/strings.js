@@ -42,14 +42,15 @@ const strings = new LocalizedStrings({
     pricing: "Pricing",
     pricingInfo:
       "Using pulikka.fi will not break the bank: affordable prices that can even be lowered by inviting new users to the application!",
-    threeMonths: "3 months",
-    twelveMonths: "12 months",
+    threeMonths: "3 months recurring",
+    twelveMonths: "12 months one time payment",
     priceIncludesVAT: "Price includes 24% VAT",
     allPricesInclude: "All prices include full access to",
     toTimesheets: "timesheets",
     toTripLogging: "trip logging",
     toReports: "extensive timesheet reports and trip log reports",
     serviceUnavailable: "Service is not yet available! Check back later.",
+    month: "month",
   },
   fi: {
     signInWithGoogle: "Kirjaudu Google-tilillä",
@@ -91,14 +92,15 @@ const strings = new LocalizedStrings({
     pricing: "Hinnasto",
     pricingInfo:
       "Pulikan käyttäminen ei tee lovea liikevaihtoosi: edulliset hinnat joista on lisäksi mahdollista saada pysyvää alennusta kutsumalla sovellukseen lisää käyttäjiä!",
-    threeMonths: "3 kuukautta",
-    twelveMonths: "12 kuukautta",
+    threeMonths: "3 kuukauden jatkuva tilaus",
+    twelveMonths: "12 kuukautta kertamaksulla",
     priceIncludesVAT: "Hinta sisältää 24% alv.",
     allPricesInclude: "Kaikki hinnat sisältävät täyden käyttöoikeuden",
     toTimesheets: "työajanseurantaan",
     toTripLogging: "ajopäiväkirjan pitämiseen",
     toReports: "kattavien työaikaraporttien ja ajopäiväkirjojen lataamiseen",
     serviceUnavailable: "Palvelu ei ole vielä käytössä! Palaa myöhemmin.",
+    month: "kk",
   },
 });
 

@@ -23,7 +23,7 @@ export default function Offerings({ setSelectedOffering }) {
     const fetchData = async () => {
       try {
         let idToken = await currentUser.getIdToken(true);
-        let response = await axios.get(`${baseUrl}/orders/offerings`, {
+        let response = await axios.get(`${baseUrl}/purchases/offerings`, {
           headers: { Authorization: `Bearer ${idToken}` },
         });
 

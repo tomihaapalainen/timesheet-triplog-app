@@ -1,7 +1,5 @@
 import React from "react";
-import BrowserRouter from "react-router-dom/BrowserRouter";
-import Switch from "react-router-dom/Switch";
-import Route from "react-router-dom/Route";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { AuthProvider } from "./contexts/AuthContext";
 import LandingPage from "./Landing/LandingPage";
@@ -19,6 +17,8 @@ import ResetPasswordPage from "./Authentication/ResetPasswordPage";
 import ReportsPage from "./Reports/ReportsPage";
 import PurchasePage from "./Purchase/PurchasePage";
 import TermsAndConditionsPage from "./TermsAndConditions/TermsAndConditionsPage";
+import SuccessPage from "./Purchase/SuccessPage";
+import CancelPage from "./Purchase/CancelPage";
 
 const theme = {
   rainbow: {
@@ -38,6 +38,8 @@ function App() {
             <Switch position="fixed">
               <Route path="/reset-password" component={ResetPasswordPage} />
               <Route path="/terms" component={TermsAndConditionsPage} />
+              <PrivateRoute path="/app/purchase-cancelled" component={CancelPage} />
+              <PrivateRoute path="/app/successful-purchase" component={SuccessPage} />
               <PrivateRoute path="/app/purchase" component={PurchasePage} />
               <PrivateRoute path="/app/downloads" component={ReportsPage} />
               <PrivateRoute path="/app/userdata" component={UserDataPage} />
