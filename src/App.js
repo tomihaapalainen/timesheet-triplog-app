@@ -18,7 +18,6 @@ import ReportsPage from "./Reports/ReportsPage";
 import PurchasePage from "./Purchase/PurchasePage";
 import TermsAndConditionsPage from "./TermsAndConditions/TermsAndConditionsPage";
 import SuccessPage from "./Purchase/SuccessPage";
-import CancelPage from "./Purchase/CancelPage";
 
 const theme = {
   rainbow: {
@@ -38,7 +37,6 @@ function App() {
             <Switch position="fixed">
               <Route path="/reset-password" component={ResetPasswordPage} />
               <Route path="/terms" component={TermsAndConditionsPage} />
-              <PrivateRoute path="/app/purchase-cancelled" component={CancelPage} />
               <PrivateRoute path="/app/successful-purchase" component={SuccessPage} />
               <PrivateRoute path="/app/purchase" component={PurchasePage} />
               <PrivateRoute path="/app/downloads" component={ReportsPage} />

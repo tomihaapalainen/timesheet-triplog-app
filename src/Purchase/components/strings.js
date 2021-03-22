@@ -18,6 +18,8 @@ const strings = new LocalizedStrings({
       "Order will be charged beforehand. The payment must be made again at the end of your billing period in order to keep using the application.",
     month: "month",
     errorCheckingOut: "Error when transferring to checkout:",
+    purchaseSuccessful: "Purchase complete",
+    thankYouForPurchasing: "Thank you for purchasing our product!",
   },
   fi: {
     months: "kuukautta",
@@ -37,6 +39,8 @@ const strings = new LocalizedStrings({
       "Maksu suoritetaan etukäteen kortilla. Tilausjakson päätyttyä maksu on suoritettava uudelleen mikäli sovelluksen käyttöä halutaan jatkaa.",
     month: "kk",
     errorCheckingOut: "Virhe siirryttäessä maksunvälittäjän palveluun:",
+    purchaseSuccessful: "Maksu suoritettu",
+    thankYouForPurchasing: "Kiitos ostoksestasi!",
   },
 });
 

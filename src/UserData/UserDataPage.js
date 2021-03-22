@@ -12,6 +12,7 @@ import ActiveUntil from "./components/ActiveUntil";
 import { baseUrl } from "../config";
 import Loading from "../shared/Loading";
 import DeleteUserAccordion from "./components/DeleteUserAccordion";
+import strings from "./components/strings";
 
 export default function UserDataPage() {
   const [review, setReview] = useState(null);
@@ -33,7 +34,7 @@ export default function UserDataPage() {
         sessionStorage.setItem("user-review", JSON.stringify(response.data));
       } catch (error) {
         if (error.response) {
-          setErrorMessage("Palvelimeen ei saatu yhteyttä. Ole hyvä ja yritä myöhemmin uudelleen.");
+          setErrorMessage(strings.serverDidNotRespond);
         }
       }
     };

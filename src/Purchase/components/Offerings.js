@@ -3,6 +3,7 @@ import axios from "axios";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Spinner from "react-bootstrap/Spinner";
 import { baseUrl } from "../../config";
 import { useAuth } from "../../contexts/AuthContext";
 import Offering from "./Offering";
@@ -13,6 +14,7 @@ import "./styles.css";
 export default function Offerings({ setSelectedOffering }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [offerings, setOfferings] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const { currentUser } = useAuth();
 
@@ -33,12 +35,15 @@ export default function Offerings({ setSelectedOffering }) {
         }
       } catch (error) {
         setErrorMessage(strings.errorLoadingOfferings);
+      } finally {
+        setLoading(false);
       }
     };
 
     let data = sessionStorage.getItem("offerings-cache");
     if (data !== null) {
       setOfferings(JSON.parse(data));
+      setLoading(false);
     } else {
       fetchData();
     }
@@ -55,6 +60,11 @@ export default function Offerings({ setSelectedOffering }) {
   return (
     <Container className="mb-5 mx-auto mw-1024">
       <p className="my-3 lead">{strings.pickOrderDurationAndProceedToCheckout}</p>
+      {loading && (
+        <Container fluid className="d-flex justify-content-center align-items-center">
+          <Spinner variant="primary" animation="border" role="status" />
+        </Container>
+      )}
       <Row>
         {offerings.map((o) => (
           <Col key={o.price} className="mx-auto" xs={12} sm={12} md={6} lg={6} xl={6}>

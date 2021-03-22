@@ -9,12 +9,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import { FaArrowLeft } from "react-icons/fa";
 import { useGSC } from "../../store/GlobalStateProvider";
 import strings from "./strings";
-import { baseUrl } from "../../config";
+import { baseUrl, stripeApiKey } from "../../config";
 import { useAuth } from "../../contexts/AuthContext";
 
-const stripePromise = loadStripe(
-  "pk_test_51IX4o7HmRBOzJv0KL0clVyTOefbelOSU7c0UkupDAGPZeC2un9LJkdPn2aSEZ5ey0TghS8MKY0Rr9idazzc3z8po006QlBtwhr"
-);
+const stripePromise = loadStripe(stripeApiKey);
 
 export default function Checkout({ offering, setOffering }) {
   const [errorMessage, setErrorMessage] = useState("");
@@ -27,7 +25,7 @@ export default function Checkout({ offering, setOffering }) {
     return price.toFixed(2);
   };
 
-  const startCheckout = async (event) => {
+  const startCheckout = async () => {
     const stripe = await stripePromise;
 
     let idToken = await currentUser.getIdToken(true);

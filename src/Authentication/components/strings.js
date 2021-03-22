@@ -51,6 +51,8 @@ const strings = new LocalizedStrings({
     toReports: "extensive timesheet reports and trip log reports",
     serviceUnavailable: "Service is not yet available! Check back later.",
     month: "month",
+    threeMonthPrice: "7.50 €",
+    twelveMonthPrice: "24.90 €",
   },
   fi: {
     signInWithGoogle: "Kirjaudu Google-tilillä",
@@ -101,6 +103,8 @@ const strings = new LocalizedStrings({
     toReports: "kattavien työaikaraporttien ja ajopäiväkirjojen lataamiseen",
     serviceUnavailable: "Palvelu ei ole vielä käytössä! Palaa myöhemmin.",
     month: "kk",
+    threeMonthPrice: "7,50 €",
+    twelveMonthPrice: "24,90 €",
   },
 });
 
