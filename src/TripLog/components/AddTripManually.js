@@ -18,8 +18,16 @@ import { baseUrl } from "../../config";
 import { useAuth } from "../../contexts/AuthContext";
 import { datetimeToLocalISOString } from "../../utils/datetimeutils";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import MeterInput from "./MeterInput";
 
-export default function AddTripManually({ selectedProject, vehicle, descriptionRef }) {
+export default function AddTripManually({
+  kilometers,
+  setCurrentKilometers,
+  selectedProject,
+  vehicle,
+  descriptionRef,
+  route,
+}) {
   const { language, isActive } = useGSC();
   strings.setLanguage(language);
 
@@ -34,31 +42,34 @@ export default function AddTripManually({ selectedProject, vehicle, descriptionR
   const kilometerageRef = useRef();
   const distanceRef = useRef();
 
+  const parseKilometers = () => {
+    return parseInt(kilometers.map((km) => km.value).join(""));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let currentKilometers = parseInt(kilometerageRef.current.value);
+    let currentKilometers = parseKilometers();
     let distance = parseInt(distanceRef.current.value);
 
-    if (isNaN(currentKilometers) || isNaN(distance)) {
+    if (isNaN(distance)) {
       setErrorMessage(strings.invalidManualValues);
       return;
     }
 
     let data = {
       vehicle: vehicle,
-      description: descriptionRef.current.value,
       project_id: selectedProject,
       start_km: currentKilometers - distance,
-      start_address: "",
       start_datetime: datetimeToLocalISOString(startDatetime),
       end_km: currentKilometers,
-      end_address: "",
       end_datetime: datetimeToLocalISOString(endDatetime),
+      description: descriptionRef.current.value,
+      route: route,
     };
 
     try {
       let idToken = await currentUser.getIdToken(true);
-      let response = await axios.post(`${baseUrl}/manual-trips`, data, {
+      let response = await axios.post(`${baseUrl}/trips`, data, {
         headers: { Authorization: `Bearer ${idToken}` },
       });
 
@@ -75,9 +86,9 @@ export default function AddTripManually({ selectedProject, vehicle, descriptionR
   };
 
   return (
-    <Container fluid className="my-3">
-      <Accordion className="pb-2">
-        <Card>
+    <Container fluid className="my-3 mx-0 px-0 w-100">
+      <Accordion className="pb-2 mx-0 px-0 w-100">
+        <Card className="w-100 mx-0 px-0">
           <Accordion.Toggle
             as={Card.Header}
             className="my-0 py-1 bg-primary text-light"
@@ -135,14 +146,10 @@ export default function AddTripManually({ selectedProject, vehicle, descriptionR
                     locale="fi-FI"
                     hour24
                   />
-                  <Form.Label className="my-0 py-0">{strings.kilometerageNow + "*"}</Form.Label>
-                  <Form.Control type="number" ref={kilometerageRef} />
+                  <MeterInput kilometers={kilometers} setCurrentKilometers={setCurrentKilometers} />
                   <Form.Label className="my-0 py-0">{strings.tripDistance + "*"}</Form.Label>
                   <Form.Control type="number" ref={distanceRef} />
                 </FormGroup>
-                <Container>
-                  <p style={{ fontSize: 15, marginBottom: "10px" }}>{strings.manualTripHelpText}</p>
-                </Container>
                 <Container className="d-flex justify-content-center">
                   <Button type="submit" disabled={!isActive}>
                     {strings.save}

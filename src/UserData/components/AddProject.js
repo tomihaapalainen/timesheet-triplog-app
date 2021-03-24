@@ -50,6 +50,8 @@ export default function AddProject() {
 
       let newProjects = [...projects, response.data];
       setProjects(newProjects);
+      document.getElementById("project-name-input").value = "";
+      document.getElementById("project-hourly-rate-input").value = "";
     } catch (error) {
       setErrorMessage(strings.addingProjectFailed);
     } finally {
@@ -69,6 +71,7 @@ export default function AddProject() {
                 <Form noValidate onSubmit={handleSubmit}>
                   <Form.Group>
                     <Form.Control
+                      id="project-name-input"
                       className="mb-3"
                       required
                       ref={nameRef}
@@ -77,6 +80,7 @@ export default function AddProject() {
                     />
                     <InputGroup>
                       <FormControl
+                        id="project-hourly-rate-input"
                         type="number"
                         placeholder={strings.hourlyRate + "..."}
                         ref={hourlyRateRef}

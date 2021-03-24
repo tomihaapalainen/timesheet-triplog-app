@@ -24,7 +24,7 @@ export default function ProjectSelection({ project, setProject, required }) {
   };
 
   return (
-    <Container className="px-0 mx-0 pb-2">
+    <Container className="px-0 mb-3">
       <FormLabel>{strings.project + (required ? "*" : "")}</FormLabel>
       <InputGroup>
         <FormControl

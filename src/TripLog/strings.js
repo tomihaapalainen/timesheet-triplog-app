@@ -10,6 +10,7 @@ const strings = new LocalizedStrings({
     tripStarted: "Trip started",
     tripEnded: "Trip ended",
     vehicle: "Vehicle (license plate)",
+    route: "Route e.g. hel tre hel",
   },
   fi: {
     accountNoLongerActive:
@@ -20,6 +21,7 @@ const strings = new LocalizedStrings({
     tripStarted: "Matka aloitettu",
     tripEnded: "Matka päättynyt",
     vehicle: "Ajoneuvo (rek. nro)",
+    route: "Reitti esim. hel tre hel",
   },
 });
 

@@ -26,6 +26,7 @@ export default function TripLogPage() {
   const [description, setDescription] = useState("");
   const [vehicle, setVehicle] = useState("");
   const [selectedProject, setSelectedProject] = useState("");
+  const [route, setRoute] = useState("");
   const [gettingLocation, setGettingLocation] = useState(false);
   const [locationAvailable, setLocationAvailable] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -81,6 +82,7 @@ export default function TripLogPage() {
       setCurrentKilometers(data.meterValue.toString());
       setDescription(data.description);
       setVehicle(data.vehicle);
+      setRoute(data.route);
       setTripStart(data);
     }
 
@@ -90,6 +92,7 @@ export default function TripLogPage() {
       setCurrentKilometers(data.meterValue.toString());
       setDescription(data.description);
       setVehicle(data.vehicle);
+      setRoute(data.route);
       setTripEnd(data);
     }
   };
@@ -152,62 +155,36 @@ export default function TripLogPage() {
   const handleTripStart = () => {
     setGettingLocation(true);
     setTripData(null);
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setTripStart({
-          datetime: new Date(),
-          meterValue: parseKilometers(),
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          description: descriptionRef.current.value,
-          vehicle: vehicle,
-        });
-      },
-      () => {
-        setLocationAvailable(false);
-      },
-      {
-        enableHighAccuracy: true,
-      }
-    );
+    setTripStart({
+      datetime: new Date(),
+      meterValue: parseKilometers(),
+      description: descriptionRef.current.value,
+      vehicle: vehicle,
+      route: route,
+    });
   };
 
   const handleTripEnd = () => {
     setGettingLocation(true);
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setTripEnd({
-          datetime: new Date(),
-          meterValue: parseKilometers(),
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          description: descriptionRef.current.value,
-          vehicle: vehicle,
-        });
-      },
-      () => {
-        setLocationAvailable(false);
-      },
-      {
-        enableHighAccuracy: true,
-      }
-    );
+    setTripEnd({
+      datetime: new Date(),
+      meterValue: parseKilometers(),
+      description: descriptionRef.current.value,
+      vehicle: vehicle,
+    });
   };
 
   const handleSubmit = async () => {
     setLoading(true);
     let tripData = {
       vehicle: vehicle,
-      description: descriptionRef.current.value,
       project_id: selectedProject,
       start_km: tripStart.meterValue,
-      start_latitude: tripStart.latitude,
-      start_longitude: tripStart.longitude,
       start_datetime: datetimeToLocalISOString(tripStart.datetime),
       end_km: tripEnd.meterValue,
-      end_latitude: tripEnd.latitude,
-      end_longitude: tripEnd.longitude,
       end_datetime: datetimeToLocalISOString(tripEnd.datetime),
+      description: descriptionRef.current.value,
+      route: route,
     };
     currentUser.getIdToken(true).then((idToken) => {
       axios
@@ -278,22 +255,34 @@ export default function TripLogPage() {
         </Container>
       )}
       <ProjectSelection project={selectedProject} setProject={setSelectedProject} required={true} />
-      <Container className="px-0 mx-0">
-        <Form.Group>
-          <Form.Label>{strings.vehicle + "*"}</Form.Label>
-          <Form.Control
-            type="text"
-            value={vehicle}
-            onChange={onVehicleChanged}
-            onFocus={(event) => event.target.select()}
-            onKeyUp={(event) => {
-              if (event.key === "Enter") event.target.blur();
-            }}
-          />
-        </Form.Group>
-      </Container>
-      <FormInput label={strings.description} val={description} valRef={descriptionRef} />
+      <Form.Control
+        className="mb-3"
+        value={vehicle}
+        onChange={onVehicleChanged}
+        type="text"
+        onFocus={(event) => event.target.select()}
+        onKeyUp={(event) => {
+          if (event.key === "Enter") event.target.blur();
+        }}
+        placeholder={strings.vehicle + "*"}
+      />
+      <Form.Control
+        className="mb-3"
+        placeholder={strings.description}
+        ref={descriptionRef}
+        type="text"
+        defaultValue={description}
+      />
+      <Form.Control
+        type="text"
+        placeholder={strings.route}
+        onChange={(event) => setRoute(event.target.value)}
+        value={route}
+      />
       <AddTripManually
+        route={route}
+        kilometers={kilometers}
+        setCurrentKilometers={setCurrentKilometers}
         selectedProject={selectedProject}
         vehicle={vehicle}
         descriptionRef={descriptionRef}
