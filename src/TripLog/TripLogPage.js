@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import FormInput from "./components/FormInput";
+import InputGroup from "react-bootstrap/InputGroup";
 import MeterInput from "./components/MeterInput";
 import TripActions from "./components/TripActions";
 import CancelTripModal from "./components/CancelTripModal";
@@ -18,17 +18,20 @@ import ProjectSelection from "../shared/ProjectSelection";
 import strings from "./strings";
 import { useGSC } from "../store/GlobalStateProvider";
 import AddTripManually from "./components/AddTripManually";
+import AdditionalInformation from "./components/AdditionalInformation";
 
 export default function TripLogPage() {
   const [tripStart, setTripStart] = useState(null);
   const [tripEnd, setTripEnd] = useState(null);
   const [tripData, setTripData] = useState(null);
   const [description, setDescription] = useState("");
+  const [passengerCount, setPassengerCount] = useState("");
+  const [compensation, setCompensation] = useState("");
+  const [additionalCompensation, setAdditionalCompensation] = useState("");
+  const [additionalCompensationAmount, setAdditionalCompensationAmount] = useState("");
   const [vehicle, setVehicle] = useState("");
   const [selectedProject, setSelectedProject] = useState("");
   const [route, setRoute] = useState("");
-  const [gettingLocation, setGettingLocation] = useState(false);
-  const [locationAvailable, setLocationAvailable] = useState(true);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [showCancelStartDialog, setShowCancelStartDialog] = useState(false);
@@ -42,7 +45,14 @@ export default function TripLogPage() {
     { count: 2, value: 0 },
     { count: 1, value: 0 },
   ]);
+
   const descriptionRef = useRef();
+  const compensationRef = useRef();
+
+  const passengerCountRef = useRef();
+
+  const additionalCompensationRef = useRef();
+  const additionalCompensationAmountRef = useRef();
 
   const { currentUser, signout } = useAuth();
   const history = useHistory();
@@ -61,6 +71,7 @@ export default function TripLogPage() {
         setCurrentKilometers(response.data.end_km);
         setVehicle(response.data.vehicle);
         setSelectedProject(response.data.project_id);
+        setCompensation(response.data.compensation / 100);
         sessionStorage.setItem("last-trip-data", JSON.stringify(response.data));
       }
     } catch (error) {
@@ -83,7 +94,10 @@ export default function TripLogPage() {
       setDescription(data.description);
       setVehicle(data.vehicle);
       setRoute(data.route);
+      setPassengerCount(data.passengerCount);
       setTripStart(data);
+      setAdditionalCompensation(data.additionalCompensation);
+      setAdditionalCompensationAmount(data.additionalCompensationAmount);
     }
 
     if (localStorage.getItem("trip-end") !== null) {
@@ -93,7 +107,10 @@ export default function TripLogPage() {
       setDescription(data.description);
       setVehicle(data.vehicle);
       setRoute(data.route);
+      setPassengerCount(data.passengerCount);
       setTripEnd(data);
+      setAdditionalCompensation(data.additionalCompensation);
+      setAdditionalCompensationAmount(data.additionalCompensationAmount);
     }
   };
 
@@ -104,18 +121,13 @@ export default function TripLogPage() {
       setCurrentKilometers(data.end_km);
       setVehicle(data.vehicle);
       setSelectedProject(data.project_id);
+      setCompensation(data.compensation / 100);
     } else {
       await fetchLastTripData();
     }
   };
 
-  const checkLocationAvailable = async () => {
-    let result = await navigator.permissions.query({ name: "geolocation" });
-    setLocationAvailable(result.state !== "denied");
-  };
-
   useEffect(() => {
-    checkLocationAvailable();
     checkLastTripData();
     checkStartedTrips();
     setInitializing(false);
@@ -127,7 +139,6 @@ export default function TripLogPage() {
     } else {
       localStorage.setItem("trip-start", JSON.stringify(tripStart));
     }
-    setGettingLocation(false);
   }, [tripStart]);
 
   useEffect(() => {
@@ -136,7 +147,6 @@ export default function TripLogPage() {
     } else {
       localStorage.setItem("trip-end", JSON.stringify(tripEnd));
     }
-    setGettingLocation(false);
   }, [tripEnd]);
 
   const setCurrentKilometers = (newValue) => {
@@ -153,29 +163,42 @@ export default function TripLogPage() {
   };
 
   const handleTripStart = () => {
-    setGettingLocation(true);
     setTripData(null);
     setTripStart({
       datetime: new Date(),
       meterValue: parseKilometers(),
       description: descriptionRef.current.value,
+      compensation: compensationRef.current.value,
       vehicle: vehicle,
       route: route,
+      passengerCount: passengerCountRef.current.value,
+      additionalCompensation: additionalCompensationRef.current.value,
+      additionalCompensationAmount: additionalCompensationAmountRef.current.value,
     });
   };
 
   const handleTripEnd = () => {
-    setGettingLocation(true);
     setTripEnd({
       datetime: new Date(),
       meterValue: parseKilometers(),
       description: descriptionRef.current.value,
+      compensation: compensationRef.current.value,
       vehicle: vehicle,
+      route: route,
+      passengerCount: passengerCountRef.current.value,
+      additionalCompensation: additionalCompensationRef.current.value,
+      additionalCompensationAmount: additionalCompensationAmountRef.current.value,
     });
   };
 
   const handleSubmit = async () => {
     setLoading(true);
+    let passengerCount = passengerCountRef.current.value;
+
+    let compensationAmount = compensationRef.current.value;
+    let additionalCompensation = additionalCompensationRef.current.value;
+    let additionalCompensationAmount = additionalCompensationAmountRef.current.value;
+
     let tripData = {
       vehicle: vehicle,
       project_id: selectedProject,
@@ -183,9 +206,16 @@ export default function TripLogPage() {
       start_datetime: datetimeToLocalISOString(tripStart.datetime),
       end_km: tripEnd.meterValue,
       end_datetime: datetimeToLocalISOString(tripEnd.datetime),
-      description: descriptionRef.current.value,
+      compensation: parseFloat(compensationAmount) * 100,
+      additional_compensation: additionalCompensationAmount
+        ? additionalCompensationAmount * 100
+        : 0,
+      passenger_count: passengerCount ? passengerCount : 0,
+      description:
+        descriptionRef.current.value + additionalCompensation ? ` +${additionalCompensation}` : "",
       route: route,
     };
+
     currentUser.getIdToken(true).then((idToken) => {
       axios
         .post(`${baseUrl}/trips`, tripData, {
@@ -218,7 +248,7 @@ export default function TripLogPage() {
   };
 
   const getDisabled = () => {
-    return locationAvailable && vehicle && !gettingLocation ? {} : { disabled: true };
+    return vehicle ? {} : { disabled: true };
   };
 
   const getEndDisabled = () => {
@@ -226,7 +256,9 @@ export default function TripLogPage() {
   };
 
   const getSaveDisabled = () => {
-    return !vehicle || !selectedProject || !isActive ? { disabled: true } : {};
+    return !vehicle || !selectedProject || !isActive || !route || !compensationRef.current.value
+      ? { disabled: true }
+      : {};
   };
 
   const handleCancelStart = () => {
@@ -255,29 +287,50 @@ export default function TripLogPage() {
         </Container>
       )}
       <ProjectSelection project={selectedProject} setProject={setSelectedProject} required={true} />
+      <Container fluid className="d-flex flex-row mb-3 mx-0 px-0">
+        <Col className="w-100 mx-0 px-0" xs={87}>
+          <Form.Control
+            value={vehicle}
+            onChange={onVehicleChanged}
+            type="text"
+            onFocus={(event) => event.target.select()}
+            onKeyUp={(event) => {
+              if (event.key === "Enter") event.target.blur();
+            }}
+            placeholder={strings.vehicle + "*"}
+          />
+        </Col>
+        <Col className="w-100 mx-0 px-0" xs={5}>
+          <InputGroup>
+            <Form.Control
+              defaultValue={compensation}
+              ref={compensationRef}
+              placeholder={strings.compensation}
+              type="number"
+            />
+            <InputGroup.Append>
+              <InputGroup.Text className="mx-0 px-1">€/km</InputGroup.Text>
+            </InputGroup.Append>
+          </InputGroup>
+        </Col>
+      </Container>
+
       <Form.Control
         className="mb-3"
-        value={vehicle}
-        onChange={onVehicleChanged}
         type="text"
-        onFocus={(event) => event.target.select()}
-        onKeyUp={(event) => {
-          if (event.key === "Enter") event.target.blur();
-        }}
-        placeholder={strings.vehicle + "*"}
-      />
-      <Form.Control
-        className="mb-3"
-        placeholder={strings.description}
-        ref={descriptionRef}
-        type="text"
-        defaultValue={description}
-      />
-      <Form.Control
-        type="text"
-        placeholder={strings.route}
+        placeholder={strings.route + "*"}
         onChange={(event) => setRoute(event.target.value)}
         value={route}
+      />
+      <AdditionalInformation
+        description={description}
+        descriptionRef={descriptionRef}
+        passengerCount={passengerCount}
+        passengerCountRef={passengerCountRef}
+        additionalCompensation={additionalCompensation}
+        additionalCompensationRef={additionalCompensationRef}
+        additionalCompensationAmount={additionalCompensationAmount}
+        additionalCompensationAmountRef={additionalCompensationAmountRef}
       />
       <AddTripManually
         route={route}
@@ -286,6 +339,10 @@ export default function TripLogPage() {
         selectedProject={selectedProject}
         vehicle={vehicle}
         descriptionRef={descriptionRef}
+        compensationRef={compensationRef}
+        passengerCountRef={passengerCountRef}
+        additionalCompensationRef={additionalCompensationRef}
+        additionalCompensationAmountRef={additionalCompensationAmountRef}
       />
       <MeterInput kilometers={kilometers} setCurrentKilometers={setCurrentKilometers} />
       {!isActive && <p className="text-danger">{strings.accountNoLongerActive}</p>}

@@ -27,6 +27,10 @@ export default function AddTripManually({
   vehicle,
   descriptionRef,
   route,
+  compensationRef,
+  passengerCountRef,
+  additionalCompensationRef,
+  additionalCompensationAmountRef,
 }) {
   const { language, isActive } = useGSC();
   strings.setLanguage(language);
@@ -39,8 +43,7 @@ export default function AddTripManually({
   const [endDatetime, setEndDatetime] = useState(null);
   const [open, setOpen] = useState(false);
 
-  const kilometerageRef = useRef();
-  const distanceRef = useRef();
+  const [distance, setDistance] = useState("");
 
   const parseKilometers = () => {
     return parseInt(kilometers.map((km) => km.value).join(""));
@@ -49,21 +52,33 @@ export default function AddTripManually({
   const handleSubmit = async (e) => {
     e.preventDefault();
     let currentKilometers = parseKilometers();
-    let distance = parseInt(distanceRef.current.value);
+    let traveledDistance = parseInt(distance);
 
-    if (isNaN(distance)) {
+    if (isNaN(traveledDistance)) {
       setErrorMessage(strings.invalidManualValues);
       return;
     }
 
+    let passengerCount = passengerCountRef.current.value;
+
+    let compensationAmount = compensationRef.current.value;
+    let additionalCompensation = additionalCompensationRef.current.value;
+    let additionalCompensationAmount = additionalCompensationAmountRef.current.value;
+
     let data = {
       vehicle: vehicle,
       project_id: selectedProject,
-      start_km: currentKilometers - distance,
+      start_km: currentKilometers - traveledDistance,
       start_datetime: datetimeToLocalISOString(startDatetime),
       end_km: currentKilometers,
       end_datetime: datetimeToLocalISOString(endDatetime),
-      description: descriptionRef.current.value,
+      compensation: parseFloat(compensationAmount) * 100,
+      additional_compensation: additionalCompensationAmount
+        ? additionalCompensationAmount * 100
+        : 0,
+      passenger_count: passengerCount ? passengerCount : 0,
+      description:
+        descriptionRef.current.value + additionalCompensation ? ` +${additionalCompensation}` : "",
       route: route,
     };
 
@@ -75,8 +90,7 @@ export default function AddTripManually({
 
       if (response.status === 200) {
         setShowSuccess(true);
-        kilometerageRef.current.value = "";
-        distanceRef.current.value = "";
+        setDistance(0);
       }
     } catch (error) {
       if (error.response) {
@@ -86,7 +100,7 @@ export default function AddTripManually({
   };
 
   return (
-    <Container fluid className="my-3 mx-0 px-0 w-100">
+    <Container fluid className="my-2 mx-0 px-0 w-100">
       <Accordion className="pb-2 mx-0 px-0 w-100">
         <Card className="w-100 mx-0 px-0">
           <Accordion.Toggle
@@ -148,7 +162,11 @@ export default function AddTripManually({
                   />
                   <MeterInput kilometers={kilometers} setCurrentKilometers={setCurrentKilometers} />
                   <Form.Label className="my-0 py-0">{strings.tripDistance + "*"}</Form.Label>
-                  <Form.Control type="number" ref={distanceRef} />
+                  <Form.Control
+                    type="number"
+                    value={distance}
+                    onChange={(e) => setDistance(e.target.value)}
+                  />
                 </FormGroup>
                 <Container className="d-flex justify-content-center">
                   <Button type="submit" disabled={!isActive}>

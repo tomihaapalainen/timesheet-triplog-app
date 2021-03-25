@@ -9,8 +9,9 @@ const strings = new LocalizedStrings({
     kilometerage: "Kilometerage",
     tripStarted: "Trip started",
     tripEnded: "Trip ended",
-    vehicle: "Vehicle (license plate)",
-    route: "Route e.g. hel tre hel",
+    vehicle: "Vehicle (e.g. license plate)",
+    route: "Route e.g. hel tre",
+    compensation: "Comp.",
   },
   fi: {
     accountNoLongerActive:
@@ -20,8 +21,9 @@ const strings = new LocalizedStrings({
     kilometerage: "Mittarilukema",
     tripStarted: "Matka aloitettu",
     tripEnded: "Matka päättynyt",
-    vehicle: "Ajoneuvo (rek. nro)",
-    route: "Reitti esim. hel tre hel",
+    vehicle: "Ajoneuvo (esim. rek. nro)",
+    route: "Reitti esim. hel tre",
+    compensation: "Korvaus",
   },
 });
 

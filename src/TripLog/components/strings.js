@@ -12,6 +12,7 @@ const strings = new LocalizedStrings({
     confirm: "Confirm",
     numberMustBeAnInteger: "Number must be an integer",
     give: "Give",
+    description: "Description",
     number: "number",
     numbers: "numbers",
     kilometerage: "Kilometerage",
@@ -25,7 +26,7 @@ const strings = new LocalizedStrings({
     removingVehicleFailed: "Removing vehicle failed. Please try again later.",
     cancel: "Cancel",
     save: "Save",
-    addTripManually: "Add forgotten trip",
+    addTripManually: "Add trip",
     locationAtStart: "Starting address",
     locationAtEnd: "Ending address",
     kilometerageNow: "Kilometerage now",
@@ -36,6 +37,16 @@ const strings = new LocalizedStrings({
     tripSavedSuccessfully: "Trip saved successfully",
     accountNoLongerActive:
       "Your account is no longer active. Purchase again to keep using the application.",
+    additionalInfo: "Additional info",
+    additionalPassengers: "Number of passengers",
+    additionalCompensation:
+      "Additional compensations (e.g. trailer). Explanation will automatically be added to description.",
+    additionalCompensations: "Additional compensations",
+    explanation: "Explanation",
+    reset: "Reset",
+    compensation: "Comp.",
+    route: "Route",
+    total: "Total",
   },
   fi: {
     vehicleCannotBeEmpty: "Ajoneuvo ei voi olla tyhjä",
@@ -48,6 +59,7 @@ const strings = new LocalizedStrings({
     confirm: "Vahvista",
     numberMustBeAnInteger: "Numeron täytyy olla kokonaisluku",
     give: "Anna",
+    description: "Kuvaus",
     number: "luku",
     numbers: "lukua",
     summary: "Yhteenveto",
@@ -61,7 +73,7 @@ const strings = new LocalizedStrings({
     removingVehicleFailed: "Ajoneuvon poistaminen ei onnistunut. Yritä myöhemmin uudelleen.",
     cancel: "Peruuta",
     save: "Tallenna",
-    addTripManually: "Lisää unohtunut matka",
+    addTripManually: "Lisää matka",
     locationAtStart: "Osoite alussa",
     locationAtEnd: "Osoite lopussa",
     kilometerageNow: "Mittarilukema nyt",
@@ -72,6 +84,16 @@ const strings = new LocalizedStrings({
     tripSavedSuccessfully: "Matka tallennettu",
     accountNoLongerActive:
       "Tilisi ei ole enää aktiivinen. Osta sovelluksen käyttöoikeus jatkaaksesi käyttöä.",
+    additionalInfo: "Lisätiedot",
+    additionalPassengers: "Matkustajien lukumäärä",
+    additionalCompensation:
+      "Lisäkorvaukset (esim. peräkärry). Selite lisätään automaattisesti kuvaukseen.",
+    additionalCompensations: "Lisäkorvaukset",
+    explanation: "Selite",
+    reset: "Nollaa",
+    compensation: "Korvaus",
+    route: "Reitti",
+    total: "Yhteensä",
   },
 });
 

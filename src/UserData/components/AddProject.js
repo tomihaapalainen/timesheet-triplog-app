@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
+import FormLabel from "react-bootstrap/FormLabel";
 import Accordion from "react-bootstrap/Accordion";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useGSC } from "../../store/GlobalStateProvider";
@@ -60,33 +61,33 @@ export default function AddProject() {
   };
 
   return (
-    <Container className="mt-3">
+    <Container className="mt-3 mx-0 px-0">
       <Accordion className="mx-auto mw-1024">
         <Card>
           <AccordionToggle title={strings.addProject} />
           <Accordion.Collapse eventKey="0">
             <Card.Body className="mx-auto">
-              <Container>
+              <Container className="mx-0 px-0">
                 {errorMessage && <p className="text-danger">{errorMessage}</p>}
                 <Form noValidate onSubmit={handleSubmit}>
                   <Form.Group>
+                    <Form.Label className="mb-0">{strings.projectName + "*"}</Form.Label>
                     <Form.Control
                       id="project-name-input"
-                      className="mb-3"
+                      className="mb-2"
                       required
                       ref={nameRef}
                       type="text"
-                      placeholder={strings.projectName + "..."}
                     />
+                    <FormLabel className="mb-0">{strings.hourlyRate}</FormLabel>
                     <InputGroup>
                       <FormControl
                         id="project-hourly-rate-input"
                         type="number"
-                        placeholder={strings.hourlyRate + "..."}
                         ref={hourlyRateRef}
                       />
                       <InputGroup.Append>
-                        <InputGroup.Text>EUR</InputGroup.Text>
+                        <InputGroup.Text>€</InputGroup.Text>
                       </InputGroup.Append>
                     </InputGroup>
                   </Form.Group>
