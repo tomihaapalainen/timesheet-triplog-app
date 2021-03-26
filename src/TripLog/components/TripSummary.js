@@ -1,5 +1,9 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import { datetimeAsDateAndTimeString } from "../../utils/datetimeutils";
 import strings from "./strings";
 import { useGSC } from "../../store/GlobalStateProvider";
@@ -13,45 +17,59 @@ export default function TripSummary({ tripData }) {
   };
 
   return (
-    <Container className="px-0 mx-0" style={{ maxWidth: "720px" }}>
-      <p style={{ fontWeight: "bold", textDecoration: "underline" }}>{strings.summary}:</p>
-      <p>
-        {strings.vehicle}: {tripData.vehicle}
-      </p>
-      <p>
-        {strings.route}: {tripData.route}
-      </p>
-      <p>
-        {strings.tripStart}:{" "}
-        {datetimeAsDateAndTimeString(tripData.start_datetime, "DD.MM.YYYY", "HH:mm")}
-      </p>
-      <p>{tripData.start_address}</p>
-      <p>
-        {strings.kilometerageAtStart}: {tripData.start_km} km
-      </p>
-      <p>
-        {strings.tripEnd}:{" "}
-        {datetimeAsDateAndTimeString(tripData.end_datetime, "DD.MM.YYYY", "HH:mm")}
-      </p>
-      <p>{tripData.end_address}</p>
-      <p>
-        {strings.kilometerageAtEnd}: {tripData.end_km} km
-      </p>
-      <p>
-        {strings.description}: {tripData.description}
-      </p>
-      <p>
-        {strings.compensation}: {tripData.compensation / 100} €/km
-      </p>
-      <p>
-        {strings.additionalCompensations}: {tripData.additional_compensation / 100} €/km
-      </p>
-      <p>
-        {strings.total}:{" "}
-        {calculateDistance(tripData.start_km, tripData.end_km) *
-          (tripData.compensation / 100 + tripData.additional_compensation / 100)}{" "}
-        €
-      </p>
+    <Container className="mt-3" style={{ maxWidth: "720px" }}>
+      <Card>
+        <Card.Header className="bg-primary text-light">
+          <Card.Title>{strings.tripSavedSuccessfully}</Card.Title>
+        </Card.Header>
+        <Card.Body>
+          <ListGroup>
+            <ListGroup.Item>
+              <p>
+                {strings.vehicle}: {tripData.vehicle}
+              </p>
+              <p>
+                {strings.route}: {tripData.route}
+              </p>
+              <p>
+                {strings.description}: {tripData.description}
+              </p>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <Row>
+                <Col xs={7}>
+                  {datetimeAsDateAndTimeString(tripData.start_datetime, "DD.MM.YYYY", "HH:mm")}
+                </Col>
+                <Col xs={5}>{tripData.start_km}</Col>
+              </Row>
+              <Row>
+                <Col xs={7}>
+                  {datetimeAsDateAndTimeString(tripData.end_datetime, "DD.MM.YYYY", "HH:mm")}
+                </Col>
+                <Col xs={5}>{tripData.end_km}</Col>
+              </Row>
+              <Row>
+                <Col>
+                  <p>
+                    {strings.tripDistance}: {tripData.end_km - tripData.start_km} km
+                  </p>
+                </Col>
+              </Row>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <p>
+                {strings.compensation}: {tripData.compensation / 100} €/km
+              </p>
+              <p>
+                {strings.total}:{" "}
+                {calculateDistance(tripData.start_km, tripData.end_km) *
+                  (tripData.compensation / 100)}{" "}
+                €
+              </p>
+            </ListGroup.Item>
+          </ListGroup>
+        </Card.Body>
+      </Card>
     </Container>
   );
 }

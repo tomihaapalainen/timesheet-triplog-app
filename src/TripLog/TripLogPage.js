@@ -18,17 +18,13 @@ import ProjectSelection from "../shared/ProjectSelection";
 import strings from "./strings";
 import { useGSC } from "../store/GlobalStateProvider";
 import AddTripManually from "./components/AddTripManually";
-import AdditionalInformation from "./components/AdditionalInformation";
 
 export default function TripLogPage() {
   const [tripStart, setTripStart] = useState(null);
   const [tripEnd, setTripEnd] = useState(null);
   const [tripData, setTripData] = useState(null);
   const [description, setDescription] = useState("");
-  const [passengerCount, setPassengerCount] = useState("");
   const [compensation, setCompensation] = useState("");
-  const [additionalCompensation, setAdditionalCompensation] = useState("");
-  const [additionalCompensationAmount, setAdditionalCompensationAmount] = useState("");
   const [vehicle, setVehicle] = useState("");
   const [selectedProject, setSelectedProject] = useState("");
   const [route, setRoute] = useState("");
@@ -48,11 +44,6 @@ export default function TripLogPage() {
 
   const descriptionRef = useRef();
   const compensationRef = useRef();
-
-  const passengerCountRef = useRef();
-
-  const additionalCompensationRef = useRef();
-  const additionalCompensationAmountRef = useRef();
 
   const { currentUser, signout } = useAuth();
   const history = useHistory();
@@ -87,30 +78,30 @@ export default function TripLogPage() {
   };
 
   const checkStartedTrips = () => {
-    if (localStorage.getItem("trip-start") !== null) {
+    let tripStart = localStorage.getItem("trip-start");
+    if (tripStart !== null) {
       let data = JSON.parse(localStorage.getItem("trip-start"));
       data.datetime = new Date(Date.parse(data.datetime));
       setCurrentKilometers(data.meterValue.toString());
+      setSelectedProject(data.projectId);
       setDescription(data.description);
+      setCompensation(data.compensation);
       setVehicle(data.vehicle);
       setRoute(data.route);
-      setPassengerCount(data.passengerCount);
       setTripStart(data);
-      setAdditionalCompensation(data.additionalCompensation);
-      setAdditionalCompensationAmount(data.additionalCompensationAmount);
     }
 
-    if (localStorage.getItem("trip-end") !== null) {
+    let tripEnd = localStorage.getItem("trip-end");
+    if (tripEnd !== null) {
       let data = JSON.parse(localStorage.getItem("trip-end"));
       data.datetime = new Date(Date.parse(data.datetime));
       setCurrentKilometers(data.meterValue.toString());
+      setSelectedProject(data.projectId);
       setDescription(data.description);
+      setCompensation(data.compensation);
       setVehicle(data.vehicle);
       setRoute(data.route);
-      setPassengerCount(data.passengerCount);
       setTripEnd(data);
-      setAdditionalCompensation(data.additionalCompensation);
-      setAdditionalCompensationAmount(data.additionalCompensationAmount);
     }
   };
 
@@ -166,38 +157,31 @@ export default function TripLogPage() {
     setTripData(null);
     setTripStart({
       datetime: new Date(),
+      projectId: selectedProject,
       meterValue: parseKilometers(),
       description: descriptionRef.current.value,
       compensation: compensationRef.current.value,
       vehicle: vehicle,
       route: route,
-      passengerCount: passengerCountRef.current.value,
-      additionalCompensation: additionalCompensationRef.current.value,
-      additionalCompensationAmount: additionalCompensationAmountRef.current.value,
     });
   };
 
   const handleTripEnd = () => {
     setTripEnd({
       datetime: new Date(),
+      projectId: selectedProject,
       meterValue: parseKilometers(),
       description: descriptionRef.current.value,
       compensation: compensationRef.current.value,
       vehicle: vehicle,
       route: route,
-      passengerCount: passengerCountRef.current.value,
-      additionalCompensation: additionalCompensationRef.current.value,
-      additionalCompensationAmount: additionalCompensationAmountRef.current.value,
     });
   };
 
   const handleSubmit = async () => {
     setLoading(true);
-    let passengerCount = passengerCountRef.current.value;
 
     let compensationAmount = compensationRef.current.value;
-    let additionalCompensation = additionalCompensationRef.current.value;
-    let additionalCompensationAmount = additionalCompensationAmountRef.current.value;
 
     let tripData = {
       vehicle: vehicle,
@@ -207,12 +191,7 @@ export default function TripLogPage() {
       end_km: tripEnd.meterValue,
       end_datetime: datetimeToLocalISOString(tripEnd.datetime),
       compensation: parseFloat(compensationAmount) * 100,
-      additional_compensation: additionalCompensationAmount
-        ? additionalCompensationAmount * 100
-        : 0,
-      passenger_count: passengerCount ? passengerCount : 0,
-      description:
-        descriptionRef.current.value + additionalCompensation ? ` +${additionalCompensation}` : "",
+      description: descriptionRef.current.value,
       route: route,
     };
 
@@ -322,15 +301,12 @@ export default function TripLogPage() {
         onChange={(event) => setRoute(event.target.value)}
         value={route}
       />
-      <AdditionalInformation
-        description={description}
-        descriptionRef={descriptionRef}
-        passengerCount={passengerCount}
-        passengerCountRef={passengerCountRef}
-        additionalCompensation={additionalCompensation}
-        additionalCompensationRef={additionalCompensationRef}
-        additionalCompensationAmount={additionalCompensationAmount}
-        additionalCompensationAmountRef={additionalCompensationAmountRef}
+      <Form.Control
+        className="mb-3"
+        type="text"
+        placeholder={strings.description}
+        ref={descriptionRef}
+        defaultValue={description}
       />
       <AddTripManually
         route={route}
@@ -340,9 +316,6 @@ export default function TripLogPage() {
         vehicle={vehicle}
         descriptionRef={descriptionRef}
         compensationRef={compensationRef}
-        passengerCountRef={passengerCountRef}
-        additionalCompensationRef={additionalCompensationRef}
-        additionalCompensationAmountRef={additionalCompensationAmountRef}
       />
       <MeterInput kilometers={kilometers} setCurrentKilometers={setCurrentKilometers} />
       {!isActive && <p className="text-danger">{strings.accountNoLongerActive}</p>}

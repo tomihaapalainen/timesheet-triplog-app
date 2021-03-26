@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Accordion from "react-bootstrap/Accordion";
 import Alert from "react-bootstrap/Alert";
@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import FormGroup from "react-bootstrap/FormGroup";
+import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import Toast from "react-bootstrap/Toast";
 import DateTimePicker from "react-rainbow-components/components/DateTimePicker";
@@ -28,9 +29,6 @@ export default function AddTripManually({
   descriptionRef,
   route,
   compensationRef,
-  passengerCountRef,
-  additionalCompensationRef,
-  additionalCompensationAmountRef,
 }) {
   const { language, isActive } = useGSC();
   strings.setLanguage(language);
@@ -59,11 +57,7 @@ export default function AddTripManually({
       return;
     }
 
-    let passengerCount = passengerCountRef.current.value;
-
     let compensationAmount = compensationRef.current.value;
-    let additionalCompensation = additionalCompensationRef.current.value;
-    let additionalCompensationAmount = additionalCompensationAmountRef.current.value;
 
     let data = {
       vehicle: vehicle,
@@ -73,12 +67,7 @@ export default function AddTripManually({
       end_km: currentKilometers,
       end_datetime: datetimeToLocalISOString(endDatetime),
       compensation: parseFloat(compensationAmount) * 100,
-      additional_compensation: additionalCompensationAmount
-        ? additionalCompensationAmount * 100
-        : 0,
-      passenger_count: passengerCount ? passengerCount : 0,
-      description:
-        descriptionRef.current.value + additionalCompensation ? ` +${additionalCompensation}` : "",
+      description: descriptionRef.current.value,
       route: route,
     };
 
@@ -105,7 +94,7 @@ export default function AddTripManually({
         <Card className="w-100 mx-0 px-0">
           <Accordion.Toggle
             as={Card.Header}
-            className="my-0 py-1 bg-primary text-light"
+            className="my-0 py-1 bg-primary text-light pointer"
             eventKey="0"
             onClick={() => setOpen(!open)}
           >
@@ -161,12 +150,17 @@ export default function AddTripManually({
                     hour24
                   />
                   <MeterInput kilometers={kilometers} setCurrentKilometers={setCurrentKilometers} />
-                  <Form.Label className="my-0 py-0">{strings.tripDistance + "*"}</Form.Label>
-                  <Form.Control
-                    type="number"
-                    value={distance}
-                    onChange={(e) => setDistance(e.target.value)}
-                  />
+                  <InputGroup>
+                    <Form.Control
+                      placeholder={strings.tripDistance}
+                      type="number"
+                      value={distance}
+                      onChange={(e) => setDistance(e.target.value)}
+                    />
+                    <InputGroup.Append>
+                      <InputGroup.Text>km</InputGroup.Text>
+                    </InputGroup.Append>
+                  </InputGroup>
                 </FormGroup>
                 <Container className="d-flex justify-content-center">
                   <Button type="submit" disabled={!isActive}>
