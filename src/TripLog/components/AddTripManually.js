@@ -11,6 +11,7 @@ import FormGroup from "react-bootstrap/FormGroup";
 import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import Toast from "react-bootstrap/Toast";
+import Spinner from "react-bootstrap/Spinner";
 import DateTimePicker from "react-rainbow-components/components/DateTimePicker";
 
 import strings from "./strings";
@@ -38,6 +39,7 @@ export default function AddTripManually({
   const [startDatetime, setStartDatetime] = useState(null);
   const [endDatetime, setEndDatetime] = useState(null);
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [distance, setDistance] = useState("");
 
@@ -78,7 +80,6 @@ export default function AddTripManually({
     }
 
     let compensationAmount = compensationRef.current.value;
-
     let data = {
       vehicle: vehicle,
       project_id: selectedProject,
@@ -92,6 +93,7 @@ export default function AddTripManually({
     };
 
     try {
+      setLoading(true);
       let idToken = await currentUser.getIdToken(true);
       let response = await axios.post(`${baseUrl}/trips`, data, {
         headers: { Authorization: `Bearer ${idToken}` },
@@ -105,7 +107,17 @@ export default function AddTripManually({
       if (error.response) {
         setErrorMessage(strings.errorSavingTrip);
       }
+    } finally {
+      setLoading(false);
     }
+  };
+
+  const handleStartChanged = (value) => {
+    setStartDatetime(value);
+    let x = new Date(value.getTime());
+    let end = new Date();
+    end.setFullYear(x.getFullYear(), x.getMonth(), x.getDate());
+    setEndDatetime(end);
   };
 
   return (
@@ -163,7 +175,7 @@ export default function AddTripManually({
                   <DateTimePicker
                     style={{ marginBottom: "5px" }}
                     value={startDatetime || new Date()}
-                    onChange={(value) => setStartDatetime(value)}
+                    onChange={handleStartChanged}
                     label={strings.tripStart}
                     locale="fi-FI"
                     hour24
@@ -193,20 +205,27 @@ export default function AddTripManually({
                   </InputGroup>
                 </FormGroup>
                 <Container className="d-flex justify-content-center">
-                  <Button type="submit" disabled={!isActive}>
-                    {strings.save}
-                  </Button>
+                  {loading && (
+                    <Container fluid className="d-flex justify-content-center align-items-center">
+                      <Spinner variant="primary" animation="border" role="status" />
+                    </Container>
+                  )}
+                  {!loading && (
+                    <Button type="submit" disabled={!isActive}>
+                      {strings.save}
+                    </Button>
+                  )}
                 </Container>
               </Form>
               <Toast
-                className="bg-success text-white w-100"
-                style={{ position: "absolute", bottom: 0, left: 0 }}
+                className="mx-0 px-0 bg-success text-white d-flex justify-content-center align-items-center"
+                style={{ position: "absolute", height: "80px", top: 45, zIndex: 100 }}
                 onClose={() => setShowSuccess(false)}
                 show={showSuccess}
                 autohide
                 delay={3000}
               >
-                <Toast.Body className="w-100">
+                <Toast.Body>
                   <p className="p-3 lead">{strings.tripSavedSuccessfully}</p>
                 </Toast.Body>
               </Toast>

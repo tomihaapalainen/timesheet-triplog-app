@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Accordion from "react-bootstrap/Accordion";
 import Alert from "react-bootstrap/Alert";
@@ -7,6 +7,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
+import Loading from "../../shared/Loading";
 import { baseUrl } from "../../config";
 import { useAuth } from "../../contexts/AuthContext";
 import {
@@ -20,12 +21,14 @@ import AccordionToggle from "../../shared/AccordionToggle";
 import strings from "./strings";
 import { useGSC } from "../../store/GlobalStateProvider";
 
-export default function ReviewAccordion({ review }) {
-  const [message, setMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+export default function ReviewAccordion() {
+  const [displayName, setDisplayName] = useState("");
   const [rating, setRating] = useState(4);
-  const displayNameRef = useRef();
-  const reviewRef = useRef();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [message, setMessage] = useState("");
+  const [reviewContent, setReviewContent] = useState("");
+  const [hasReviewed, setHasReviewed] = useState(false);
 
   const [ratingMissing, setRatingMissing] = useState(false);
   const [reviewMissing, setReviewMissing] = useState(false);
@@ -35,17 +38,58 @@ export default function ReviewAccordion({ review }) {
   const { language } = useGSC();
   strings.setLanguage(language);
 
-  const createReview = async (name, reviewContent) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let idToken = await currentUser.getIdToken(true);
+        let response = await axios.get(`${baseUrl}/review`, {
+          headers: { Authorization: `Bearer ${idToken}` },
+        });
+        if (response.data) {
+          setHasReviewed(true);
+          setDisplayName(response.data.display_name);
+          setRating(response.data.rating);
+          setReviewContent(response.data.review);
+          sessionStorage.setItem("user-review", JSON.stringify(response.data));
+        }
+      } catch (error) {
+        if (error.response) {
+          setErrorMessage(strings.serverDidNotRespond);
+        }
+      }
+    };
+
+    let reviewData = sessionStorage.getItem("user-review");
+    if (reviewData !== null) {
+      reviewData = JSON.parse(reviewData);
+      setDisplayName(reviewData.display_name);
+      setRating(reviewData.rating);
+      setReviewContent(reviewData.review);
+    } else {
+      fetchData();
+    }
+    setLoading(false);
+  }, []);
+
+  const createReview = async () => {
     try {
       let idToken = await currentUser.getIdToken(true);
       let response = await axios.post(
         `${baseUrl}/reviews`,
-        { display_name: name, review: reviewContent, rating: rating },
+        {
+          display_name: displayName,
+          review: reviewContent,
+          rating: rating,
+        },
         { headers: { Authorization: `Bearer ${idToken}` } }
       );
 
       if (response.status === 200) {
+        setHasReviewed(true);
         setMessage(strings.thanksForTheReview);
+        setDisplayName(response.data.display_name);
+        setRating(response.data.rating);
+        setReviewContent(response.data.review);
       }
     } catch (error) {
       if (error.response) {
@@ -54,12 +98,16 @@ export default function ReviewAccordion({ review }) {
     }
   };
 
-  const updateReview = async (name, reviewContent) => {
+  const updateReview = async () => {
     try {
       let idToken = await currentUser.getIdToken(true);
       let response = await axios.post(
         `${baseUrl}/update-review`,
-        { display_name: name, review: reviewContent, rating: rating },
+        {
+          display_name: displayName,
+          review: reviewContent,
+          rating: rating,
+        },
         { headers: { Authorization: `Bearer ${idToken}` } }
       );
 
@@ -76,33 +124,25 @@ export default function ReviewAccordion({ review }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    let name = displayNameRef.current.value;
-    let reviewContent = reviewRef.current.value;
-
-    if (!reviewContent) {
-      setReviewMissing(true);
-      return;
-    }
-
-    if (review === null) {
-      await createReview(name, reviewContent);
+    if (hasReviewed) {
+      updateReview();
     } else {
-      await updateReview(name, reviewContent);
+      createReview();
     }
   };
 
-  const toggleTitle = () => {
-    if (review) {
-      return strings.updateReview;
-    } else {
-      return strings.reviewTheApplication;
-    }
-  };
+  if (loading) {
+    return <Loading />;
+  }
+
+  // TODO: FIX ACCORDION TOGGLE TITLE
 
   return (
     <Accordion className="mw-1024 mx-auto">
-      <Card style={review === null ? { border: "2px solid #11d3bc" } : {}}>
-        <AccordionToggle title={toggleTitle()} />
+      <Card style={!hasReviewed ? { border: "2px solid #11d3bc" } : {}}>
+        <AccordionToggle
+          title={hasReviewed ? strings.updateReview : strings.reviewTheApplication}
+        />
         <Accordion.Collapse eventKey="0">
           <Card.Body className="mx-auto">
             {message && (
@@ -136,10 +176,10 @@ export default function ReviewAccordion({ review }) {
                 <Form.Group>
                   <Form.Label className="mt-2 mb-1">{strings.alias}</Form.Label>
                   <Form.Control
-                    ref={displayNameRef}
+                    value={displayName}
                     as="input"
                     maxLength={50}
-                    defaultValue={review !== null ? review.display_name : ""}
+                    onChange={(event) => setDisplayName(event.target.value)}
                   ></Form.Control>
                   <Form.Label className="mt-2 mb-1">{strings.yourRating + "*"}</Form.Label>
                   <Row className="w-100 mw-1024 d-flex justify-content-center align-items-center">
@@ -189,17 +229,22 @@ export default function ReviewAccordion({ review }) {
                   </Row>
                   <Form.Label className="mt-2 mb-1">{strings.review + "*"}</Form.Label>
                   <Form.Control
-                    ref={reviewRef}
+                    value={reviewContent}
                     as="textarea"
                     style={{ resize: "none", height: "200px" }}
-                    maxLength={255}
-                    defaultValue={review !== null ? review.review : ""}
+                    maxLength={250}
+                    onChange={(event) => setReviewContent(event.target.value)}
                   ></Form.Control>
+                  <p>{reviewContent.length}/250 (min 50)</p>
                 </Form.Group>
-                {review === null ? (
-                  <Button type="submit">{strings.send}</Button>
+                {hasReviewed ? (
+                  <Button disabled={reviewContent.length < 50} type="submit">
+                    {strings.update}
+                  </Button>
                 ) : (
-                  <Button type="submit">{strings.update}</Button>
+                  <Button disabled={reviewContent.length < 50} type="submit">
+                    {strings.send}
+                  </Button>
                 )}
               </Form>
             )}
