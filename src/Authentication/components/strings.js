@@ -4,6 +4,7 @@ const strings = new LocalizedStrings({
   en: {
     signInWithGoogle: "Sign in with Google",
     signInWithFacebook: "Sign in with Facebook",
+    serverNotResponding: "Server is not responding. Please try again later.",
     errorSendingPasswordResetEmail:
       "Error while sending email for password reset. Please try again later.",
     linkSentToEmail: "A link for resetting your password has been sent to your email",
@@ -33,15 +34,15 @@ const strings = new LocalizedStrings({
     triplogs: "Trip logs",
     triplogInfo1:
       "Keep track of your trips - quick and easy way to input your vehicle's kilometerage.",
-    tripLogInfo2: "Uses your device's GPS location at the start and end of your trip.",
+    tripLogInfo2: "Add trips quickly by inputting kilometerage at the start and end of your trip.",
     tripLogInfo3:
-      "Enter in case you forgot to use the trip logger during your trip, you can enter a trip afterwards.",
+      "In case you forgot to use the trip logger during your trip, you can also enter a trip afterwards by using your vehicles current kilometerage and trip length.",
     reports: "Reporting",
     reportInfo1: "Download reports in Excel or CSV format.",
     reportInfo2: "Set a date interval or quickly select one of the predefined intervals.",
     pricing: "Pricing",
     pricingInfo:
-      "Using pulikka.fi will not break the bank: affordable prices that can even be lowered by inviting new users to the application!",
+      "Using the Pulikka app will not break the bank: affordable prices that can even be lowered by inviting new users to the application!",
     threeMonths: "3 months",
     twelveMonths: "12 months",
     priceIncludesVAT: "Price includes 24% VAT",
@@ -57,6 +58,7 @@ const strings = new LocalizedStrings({
   fi: {
     signInWithGoogle: "Kirjaudu Google-tilillä",
     signInWithFacebook: "Kirjaudu Facebook-tilillä",
+    serverNotResponding: "Palvelin ei vastaa. Ole hyvä ja yritä myöhemmin uudelleen.",
     errorSendingPasswordResetEmail:
       "Sähköpostin lähettäminen salasanan vaihtamiseksi ei onnistunut. Yritä myöhemmin uudelleen.",
     linkSentToEmail: "Sähköpostiisi on lähetetty linkki salasanan vaihtamiseksi",
@@ -85,7 +87,8 @@ const strings = new LocalizedStrings({
     timesheetInfo5: "Aloita ja lopeta työpäiväsi yhdellä napinpainalluksella.",
     triplogs: "Ajopäiväkirja",
     triplogInfo1: "Pidä kirjaa työajoistasi - nopea ja helppo mittarilukeman asettaminen.",
-    tripLogInfo2: "Hyödyntää laitteesi GPS-sijaintia matkan alussa ja lopussa.",
+    tripLogInfo2:
+      "Käytä ohjelmaa matkasi alussa ja lopussa kirjaamalla nopeasti ajoneuvosi mittarilukema.",
     tripLogInfo3:
       "Jos unohdit käyttää ajopäiväkirjaa matkan aikana, voit lisätä matkoja myös jälkikäteen.",
     reports: "Raportit",
@@ -93,7 +96,7 @@ const strings = new LocalizedStrings({
     reportInfo2: "Aseta aikaväli tai käytä pikavalintoja.",
     pricing: "Hinnasto",
     pricingInfo:
-      "Pulikan käyttäminen ei tee lovea liikevaihtoosi: edulliset hinnat joista on lisäksi mahdollista saada pysyvää alennusta kutsumalla sovellukseen lisää käyttäjiä!",
+      "Pulikan käyttäminen ei tee lovea tuloihisi: edulliset hinnat joista on lisäksi mahdollista saada pysyvää alennusta kutsumalla sovellukseen lisää käyttäjiä!",
     threeMonths: "3 kuukautta",
     twelveMonths: "12 kuukautta",
     priceIncludesVAT: "Hinta sisältää 24% alv.",

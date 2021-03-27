@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import axios from "axios";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -9,12 +10,13 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useGSC } from "../../store/GlobalStateProvider";
 import Loading from "../../shared/Loading";
 import strings from "./strings";
+import { baseUrl } from "../../config";
 
 export default function SignInForm() {
   const [loading, setLoading] = useState(false);
   const [showPasswordReset, setShowPasswordReset] = useState(false);
 
-  const { signin } = useAuth();
+  const { signin, signout } = useAuth();
   const history = useHistory();
 
   const { language } = useGSC();
@@ -34,13 +36,31 @@ export default function SignInForm() {
     e.preventDefault();
     let mounted = true;
     setLoading(true);
+    let userCredential;
     try {
-      await signin(usernameRef.current.value, passwordRef.current.value);
-      mounted = false;
-      history.push("/app");
+      userCredential = await signin(usernameRef.current.value, passwordRef.current.value);
     } catch (error) {
       setShowPasswordReset(true);
-    } finally {
+      if (mounted) {
+        setLoading(false);
+      }
+      return;
+    }
+
+    if (userCredential.user) {
+      try {
+        let idToken = await userCredential.user.getIdToken(true);
+        await axios.get(`${baseUrl}/userdata`, {
+          headers: { Authorization: `Bearer ${idToken}` },
+        });
+        mounted = false;
+        history.push("/app");
+      } catch (error) {
+        await signout();
+        alert(strings.serverNotResponding);
+        return;
+      }
+    } else {
       if (mounted) {
         setLoading(false);
       }

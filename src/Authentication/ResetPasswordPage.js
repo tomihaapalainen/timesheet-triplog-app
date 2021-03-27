@@ -31,7 +31,21 @@ export default function ResetPasswordPage() {
       await resetPassword(emailRef.current.value, `${window.location.origin}`);
       setShow(true);
     } catch (error) {
-      setErrorMessage(strings.errorSendingPasswordResetEmail);
+      if (error.code) {
+        switch (error.code) {
+          case "auth/invalid-email":
+            setErrorMessage(strings.invalidEmail);
+            break;
+          case "auth/user-not-found":
+            setErrorMessage(strings.userNotFound);
+            break;
+          default:
+            setErrorMessage(strings.errorSendingPasswordResetEmail);
+            break;
+        }
+      } else {
+        setErrorMessage(strings.errorSendingPasswordResetEmail);
+      }
     } finally {
       setLoading(false);
     }
@@ -72,7 +86,9 @@ export default function ResetPasswordPage() {
         </Form>
       )}
       {loading && <Loading />}
-      <Container>{errorMessage && <p className="text-danger">{errorMessage}</p>}</Container>
+      <Container>
+        {errorMessage && <p className="text-center text-danger">{errorMessage}</p>}
+      </Container>
     </Container>
   );
 }

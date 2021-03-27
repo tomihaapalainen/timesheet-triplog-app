@@ -2,7 +2,13 @@ import LocalizedStrings from "react-localization";
 
 const strings = new LocalizedStrings({
   en: {
-    vehicleCannotBeEmpty: "Vehicle cannot be empty",
+    check: "Check",
+    checkVehicle: "vehicle",
+    checkProject: "project",
+    checkCompensation: "compensation",
+    checkRoute: "route",
+    checkKilometers: "kilometerage",
+    checkTripDistance: "trip distance",
     addingVehicleFailed: "Adding vehicle failed. Please try again later",
     addVehicle: "Add vehicle",
     add: "Add",
@@ -32,7 +38,6 @@ const strings = new LocalizedStrings({
     kilometerageNow: "Kilometerage now",
     tripStart: "Trip start",
     tripEnd: "Trip end",
-    invalidManualValues: "Invalid value for kilometerage and/or trip distance",
     errorSavingTrip: "Saving your trip failed. Please try again later.",
     tripSavedSuccessfully: "Trip saved successfully",
     accountNoLongerActive:
@@ -46,7 +51,13 @@ const strings = new LocalizedStrings({
     total: "Total",
   },
   fi: {
-    vehicleCannotBeEmpty: "Ajoneuvo ei voi olla tyhjä",
+    check: "Tarkasta",
+    checkVehicle: "ajoneuvon tiedot",
+    checkProject: "projekti",
+    checkCompensation: "korvaus",
+    checkRoute: "reitti",
+    checkKilometers: "mittarilukema",
+    checkTripDistance: "matkan pituus",
     addingVehicleFailed: "Ajoneuvon lisääminen epäonnistui. Yritä myöhemmin uudelleen",
     addVehicle: "Lisää ajoneuvo",
     add: "Lisää",
@@ -76,7 +87,6 @@ const strings = new LocalizedStrings({
     kilometerageNow: "Mittarilukema nyt",
     tripStart: "Matkan alku",
     tripEnd: "Matkan lopetus",
-    invalidManualValues: "Tarkasta mittarilukema ja/tai matkan pituus",
     errorSavingTrip: "Matkan tallentaminen ei onnistunut. Yritä myöhemmin uudelleen.",
     tripSavedSuccessfully: "Matka tallennettu",
     accountNoLongerActive:

@@ -15,6 +15,8 @@ const strings = new LocalizedStrings({
     forgotPassword: "Forgot password? Request reset here",
     confirmEmail: "Confirm your email by clicking on the link sent to your email",
     accountCreationFailed: "Account creation failed",
+    invalidEmail: "Invalid email address",
+    userNotFound: "User not found for the provided email address",
   },
   fi: {
     errorSendingPasswordResetEmail:
@@ -29,6 +31,8 @@ const strings = new LocalizedStrings({
     forgotPassword: "Unohditko salasanasi? Palauta salasana täältä",
     confirmEmail: "Vahvista sähköpostiosoitteesi klikkaamalla sinne lähetettyä linkkiä",
     accountCreationFailed: "Tilin luonti ei onnistunut",
+    invalidEmail: "Sähköpostiosoite ei kelpaa",
+    userNotFound: "Sähköpostiosoitteella ei löytynyt käyttäjää",
   },
 });
 

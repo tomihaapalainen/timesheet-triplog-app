@@ -30,8 +30,6 @@ export function AuthProvider({ children }) {
   };
 
   const signup = (email, password) => {
-    try {
-    } catch (error) {}
     return auth.createUserWithEmailAndPassword(email, password);
   };
 
@@ -48,6 +46,7 @@ export function AuthProvider({ children }) {
       }
 
       user.sendEmailVerification({ url: `${window.location.origin}` });
+      alert(strings.emailIsNotVerified);
       signout();
     });
 

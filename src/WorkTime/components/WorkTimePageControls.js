@@ -48,7 +48,6 @@ export default function WorkTimePageControls({
   };
 
   const handleSave = async () => {
-    console.log(selectedProject);
     if (!selectedProject) {
       setErrorMessage(strings.projectMustBeSelected);
       return;

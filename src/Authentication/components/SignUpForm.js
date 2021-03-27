@@ -25,55 +25,54 @@ export default function SignUpForm({ language }) {
     let mounted = true;
     setLoading(true);
     setErrorMessage("");
-    try {
-      let username = usernameRef.current.value;
-      let password = passwordRef.current.value;
-      await signup(username, password);
-      let referrerToken = sessionStorage.getItem("referrer_token");
-      let response = await axios.post(`${baseUrl}/users`, {
-        email: username,
-        referrer_token: referrerToken || "",
-      });
-      if (response.status !== 200) {
-        setErrorMessage("");
-      }
-      alert(strings.confirmEmail);
-      mounted = false;
-      history.push("/");
-    } catch (error) {
-      if (error.code) {
-        switch (error.code) {
-          case "auth/email-already-in-use":
-            setErrorMessage(strings.emailAlreadyInUse);
-            break;
-          case "auth/invalid-email":
-            setErrorMessage(strings.invalidEmail);
-            break;
-          case "auth/weak-password":
-            setErrorMessage(strings.passwordTooWeak);
-            break;
-          case "auth/operation-not-allowed":
-            setErrorMessage(strings.emailPasswordAccountsAreNotEnabled);
-            break;
-          default:
-            break;
-        }
-      }
-      setErrorMessage(strings.accountCreationFailed);
-    } finally {
-      if (mounted) {
-        setLoading(false);
-      }
-    }
-  };
+    let username = usernameRef.current.value;
+    let password = passwordRef.current.value;
 
-  if (loading) {
-    return <Loading />;
-  }
+    signup(username, password)
+      .then(async () => {
+        try {
+          let referrerToken = sessionStorage.getItem("referrer_token");
+          await axios.post(`${baseUrl}/users`, {
+            email: username,
+            referrer_token: referrerToken || "",
+          });
+        } finally {
+          if (mounted) {
+            setLoading(false);
+          }
+          mounted = false;
+          history.push("/");
+        }
+      })
+      .catch((error) => {
+        if (mounted) {
+          setLoading(false);
+        }
+        if (error.code) {
+          switch (error.code) {
+            case "auth/email-already-in-use":
+              setErrorMessage(strings.emailAlreadyInUse);
+              break;
+            case "auth/invalid-email":
+              setErrorMessage(strings.invalidEmail);
+              break;
+            case "auth/weak-password":
+              setErrorMessage(strings.passwordTooWeak);
+              break;
+            case "auth/operation-not-allowed":
+              setErrorMessage(strings.emailPasswordAccountsAreNotEnabled);
+              break;
+            default:
+              setErrorMessage(strings.accountCreationFailed);
+              break;
+          }
+        }
+      });
+  };
 
   return (
     <Container>
-      <Col className="my-3" style={{ height: "100vh" }}>
+      <Col className="my-3">
         {loading && <Loading />}
         {!loading && (
           <Form
@@ -107,9 +106,9 @@ export default function SignUpForm({ language }) {
         )}
       </Col>
       {errorMessage && (
-        <Col>
-          <p className="text-danger">{errorMessage}</p>
-        </Col>
+        <Container fluid>
+          <p className="text-center text-danger">{errorMessage}</p>
+        </Container>
       )}
     </Container>
   );

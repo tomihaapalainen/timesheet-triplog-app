@@ -267,7 +267,7 @@ export default function TripLogPage() {
       )}
       <ProjectSelection project={selectedProject} setProject={setSelectedProject} required={true} />
       <Container fluid className="d-flex flex-row mb-3 mx-0 px-0">
-        <Col className="w-100 mx-0 px-0" xs={87}>
+        <Col className="w-100 mx-0 px-0" xs={7}>
           <Form.Control
             value={vehicle}
             onChange={onVehicleChanged}
@@ -284,7 +284,7 @@ export default function TripLogPage() {
             <Form.Control
               defaultValue={compensation}
               ref={compensationRef}
-              placeholder={strings.compensation}
+              placeholder={strings.compensation + "*"}
               type="number"
             />
             <InputGroup.Append>
@@ -311,7 +311,6 @@ export default function TripLogPage() {
       <AddTripManually
         route={route}
         kilometers={kilometers}
-        setCurrentKilometers={setCurrentKilometers}
         selectedProject={selectedProject}
         vehicle={vehicle}
         descriptionRef={descriptionRef}

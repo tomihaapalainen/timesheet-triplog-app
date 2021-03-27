@@ -19,11 +19,9 @@ import { baseUrl } from "../../config";
 import { useAuth } from "../../contexts/AuthContext";
 import { datetimeToLocalISOString } from "../../utils/datetimeutils";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
-import MeterInput from "./MeterInput";
 
 export default function AddTripManually({
   kilometers,
-  setCurrentKilometers,
   selectedProject,
   vehicle,
   descriptionRef,
@@ -51,9 +49,31 @@ export default function AddTripManually({
     e.preventDefault();
     let currentKilometers = parseKilometers();
     let traveledDistance = parseInt(distance);
+    let compensation = parseFloat(compensationRef.current.value);
 
+    let errors = [];
+
+    if (!selectedProject) {
+      errors.push(strings.checkProject);
+    }
+    if (!vehicle) {
+      errors.push(strings.checkVehicle);
+    }
+    if (isNaN(compensation)) {
+      errors.push(strings.checkCompensation);
+    }
+    if (!route) {
+      errors.push(strings.checkRoute);
+    }
+    if (currentKilometers === 0) {
+      errors.push(strings.checkKilometers);
+    }
     if (isNaN(traveledDistance)) {
-      setErrorMessage(strings.invalidManualValues);
+      errors.push(strings.checkTripDistance);
+    }
+
+    if (errors.length > 0) {
+      setErrorMessage(strings.check + ": " + errors.join(", "));
       return;
     }
 
@@ -79,7 +99,7 @@ export default function AddTripManually({
 
       if (response.status === 200) {
         setShowSuccess(true);
-        setDistance(0);
+        setDistance("");
       }
     } catch (error) {
       if (error.response) {
@@ -98,7 +118,7 @@ export default function AddTripManually({
             eventKey="0"
             onClick={() => setOpen(!open)}
           >
-            <Container className="mx-0 px-0">
+            <Container fluid className="mx-0 px-0">
               <Row className="justify-content-space-between align-items-center">
                 <Col xs={10}>
                   <p className="py-1 my-0">{strings.addTripManually}</p>
@@ -114,14 +134,21 @@ export default function AddTripManually({
             </Container>
           </Accordion.Toggle>
           <Alert
-            style={{ position: "absolute", top: 0, left: 0, zIndex: 100, margin: "5px" }}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 100,
+              margin: "5px",
+              width: "90%",
+            }}
             variant="danger"
             show={Boolean(errorMessage)}
             onClose={() => setErrorMessage("")}
             dismissible
           >
-            <Container>
-              <Row>{errorMessage}</Row>
+            <Container fluid className="mx-0 px-0">
+              <Row className="p-4">{errorMessage}</Row>
               <Row className="d-flex flex-row justify-content-end">
                 <Button variant="danger" onClick={() => setErrorMessage("")}>
                   OK
@@ -130,7 +157,7 @@ export default function AddTripManually({
             </Container>
           </Alert>
           <Accordion.Collapse eventKey="0">
-            <Card.Body>
+            <Card.Body className="w-100">
               <Form onSubmit={handleSubmit}>
                 <FormGroup>
                   <DateTimePicker
@@ -149,10 +176,13 @@ export default function AddTripManually({
                     locale="fi-FI"
                     hour24
                   />
-                  <MeterInput kilometers={kilometers} setCurrentKilometers={setCurrentKilometers} />
+                  <Container className="mx-0 px-0 pt-2">
+                    <Form.Label className="mr-2">{strings.kilometerage}:</Form.Label>
+                    <Form.Label>{parseKilometers()}</Form.Label>
+                  </Container>
                   <InputGroup>
                     <Form.Control
-                      placeholder={strings.tripDistance}
+                      placeholder={strings.tripDistance + "*"}
                       type="number"
                       value={distance}
                       onChange={(e) => setDistance(e.target.value)}
@@ -169,14 +199,15 @@ export default function AddTripManually({
                 </Container>
               </Form>
               <Toast
-                style={{ position: "absolute", top: 0, left: 0 }}
+                className="bg-success text-white w-100"
+                style={{ position: "absolute", bottom: 0, left: 0 }}
                 onClose={() => setShowSuccess(false)}
                 show={showSuccess}
-                delay={3000}
                 autohide
+                delay={3000}
               >
-                <Toast.Body className="w-100 h-25">
-                  <p>{strings.tripSavedSuccessfully}</p>
+                <Toast.Body className="w-100">
+                  <p className="p-3 lead">{strings.tripSavedSuccessfully}</p>
                 </Toast.Body>
               </Toast>
             </Card.Body>

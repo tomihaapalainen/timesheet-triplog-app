@@ -45,8 +45,7 @@ export default function NavigationBar() {
 
         if (response.status === 200) {
           setActiveUntil(response.data.active_until);
-          let date = new Date(Date.parse(response.data.active_until));
-          setIsActive(new Date() < date);
+          setIsActive(response.data.is_active);
           setInvitationToken(response.data.invitation_token);
           setProjects(response.data.projects);
           setWorkTimes(response.data.worktimes);
@@ -118,8 +117,8 @@ export default function NavigationBar() {
               eventKey="4"
               as={Link}
               to="/app/purchase"
-              className="mx-1 my-1 px-3 bg-primary"
-              style={{ border: "1px solid #11D0B9", borderRadius: "5px" }}
+              className="mx-1 my-1 px-3 bg-primary border-success"
+              style={{ borderRadius: "5px" }}
             >
               <p style={{ ...paragraphStyle, fontSize: 15 }} className="m-1 p-0 text-success">
                 {strings.purchase}
