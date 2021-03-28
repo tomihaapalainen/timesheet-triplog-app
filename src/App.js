@@ -39,7 +39,7 @@ function App() {
               <Route path="/terms" component={TermsAndConditionsPage} />
               <PrivateRoute path="/app/successful-purchase" component={SuccessPage} />
               <PrivateRoute path="/app/purchase" component={PurchasePage} />
-              <PrivateRoute path="/app/downloads" component={ReportsPage} />
+              <PrivateRoute path="/app/reports" component={ReportsPage} />
               <PrivateRoute path="/app/userdata" component={UserDataPage} />
               <PrivateRoute path="/app/worktime" component={TimesheetPage} />
               <PrivateRoute path="/app/triplog" component={TripLogPage} />

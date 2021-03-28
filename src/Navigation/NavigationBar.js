@@ -111,7 +111,7 @@ export default function NavigationBar() {
           <Nav className="ml-auto">
             <NavigationLink eventKey="0" title={strings.timesheet} to="/app/worktime" />
             <NavigationLink eventKey="1" title={strings.tripLog} to="/app/triplog" />
-            <NavigationLink eventKey="2" title={strings.reports} to="/app/downloads" />
+            <NavigationLink eventKey="2" title={strings.reports} to="/app/reports" />
             <NavigationLink eventKey="3" title={strings.profile} to="/app/userdata" />
             <Nav.Link
               eventKey="4"

@@ -15,8 +15,7 @@ const strings = new LocalizedStrings({
     registration: "Registration",
     registrationInfo: "Registering to the application requires a valid email address.",
     applicationUsage: "Application usage",
-    applicationUsageInfo:
-      "Using the application requires an internet connection, and using the trip log requires access to your device GPS location. GPS-location is used for determining trip starting and ending locations.",
+    applicationUsageInfo: "Using the application requires an internet connection.",
     ordering: "Ordering",
     orderingInfo:
       "Ordering the application is for a fixed term. You may order the application for a fixed term of 3 months or 12 months at a time. The customer must renew the order at the of the term to continue using the application. After the free trial period, the application is usable immediately after a successful checkout.",
@@ -51,8 +50,7 @@ const strings = new LocalizedStrings({
     registrationInfo:
       "Rekisteröityminen verkkosivustolle vaatii voimassa olevan sähköpostiosoitteen.",
     applicationUsage: "Sovelluksen käyttäminen",
-    applicationUsageInfo:
-      "Sovelluksen käyttämiseksi asiakas tarvitsee internet-yhteyden ja ajopäiväkirjan pitämiseen laitteen käyttöoikeuden laitteen GPS-sijainnin lukemiseen. GPS-sijaintia käytetään sijainnin määrittämiseen ajosuoritteen alussa ja lopussa.",
+    applicationUsageInfo: "Sovelluksen käyttämiseksi asiakas tarvitsee internet-yhteyden.",
     ordering: "Tilaaminen",
     orderingInfo:
       "Sovelluksen käyttöoikeus määräaikainen. Sovelluksen voi tilata joko 3 tai 12 kuukaudeksi kerrallaan. Asiakkaan tulee uusia tilaus jakson päätyttyä jatkaakseen sovelluksen käyttöä. Ilmaisen kokeilun jälkeen sovellus on asiakkaan käytettävissä välittömästi maksutapahtuman onnistuttua.",
