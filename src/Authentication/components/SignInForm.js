@@ -116,7 +116,7 @@ export default function SignInForm() {
       </Row>
       {showPasswordReset && (
         <Row>
-          <Link className="mx-auto my-2" to="/reset-password" color="secondary">
+          <Link className="mx-auto my-2 text-primary" to="/reset-password" color="secondary">
             {strings.forgotPassword}
           </Link>
         </Row>

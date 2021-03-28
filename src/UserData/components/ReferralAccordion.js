@@ -23,8 +23,8 @@ export default function ReferralAccordion() {
 
   const copyLinkToClipboard = (event) => {
     referralLinkRef.current.select();
-    document.execCommand("copy");
     event.target.focus();
+    document.execCommand("copy");
     setShowToast(true);
   };
 
