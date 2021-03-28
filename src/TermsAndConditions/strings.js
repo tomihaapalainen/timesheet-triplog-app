@@ -18,14 +18,13 @@ const strings = new LocalizedStrings({
     applicationUsageInfo: "Using the application requires an internet connection.",
     ordering: "Ordering",
     orderingInfo:
-      "Ordering the application is for a fixed term. You may order the application for a fixed term of 3 months or 12 months at a time. The customer must renew the order at the of the term to continue using the application. After the free trial period, the application is usable immediately after a successful checkout.",
+      "Ordering the application is for a fixed term. You may order the application for a fixed term of 3 months or 12 months at a time. The customer must renew the order at the of the term to continue using the application.",
     payments: "Payments",
     paymentsInfo: "Payments are made by card. Payments are processed by Stripe. Read more here: ",
     registrar: "Registrar",
-    registerName: "Register name",
     registerNameInfo: "Pulikka.fi customer register",
     purposeOfTheRegister:
-      "The information in the register is used for processing customer orders and managing customer relationship.",
+      "The information in the register is used for processing customer orders and managing customer relationship. The legal basis for processing of personal data is the agreement between us and the legal obligations arising from it.  Providing personal data is a precondition for the contract. In other words, you may not order our service in case you do not provide your personal information. The legal basis for processing your personal data is consent. We do not make profiling or automatic decision about you.",
     sourcesOfInformationInfo:
       "Information is collected from the customer during registration and during checkout process.",
     dataTransferInfo:
@@ -53,14 +52,13 @@ const strings = new LocalizedStrings({
     applicationUsageInfo: "Sovelluksen käyttämiseksi asiakas tarvitsee internet-yhteyden.",
     ordering: "Tilaaminen",
     orderingInfo:
-      "Sovelluksen käyttöoikeus määräaikainen. Sovelluksen voi tilata joko 3 tai 12 kuukaudeksi kerrallaan. Asiakkaan tulee uusia tilaus jakson päätyttyä jatkaakseen sovelluksen käyttöä. Ilmaisen kokeilun jälkeen sovellus on asiakkaan käytettävissä välittömästi maksutapahtuman onnistuttua.",
+      "Sovelluksen käyttöoikeus on määräaikainen. Sovelluksen voi tilata joko 3 tai 12 kuukaudeksi kerrallaan. Asiakkaan tulee uusia tilaus jakson päätyttyä jatkaakseen sovelluksen käyttöä.",
     payments: "Maksut",
     paymentsInfo: "Maksut suoritetaan kortilla. Maksunvälittäjänä toimii Stripe. Lue lisää täältä:",
-    registrar: "Rekisterin pitäjä",
-    registerName: "Rekisterin nimi",
+    registrar: "Rekisterinpitäjä",
     registerNameInfo: "Pulikka.fi asiakasrekisteri",
     purposeOfTheRegister:
-      "Keräämme henkilötietoja asiakassuhteen hoitamista varten. Henkilötietojen käsittelyn oikeusperusteena on meidän välinen sopimus ja siitä johtuvat lakisääteiset velvoitteet. Henkilötietojen antaminen on edellytys sopimuksen syntymiselle. Toisin sanoen et voi tilata verkkokaupastamme tavaroita, jos et anna henkilötietojasi. Henkilötietojen käsittelyn oikeusperusteena on suostumus. Emme tee sinua koskevia profilointeja ja automaattisia päätöksiä.",
+      "Keräämme henkilötietoja asiakassuhteen hoitamista varten. Henkilötietojen käsittelyn oikeusperusteena on meidän välinen sopimus ja siitä johtuvat lakisääteiset velvoitteet. Henkilötietojen antaminen on edellytys sopimuksen syntymiselle. Toisin sanoen et voi tilata palveluamme, jos et anna henkilötietojasi. Henkilötietojen käsittelyn oikeusperusteena on suostumus. Emme tee sinua koskevia profilointeja ja automaattisia päätöksiä.",
     sourcesOfInformationInfo:
       "Rekisteriin tallennettavat tiedot saadaan asiakkaalta tämän rekisteröityessä palveluun ja tilauksen tekemisen yhteydessä.",
     dataTransferInfo:

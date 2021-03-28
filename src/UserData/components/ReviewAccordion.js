@@ -91,6 +91,7 @@ export default function ReviewAccordion() {
         setDisplayName(response.data.display_name);
         setRating(response.data.rating);
         setReviewContent(response.data.review);
+        sessionStorage.removeItem("offerings-cache");
       }
     } catch (error) {
       if (error.response) {

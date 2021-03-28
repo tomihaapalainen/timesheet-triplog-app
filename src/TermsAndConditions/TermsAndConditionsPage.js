@@ -72,7 +72,7 @@ const TermsAndConditionsPage = () => {
       </Container>
       <Container className="my-4 w-75" style={{ border: "1px solid black" }} />
       <Container className="my-3">
-        <h5 className="lead">{strings.privacyStatement} 13.3.2021</h5>
+        <h5 className="lead">{strings.privacyStatement} 28.3.2021</h5>
       </Container>
       <Container className="my-3">
         <p>
@@ -89,10 +89,9 @@ const TermsAndConditionsPage = () => {
         </p>
       </Container>
       <Container className="my-3">
-        <p>
-          <strong>{strings.registerName}</strong>
+        <p className="info-p">
+          <strong>{strings.registerNameInfo}</strong>
         </p>
-        <p className="info-p">{strings.registerNameInfo}</p>
       </Container>
       <Container className="my-3">
         <p className="info-p">{strings.purposeOfTheRegister}</p>
