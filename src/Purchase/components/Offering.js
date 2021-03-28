@@ -9,22 +9,6 @@ export default function Offering({ setSelectedOffering, offering }) {
   const { language } = useGSC();
   strings.setLanguage(language);
 
-  const calculatePrice = (o) => {
-    let price = o.price / 100;
-    return price.toFixed(2);
-  };
-
-  const calculateDiscountedPrice = (o) => {
-    let price = ((o.price / 100 - o.referred_user_count) * (100 - o.discount)) / 100;
-    return price.toFixed(2);
-  };
-
-  const calculateDiscountedPricePerMonth = (o) => {
-    let price = ((o.price / 100 - o.referred_user_count) * (100 - o.discount)) / 100;
-    price = price / o.duration;
-    return price.toFixed(2);
-  };
-
   return (
     <Card className="mx-auto my-4">
       <Card.Header className="bg-primary">
@@ -36,23 +20,23 @@ export default function Offering({ setSelectedOffering, offering }) {
         <p className="mt-1" style={{ fontSize: 17 }}>
           {strings.yourPrice}
         </p>
+        {offering.has_discount && (
+          <p className="mt-1" style={{ fontSize: 17 }}>
+            {(offering.discounted_price / 100).toFixed(2)} €
+          </p>
+        )}
         <p
           className="mt-1"
           style={
-            offering.discount || offering.referred_user_count
-              ? { textDecoration: "line-through" }
-              : { fontSize: 17 }
+            offering.has_discount
+              ? { textDecoration: "line-through", color: "grey", fontSize: 14 }
+              : { fontSize: 17, fontWeight: "bold" }
           }
         >
-          {calculatePrice(offering)} €
+          {(offering.price / 100).toFixed(2)} €
         </p>
-        {(offering.discount > 0 || offering.referred_user_count > 0) && (
-          <p className="mt-1" style={{ fontSize: 17 }}>
-            {calculateDiscountedPrice(offering)} €
-          </p>
-        )}
-        <p className="mt-1" style={{ fontSize: 15 }}>
-          {calculateDiscountedPricePerMonth(offering)} €/{strings.month}
+        <p className="mt-2" style={{ fontSize: 15 }}>
+          {(offering.price_per_month / 100).toFixed(2)} €/{strings.month}
         </p>
       </Card.Body>
       <Card.Footer style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
