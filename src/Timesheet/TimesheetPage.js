@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import ProjectSelection from "../shared/ProjectSelection";
 import WorkBreaks from "./components/WorkBreaks";
-import WorkTimeSelect from "./components/WorkTimeSelect";
-import WorkTimeControls from "./components/WorkTimeControls";
-import SavedWorkTimes from "./components/SavedWorkTimes";
+import TimesheetSelect from "./components/TimesheetSelect";
+import TimesheetControls from "./components/TimesheetControls";
+import SavedTimesheets from "./components/SavedTimesheets";
 import DailyAllowance from "./components/DailyAllowance";
-import WorkTimeSummary from "./components/WorkTimeSummary";
+import TimesheetSummary from "./components/TimesheetSummary";
 import { getAndSetIfNotNull } from "../utils/storageutils";
 import { timestampToDate } from "../utils/datetimeutils";
-import WorkTimePageControls from "./components/WorkTimePageControls";
+import TimesheetPageControls from "./components/TimesheetPageControls";
 
-export default function WorkTimePage() {
+export default function TimesheetPage() {
   const [selectedProject, setSelectedProject] = useState("");
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -33,7 +33,7 @@ export default function WorkTimePage() {
   return (
     <Container className="my-3 w-100" style={{ maxWidth: "500px" }}>
       <ProjectSelection project={selectedProject} setProject={setSelectedProject} required={true} />
-      <WorkTimeSelect
+      <TimesheetSelect
         startDate={startDate}
         setStartDate={setStartDate}
         startTime={startTime}
@@ -43,7 +43,7 @@ export default function WorkTimePage() {
         endTime={endTime}
         setEndTime={setEndTime}
       />
-      <SavedWorkTimes
+      <SavedTimesheets
         setStartDate={setStartDate}
         setStartTime={setStartTime}
         setEndDate={setEndDate}
@@ -56,7 +56,7 @@ export default function WorkTimePage() {
         breakDuration={breakDuration}
         setBreakDuration={setBreakDuration}
       />
-      <WorkTimeControls
+      <TimesheetControls
         startDate={startDate}
         setStartDate={setStartDate}
         startTime={startTime}
@@ -66,7 +66,7 @@ export default function WorkTimePage() {
         endTime={endTime}
         setEndTime={setEndTime}
       />
-      <WorkTimeSummary
+      <TimesheetSummary
         startDate={startDate || new Date()}
         startTime={startTime}
         endDate={endDate || new Date()}
@@ -74,7 +74,7 @@ export default function WorkTimePage() {
         lunchDuration={lunchDuration}
         breakDuration={breakDuration}
       />
-      <WorkTimePageControls
+      <TimesheetPageControls
         startDate={startDate || new Date()}
         setStartDate={setStartDate}
         startTime={startTime}

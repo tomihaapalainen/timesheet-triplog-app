@@ -14,7 +14,7 @@ import { useGSC } from "../../store/GlobalStateProvider";
 import "./styles.css";
 import { datetimeToLocalISOString } from "../../utils/datetimeutils";
 
-export default function WorkTimePageControls({
+export default function TimesheetPageControls({
   startDate,
   setStartDate,
   startTime,
@@ -109,26 +109,28 @@ export default function WorkTimePageControls({
       {errorMessage && <p className="text-danger">{errorMessage}</p>}
       {!isActive && <p className="text-danger">{strings.accountNoLongerActive}</p>}
       <Toast
-        autohide
-        delay={2000}
         show={showSuccess}
         onClose={() => setShowSuccess(false)}
         variant="success"
-        className="bg-light toast"
+        className="bg-success text-white toast"
+        autohide
+        delay={3000}
       >
         <Toast.Body className="d-flex justify-content-center align-items-center h-100">
-          <Row>
+          <Row className="align-items-center">
             <Col xs={10}>
-              <p className="font-weight-bold">{strings.worktimeSaved}</p>
+              <p className="font-weight-bold" style={{ fontSize: 18 }}>
+                {strings.worktimeSaved}
+              </p>
             </Col>
             <Col xs={2}>
-              <FaCheckCircle color="green" size={20} />
+              <FaCheckCircle color="white" size={30} />
             </Col>
           </Row>
         </Toast.Body>
       </Toast>
       <Row className="my-3">
-        <Col xs={6}>
+        <Col xs={6} className="d-flex justify-content-end">
           <Button onClick={handleReset}>{strings.reset}</Button>
         </Col>
         <Col xs={6}>

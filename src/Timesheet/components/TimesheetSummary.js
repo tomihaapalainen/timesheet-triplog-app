@@ -6,7 +6,7 @@ import { datetimeAsDateString } from "../../utils/datetimeutils";
 import strings from "./strings";
 import { useGSC } from "../../store/GlobalStateProvider";
 
-export default function WorkTimeSummary({
+export default function TimesheetSummary({
   startDate,
   startTime,
   endDate,

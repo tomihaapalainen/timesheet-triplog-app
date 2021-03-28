@@ -18,7 +18,7 @@ const containerStyle = {
 export default function AppPage() {
   const history = useHistory();
 
-  const handleWorkTimeClick = () => {
+  const handleTimesheetClick = () => {
     history.push("/app/worktime");
   };
 
@@ -30,7 +30,7 @@ export default function AppPage() {
     <Container style={containerStyle}>
       <Row>
         <Col>
-          <Button className="btn-lg bg-primary" onClick={handleWorkTimeClick}>
+          <Button className="btn-lg bg-primary" onClick={handleTimesheetClick}>
             <FaBusinessTime color="#fff" size={80} />
           </Button>
         </Col>

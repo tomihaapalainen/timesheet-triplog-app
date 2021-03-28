@@ -8,14 +8,14 @@ import Col from "react-bootstrap/Col";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import { FaTrashAlt } from "react-icons/fa";
-import AddWorkTime from "./AddWorkTime";
+import AddWorkingTime from "./AddWorkingTime";
 import { useAuth } from "../../contexts/AuthContext";
 import { baseUrl } from "../../config";
 import AccordionToggle from "../../shared/AccordionToggle";
 import strings from "./strings";
 import { useGSC } from "../../store/GlobalStateProvider";
 
-export default function WorkTimesAccordion({ workTimes, setWorkTimes }) {
+export default function WorkingTimesAccordion({ workTimes, setTimesheets }) {
   const [errorMessage, setErrorMessage] = useState("");
   const { currentUser } = useAuth();
 
@@ -29,8 +29,8 @@ export default function WorkTimesAccordion({ workTimes, setWorkTimes }) {
     });
 
     if (response.status === 200) {
-      let newWorkTimes = workTimes.filter((w) => w.id !== worktimeId);
-      setWorkTimes(newWorkTimes);
+      let newTimesheets = workTimes.filter((w) => w.id !== worktimeId);
+      setTimesheets(newTimesheets);
     } else {
       setErrorMessage(strings.removingWorktimeFailed);
     }
@@ -73,7 +73,7 @@ export default function WorkTimesAccordion({ workTimes, setWorkTimes }) {
                 </ListGroup.Item>
               ))}
             </ListGroup>
-            <AddWorkTime />
+            <AddWorkingTime />
           </Card.Body>
         </Accordion.Collapse>
       </Card>

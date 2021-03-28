@@ -30,6 +30,7 @@ export default function DownloadControls({ start, end, selectedFormat, selectedP
       return;
     }
 
+    setErrorMessage("");
     setLoading(true);
 
     let data = {
@@ -93,7 +94,7 @@ export default function DownloadControls({ start, end, selectedFormat, selectedP
     } catch (error) {
       if (error.response) {
         if (error.response.status === 404) {
-          setErrorMessage(strings.noWorkTimes);
+          setErrorMessage(strings.noTimesheets);
         }
       }
     } finally {

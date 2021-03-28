@@ -9,12 +9,12 @@ import { useGSC } from "../../store/GlobalStateProvider";
 import AccordionToggle from "../../shared/AccordionToggle";
 import strings from "./strings";
 
-export default function SavedWorkTimes({ setStartDate, setStartTime, setEndDate, setEndTime }) {
+export default function SavedTimesheets({ setStartDate, setStartTime, setEndDate, setEndTime }) {
   const { workTimes, language } = useGSC();
 
   strings.setLanguage(language);
 
-  const handleSavedWorkTimeClicked = (workTime) => {
+  const handleSavedTimesheetClicked = (workTime) => {
     let date = new Date();
     setStartDate(date);
     setStartTime(workTime.start);
@@ -43,7 +43,7 @@ export default function SavedWorkTimes({ setStartDate, setStartTime, setEndDate,
                         <ListGroup.Item
                           key={`${workTime.start}${workTime.end}`}
                           action
-                          onClick={() => handleSavedWorkTimeClicked(workTime)}
+                          onClick={() => handleSavedTimesheetClicked(workTime)}
                         >
                           {workTime.start} - {workTime.end}
                         </ListGroup.Item>

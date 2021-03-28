@@ -7,7 +7,7 @@ import { datetimeAsTimeString } from "../../utils/datetimeutils";
 import strings from "./strings";
 import { useGSC } from "../../store/GlobalStateProvider";
 
-export default function WorkTimeControls({
+export default function TimesheetControls({
   setStartDate,
   startTime,
   setStartTime,

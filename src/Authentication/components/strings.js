@@ -3,7 +3,6 @@ import LocalizedStrings from "react-localization";
 const strings = new LocalizedStrings({
   en: {
     signInWithGoogle: "Sign in with Google",
-    signInWithFacebook: "Sign in with Facebook",
     serverNotResponding: "Server is not responding. Please try again later.",
     errorSendingPasswordResetEmail:
       "Error while sending email for password reset. Please try again later.",
@@ -45,11 +44,6 @@ const strings = new LocalizedStrings({
       "Using the Pulikka app will not break the bank: affordable prices that can even be lowered by inviting new users to the application!",
     threeMonths: "3 months",
     twelveMonths: "12 months",
-    priceIncludesVAT: "Price includes 24% VAT",
-    allPricesInclude: "All prices include full access to",
-    toTimesheets: "timesheets",
-    toTripLogging: "trip logging",
-    toReports: "extensive timesheet reports and trip log reports",
     serviceUnavailable: "Service is not yet available! Check back later.",
     month: "month",
     threeMonthPrice: "7.50 €",
@@ -57,7 +51,6 @@ const strings = new LocalizedStrings({
   },
   fi: {
     signInWithGoogle: "Kirjaudu Google-tilillä",
-    signInWithFacebook: "Kirjaudu Facebook-tilillä",
     serverNotResponding: "Palvelin ei vastaa. Ole hyvä ja yritä myöhemmin uudelleen.",
     errorSendingPasswordResetEmail:
       "Sähköpostin lähettäminen salasanan vaihtamiseksi ei onnistunut. Yritä myöhemmin uudelleen.",
@@ -99,11 +92,6 @@ const strings = new LocalizedStrings({
       "Pulikan käyttäminen ei tee lovea tuloihisi: edulliset hinnat joista on lisäksi mahdollista saada pysyvää alennusta kutsumalla sovellukseen lisää käyttäjiä!",
     threeMonths: "3 kuukautta",
     twelveMonths: "12 kuukautta",
-    priceIncludesVAT: "Hinta sisältää 24% alv.",
-    allPricesInclude: "Kaikki hinnat sisältävät täyden käyttöoikeuden",
-    toTimesheets: "työajanseurantaan",
-    toTripLogging: "ajopäiväkirjan pitämiseen",
-    toReports: "kattavien työaikaraporttien ja ajopäiväkirjojen lataamiseen",
     serviceUnavailable: "Palvelu ei ole vielä käytössä! Palaa myöhemmin.",
     month: "kk",
     threeMonthPrice: "7,50 €",

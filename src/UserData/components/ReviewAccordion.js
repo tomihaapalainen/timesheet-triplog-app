@@ -62,6 +62,7 @@ export default function ReviewAccordion() {
     let reviewData = sessionStorage.getItem("user-review");
     if (reviewData !== null) {
       reviewData = JSON.parse(reviewData);
+      setHasReviewed(true);
       setDisplayName(reviewData.display_name);
       setRating(reviewData.rating);
       setReviewContent(reviewData.review);
@@ -113,6 +114,7 @@ export default function ReviewAccordion() {
 
       if (response.status === 200) {
         setMessage(strings.thanksForTheReview);
+        sessionStorage.removeItem("user-review");
       }
     } catch (error) {
       if (error.response) {
@@ -134,8 +136,6 @@ export default function ReviewAccordion() {
   if (loading) {
     return <Loading />;
   }
-
-  // TODO: FIX ACCORDION TOGGLE TITLE
 
   return (
     <Accordion className="mw-1024 mx-auto">

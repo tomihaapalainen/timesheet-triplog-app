@@ -104,6 +104,7 @@ const TermsAndConditionsPage = () => {
         <p className="info-p">
           {strings.dataTransferInfo}{" "}
           <a
+            className="text-primary"
             href="https://firebase.google.com/terms/data-processing-terms"
             target="_blank"
             rel="noopener noreferrer"

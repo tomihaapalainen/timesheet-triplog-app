@@ -30,7 +30,7 @@ const strings = new LocalizedStrings({
     started: "Started",
     endNow: "End Now",
     ended: "Ended",
-    worktimeSaved: "Work time saved",
+    worktimeSaved: "Working time saved",
     selectedProjectNotFound: "Selected project not found from the database",
     savingWorktimeFailed: "Saving work time failed. Please try again later.",
     reset: "Reset",

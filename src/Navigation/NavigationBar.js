@@ -27,7 +27,7 @@ export default function NavigationBar() {
     setActiveUntil,
     setIsActive,
     setProjects,
-    setWorkTimes,
+    setTimesheets,
     setInvitationToken,
     language,
   } = useGSC();
@@ -48,7 +48,7 @@ export default function NavigationBar() {
           setIsActive(response.data.is_active);
           setInvitationToken(response.data.invitation_token);
           setProjects(response.data.projects);
-          setWorkTimes(response.data.worktimes);
+          setTimesheets(response.data.worktimes);
         }
       } catch (error) {
         if (error.response) {
@@ -118,7 +118,6 @@ export default function NavigationBar() {
               as={Link}
               to="/app/purchase"
               className="mx-1 my-1 px-3 bg-primary border-success"
-              style={{ borderRadius: "5px" }}
             >
               <p style={{ ...paragraphStyle, fontSize: 15 }} className="m-1 p-0 text-success">
                 {strings.purchase}

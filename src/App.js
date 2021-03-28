@@ -5,7 +5,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import LandingPage from "./Landing/LandingPage";
 import SignInPage from "./Authentication/SignInPage";
 import SignUpPage from "./Authentication/SignUpPage";
-import WorkTimePage from "./WorkTime/WorkTimePage";
+import TimesheetPage from "./Timesheet/TimesheetPage";
 import TripLogPage from "./TripLog/TripLogPage";
 import PrivateRoute from "./Routes/PrivateRoute";
 import SignInRoute from "./Routes/SignInRoute";
@@ -41,7 +41,7 @@ function App() {
               <PrivateRoute path="/app/purchase" component={PurchasePage} />
               <PrivateRoute path="/app/downloads" component={ReportsPage} />
               <PrivateRoute path="/app/userdata" component={UserDataPage} />
-              <PrivateRoute path="/app/worktime" component={WorkTimePage} />
+              <PrivateRoute path="/app/worktime" component={TimesheetPage} />
               <PrivateRoute path="/app/triplog" component={TripLogPage} />
               <PrivateRoute path="/app" component={LandingPage} />
               <SignInRoute path="/register" component={SignUpPage} />

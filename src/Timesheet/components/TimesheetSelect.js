@@ -9,7 +9,7 @@ import { currentTime } from "../../utils/datetimeutils";
 import strings from "./strings";
 import { useGSC } from "../../store/GlobalStateProvider";
 
-export default function WorkTimeSelect({
+export default function TimesheetSelect({
   startDate,
   setStartDate,
   startTime,

@@ -11,20 +11,20 @@ import { datetimeAsTimeString } from "../../utils/datetimeutils";
 import { baseUrl } from "../../config";
 import TimePicker from "react-rainbow-components/components/TimePicker";
 import Loading from "../../shared/Loading";
-import strings from "../../WorkTime/components/strings";
+import strings from "../../Timesheet/components/strings";
 
-export default function AddWorkTime() {
+export default function AddWorkingTime() {
   const [start, setStart] = useState(datetimeAsTimeString(new Date(), "HH:mm"));
   const [end, setEnd] = useState(datetimeAsTimeString(new Date(), "HH:mm"));
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const { currentUser } = useAuth();
-  const { workTimes, setWorkTimes, language, isActive } = useGSC();
+  const { workTimes, setTimesheets, language, isActive } = useGSC();
 
   strings.setLanguage(language);
 
-  const handleAddWorkTime = async () => {
+  const handleAddWorkingTime = async () => {
     setLoading(true);
     if (!start || !end) {
       return;
@@ -46,8 +46,8 @@ export default function AddWorkTime() {
           headers: { Authorization: `Bearer ${idToken}` },
         }
       );
-      let newWorkTimes = [...workTimes, response.data];
-      setWorkTimes(newWorkTimes);
+      let newTimesheets = [...workTimes, response.data];
+      setTimesheets(newTimesheets);
     } catch (error) {
       setErrorMessage(strings.addingWorktimeFailed);
     } finally {
@@ -124,7 +124,7 @@ export default function AddWorkTime() {
             <Loading />
           ) : (
             <Button
-              onClick={handleAddWorkTime}
+              onClick={handleAddWorkingTime}
               disabled={!isActive}
               type="submit"
               className="bg-primary border-primary"

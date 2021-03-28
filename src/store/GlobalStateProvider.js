@@ -6,7 +6,7 @@ const GlobalStateProvider = ({ children }) => {
   const [activeUntil, setActiveUntil] = useState("");
   const [isActive, setIsActive] = useState(false);
   const [projects, setProjects] = useState([]);
-  const [workTimes, setWorkTimes] = useState([]);
+  const [workTimes, setTimesheets] = useState([]);
   const [invitationToken, setInvitationToken] = useState("");
   const [language, setLanguage] = useState("fi");
 
@@ -18,7 +18,7 @@ const GlobalStateProvider = ({ children }) => {
     projects,
     setProjects,
     workTimes,
-    setWorkTimes,
+    setTimesheets,
     invitationToken,
     setInvitationToken,
     language,
