@@ -8,7 +8,7 @@ const strings = new LocalizedStrings({
     profile: "Profile",
     signOut: "Sign out",
     purchase: "Purchase",
-    terms: "Terms and conditions",
+    terms: "Privacy statement",
   },
   fi: {
     timesheet: "Työajanseuranta",
@@ -17,7 +17,7 @@ const strings = new LocalizedStrings({
     profile: "Profiili",
     signOut: "Kirjaudu ulos",
     purchase: "Osta",
-    terms: "Sopimusehdot",
+    terms: "Rekisteri- ja tietosuojaseloste",
   },
 });
 

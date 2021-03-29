@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Navbar from "react-bootstrap/Navbar";
 import "./styles.css";
+import strings from "./strings";
 
 export default function Footer() {
   return (
@@ -19,7 +20,7 @@ export default function Footer() {
           </Col>
           <Col sm={12} md={4}>
             <Link to="/terms">
-              <p className="text-center">Sopimusehdot</p>
+              <p className="text-center">{strings.terms}</p>
             </Link>
           </Col>
         </Row>
