@@ -1,0 +1,7 @@
+.loading-overlay {
+  position: fixed;
+  z-index: 1000;
+  height: 100vh;
+  width: 100vw;
+  background-color: #00000033;
+}

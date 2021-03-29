@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import LoadingOverlay from "../../shared/LoadingOverlay";
 import { useGSC } from "../../store/GlobalStateProvider";
 import { useAuth } from "../../contexts/AuthContext";
 import { datetimeAsTimeString } from "../../utils/datetimeutils";
@@ -74,7 +73,6 @@ export default function AddWorkingTime() {
           </Row>
         </Container>
       )}
-      {loading && <LoadingOverlay />}
       <Row
         style={{
           display: "flex",

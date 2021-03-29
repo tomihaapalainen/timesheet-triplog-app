@@ -41,7 +41,7 @@ const strings = new LocalizedStrings({
     termsAndConditions: "Sopimusehdot",
     agreement: "Sopimus",
     agreementInfo:
-      "Käyttämällä Pulikka-sovellusta hyväksyt nämä ehdot ja sitoudut noudattamaan niitä. Code Fuzz, Y-tunnus 2935633-4, ei ole vastuussa sovelluksen raportoimien tietojen oikeellisuudesta. Käyttäjän tulee aina tarkastaa sovelluksen raportoimat tiedot ennen niiden käyttämistä sovelluksen ulkopuolella.",
+      "Käyttämällä Pulikka-sovellusta hyväksyt nämä ehdot ja sitoudut noudattamaan niitä. Code Fuzz, Y-tunnus 2935633-4, ei ole vastuussa sovelluksen raportoimien tietojen oikeellisuudesta. Käyttäjän tulee aina tarkastaa sovelluksen raportoimat tiedot ennen niiden käyttämistä.",
     alterations: "Muutokset",
     alterationsInfo:
       "Tarjoaja pidättää oikeuden muuttaa näitä sopimusehtoja julkaisemalla päivitetyt ehdot tällä verkkosivustolla. Tutustu voimassa oleviin ehtoihin tällä sivustolla ennen palvelun tilaamista. Muutoksista ilmoitetaan erikseen asiakkaille. Jatkamalla sovelluksen käyttöä hyväksyt käyttöehdot.",
@@ -62,7 +62,7 @@ const strings = new LocalizedStrings({
     sourcesOfInformationInfo:
       "Rekisteriin tallennettavat tiedot saadaan asiakkaalta tämän rekisteröityessä palveluun ja tilauksen tekemisen yhteydessä.",
     dataTransferInfo:
-      "Tietojasi käsittelevät yrityksemme ja sen työntekijät, maksunvälittäjä Stripe ja IT-yritys (Google LLC) joka ylläpitää verkkosivuja. Tietoja ei luovuteta ulkopuolisille tahoille. Tietoja säilytetään palvelussa, jonka tarjoaa Google LLC. Sitä koskevat ehdot löytyy täältä:",
+      "Tietojasi käsittelevät Code Fuzz, maksunvälittäjä Stripe ja IT-yritys (Google LLC) joka ylläpitää verkkosivuja. Tietoja ei luovuteta ulkopuolisille tahoille. Tietoja säilytetään palvelussa, jonka tarjoaa Google LLC. Sitä koskevat ehdot löytyy täältä:",
     securityInfo:
       "Rekisterinpitäjä varmistaa asiakkaiden henkilötietojen käsittelyn tietoturvallisuuden ja henkilötietojen luottamuksellisuuden huolehtimalla asianmukaisesta tietoturvasta.",
     inspectionAndRectificationInfo:
