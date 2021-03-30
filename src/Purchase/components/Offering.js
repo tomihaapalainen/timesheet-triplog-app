@@ -10,7 +10,7 @@ export default function Offering({ setSelectedOffering, offering }) {
   strings.setLanguage(language);
 
   return (
-    <Card className="mx-auto my-4">
+    <Card className="mx-auto my-2">
       <Card.Header className="bg-primary">
         <p style={{ color: "white", fontSize: 17, fontWeight: "bold" }}>
           {offering.duration} {strings.months}

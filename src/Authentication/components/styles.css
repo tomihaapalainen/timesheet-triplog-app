@@ -45,3 +45,16 @@
   font-size: 18px;
   font-weight: bold;
 }
+
+.cookie-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  border: 2px solid;
+}
+
+.accept-cookies-btn {
+  font-weight: bold;
+  text-transform: uppercase;
+}

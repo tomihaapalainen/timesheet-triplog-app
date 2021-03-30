@@ -9,6 +9,7 @@ const GlobalStateProvider = ({ children }) => {
   const [workTimes, setTimesheets] = useState([]);
   const [invitationToken, setInvitationToken] = useState("");
   const [language, setLanguage] = useState("fi");
+  const [cookiesAccepted, setCookiesAccepted] = useState(false);
 
   const values = {
     activeUntil,
@@ -23,6 +24,8 @@ const GlobalStateProvider = ({ children }) => {
     setInvitationToken,
     language,
     setLanguage,
+    cookiesAccepted,
+    setCookiesAccepted,
   };
 
   return <GlobalStateContext.Provider value={values}>{children}</GlobalStateContext.Provider>;

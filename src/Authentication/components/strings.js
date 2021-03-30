@@ -27,9 +27,9 @@ const strings = new LocalizedStrings({
     timesheetInfo1:
       "Keep track of your work for multiple project flexibly on any device with a browser.",
     timesheetInfo2: "Use quick selection times for inputting frequently used working times",
-    timesheetInfo3: "Add daily allowance.",
-    timesheetInfo4: "Add lunch breaks and other breaks.",
-    timesheetInfo5: "Start and end your working day with a single button press.",
+    timesheetInfo3: "Add daily allowance and break durations.",
+    timesheetInfo4:
+      "Track your working time precisely with a single button click at the start and end of your working day.",
     triplogs: "Trip logs",
     triplogInfo1:
       "Keep track of your trips - quick and easy way to input your vehicle's kilometerage.",
@@ -37,7 +37,7 @@ const strings = new LocalizedStrings({
     tripLogInfo3:
       "In case you forgot to use the trip logger during your trip, you can also enter a trip afterwards by using your vehicles current kilometerage and trip length.",
     reports: "Reporting",
-    reportInfo1: "Download reports in Excel or CSV format.",
+    reportInfo1: "Download comprehensive timesheets and trip logs in Excel or CSV format.",
     reportInfo2: "Set a date interval or quickly select one of the predefined intervals.",
     pricing: "Pricing",
     pricingInfo:
@@ -46,8 +46,14 @@ const strings = new LocalizedStrings({
     twelveMonths: "12 months",
     serviceUnavailable: "Service is not yet available! Check back later.",
     month: "month",
-    threeMonthPrice: "7.50 €",
-    twelveMonthPrice: "24.90 €",
+    threeMonthPrice: "9.00 €",
+    threeMonthMonthlyPrice: "3.00 €/month",
+    twelveMonthPrice: "29.90 €",
+    twelveMonthMonthlyPrice: "2.49 €/month",
+    acceptCookies: "I accept",
+    siteUsesCookies: "This site uses cookies to enable the correct operation. Read more from our ",
+    here: "privacy statement",
+    only: "only",
   },
   fi: {
     signInWithGoogle: "Kirjaudu Google-tilillä",
@@ -73,11 +79,11 @@ const strings = new LocalizedStrings({
     infoText1: "Rekisteröidy ja kokeile sovellusta 30 päivää ilmaiseksi",
     startFreeTrial: "Aloita ilmainen kokeilu",
     timesheets: "Työajanseuranta",
-    timesheetInfo1: "Merkkaa työaikasi haluamallasi laitteella.",
-    timesheetInfo2: "Merkkaa työaikasi nopeasti ennalta määritettyjen työaikojen avulla.",
-    timesheetInfo3: "Lisää päivärahat.",
-    timesheetInfo4: "Lisää luonastauot ja muut tauot.",
-    timesheetInfo5: "Aloita ja lopeta työpäiväsi yhdellä napinpainalluksella.",
+    timesheetInfo1: "Käytä haluamallasi laitteella.",
+    timesheetInfo2: "Merkkaa työaikasi nopeasti ennalta määritettyjen pikavalintojen avulla.",
+    timesheetInfo3: "Lisää päivärahat ja tauot.",
+    timesheetInfo4:
+      "Seuraa työaikaa tarkasti määrittämällä työaikasi yhdellä napinpainalluksella työpäiväsi alkeassa ja loppuessa",
     triplogs: "Ajopäiväkirja",
     triplogInfo1: "Pidä kirjaa työajoistasi - nopea ja helppo mittarilukeman asettaminen.",
     tripLogInfo2:
@@ -85,17 +91,24 @@ const strings = new LocalizedStrings({
     tripLogInfo3:
       "Jos unohdit käyttää ajopäiväkirjaa matkan aikana, voit lisätä matkoja myös jälkikäteen.",
     reports: "Raportit",
-    reportInfo1: "Lataa raportit Excel- tai CSV-formaatissa.",
-    reportInfo2: "Aseta aikaväli tai käytä pikavalintoja.",
+    reportInfo1:
+      "Lataa kattavat työaikakirjaukset tai ajopäiväkirja kätevänä Excel- tai CSV raporttina.",
+    reportInfo2: "Käytä pikavalintoja tai aseta aikaväli haluamallasi tavalla.",
     pricing: "Hinnasto",
     pricingInfo:
-      "Pulikan käyttäminen ei tee lovea tuloihisi: edulliset hinnat joista on lisäksi mahdollista saada pysyvää alennusta kutsumalla sovellukseen lisää käyttäjiä!",
+      "Pulikan käyttäminen ei tee lovea tuloihisi: edulliset hinnat mistä on lisäksi mahdollista saada pysyvää alennusta kutsumalla sovellukseen lisää käyttäjiä!",
     threeMonths: "3 kuukautta",
     twelveMonths: "12 kuukautta",
     serviceUnavailable: "Palvelu ei ole vielä käytössä! Palaa myöhemmin.",
     month: "kk",
-    threeMonthPrice: "7,50 €",
-    twelveMonthPrice: "24,90 €",
+    threeMonthPrice: "9,00 €",
+    threeMonthMonthlyPrice: "3,00 €/kk",
+    twelveMonthPrice: "29,90 €",
+    twelveMonthMonthlyPrice: "2,49 €/kk",
+    acceptCookies: "Hyväksyn",
+    siteUsesCookies: "Sivusto käyttää evästeitä toiminnallisuuden takaamiseksi. Lue lisää ",
+    here: "rekisteri- ja tietosuojaselosteesta",
+    only: "vain",
   },
 });
 

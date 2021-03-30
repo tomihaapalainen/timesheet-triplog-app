@@ -23,7 +23,6 @@ export default function ApplicationInformation() {
     strings.timesheetInfo2,
     strings.timesheetInfo3,
     strings.timesheetInfo4,
-    strings.timesheetInfo5,
   ];
 
   const tripLogInfos = [strings.triplogInfo1, strings.tripLogInfo2, strings.tripLogInfo3];

@@ -20,7 +20,9 @@ export default function Footer() {
           </Col>
           <Col sm={12} md={4}>
             <Link to="/terms">
-              <p className="text-center">{strings.terms}</p>
+              <p className="text-center">
+                {strings.terms1} {strings.terms2}
+              </p>
             </Link>
           </Col>
         </Row>

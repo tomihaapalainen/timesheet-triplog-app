@@ -2,10 +2,11 @@
   font-size: 20px;
   font-weight: bold;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .title {
-  padding-top: 10px;
+  padding-top: 20px;
   font-weight: bold;
 }
 

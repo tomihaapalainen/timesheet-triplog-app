@@ -21,7 +21,10 @@ export default function PricingInformation() {
                 {strings.threeMonths}
               </Card.Header>
               <Card.Body>
-                <p style={{ fontSize: "18px" }}>{strings.threeMonthPrice}</p>
+                <p style={{ fontSize: "17px" }}>
+                  <strong>{strings.threeMonthPrice}</strong> ({strings.only}{" "}
+                  {strings.threeMonthMonthlyPrice})
+                </p>
               </Card.Body>
             </Card>
           </Col>
@@ -31,7 +34,10 @@ export default function PricingInformation() {
                 {strings.twelveMonths}
               </Card.Header>
               <Card.Body>
-                <p style={{ fontSize: "18px" }}>{strings.twelveMonthPrice}</p>
+                <p style={{ fontSize: "17px" }}>
+                  <strong>{strings.twelveMonthPrice}</strong> ({strings.only}{" "}
+                  {strings.twelveMonthMonthlyPrice})
+                </p>
               </Card.Body>
             </Card>
           </Col>

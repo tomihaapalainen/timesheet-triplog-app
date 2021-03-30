@@ -8,6 +8,7 @@ import PricingInformation from "./components/PricingInformation";
 import Footer from "../Navigation/Footer";
 import strings from "./components/strings";
 import { useGSC } from "../store/GlobalStateProvider";
+import CookieNote from "./components/CookieNote";
 
 export default function SignInPage() {
   const { language } = useGSC();
@@ -35,6 +36,7 @@ export default function SignInPage() {
       <GoogleSignIn />
       <ApplicationInformation />
       <PricingInformation />
+      <CookieNote />
       <Footer />
     </Container>
   );

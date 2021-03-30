@@ -6,7 +6,7 @@ export default function FinnishTerms() {
   return (
     <Container>
       <h2 className="page-title">Privacy statement</h2>
-      <p>
+      <p className="mb-3">
         This is a EU General Data Protection Regulation compliant privacy statement of Code Fuzz.
         Drafted on 29.03.2021. Last changed on 29.03.2021.
       </p>
@@ -19,7 +19,11 @@ export default function FinnishTerms() {
       <p lead className="title">
         2. Register contact person
       </p>
-      <p>Tomi Haapalainen, tomi.haapalainen@pulikka.fi</p>
+      <p>
+        Tomi Haapalainen
+        <br />
+        tomi.haapalainen@pulikka.fi
+      </p>
       <p lead className="title">
         3. Register name
       </p>

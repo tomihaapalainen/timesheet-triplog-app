@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
@@ -14,11 +15,13 @@ import LanguageSelection from "./LanguageSelection";
 import NavigationLink from "./NavigationLink";
 import pulikkaIcon from "../static/logos/logo192.png";
 import strings from "./strings";
+import TermsLink from "./components/TermsLink";
 
 const paragraphStyle = {
-  fontSize: "18px",
-  fontWeight: "bold",
+  fontSize: "14px",
+  fontWeight: "bolder",
   textTransform: "uppercase",
+  color: "#00DD00",
 };
 
 export default function NavigationBar() {
@@ -72,7 +75,7 @@ export default function NavigationBar() {
   };
 
   return (
-    <Navbar collapseOnSelect expand="xl" bg="primary" variant="dark" className="my-0 py-1">
+    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark" className="my-0 py-1">
       <Navbar.Brand className="m-0 p-0 d-flex flex-row justify-content-center align-items-center nav-brand">
         <Link
           to="/app"
@@ -117,19 +120,19 @@ export default function NavigationBar() {
               eventKey="4"
               as={Link}
               to="/app/purchase"
-              className="mx-1 my-1 px-3 bg-primary border-success"
+              className="mx-1 my-1 px-2 bg-primary text-success border-success d-flex flex-row align-items-center"
             >
-              <p style={{ ...paragraphStyle, fontSize: 15 }} className="m-1 p-0 text-success">
+              <p style={paragraphStyle} className="m-1 px-0">
                 {strings.purchase}
               </p>
             </Nav.Link>
-            <NavigationLink eventKey="5" title={strings.terms} to="/terms" />
+            <TermsLink />
             <Nav.Link
               eventKey="6"
               onClick={handleLogout}
               as={Link}
               to="#"
-              className="bg-primary mx-1 my-1 px-3 d-flex align-items-center"
+              className="bg-primary mx-1 my-1 px-3 d-flex align-items-center justify-content-center"
             >
               <FaSignOutAlt size={25} color="lightgrey" className="mx-1" />
             </Nav.Link>

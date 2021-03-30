@@ -6,7 +6,7 @@ export default function FinnishTerms() {
   return (
     <Container>
       <h2 className="page-title">Rekisteri- ja tietosuojaseloste</h2>
-      <p>
+      <p className="mb-3">
         Tämä on (Tmi) Code Fuzz EU:n yleisen tietosuoja-asetuksen (GDPR) mukainen rekisteri- ja
         tietosuojaseloste. Laadittu 29.03.2021. Viimeisin muutos 29.03.2021.
       </p>
@@ -19,7 +19,11 @@ export default function FinnishTerms() {
       <p lead className="title">
         2. Rekisteristä vastaava yhteyshenkilö
       </p>
-      <p>Tomi Haapalainen, tomi.haapalainen@pulikka.fi</p>
+      <p>
+        Tomi Haapalainen
+        <br />
+        tomi.haapalainen@pulikka.fi
+      </p>
       <p lead className="title">
         3. Rekisterin nimi
       </p>

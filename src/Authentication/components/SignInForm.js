@@ -73,7 +73,7 @@ export default function SignInForm() {
 
   return (
     <Container>
-      <Container id="focus-target" style={{ height: "75px" }} />
+      <Container id="focus-target" style={{ height: "50px" }} />
       <Row>
         <Col className="mb-3">
           <Form
