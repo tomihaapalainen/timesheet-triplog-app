@@ -8,8 +8,10 @@ const strings = new LocalizedStrings({
     profile: "Profile",
     signOut: "Sign out",
     purchase: "Purchase",
-    terms1: "Privacy statement",
-    terms2: "",
+    privacyStatement1: "Privacy statement",
+    privacyStatement2: "",
+    terms1: "Terms and",
+    terms2: "conditions",
   },
   fi: {
     timesheet: "Työajanseuranta",
@@ -18,8 +20,10 @@ const strings = new LocalizedStrings({
     profile: "Profiili",
     signOut: "Kirjaudu ulos",
     purchase: "Osta",
-    terms1: "Rekisteri- ja",
-    terms2: "tietosuojaseloste",
+    privacyStatement1: "Rekisteri- ja",
+    privacyStatement2: "tietosuojaseloste",
+    terms1: "Sopimusehdot",
+    terms2: "",
   },
 });
 

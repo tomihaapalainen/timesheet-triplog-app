@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
@@ -15,7 +14,6 @@ import LanguageSelection from "./LanguageSelection";
 import NavigationLink from "./NavigationLink";
 import pulikkaIcon from "../static/logos/logo192.png";
 import strings from "./strings";
-import TermsLink from "./components/TermsLink";
 
 const paragraphStyle = {
   fontSize: "14px",
@@ -75,7 +73,7 @@ export default function NavigationBar() {
   };
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark" className="my-0 py-1">
+    <Navbar collapseOnSelect expand="md" bg="primary" variant="dark" className="my-0 py-1">
       <Navbar.Brand className="m-0 p-0 d-flex flex-row justify-content-center align-items-center nav-brand">
         <Link
           to="/app"
@@ -126,7 +124,6 @@ export default function NavigationBar() {
                 {strings.purchase}
               </p>
             </Nav.Link>
-            <TermsLink />
             <Nav.Link
               eventKey="6"
               onClick={handleLogout}

@@ -11,14 +11,18 @@ export default function Footer() {
   return (
     <Navbar sticky="bottom" className="py-0 bg-secondary text-black">
       <Container fluid className="py-2">
-        <Row className="d-flex justify-content- align-items-center w-100 mx-0 px-0">
-          <Col sm={12} md={4}>
+        <Row className="d-flex align-items-center w-100 mx-0 px-0">
+          <Col sm={12} md={3}>
             <p className="text-center">&copy; Code Fuzz (2021)</p>
-          </Col>
-          <Col sm={12} md={4}>
             <p className="text-center">asiakaspalvelu@pulikka.fi</p>
           </Col>
-          <Col sm={12} md={4}>
+          <Col sm={12} md={6}></Col>
+          <Col sm={12} md={3}>
+            <Link to="/privacy-statement">
+              <p className="text-center">
+                {strings.privacyStatement1} {strings.privacyStatement2}
+              </p>
+            </Link>
             <Link to="/terms">
               <p className="text-center">
                 {strings.terms1} {strings.terms2}

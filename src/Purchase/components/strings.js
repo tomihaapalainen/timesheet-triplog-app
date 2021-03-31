@@ -20,6 +20,8 @@ const strings = new LocalizedStrings({
     errorCheckingOut: "Error when transferring to checkout:",
     purchaseSuccessful: "Purchase complete",
     thankYouForPurchasing: "Thank you for purchasing our product!",
+    terms: "Terms and conditions",
+    privacyStatement: "Privacy statement",
   },
   fi: {
     months: "kuukautta",
@@ -41,6 +43,8 @@ const strings = new LocalizedStrings({
     errorCheckingOut: "Virhe siirryttäessä maksunvälittäjän palveluun:",
     purchaseSuccessful: "Maksu suoritettu",
     thankYouForPurchasing: "Kiitos ostoksestasi!",
+    terms: "Sopimusehdot",
+    privacyStatement: "Rekisteri- ja tietosuojaseloste",
   },
 });
 

@@ -16,7 +16,8 @@ import Application from "react-rainbow-components/components/Application";
 import ResetPasswordPage from "./Authentication/ResetPasswordPage";
 import ReportsPage from "./Reports/ReportsPage";
 import PurchasePage from "./Purchase/PurchasePage";
-import TermsAndConditionsPage from "./TermsAndConditions/TermsAndConditionsPage";
+import PrivacyStatementPage from "./TermsAndConditions/PrivacyStatementPage";
+import TermsPage from "./TermsAndConditions/TermsPage";
 import SuccessPage from "./Purchase/SuccessPage";
 
 const theme = {
@@ -36,7 +37,8 @@ function App() {
             <NavigationBar />
             <Switch position="fixed">
               <Route path="/reset-password" component={ResetPasswordPage} />
-              <Route path="/terms" component={TermsAndConditionsPage} />
+              <Route path="/privacy-statement" component={PrivacyStatementPage} />
+              <Route path="/terms" component={TermsPage} />
               <PrivateRoute path="/app/successful-purchase" component={SuccessPage} />
               <PrivateRoute path="/app/purchase" component={PurchasePage} />
               <PrivateRoute path="/app/reports" component={ReportsPage} />

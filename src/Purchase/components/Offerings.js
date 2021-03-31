@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -72,7 +73,20 @@ export default function Offerings({ setSelectedOffering }) {
           </Col>
         ))}
       </Row>
-
+      <Row>
+        <Col>
+          <Link className="text-primary" to="/terms">
+            {strings.terms}
+          </Link>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Link className="text-primary" to="privacy-statement">
+            {strings.privacyStatement}
+          </Link>
+        </Col>
+      </Row>
       <p className="purchases-info-p">{strings.pricesIncludeVAT}</p>
       <p className="purchases-info-p">
         {strings.paymentInfo} <strong>{strings.customerServiceEmail}</strong>

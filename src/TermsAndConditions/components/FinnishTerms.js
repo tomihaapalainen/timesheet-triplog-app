@@ -5,114 +5,58 @@ import "./styles.css";
 export default function FinnishTerms() {
   return (
     <Container>
-      <h2 className="page-title">Rekisteri- ja tietosuojaseloste</h2>
-      <p className="mb-3">
-        Tämä on (Tmi) Code Fuzz EU:n yleisen tietosuoja-asetuksen (GDPR) mukainen rekisteri- ja
-        tietosuojaseloste. Laadittu 29.03.2021. Viimeisin muutos 29.03.2021.
+      <h2 className="page-title">Sopimusehdot</h2>
+      <p lead className="title">
+        1. Sopimus
+      </p>
+      <p className="paragraph">
+        Käyttämällä Pulikka-sovellusta hyväksyt nämä sopimusehdot ja sitoudut noudattamaan niitä.
+        Code Fuzz, Y-tunnus 2935633-4, ei ole vastuussa sovelluksen raportoimien arvojen
+        oikeellisuudesta. Käyttäjän on aina tarkastettava sovelluksen raportoimat arvot ennen niiden
+        käyttämistä.
+      </p>
+      <p className="paragraph">
+        Code Fuzz pidättää oikeuden muuttaa näitä sopimusehtoja julkaisemalla päivitetyt ehdot tällä
+        verkkosivustolla. Tutustu voimassa oleviin ehtoihin tällä sivustolla ennen palvelun
+        ostamista. Jatkamalla sovelluksen käyttöä hyväksyt nämä sopimusehdot.
       </p>
       <p lead className="title">
-        1. Rekisterinpitäjä
+        2. Rekisteröityminen
       </p>
-      <p>Code Fuzz</p>
-      <p>Kuninkaistentie 24</p>
-      <p>02610 Espoo</p>
-      <p lead className="title">
-        2. Rekisteristä vastaava yhteyshenkilö
-      </p>
-      <p>
-        Tomi Haapalainen
-        <br />
-        tomi.haapalainen@pulikka.fi
+      <p className="paragraph">
+        Rekisteröityminen sovellukseen on ilmaista. Rekisteröityminen vaatii voimassa olevan
+        sähköpostiosoitteen. Rekisteröityessä asiakas saa 30 päivän ilmaisen kokeilujakson.
+        Rekisteröityminen ei sido mihinkään.
       </p>
       <p lead className="title">
-        3. Rekisterin nimi
+        3. Sovelluksen käyttäminen
       </p>
-      <p className="paragraph">Pulikka.fi asiakasrekisteri</p>
+      <p className="paragraph">Sovelluksen käyttäminen vaatii internet-yhteyden.</p>
       <p lead className="title">
-        4. Oikeusperuste ja henkilötietojen käsittelyn tarkoitus
+        4. Tilaaminen
       </p>
       <p className="paragraph">
-        EU:n yleisen tietosuoja-asetuksen mukainen oikeusperuste henkilötietojen käsittelylle on
-        henkilön suostumus.
-      </p>
-      <p className="paragraph">
-        Henkilötietojen käsittelyn tarkoitus on yhteydenpito asiakkaisiin ja asiakassuhteen
-        ylläpitäminen.
-      </p>
-      <p className="paragraph">
-        Tietoja ei käytetä automatisoituun päätöksentekoon tai profilointiin.
+        Sovelluksen käyttöoikeus on määräaikainen. Käyttöoikeus tilataan 3 tai 12 kuukaudeksi
+        kerrallaan. Asiakkaan tulee uusia käyttöoikeus tilausjakson päätyttyä mikäli sovelluksen
+        käyttöä halutaan jatkaa. Tilaus onnistuu vain rekisteröityneiltä asiakkailta.
       </p>
       <p lead className="title">
-        5. Rekisterin tietosisältö
+        5. Maksut
       </p>
       <p className="paragraph">
-        Rekisteriin tallennettavia tietoja ovat henkilön nimi, yhteystiedot (sähköpostiosoite),
-        tiedot tilatuista palveluista ja laskutustiedot.
+        Maksut suoritetaan kortilla. Maksunvälittäjänä toimii Stripe. Lue lisää täältä:
       </p>
-      <p className="paragraph">
-        Verkkosivuston vierailijoiden IP-osoitteita ja palvelun toiminnoille välttämättömiä
-        evästeitä käsitellään oikeutetun edun perusteella mm. tietoturvasta huolehtimiseksi ja
-        sivuston vierailijoiden tilastotietojen keruuta varten niissä tapauksissa, kun niiden
-        voidaan katsoa olevan henkilötietoja. Kolmansien osapuolten evästeille pyydetään
-        tarvittaessa suostumus erikseen.
-      </p>
+      <a href="https://www.stripe.com" target="_blank" rel="noreferrer" className="text-primary">
+        https://www.stripe.com
+      </a>
       <p lead className="title">
-        6. Säännönmukaiset tietolähteet
+        6. Palautus
       </p>
       <p className="paragraph">
-        Rekisteriin tallennettavat tiedot saadaan asiakkaalta mm. www-lomakkeilla lähetetyistä
-        viesteistä, sähköpostitse, puhelimitse, sosiaalisen median palvelujen kautta, sopimuksista,
-        asiakastapaamisista ja muista tilanteista, joissa asiakas luovuttaa tietojaan.
-      </p>
-      <p className="paragraph">
-        Yritysten ja muiden organisaatioiden yhteyshenkilöiden tietoja voidaan kerätä myös
-        julkisista lähteistä kuten verkkosivuilta, hakemistopalveluista ja muilta yrityksiltä.
-      </p>
-      <p lead className="title">
-        7. Tietojen säännönmukaiset luovutukset ja tietojen siirto EU:n tai ETA:n ulkopuolelle
-      </p>
-      <p className="paragraph">
-        Tietoja ei luovuteta säännönmukaisesti muille tahoille. Tietoja voidaan julkaista siltä osin
-        kuin niin on sovittu asiakkaan kanssa.
-      </p>
-      <p className="paragraph">
-        Tietoja voidaan siirtää rekisterinpitäjän toimesta myös EU:n tai ETA:n ulkopuolelle.
-      </p>
-      <p lead className="title">
-        8. Rekisterin suojauksen periaattet
-      </p>
-      <p className="paragraph">
-        Rekisterin käsittelyssä noudatetaan huolellisuutta ja tietojärjestelmien avulla käsiteltävät
-        tiedot suojataan asianmukaisesti. Kun rekisteritietoja säilytetään Internet-palvelimilla,
-        niiden laitteiston fyysisestä ja digitaalisesta tietoturvasta huolehditaan asiaankuuluvasti.
-        Rekisterinpitäjä huolehtii siitä, että tallennettuja tietoja sekä palvelimien
-        käyttöoikeuksia ja muita henkilötietojen turvallisuuden kannalta kriittisiä tietoja
-        käsitellään luottamuksellisesti ja vain niiden työntekijöiden toimesta, joiden työnkuvaan se
-        kuuluu.
-      </p>
-      <p lead className="title">
-        9. Tarkastusoikeus ja oikeus vaatia tiedon korjaamista
-      </p>
-      <p className="paragraph">
-        Jokaisella rekisterissä olevalla henkilöllä on oikeus tarkistaa rekisteriin tallennetut
-        tietonsa ja vaatia mahdollisen virheellisen tiedon korjaamista tai puutteellisen tiedon
-        täydentämistä. Mikäli henkilö haluaa tarkistaa hänestä tallennetut tiedot tai vaatia niihin
-        oikaisua, pyyntö tulee lähettää kirjallisesti rekisterinpitäjälle asiakkaan tiliä
-        vastaavasta sähköpostiosoitteesta. Rekisterinpitäjä voi pyytää tarvittaessa pyynnön
-        esittäjää todistamaan henkilöllisyytensä. Rekisterinpitäjä vastaa asiakkaalle EU:n
-        tietosuoja-asetuksessa säädetyssä ajassa (pääsääntöisesti kuukauden kuluessa).
-      </p>
-      <p lead className="title">
-        10. Muut henkilötietojen käsittelyyn liittyvät oikeudet
-      </p>
-      <p className="paragraph">
-        Rekisterissä olevalla henkilöllä on oikeus pyytää häntä koskevien henkilötietojen
-        poistamiseen rekisteristä ("oikeus tulla unohdetuksi"). Niin ikään rekisteröidyillä on muut
-        EU:n yleisen tietosuoja-asetuksen mukaiset oikeudet kuten henkilötietojen käsittelyn
-        rajoittaminen tietyissä tilanteissa. Pyynnöt tulee lähettää kirjallisesti
-        rekisterinpitäjälle. Rekisterinpitäjä voi pyytää tarvittaessa pyynnön esittäjää todistamaan
-        henkilöllisyytensä. Rekisterinpitäjä vastaa asiakkaalle EU:n tietosuoja-asetuksessa
-        säädetyssä ajassa (pääsääntöisesti kuukauden kuluessa).
+        Palvelutuotteilla tai digitaalisella sisällöllä ei ole kuluttajansuojalain mukaisesti
+        peruutusoikeutta, jos palvelu on kokonaan suoritettu, tai digitaalisen sisällön
+        toimittaminen sähköisesti on aloitettu sinun annettua suostumuksesi toimittamisen
+        aloittamiseen ja jos peruutusoikeuden puuttumisesta on kerrottu ennakkoon.
       </p>
     </Container>
   );

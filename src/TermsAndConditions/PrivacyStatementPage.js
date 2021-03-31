@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import { useGSC } from "../store/GlobalStateProvider";
-import FinnishTerms from "./components/FinnishTerms";
-import EnglishTerms from "./components/EnglishTerms";
+import FinnishPrivacyStatement from "./components/FinnishPrivacyStatement";
+import EnglishPrivacyStatement from "./components/EnglishPrivacyStatement";
 
-const TermsAndConditionsPage = () => {
+const PrivacyStatementPage = () => {
   const { language } = useGSC();
 
   useEffect(() => {
@@ -23,10 +23,10 @@ const TermsAndConditionsPage = () => {
         maxWidth: "800px",
       }}
     >
-      {language === "en" && <EnglishTerms />}
-      {language === "fi" && <FinnishTerms />}
+      {language === "en" && <EnglishPrivacyStatement />}
+      {language === "fi" && <FinnishPrivacyStatement />}
     </Container>
   );
 };
 
-export default TermsAndConditionsPage;
+export default PrivacyStatementPage;
