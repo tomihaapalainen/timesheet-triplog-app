@@ -9,7 +9,7 @@ import { useGSC } from "../../store/GlobalStateProvider";
 import AccordionToggle from "../../shared/AccordionToggle";
 import strings from "./strings";
 
-export default function SavedTimesheets({ setStartDate, setStartTime, setEndDate, setEndTime }) {
+export default function SavedWorkTimes({ setStartDate, setStartTime, setEndDate, setEndTime }) {
   const { workTimes, language } = useGSC();
 
   strings.setLanguage(language);
@@ -36,7 +36,7 @@ export default function SavedTimesheets({ setStartDate, setStartTime, setEndDate
                   </Col>
                 )}
                 {workTimes.length > 0 && (
-                  <Col>
+                  <Col xs={12} lg={6}>
                     {workTimes
                       .sort((a, b) => (a.start < b.start ? -1 : 1))
                       .map((workTime) => (

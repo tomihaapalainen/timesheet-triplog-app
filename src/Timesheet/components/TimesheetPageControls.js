@@ -129,23 +129,25 @@ export default function TimesheetPageControls({
           </Row>
         </Toast.Body>
       </Toast>
-      <Row className="my-3">
-        <Col xs={6} className="d-flex justify-content-end">
-          <Button onClick={handleReset}>{strings.reset}</Button>
-        </Col>
-        <Col xs={6}>
-          {loading ? (
-            <Loading />
-          ) : (
+      {loading ? (
+        <Row className="my-3">
+          <Loading />
+        </Row>
+      ) : (
+        <Row className="my-3">
+          <Col xs={6} className="d-flex justify-content-end">
+            <Button onClick={handleReset}>{strings.reset}</Button>
+          </Col>
+          <Col xs={6}>
             <Button
               onClick={handleSave}
               disabled={startTime === null || endTime === null || !selectedProject || !isActive}
             >
               {strings.save}
             </Button>
-          )}
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      )}
     </Container>
   );
 }

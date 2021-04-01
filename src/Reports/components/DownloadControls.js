@@ -12,6 +12,7 @@ import { FaDownload } from "react-icons/fa";
 import strings from "./strings";
 import { useGSC } from "../../store/GlobalStateProvider";
 import { datetimeAsDateString } from "../../utils/datetimeutils";
+import "./styles.css";
 
 const fileDownload = require("js-file-download");
 
@@ -124,23 +125,13 @@ export default function DownloadControls({ start, end, selectedFormat, selectedP
   return (
     <Container>
       {loading ? (
-        <Loading />
+        <Row className="download-controls-row">
+          <Loading />
+        </Row>
       ) : (
-        <Row
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "50px",
-          }}
-        >
+        <Row className="download-controls-row">
           {errorMessage && <p className="text-danger">{errorMessage}</p>}
-          <Button
-            style={{ width: "90%", maxWidth: "240px" }}
-            className="my-3 py-2"
-            onClick={handleDownloadTimesheets}
-          >
+          <Button className="my-3 py-2 download-btn" onClick={handleDownloadTimesheets}>
             <Row>
               <Col xs={9}>
                 <p className="pr-4">{strings.timesheetReport}</p>
@@ -150,11 +141,7 @@ export default function DownloadControls({ start, end, selectedFormat, selectedP
               </Col>
             </Row>
           </Button>
-          <Button
-            style={{ width: "90%", maxWidth: "240px" }}
-            className="my-3 py-2"
-            onClick={handleDownloadTripLog}
-          >
+          <Button className="my-3 py-2 download-btn" onClick={handleDownloadTripLog}>
             <Row>
               <Col xs={9}>
                 <p className="pr-4">{strings.tripLogBtn}</p>

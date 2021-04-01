@@ -1,0 +1,12 @@
+.download-controls-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.download-btn {
+  width: 90%;
+  max-width: 240px;
+}

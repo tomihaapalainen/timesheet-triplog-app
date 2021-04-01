@@ -82,7 +82,7 @@ export default function Offerings({ setSelectedOffering }) {
       </Row>
       <Row>
         <Col>
-          <Link className="text-primary" to="privacy-statement">
+          <Link className="text-primary" to="/privacy-statement">
             {strings.privacyStatement}
           </Link>
         </Col>

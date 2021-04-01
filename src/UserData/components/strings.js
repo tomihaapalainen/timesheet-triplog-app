@@ -77,7 +77,7 @@ const strings = new LocalizedStrings({
     inviteUsers: "Invite users",
     inviteInfo:
       "Send this link to a friend. You will receive a permanent 1 € discount on your annual price every time a user you invited makes their first purchase in the application. The invited user receives a 20% discount on their first purchase as well.",
-    annualPriceInfo: "Annual price minimum 14.90 €",
+    annualPriceInfo: "Annual price minimum 19.90 €",
     linkCopied: "Link copied to clipboard",
     serverDidNotResponsd: "Server did not responsd. Please try again later.",
   },
@@ -160,7 +160,7 @@ const strings = new LocalizedStrings({
     inviteUsers: "Kutsu käyttäjiä",
     inviteInfo:
       "Lähetä tämä linkki tuttavillesi. Saat pysyvän 1 € alennuksen vuosihintaasi jokaista kutsumaasi oston tehnyttä käyttäjää kohden! Kutsuttu käyttäjä saa 20% alennuksen ensimmäisestä ostoksestaan.",
-    annualPriceInfo: "Vuosihinta alimmillaan 14,90 €",
+    annualPriceInfo: "Vuosihinta alimmillaan 19,90 €",
     linkCopied: "Linkki kopioitu",
     serverDidNotResponsd: "Palvelimeen ei saatu yhteyttä. Ole hyvä ja yritä myöhemmin uudelleen.",
   },

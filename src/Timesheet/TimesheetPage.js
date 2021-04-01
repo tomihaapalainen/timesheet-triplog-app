@@ -4,7 +4,7 @@ import ProjectSelection from "../shared/ProjectSelection";
 import WorkBreaks from "./components/WorkBreaks";
 import TimesheetSelect from "./components/TimesheetSelect";
 import TimesheetControls from "./components/TimesheetControls";
-import SavedTimesheets from "./components/SavedTimesheets";
+import SavedWorkTimes from "./components/SavedWorkTimes";
 import DailyAllowance from "./components/DailyAllowance";
 import TimesheetSummary from "./components/TimesheetSummary";
 import { getAndSetIfNotNull } from "../utils/storageutils";
@@ -43,7 +43,7 @@ export default function TimesheetPage() {
         endTime={endTime}
         setEndTime={setEndTime}
       />
-      <SavedTimesheets
+      <SavedWorkTimes
         setStartDate={setStartDate}
         setStartTime={setStartTime}
         setEndDate={setEndDate}

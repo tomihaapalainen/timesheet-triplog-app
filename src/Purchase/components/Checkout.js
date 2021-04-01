@@ -18,10 +18,11 @@ export default function Checkout({ offering, setOffering }) {
   const [errorMessage, setErrorMessage] = useState("");
   const { currentUser } = useAuth();
   const { language } = useGSC();
+
   strings.setLanguage(language);
 
-  const calculateDiscountedPrice = (o) => {
-    let price = ((o.price / 100 - o.referred_user_count) * (100 - o.discount)) / 100;
+  const getPrice = (o) => {
+    let price = o.discounted_price / 100;
     return price.toFixed(2);
   };
 
@@ -62,7 +63,7 @@ export default function Checkout({ offering, setOffering }) {
               </Button>
             </Col>
             <Col xs={10} className="d-flex align-items-center justify-content-start">
-              <p style={{ color: "white", fontSize: 17, fontWeight: "bold" }}>
+              <p className="offering-title">
                 {offering.duration} {strings.months}
               </p>
             </Col>
@@ -71,7 +72,7 @@ export default function Checkout({ offering, setOffering }) {
         <Card.Body>
           <Container className="d-flex flex-column justify-content-center align-items-start">
             <p className="my-1">
-              {strings.yourPrice} <strong>{calculateDiscountedPrice(offering)} €</strong>
+              {strings.yourPrice} <strong>{getPrice(offering)} €</strong>
             </p>
             <p className="my-1">{strings.purchaseInfo}</p>
           </Container>
