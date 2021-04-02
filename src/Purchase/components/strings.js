@@ -19,7 +19,8 @@ const strings = new LocalizedStrings({
     month: "month",
     errorCheckingOut: "Error when transferring to checkout:",
     purchaseSuccessful: "Purchase complete",
-    thankYouForPurchasing: "Thank you for purchasing our product!",
+    thankYouForPurchasing:
+      "Thank you for puchasing our product, and welcome back to using pulikka!",
     terms: "Terms and conditions",
     privacyStatement: "Privacy statement",
   },
@@ -42,7 +43,7 @@ const strings = new LocalizedStrings({
     month: "kk",
     errorCheckingOut: "Virhe siirryttäessä maksunvälittäjän palveluun:",
     purchaseSuccessful: "Maksu suoritettu",
-    thankYouForPurchasing: "Kiitos ostoksestasi!",
+    thankYouForPurchasing: "Kiitos ostoksestasi, ja tervetuloa jatkamaan pulikan käyttöä!",
     terms: "Sopimusehdot",
     privacyStatement: "Rekisteri- ja tietosuojaseloste",
   },

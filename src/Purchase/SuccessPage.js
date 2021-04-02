@@ -5,8 +5,8 @@ import strings from "./components/strings";
 
 export default function SuccessPage() {
   return (
-    <Container>
-      <Card>
+    <Container fluid className="justify-content-center align-items-center">
+      <Card style={{ maxWidth: "500px" }}>
         <Card.Header className="bg-primary text-white">
           <Card.Title>{strings.purchaseSuccessful}</Card.Title>
         </Card.Header>

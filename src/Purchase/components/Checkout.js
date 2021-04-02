@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
+import Loading from "../../shared/Loading";
 import { loadStripe } from "@stripe/stripe-js";
 import { FaArrowLeft } from "react-icons/fa";
 import { useGSC } from "../../store/GlobalStateProvider";
@@ -15,6 +16,7 @@ import { useAuth } from "../../contexts/AuthContext";
 const stripePromise = loadStripe(stripeApiKey);
 
 export default function Checkout({ offering, setOffering }) {
+  const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const { currentUser } = useAuth();
   const { language } = useGSC();
@@ -27,6 +29,7 @@ export default function Checkout({ offering, setOffering }) {
   };
 
   const startCheckout = async () => {
+    setLoading(true);
     const stripe = await stripePromise;
 
     let idToken = await currentUser.getIdToken(true);
@@ -42,6 +45,7 @@ export default function Checkout({ offering, setOffering }) {
 
     if (result.error) {
       setErrorMessage(result.error.message);
+      setLoading(false);
     }
   };
 
@@ -77,8 +81,16 @@ export default function Checkout({ offering, setOffering }) {
             <p className="my-1">{strings.purchaseInfo}</p>
           </Container>
         </Card.Body>
-        <Card.Footer style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
-          <Button onClick={startCheckout}>{strings.moveToCheckout}</Button>
+        <Card.Footer
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            height: "80px",
+          }}
+        >
+          {loading && <Loading />}
+          {!loading && <Button onClick={startCheckout}>{strings.moveToCheckout}</Button>}
         </Card.Footer>
       </Card>
     </Container>
