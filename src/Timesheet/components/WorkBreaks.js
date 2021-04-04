@@ -39,7 +39,7 @@ export default function WorkBreaks({
   return (
     <Container className="px-0 mx-0">
       <Card>
-        <Card.Body className="my-1 py-1">
+        <Card.Body className="my-1 py-2">
           <Col
             style={{
               display: "flex",

@@ -17,7 +17,7 @@ export default function TimesheetPage() {
   const [endDate, setEndDate] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
-  const [dailyAllowance, setDailyAllowance] = useState(0);
+  const [dailyAllowance, setDailyAllowance] = useState("");
   const [lunchDuration, setLunchDuration] = useState(0);
   const [breakDuration, setBreakDuration] = useState(0);
 
@@ -33,6 +33,12 @@ export default function TimesheetPage() {
   return (
     <Container className="my-3 w-100" style={{ maxWidth: "500px" }}>
       <ProjectSelection project={selectedProject} setProject={setSelectedProject} required={true} />
+      <SavedWorkTimes
+        setStartDate={setStartDate}
+        setStartTime={setStartTime}
+        setEndDate={setEndDate}
+        setEndTime={setEndTime}
+      />
       <TimesheetSelect
         startDate={startDate}
         setStartDate={setStartDate}
@@ -41,12 +47,6 @@ export default function TimesheetPage() {
         endDate={endDate}
         setEndDate={setEndDate}
         endTime={endTime}
-        setEndTime={setEndTime}
-      />
-      <SavedWorkTimes
-        setStartDate={setStartDate}
-        setStartTime={setStartTime}
-        setEndDate={setEndDate}
         setEndTime={setEndTime}
       />
       <DailyAllowance dailyAllowance={dailyAllowance} setDailyAllowance={setDailyAllowance} />

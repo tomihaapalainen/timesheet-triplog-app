@@ -40,6 +40,10 @@ export default function ProjectsAccordion({ projects, setProjects }) {
     }
   };
 
+  const calculateRate = (rateInCentsPerHour) => {
+    return (rateInCentsPerHour * 100).toFixed(2);
+  };
+
   return (
     <Accordion className="mx-auto mw-1024">
       <Card>
@@ -59,9 +63,10 @@ export default function ProjectsAccordion({ projects, setProjects }) {
                     <Row className="align-items-center">
                       <Col xs={9} sm={9} md={9} lg={9} xl={9}>
                         <p className="m-0 p-0">{p.project_name}</p>
-                        {p.hourly_rate && p.hourly_rate > 0 && (
+                        {p.hourly_rate > 0 && (
                           <p className="m-0 p-0">
-                            {strings.hourlyRate}: {p.hourly_rate} €
+                            {strings.hourlyRate}: {calculateRate(p.hourly_rate)} €/
+                            {language === "fi" ? "t" : "h"}
                           </p>
                         )}
                       </Col>

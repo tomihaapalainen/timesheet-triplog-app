@@ -28,7 +28,8 @@ export default function AddProjectModal({ show, setShow }) {
     setLoading(true);
     event.preventDefault();
     let name = nameRef.current.value;
-    let rate = hourlyRateRef.current.value;
+    let rate = parseInt(hourlyRateRef.current.value);
+    rate = isNaN(rate) ? 0 : rate * 100;
 
     if (!name) {
       setErrorMessage(strings.projectCannotBeEmpty);
@@ -48,11 +49,11 @@ export default function AddProjectModal({ show, setShow }) {
 
       let newProjects = [...projects, response.data];
       setProjects(newProjects);
+      setShow(false);
     } catch (error) {
       setErrorMessage(strings.addingProjectFailed);
     } finally {
       setLoading(false);
-      setShow(false);
     }
   };
 
@@ -76,7 +77,7 @@ export default function AddProjectModal({ show, setShow }) {
                     required
                     ref={nameRef}
                     type="text"
-                    placeholder={strings.projectName + "..."}
+                    placeholder={strings.projectName + "...*"}
                   />
                   <InputGroup>
                     <FormControl
@@ -85,7 +86,7 @@ export default function AddProjectModal({ show, setShow }) {
                       ref={hourlyRateRef}
                     />
                     <InputGroup.Append>
-                      <InputGroup.Text>EUR</InputGroup.Text>
+                      <InputGroup.Text>€</InputGroup.Text>
                     </InputGroup.Append>
                   </InputGroup>
                 </Form.Group>

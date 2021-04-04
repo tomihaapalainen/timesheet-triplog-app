@@ -22,8 +22,9 @@ export default function ReferralAccordion() {
   };
 
   const copyLinkToClipboard = (event) => {
-    referralLinkRef.current.select();
-    event.target.focus();
+    let linkTextarea = document.getElementById("referral-link-textarea");
+    linkTextarea.focus();
+    linkTextarea.select();
     document.execCommand("copy");
     setShowToast(true);
   };
@@ -52,12 +53,12 @@ export default function ReferralAccordion() {
                 </Toast.Body>
               </Toast>
               <FormControl
+                id="referral-link-textarea"
                 className="border-primary"
                 value={formatInvitationLink(invitationToken)}
                 style={{ height: "50px" }}
                 ref={referralLinkRef}
                 onChange={() => {}}
-                disabled
               />
               <InputGroup.Append>
                 <Button className="bg-primary border-primary" onClick={copyLinkToClipboard}>

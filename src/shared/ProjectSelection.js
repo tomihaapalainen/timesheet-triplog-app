@@ -23,9 +23,16 @@ export default function ProjectSelection({ project, setProject, required }) {
     }, 500);
   };
 
+  const calculateRate = (rateInCentsPerHour) => {
+    if (rateInCentsPerHour > 0) {
+      return (rateInCentsPerHour * 100).toFixed(2) + (language === "fi" ? " €/t" : " €/h");
+    }
+    return "";
+  };
+
   return (
     <Container className="px-0 mb-3">
-      <FormLabel>{strings.project + (required ? "*" : "")}</FormLabel>
+      <FormLabel className="mb-0">{strings.project + (required ? "...*" : "...")}</FormLabel>
       <InputGroup>
         <FormControl
           style={{ height: "40px" }}
@@ -39,7 +46,7 @@ export default function ProjectSelection({ project, setProject, required }) {
           </option>
           {projects.map((p) => (
             <option style={{ backgroundColor: "#fff" }} value={p.id} key={p.id}>
-              {p.project_name} | {p.hourly_rate} EUR
+              {p.project_name} {calculateRate(p.hourly_rate)}
             </option>
           ))}
         </FormControl>

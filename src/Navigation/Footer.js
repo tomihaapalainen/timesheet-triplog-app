@@ -19,12 +19,12 @@ export default function Footer() {
           <Col sm={12} md={6}></Col>
           <Col sm={12} md={3}>
             <Link to="/privacy-statement">
-              <p className="text-center">
+              <p className="text-center text-primary">
                 {strings.privacyStatement1} {strings.privacyStatement2}
               </p>
             </Link>
             <Link to="/terms">
-              <p className="text-center">
+              <p className="text-center text-primary">
                 {strings.terms1} {strings.terms2}
               </p>
             </Link>

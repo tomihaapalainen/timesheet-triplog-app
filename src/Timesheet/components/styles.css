@@ -13,3 +13,9 @@
 .summary-column {
   border: 1px solid lightgrey;
 }
+
+.quick-select-btn {
+  width: 31%;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}

@@ -103,6 +103,10 @@ export default function DownloadControls({ start, end, selectedFormat, selectedP
     }
   };
 
+  const getDisabled = () => {
+    return start === null || end === null || !selectedFormat;
+  };
+
   if (showFormatNotSelected) {
     return (
       <Alert
@@ -131,7 +135,11 @@ export default function DownloadControls({ start, end, selectedFormat, selectedP
       ) : (
         <Row className="download-controls-row">
           {errorMessage && <p className="text-danger">{errorMessage}</p>}
-          <Button className="my-3 py-2 download-btn" onClick={handleDownloadTimesheets}>
+          <Button
+            disabled={getDisabled()}
+            className="my-3 py-2 download-btn"
+            onClick={handleDownloadTimesheets}
+          >
             <Row>
               <Col xs={9}>
                 <p className="pr-4">{strings.timesheetReport}</p>
@@ -141,7 +149,11 @@ export default function DownloadControls({ start, end, selectedFormat, selectedP
               </Col>
             </Row>
           </Button>
-          <Button className="my-3 py-2 download-btn" onClick={handleDownloadTripLog}>
+          <Button
+            disabled={getDisabled()}
+            className="my-3 py-2 download-btn"
+            onClick={handleDownloadTripLog}
+          >
             <Row>
               <Col xs={9}>
                 <p className="pr-4">{strings.tripLogBtn}</p>

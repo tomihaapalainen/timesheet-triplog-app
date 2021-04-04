@@ -31,7 +31,8 @@ export default function AddProject() {
     setLoading(true);
     event.preventDefault();
     let name = nameRef.current.value;
-    let rate = hourlyRateRef.current.value;
+    let rate = parseFloat(hourlyRateRef.current.value);
+    rate = isNaN(rate) ? 0 : rate * 100;
 
     if (!name) {
       setErrorMessage(strings.projectCannotBeEmpty);

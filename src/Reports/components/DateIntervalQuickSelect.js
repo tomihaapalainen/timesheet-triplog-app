@@ -29,24 +29,6 @@ export default function DateIntervalQuickSelect({ setStart, setEnd }) {
     setEnd(end);
   };
 
-  const handlePreviousWeekClicked = () => {
-    let now = new Date();
-
-    let start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay() - 7 + 1);
-    let end = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay());
-    setStart(start);
-    setEnd(end);
-  };
-
-  const handleThisWeekClicked = () => {
-    let now = new Date();
-
-    let start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay() + 1);
-    let end = new Date(now.getFullYear(), now.getMonth(), now.getDate() + (7 - now.getDay()));
-    setStart(start);
-    setEnd(end);
-  };
-
   return (
     <Container
       style={{
@@ -54,7 +36,7 @@ export default function DateIntervalQuickSelect({ setStart, setEnd }) {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        height: "125px",
+        height: "75px",
       }}
     >
       <Row>
@@ -74,22 +56,6 @@ export default function DateIntervalQuickSelect({ setStart, setEnd }) {
             {strings.thisMonth}
           </Button>
         </ButtonGroup>
-      </Row>
-      <Row>
-        <Button
-          className="m-2"
-          style={{ borderRadius: "5px 0 0 5px", padding: "5px 15px" }}
-          onClick={handlePreviousWeekClicked}
-        >
-          {strings.lastWeek}
-        </Button>
-        <Button
-          className="m-2"
-          style={{ borderRadius: "0 5px 5px 0", padding: "5px 15px" }}
-          onClick={handleThisWeekClicked}
-        >
-          {strings.thisWeek}
-        </Button>
       </Row>
     </Container>
   );

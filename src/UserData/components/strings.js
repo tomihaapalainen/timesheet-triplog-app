@@ -129,7 +129,7 @@ const strings = new LocalizedStrings({
     accountExpired: "Tilisi käyttöoikeus on päättynyt",
     deleteMyAccount: "Poista käyttäjätili",
     deleteNote:
-      "Poistamalla tilisi kaikki sovelluksessa olevat tietosi poistetaan. Oletko varma, että haluat poistaa tilisi?",
+      "Poistamalla tilisi kaikki sovellukseen tallentamasi tiedot poistetaan. Oletko varma, että haluat poistaa tilisi?",
     delete: "Poista käyttäjätilini",
     password: "Salasana",
     checkPassword: "Tarkista salasana",

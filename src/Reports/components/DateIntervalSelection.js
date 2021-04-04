@@ -26,7 +26,7 @@ export default function DateIntervalSelection({ start, setStart, end, setEnd }) 
           <DatePicker
             value={start}
             onChange={(value) => handleSetStart(value)}
-            label={strings.startingDate}
+            label={strings.startingDate + "*"}
             locale="fi-FI"
           />
         </Col>
@@ -34,7 +34,7 @@ export default function DateIntervalSelection({ start, setStart, end, setEnd }) 
           <DatePicker
             value={end}
             onChange={(value) => handleSetEnd(value)}
-            label={strings.endingDate}
+            label={strings.endingDate + "*"}
             locale="fi-FI"
           />
         </Col>

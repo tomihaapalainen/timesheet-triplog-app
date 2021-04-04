@@ -1,13 +1,14 @@
 import React from "react";
 import Accordion from "react-bootstrap/Accordion";
+import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import ListGroup from "react-bootstrap/ListGroup";
 import { useGSC } from "../../store/GlobalStateProvider";
 import AccordionToggle from "../../shared/AccordionToggle";
 import strings from "./strings";
+import "./styles.css";
 
 export default function SavedWorkTimes({ setStartDate, setStartTime, setEndDate, setEndTime }) {
   const { workTimes, language } = useGSC();
@@ -26,31 +27,32 @@ export default function SavedWorkTimes({ setStartDate, setStartTime, setEndDate,
     <Container className="px-0 mx-0">
       <Accordion className="mx-auto mw-1024">
         <Card>
-          <AccordionToggle title={strings.quickSelect} />
+          <AccordionToggle title={strings.quickSelect} id="saved-worktime-toggle" />
           <Accordion.Collapse eventKey="0">
             <Card.Body className="mx-auto">
-              <Row>
-                {workTimes.length === 0 && (
-                  <Col>
-                    <p>{strings.noQuickSelections} </p>
-                  </Col>
-                )}
-                {workTimes.length > 0 && (
-                  <Col xs={12} lg={6}>
+              {workTimes.length === 0 && (
+                <Col>
+                  <p>{strings.noQuickSelections} </p>
+                </Col>
+              )}
+              {workTimes.length > 0 && (
+                <Row className="mx-0 px-0">
+                  <Col sm className="mx-0 px-0">
                     {workTimes
                       .sort((a, b) => (a.start < b.start ? -1 : 1))
                       .map((workTime) => (
-                        <ListGroup.Item
+                        <Button
+                          className="p-2 text-center quick-select-btn"
                           key={`${workTime.start}${workTime.end}`}
                           action
                           onClick={() => handleSavedTimesheetClicked(workTime)}
                         >
                           {workTime.start} - {workTime.end}
-                        </ListGroup.Item>
+                        </Button>
                       ))}
                   </Col>
-                )}
-              </Row>
+                </Row>
+              )}
             </Card.Body>
           </Accordion.Collapse>
         </Card>
