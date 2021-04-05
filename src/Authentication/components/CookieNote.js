@@ -28,15 +28,15 @@ export default function CookieNote() {
 
   return (
     <Navbar className="cookie-nav bg-primary text-light border-success">
-      <Container className="align-items-center">
-        <Row>
+      <Container fluid className="align-items-center">
+        <Row className="w-100">
           <Col xs={12} md={10} className="my-4">
             {strings.siteUsesCookies}
             <Link to="/terms" className="text-white" style={{ textDecoration: "underline" }}>
               {strings.here}
             </Link>
           </Col>
-          <Col xs={12} md={2}>
+          <Col xs={12} md={2} className="justify-content-center align-items-center">
             <Button
               variant="success"
               className="accept-cookies-btn my-4"

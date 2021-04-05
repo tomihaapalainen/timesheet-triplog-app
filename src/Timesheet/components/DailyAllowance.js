@@ -25,7 +25,7 @@ export default function DailyAllowance({ dailyAllowance, setDailyAllowance }) {
           <InputGroup>
             <FormControl
               type="number"
-              placeholder={strings.dailyAllowance}
+              placeholder={strings.dailyAllowance + "..."}
               value={dailyAllowance}
               onChange={handleDailyAllowanceChanged}
               onFocus={(event) => event.target.select()}

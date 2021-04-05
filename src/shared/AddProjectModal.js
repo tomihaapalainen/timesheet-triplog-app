@@ -28,7 +28,7 @@ export default function AddProjectModal({ show, setShow }) {
     setLoading(true);
     event.preventDefault();
     let name = nameRef.current.value;
-    let rate = parseInt(hourlyRateRef.current.value);
+    let rate = parseFloat(hourlyRateRef.current.value);
     rate = isNaN(rate) ? 0 : rate * 100;
 
     if (!name) {

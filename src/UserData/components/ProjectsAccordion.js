@@ -41,7 +41,7 @@ export default function ProjectsAccordion({ projects, setProjects }) {
   };
 
   const calculateRate = (rateInCentsPerHour) => {
-    return (rateInCentsPerHour * 100).toFixed(2);
+    return (rateInCentsPerHour / 100).toFixed(2);
   };
 
   return (

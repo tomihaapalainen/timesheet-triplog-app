@@ -59,6 +59,8 @@ export default function TimesheetPageControls({
     startDatetime.setHours(parseInt(startHours), parseInt(startMins), 0, 0);
     let endDatetime = new Date(endDate.getTime());
     endDatetime.setHours(parseInt(endHours), parseInt(endMins), 0, 0);
+    let allowance = parseInt(dailyAllowance);
+    allowance = isNaN(allowance) ? 0 : allowance;
 
     setErrorMessage("");
     setShowSuccess(false);
@@ -69,7 +71,7 @@ export default function TimesheetPageControls({
       project_id: selectedProject,
       lunch_duration: lunchDuration,
       break_duration: breakDuration,
-      daily_allowance: dailyAllowance,
+      daily_allowance: allowance,
     };
 
     try {

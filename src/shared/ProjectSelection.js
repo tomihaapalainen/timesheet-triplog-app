@@ -25,7 +25,7 @@ export default function ProjectSelection({ project, setProject, required }) {
 
   const calculateRate = (rateInCentsPerHour) => {
     if (rateInCentsPerHour > 0) {
-      return (rateInCentsPerHour * 100).toFixed(2) + (language === "fi" ? " €/t" : " €/h");
+      return (rateInCentsPerHour / 100).toFixed(2) + (language === "fi" ? " €/t" : " €/h");
     }
     return "";
   };
