@@ -32,7 +32,7 @@ export default function ProjectSelection({ project, setProject, required }) {
 
   return (
     <Container className="px-0 mb-3">
-      <FormLabel className="mb-0">{strings.project + (required ? "...*" : "...")}</FormLabel>
+      <FormLabel className="mb-0">{strings.project + (required ? "*" : "")}</FormLabel>
       <InputGroup>
         <FormControl
           style={{ height: "40px" }}

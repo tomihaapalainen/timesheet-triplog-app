@@ -5,8 +5,8 @@ import strings from "./components/strings";
 
 export default function SuccessPage() {
   return (
-    <Container fluid className="mt-5 mx-auto mw-1024">
-      <Card style={{ maxWidth: "500px" }}>
+    <Container fluid className="mt-5 mw-1024">
+      <Card style={{ maxWidth: "500px" }} className="mx-auto">
         <Card.Header className="bg-primary text-white">
           <Card.Title>{strings.purchaseSuccessful}</Card.Title>
         </Card.Header>
