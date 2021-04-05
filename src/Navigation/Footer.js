@@ -9,7 +9,7 @@ import strings from "./strings";
 
 export default function Footer() {
   return (
-    <Navbar sticky="bottom" className="py-0 bg-secondary text-black">
+    <Navbar sticky="bottom" className="py-0 bg-secondary text-dark">
       <Container fluid className="py-2">
         <Row className="d-flex align-items-center w-100 mx-0 px-0">
           <Col sm={12} md={3}>

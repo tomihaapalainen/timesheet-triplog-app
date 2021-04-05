@@ -10,11 +10,11 @@ import ActiveUntil from "./components/ActiveUntil";
 import DeleteUserAccordion from "./components/DeleteUserAccordion";
 
 export default function UserDataPage() {
-  const { activeUntil, projects, setProjects, workTimes, setTimesheets } = useGSC();
+  const { isActive, activeUntil, projects, setProjects, workTimes, setTimesheets } = useGSC();
 
   return (
     <Container style={{ maxWidth: "500px" }}>
-      <ActiveUntil activeUntil={activeUntil} />
+      <ActiveUntil isActive={isActive} activeUntil={activeUntil} />
       <ProjectsAccordion projects={projects} setProjects={setProjects} />
       <WorkingTimesAccordion workTimes={workTimes} setTimesheets={setTimesheets} />
       <ReferralAccordion />

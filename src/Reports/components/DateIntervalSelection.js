@@ -20,9 +20,9 @@ export default function DateIntervalSelection({ start, setStart, end, setEnd }) 
   };
 
   return (
-    <Container style={{ height: "100px", maxWidth: "500px" }}>
-      <Row>
-        <Col className="my-1">
+    <Container className="mx-0 px-0" style={{ height: "100px", maxWidth: "500px" }}>
+      <Row className="mx-0 px-0">
+        <Col xs={6} className="my-1 mx-0 px-1">
           <DatePicker
             value={start}
             onChange={(value) => handleSetStart(value)}
@@ -30,7 +30,7 @@ export default function DateIntervalSelection({ start, setStart, end, setEnd }) 
             locale="fi-FI"
           />
         </Col>
-        <Col className="my-1">
+        <Col xs={6} className="my-1 mx-0 px-1">
           <DatePicker
             value={end}
             onChange={(value) => handleSetEnd(value)}

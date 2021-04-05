@@ -10,6 +10,10 @@ const strings = new LocalizedStrings({
     hourlyRate: "Hourly rate",
     add: "Add",
     close: "Close",
+    remove: "Remove",
+    removeProjectNote:
+      "By removing this project all working data and trip logs corresponding to this project will also be removed. Are you sure you want to remove the project?",
+    removeProject: "Remove project",
     timeAlreadyAdded: "Work time already added",
     addingWorktimeFailed: "Adding work time failed. Please try again later.",
     addWorktime: "Add working time",
@@ -90,6 +94,10 @@ const strings = new LocalizedStrings({
     hourlyRate: "Tuntilaskutus",
     add: "Lisää",
     close: "Sulje",
+    remove: "Poista",
+    removeProjectNote:
+      "Poistamalla tämän projektin myös kaikki projektiin liittyvät työajat ja ajotiedot poistetaan. Oletko varma, että haluat poistaa projektin?",
+    removeProject: "Poista projekti",
     timeAlreadyAdded: "Aika on jo lisätty",
     addingWorktimeFailed: "Työajan lisääminen ei onnistunut. Yritä myöhemmin uudelleen.",
     addWorktime: "Lisää työaika",

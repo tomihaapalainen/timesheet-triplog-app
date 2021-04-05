@@ -71,7 +71,12 @@ export default function DeleteUserAccordion() {
                   ref={passwordRef}
                 />
               </Form.Group>
-              <Button className="text-white" type="submit" variant="danger" onClick={handleSubmit}>
+              <Button
+                className="text-white text-uppercase"
+                type="submit"
+                variant="danger"
+                onClick={handleSubmit}
+              >
                 {strings.deleteMyAccount}
               </Button>
               {errorMessage && <p className="text-warning">{strings.checkPassword}</p>}

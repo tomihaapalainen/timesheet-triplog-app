@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Accordion from "react-bootstrap/Accordion";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
 import ListGroup from "react-bootstrap/ListGroup";
-import Row from "react-bootstrap/Row";
-import { FaTrashAlt } from "react-icons/fa";
 import AddProject from "./AddProject";
 import { useAuth } from "../../contexts/AuthContext";
 import { baseUrl } from "../../config";
 import AccordionToggle from "../../shared/AccordionToggle";
 import strings from "./strings";
 import { useGSC } from "../../store/GlobalStateProvider";
+import ProjectListItem from "./ProjectListItem";
 
 export default function ProjectsAccordion({ projects, setProjects }) {
   const { language } = useGSC();
@@ -40,10 +37,6 @@ export default function ProjectsAccordion({ projects, setProjects }) {
     }
   };
 
-  const calculateRate = (rateInCentsPerHour) => {
-    return (rateInCentsPerHour / 100).toFixed(2);
-  };
-
   return (
     <Accordion className="mx-auto mw-1024">
       <Card>
@@ -59,27 +52,7 @@ export default function ProjectsAccordion({ projects, setProjects }) {
             <ListGroup>
               {projects.map((p) => (
                 <ListGroup.Item key={p.id}>
-                  <Container>
-                    <Row className="align-items-center">
-                      <Col xs={9} sm={9} md={9} lg={9} xl={9}>
-                        <p className="m-0 p-0">{p.project_name}</p>
-                        {p.hourly_rate > 0 && (
-                          <p className="m-0 p-0">
-                            {strings.hourlyRate}: {calculateRate(p.hourly_rate)} €/
-                            {language === "fi" ? "t" : "h"}
-                          </p>
-                        )}
-                      </Col>
-                      <Col xs={3} sm={3} md={3} lg={3} xl={3}>
-                        <Button
-                          className="d-flex justify-content-center align-items-center"
-                          onClick={() => handleRemove(p.id)}
-                        >
-                          <FaTrashAlt size={25} color="#fff" />
-                        </Button>
-                      </Col>
-                    </Row>
-                  </Container>
+                  <ProjectListItem language={language} handleRemove={handleRemove} project={p} />
                 </ListGroup.Item>
               ))}
             </ListGroup>
