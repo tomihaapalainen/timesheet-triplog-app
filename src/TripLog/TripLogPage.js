@@ -78,6 +78,7 @@ export default function TripLogPage() {
   };
 
   const checkStartedTrips = () => {
+    let tripOngoing = false;
     let tripStart = localStorage.getItem("trip-start");
     if (tripStart !== null) {
       let data = JSON.parse(localStorage.getItem("trip-start"));
@@ -85,10 +86,11 @@ export default function TripLogPage() {
       setCurrentKilometers(data.meterValue.toString());
       setSelectedProject(data.projectId);
       setDescription(data.description);
-      setCompensation(data.compensation);
+      setCompensation(data.compensation / 100);
       setVehicle(data.vehicle);
       setRoute(data.route);
       setTripStart(data);
+      tripOngoing = true;
     }
 
     let tripEnd = localStorage.getItem("trip-end");
@@ -98,11 +100,14 @@ export default function TripLogPage() {
       setCurrentKilometers(data.meterValue.toString());
       setSelectedProject(data.projectId);
       setDescription(data.description);
-      setCompensation(data.compensation);
+      setCompensation(data.compensation / 100);
       setVehicle(data.vehicle);
       setRoute(data.route);
       setTripEnd(data);
+      tripOngoing = true;
     }
+
+    return tripOngoing;
   };
 
   const checkLastTripData = async () => {
@@ -119,26 +124,12 @@ export default function TripLogPage() {
   };
 
   useEffect(() => {
-    checkLastTripData();
-    checkStartedTrips();
+    let tripOngoing = checkStartedTrips();
+    if (!tripOngoing) {
+      checkLastTripData();
+    }
     setInitializing(false);
   }, []);
-
-  useEffect(() => {
-    if (tripStart === null) {
-      localStorage.removeItem("trip-start");
-    } else {
-      localStorage.setItem("trip-start", JSON.stringify(tripStart));
-    }
-  }, [tripStart]);
-
-  useEffect(() => {
-    if (tripEnd === null) {
-      localStorage.removeItem("trip-end");
-    } else {
-      localStorage.setItem("trip-end", JSON.stringify(tripEnd));
-    }
-  }, [tripEnd]);
 
   const setCurrentKilometers = (newValue) => {
     newValue = ("000000" + newValue).slice(-6);
@@ -155,27 +146,31 @@ export default function TripLogPage() {
 
   const handleTripStart = () => {
     setTripData(null);
-    setTripStart({
+    let data = {
       datetime: new Date(),
       projectId: selectedProject,
       meterValue: parseKilometers(),
       description: descriptionRef.current.value,
-      compensation: compensationRef.current.value,
+      compensation: parseFloat(compensationRef.current.value) * 100,
       vehicle: vehicle,
       route: route,
-    });
+    };
+    setTripStart(data);
+    localStorage.setItem("trip-start", JSON.stringify(data));
   };
 
   const handleTripEnd = () => {
-    setTripEnd({
+    let data = {
       datetime: new Date(),
       projectId: selectedProject,
       meterValue: parseKilometers(),
       description: descriptionRef.current.value,
-      compensation: compensationRef.current.value,
+      compensation: parseFloat(compensationRef.current.value) * 100,
       vehicle: vehicle,
       route: route,
-    });
+    };
+    setTripEnd(data);
+    localStorage.setItem("trip-end", JSON.stringify(data));
   };
 
   const handleSubmit = async () => {
@@ -204,7 +199,9 @@ export default function TripLogPage() {
           if (response.status === 200) {
             setTripData(response.data);
             setTripEnd(null);
+            localStorage.removeItem("trip-end");
             setTripStart(null);
+            localStorage.removeItem("trip-start");
             sessionStorage.removeItem("last-trip-data");
           }
         })
@@ -235,6 +232,7 @@ export default function TripLogPage() {
   };
 
   const getSaveDisabled = () => {
+    console.log(vehicle, selectedProject, isActive, route, compensationRef.current.value);
     return !vehicle || !selectedProject || !isActive || !route || !compensationRef.current.value
       ? { disabled: true }
       : {};
@@ -242,11 +240,13 @@ export default function TripLogPage() {
 
   const handleCancelStart = () => {
     setTripStart(null);
+    localStorage.removeItem("trip-start");
     setShowCancelStartDialog(false);
   };
 
   const handleCancelEnd = () => {
     setTripEnd(null);
+    localStorage.removeItem("trip-end");
     setShowCancelEndDialog(false);
   };
 
@@ -315,6 +315,7 @@ export default function TripLogPage() {
         vehicle={vehicle}
         descriptionRef={descriptionRef}
         compensationRef={compensationRef}
+        setTripData={setTripData}
       />
       <MeterInput kilometers={kilometers} setCurrentKilometers={setCurrentKilometers} />
       {!isActive && <p className="text-danger">{strings.accountNoLongerActive}</p>}

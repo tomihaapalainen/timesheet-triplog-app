@@ -28,6 +28,7 @@ export default function AddTripManually({
   descriptionRef,
   route,
   compensationRef,
+  setTripData,
 }) {
   const { language, isActive } = useGSC();
   strings.setLanguage(language);
@@ -100,6 +101,8 @@ export default function AddTripManually({
       });
 
       if (response.status === 200) {
+        setTripData(response.data);
+        sessionStorage.removeItem("last-trip-data");
         setShowSuccess(true);
         setDistance("");
       }
