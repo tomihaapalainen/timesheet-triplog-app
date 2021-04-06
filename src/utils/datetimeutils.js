@@ -11,7 +11,7 @@ export function datetimeAsDateISOString(date) {
   let year = date.getFullYear();
   let month = date.getMonth() + 1;
   let day = date.getDate();
-  return `${year}-${month.toString().padStart(2, "0")}-${day}`;
+  return `${year}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
 }
 
 export function datetimeAsTimeString(date, language) {
@@ -24,7 +24,7 @@ export function timestampToDate(timestamp) {
 
 export function currentTime() {
   let d = new Date();
-  return `${d.getHours()}:${d.getMinutes()}`;
+  return `${d.getHours()}:${d.getMinutes().toString().padStart(2, "0")}`;
 }
 
 export function datetimeToLocalISOString(datetime) {

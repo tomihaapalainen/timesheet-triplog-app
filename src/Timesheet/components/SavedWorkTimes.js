@@ -27,7 +27,7 @@ export default function SavedWorkTimes({ setStartDate, setStartTime, setEndDate,
     <Container className="px-0 mx-0">
       <Accordion className="mx-auto mw-1024">
         <Card>
-          <AccordionToggle title={strings.quickSelect} id="saved-worktime-toggle" />
+          <AccordionToggle title={strings.quickSelect} />
           <Accordion.Collapse eventKey="0">
             <Card.Body className="mx-auto">
               {workTimes.length === 0 && (

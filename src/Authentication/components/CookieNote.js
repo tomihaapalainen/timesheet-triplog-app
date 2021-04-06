@@ -28,7 +28,7 @@ export default function CookieNote() {
 
   return (
     <Navbar className="cookie-nav bg-primary text-light border-success">
-      <Container fluid className="align-items-center">
+      <Container fluid className="align-items-center pb-4">
         <Row className="w-100">
           <Col xs={12} md={10} className="my-4">
             {strings.siteUsesCookies}

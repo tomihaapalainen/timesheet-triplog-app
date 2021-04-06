@@ -56,9 +56,9 @@ export default function DownloadControls({ start, end, selectedFormat, selectedP
       if (error.response) {
         if (error.response.status === 404) {
           setErrorMessage(
-            `${
-              strings.noTrips
-            } ${start.getMonth()}.${start.getFullYear()} - ${end.getMonth()}.${end.getFullYear()}`
+            `${strings.noTrips} ${start.getMonth() + 1}.${start.getFullYear()} - ${
+              end.getMonth() + 1
+            }.${end.getFullYear()}`
           );
         }
       }
