@@ -338,8 +338,7 @@ export default function TripLogPage() {
           <Row>
             <Col>
               <p className="my-0 py-0">
-                {strings.tripStarted}:{" "}
-                {datetimeAsDateAndTimeString(tripStart.datetime, "DD.MM.YYYY", "HH:mm")}
+                {strings.tripStarted}: {datetimeAsDateAndTimeString(tripStart.datetime, language)}
               </p>
             </Col>
           </Row>
@@ -357,8 +356,7 @@ export default function TripLogPage() {
           <Row>
             <Col>
               <p className="my-0 py-0">
-                {strings.tripEnded}:{" "}
-                {datetimeAsDateAndTimeString(tripEnd.datetime, "DD.MM.YYYY", "HH:mm")}
+                {strings.tripEnded}: {datetimeAsDateAndTimeString(tripEnd.datetime, language)}
               </p>
             </Col>
           </Row>

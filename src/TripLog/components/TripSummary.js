@@ -37,15 +37,11 @@ export default function TripSummary({ tripData }) {
             </ListGroup.Item>
             <ListGroup.Item>
               <Row>
-                <Col xs={7}>
-                  {datetimeAsDateAndTimeString(tripData.start_datetime, "DD.MM.YYYY", "HH:mm")}
-                </Col>
+                <Col xs={7}>{datetimeAsDateAndTimeString(tripData.start_datetime, language)}</Col>
                 <Col xs={5}>{tripData.start_km}</Col>
               </Row>
               <Row>
-                <Col xs={7}>
-                  {datetimeAsDateAndTimeString(tripData.end_datetime, "DD.MM.YYYY", "HH:mm")}
-                </Col>
+                <Col xs={7}>{datetimeAsDateAndTimeString(tripData.end_datetime, language)}</Col>
                 <Col xs={5}>{tripData.end_km}</Col>
               </Row>
               <Row>

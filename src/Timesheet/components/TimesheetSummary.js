@@ -50,9 +50,9 @@ export default function TimesheetSummary({
           <Row>
             <Col className="summary-column">
               <p className="m-1 p-0">
-                {datetimeAsDateString(startDate, "DD.MM.YYYY")}
+                {datetimeAsDateString(startDate, language)}
                 {startDate.getDay() !== endDate.getDay() &&
-                  ` - ${datetimeAsDateString(endDate, "DD.MM.YYYY")}`}{" "}
+                  ` - ${datetimeAsDateString(endDate, language)}`}{" "}
               </p>
             </Col>
             <Col className="summary-column">

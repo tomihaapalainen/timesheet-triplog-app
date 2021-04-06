@@ -21,13 +21,13 @@ export default function TimesheetControls({
   const handleStartNow = () => {
     let date = new Date();
     setStartDate(date);
-    setStartTime(datetimeAsTimeString(date, "HH:mm"));
+    setStartTime(datetimeAsTimeString(date, language));
   };
 
   const handleEndNow = () => {
     let date = new Date();
     setEndDate(date);
-    setEndTime(datetimeAsTimeString(date, "HH:mm"));
+    setEndTime(datetimeAsTimeString(date, language));
   };
 
   return (

@@ -13,15 +13,15 @@ import Loading from "../../shared/Loading";
 import strings from "../../Timesheet/components/strings";
 
 export default function AddWorkingTime() {
-  const [start, setStart] = useState(datetimeAsTimeString(new Date(), "HH:mm"));
-  const [end, setEnd] = useState(datetimeAsTimeString(new Date(), "HH:mm"));
-  const [errorMessage, setErrorMessage] = useState("");
-  const [loading, setLoading] = useState(false);
+  const { workTimes, setTimesheets, language, isActive } = useGSC();
+  strings.setLanguage(language);
 
   const { currentUser } = useAuth();
-  const { workTimes, setTimesheets, language, isActive } = useGSC();
 
-  strings.setLanguage(language);
+  const [start, setStart] = useState(datetimeAsTimeString(new Date(), language));
+  const [end, setEnd] = useState(datetimeAsTimeString(new Date(), language));
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleAddWorkingTime = async () => {
     setLoading(true);

@@ -11,7 +11,7 @@ import { baseUrl } from "../../config";
 import { FaDownload } from "react-icons/fa";
 import strings from "./strings";
 import { useGSC } from "../../store/GlobalStateProvider";
-import { datetimeAsDateString } from "../../utils/datetimeutils";
+import { datetimeAsDateISOString } from "../../utils/datetimeutils";
 import "./styles.css";
 
 const fileDownload = require("js-file-download");
@@ -35,8 +35,8 @@ export default function DownloadControls({ start, end, selectedFormat, selectedP
     setLoading(true);
 
     let data = {
-      start: datetimeAsDateString(start, "YYYY-MM-DD"),
-      end: datetimeAsDateString(end, "YYYY-MM-DD"),
+      start: datetimeAsDateISOString(start),
+      end: datetimeAsDateISOString(end),
       fmt: selectedFormat,
       project: selectedProject || 0,
       language: language,
@@ -75,8 +75,8 @@ export default function DownloadControls({ start, end, selectedFormat, selectedP
     setLoading(true);
 
     let data = {
-      start: datetimeAsDateString(start, "YYYY-MM-DD"),
-      end: datetimeAsDateString(end, "YYYY-MM-DD"),
+      start: datetimeAsDateISOString(start),
+      end: datetimeAsDateISOString(end),
       fmt: selectedFormat,
       project: selectedProject || 0,
       language: language,

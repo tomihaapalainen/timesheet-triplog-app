@@ -9,7 +9,7 @@ export default function ActiveUntil({ isActive, activeUntil }) {
   const { language } = useGSC();
   strings.setLanguage(language);
 
-  const activeUntilDate = datetimeAsDateString(new Date(Date.parse(activeUntil)), "DD.MM.YYYY");
+  const activeUntilDate = datetimeAsDateString(new Date(Date.parse(activeUntil)), language);
 
   return (
     <Container fluid className="mx-0 px-0 pt-3">
