@@ -21,17 +21,24 @@ export default function WorkTimeListItem({ handleRemove, workTime }) {
   return (
     <Container>
       <Row className="d-flex justify-content-center align-items-center">
-        <Col xs={8} className="d-flex justify-content-center align-items-center">
+        <Col className="mx-0 px-0" xs={8}>
           <p className="m-0 p-0">
             {workTime.start} - {workTime.end}
           </p>
         </Col>
-        <Col xs={4}>
-          {loading && <Spinner animation="border" role="status" variant="primary" />}
+        <Col className="mx-0 px-0" xs={4}>
+          {loading && (
+            <Spinner
+              className="d-flex ml-auto"
+              animation="border"
+              role="status"
+              variant="primary"
+            />
+          )}
           {!loading && (
             <Button
               variant="danger"
-              className="d-flex justify-content-center align-items-center"
+              className="d-flex ml-auto"
               onClick={() => removeWorkTime(workTime.id)}
             >
               <FaTrashAlt size={25} color="#FFF" />

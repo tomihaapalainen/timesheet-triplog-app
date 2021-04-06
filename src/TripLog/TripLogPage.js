@@ -232,7 +232,6 @@ export default function TripLogPage() {
   };
 
   const getSaveDisabled = () => {
-    console.log(vehicle, selectedProject, isActive, route, compensationRef.current.value);
     return !vehicle || !selectedProject || !isActive || !route || !compensationRef.current.value
       ? { disabled: true }
       : {};

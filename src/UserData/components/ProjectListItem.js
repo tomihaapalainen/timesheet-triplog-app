@@ -30,7 +30,7 @@ export default function ProjectListItem({ language, handleRemove, project }) {
   return (
     <Container>
       <Row className="align-items-center">
-        <Col xs={8}>
+        <Col className="mx-0 px-0" xs={8}>
           <p className="m-0 p-0">{project.project_name}</p>
           {project.hourly_rate > 0 && (
             <p className="m-0 p-0">
@@ -39,14 +39,17 @@ export default function ProjectListItem({ language, handleRemove, project }) {
             </p>
           )}
         </Col>
-        <Col xs={4}>
-          {loading && <Spinner variant="primary" animation="border" role="status" />}
+        <Col className="mx-0 px-0" xs={4}>
+          {loading && (
+            <Spinner
+              className="d-flex ml-auto"
+              variant="primary"
+              animation="border"
+              role="status"
+            />
+          )}
           {!loading && (
-            <Button
-              variant="danger"
-              className="d-flex justify-content-center align-items-center"
-              onClick={() => setShow(true)}
-            >
+            <Button variant="danger" className="d-flex ml-auto" onClick={() => setShow(true)}>
               <FaTrashAlt size={25} color="#FFF" />
             </Button>
           )}

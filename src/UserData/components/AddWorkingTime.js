@@ -86,9 +86,6 @@ export default function AddWorkingTime() {
       >
         <Col>
           <Row>
-            <p className="mx-auto mb-3">{strings.addWorktime}</p>
-          </Row>
-          <Row>
             <TimePicker
               id="start-time-picker"
               value={start}
