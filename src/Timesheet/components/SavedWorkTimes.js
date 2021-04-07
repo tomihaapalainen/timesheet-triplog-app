@@ -10,16 +10,25 @@ import AccordionToggle from "../../shared/AccordionToggle";
 import strings from "./strings";
 import "./styles.css";
 
-export default function SavedWorkTimes({ setStartDate, setStartTime, setEndDate, setEndTime }) {
+export default function SavedWorkTimes({
+  startDate,
+  endDate,
+  setStartDate,
+  setStartTime,
+  setEndDate,
+  setEndTime,
+}) {
   const { workTimes, language } = useGSC();
 
   strings.setLanguage(language);
 
   const handleSavedTimesheetClicked = (workTime) => {
-    let date = new Date();
-    setStartDate(date);
+    let startingDate = startDate || new Date();
+    let endingDate = endDate || new Date();
+
+    setStartDate(startingDate);
     setStartTime(workTime.start);
-    setEndDate(date);
+    setEndDate(endingDate);
     setEndTime(workTime.end);
   };
 

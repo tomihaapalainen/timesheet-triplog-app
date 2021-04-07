@@ -1,12 +1,12 @@
 .toast {
-  position: absolute;
-  top: 40px;
-  height: 50px;
-  width: 90%;
-  max-width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 60px;
+  width: 90%;
+  height: 125px;
+  max-width: 400px;
   z-index: 100;
 }
 

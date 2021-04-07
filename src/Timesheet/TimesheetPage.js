@@ -34,6 +34,8 @@ export default function TimesheetPage() {
     <Container className="my-3 w-100" style={{ maxWidth: "500px" }}>
       <ProjectSelection project={selectedProject} setProject={setSelectedProject} required={true} />
       <SavedWorkTimes
+        startDate={startDate}
+        endDate={endDate}
         setStartDate={setStartDate}
         setStartTime={setStartTime}
         setEndDate={setEndDate}

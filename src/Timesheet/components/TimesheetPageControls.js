@@ -116,10 +116,10 @@ export default function TimesheetPageControls({
         variant="success"
         className="bg-success text-white toast"
         autohide
-        delay={3000}
+        delay={2500}
       >
-        <Toast.Body style={{ height: "150px" }}>
-          <Row className="align-items-center">
+        <Toast.Body className="d-flex justify-content-center align-items-center h-100">
+          <Row>
             <Col xs={10}>
               <p className="font-weight-bold" style={{ fontSize: 18 }}>
                 {strings.worktimeSaved}

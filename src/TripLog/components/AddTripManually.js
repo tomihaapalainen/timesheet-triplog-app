@@ -37,8 +37,8 @@ export default function AddTripManually({
 
   const [showSuccess, setShowSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [startDatetime, setStartDatetime] = useState(null);
-  const [endDatetime, setEndDatetime] = useState(null);
+  const [startDatetime, setStartDatetime] = useState(new Date());
+  const [endDatetime, setEndDatetime] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -80,14 +80,20 @@ export default function AddTripManually({
       return;
     }
 
+    let start = new Date(startDatetime.getTime());
+    let end = new Date(endDatetime.getTime());
+
+    start.setSeconds(0, 0);
+    end.setSeconds(0, 0);
+
     let compensationAmount = compensationRef.current.value;
     let data = {
       vehicle: vehicle,
       project_id: selectedProject,
       start_km: currentKilometers - traveledDistance,
-      start_datetime: datetimeToLocalISOString(startDatetime),
+      start_datetime: datetimeToLocalISOString(start),
       end_km: currentKilometers,
-      end_datetime: datetimeToLocalISOString(endDatetime),
+      end_datetime: datetimeToLocalISOString(end),
       compensation: parseFloat(compensationAmount) * 100,
       description: descriptionRef.current.value,
       route: route,
@@ -177,7 +183,7 @@ export default function AddTripManually({
                 <FormGroup>
                   <DateTimePicker
                     style={{ marginBottom: "5px" }}
-                    value={startDatetime || new Date()}
+                    value={startDatetime}
                     onChange={handleStartChanged}
                     label={strings.tripStart}
                     locale="fi-FI"
@@ -185,7 +191,7 @@ export default function AddTripManually({
                   />
                   <DateTimePicker
                     style={{ marginBottom: "5px" }}
-                    value={endDatetime || new Date()}
+                    value={endDatetime}
                     onChange={(value) => setEndDatetime(value)}
                     label={strings.tripEnd}
                     locale="fi-FI"
