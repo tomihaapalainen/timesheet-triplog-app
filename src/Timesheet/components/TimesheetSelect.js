@@ -44,7 +44,7 @@ export default function TimesheetSelect({
             <Col xs={5} className="mx-0 px-1">
               <TimePicker
                 label={strings.time}
-                value={startTime !== null ? startTime : currentTime("HH:mm")}
+                value={startTime !== null ? startTime : currentTime()}
                 onChange={(val) => setStartTime(val)}
                 hour24
                 locale="fi-FI"
@@ -65,7 +65,7 @@ export default function TimesheetSelect({
             <Col xs={5} className="mx-0 px-1">
               <TimePicker
                 label={strings.time}
-                value={endTime !== null ? endTime : currentTime("HH:mm")}
+                value={endTime !== null ? endTime : currentTime()}
                 onChange={(val) => setEndTime(val)}
                 hour24
                 locale="fi-FI"

@@ -10,7 +10,6 @@ const strings = new LocalizedStrings({
     add: "Add",
     close: "Close",
     project: "Project",
-    loading: "Loading...",
   },
   fi: {
     projectCannotBeEmpty: "Projektin nimi on täytettävä",
@@ -22,7 +21,6 @@ const strings = new LocalizedStrings({
     close: "Sulje",
     project: "Projekti",
     projects: "Projektit",
-    loading: "Ladataan...",
   },
 });
 

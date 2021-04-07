@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { useGSC } from "../../store/GlobalStateProvider";
 import { useAuth } from "../../contexts/AuthContext";
-import { datetimeAsTimeString } from "../../utils/datetimeutils";
+import { currentTime } from "../../utils/datetimeutils";
 import { baseUrl } from "../../config";
 import TimePicker from "react-rainbow-components/components/TimePicker";
 import Loading from "../../shared/Loading";
@@ -18,8 +18,8 @@ export default function AddWorkingTime() {
 
   const { currentUser } = useAuth();
 
-  const [start, setStart] = useState(datetimeAsTimeString(new Date(), language));
-  const [end, setEnd] = useState(datetimeAsTimeString(new Date(), language));
+  const [start, setStart] = useState(currentTime());
+  const [end, setEnd] = useState(currentTime());
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 

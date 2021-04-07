@@ -11,6 +11,7 @@ const strings = new LocalizedStrings({
     vehicle: "Vehicle",
     route: "Route (e.g. hel tre)",
     compensation: "Comp.",
+    description: "Description",
   },
   fi: {
     accountNoLongerActive:
@@ -22,6 +23,7 @@ const strings = new LocalizedStrings({
     vehicle: "Ajoneuvo",
     route: "Reitti (esim. hel tre)",
     compensation: "Korvaus",
+    description: "Kuvaus",
   },
 });
 

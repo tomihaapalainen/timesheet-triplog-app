@@ -8,7 +8,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Modal from "react-bootstrap/Modal";
 import { useAuth } from "../contexts/AuthContext";
 import { useGSC } from "../store/GlobalStateProvider";
-import strings from "../Timesheet/components/strings";
+import strings from "./strings";
 import { baseUrl } from "../config";
 import Loading from "./Loading";
 
