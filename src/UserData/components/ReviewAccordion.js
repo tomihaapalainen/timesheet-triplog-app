@@ -7,6 +7,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
+import Spinner from "react-bootstrap/Spinner";
 import Loading from "../../shared/Loading";
 import { baseUrl } from "../../config";
 import { useAuth } from "../../contexts/AuthContext";
@@ -25,7 +26,8 @@ export default function ReviewAccordion() {
   const [displayName, setDisplayName] = useState("");
   const [rating, setRating] = useState(4);
   const [errorMessage, setErrorMessage] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [initializing, setInitializing] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [reviewContent, setReviewContent] = useState("");
   const [hasReviewed, setHasReviewed] = useState(false);
@@ -69,10 +71,11 @@ export default function ReviewAccordion() {
     } else {
       fetchData();
     }
-    setLoading(false);
+    setInitializing(false);
   }, []);
 
   const createReview = async () => {
+    setLoading(true);
     try {
       let idToken = await currentUser.getIdToken(true);
       let response = await axios.post(
@@ -97,10 +100,13 @@ export default function ReviewAccordion() {
       if (error.response) {
         setErrorMessage(strings.errorSendingReview);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
   const updateReview = async () => {
+    setLoading(true);
     try {
       let idToken = await currentUser.getIdToken(true);
       let response = await axios.post(
@@ -121,6 +127,8 @@ export default function ReviewAccordion() {
       if (error.response) {
         setErrorMessage(strings.errorSendingReview);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -134,7 +142,7 @@ export default function ReviewAccordion() {
     }
   };
 
-  if (loading) {
+  if (initializing) {
     return <Loading />;
   }
 
@@ -238,14 +246,23 @@ export default function ReviewAccordion() {
                   ></Form.Control>
                   <p>{reviewContent.length}/250 (min 50)</p>
                 </Form.Group>
-                {hasReviewed ? (
-                  <Button disabled={reviewContent.length < 50} type="submit">
-                    {strings.update}
-                  </Button>
-                ) : (
-                  <Button disabled={reviewContent.length < 50} type="submit">
-                    {strings.send}
-                  </Button>
+                {!loading && (
+                  <Container>
+                    {hasReviewed ? (
+                      <Button disabled={reviewContent.length < 50} type="submit">
+                        {strings.update}
+                      </Button>
+                    ) : (
+                      <Button disabled={reviewContent.length < 50} type="submit">
+                        {strings.send}
+                      </Button>
+                    )}
+                  </Container>
+                )}
+                {loading && (
+                  <Container fluid className="d-flex justify-content-center align-items-center">
+                    <Spinner variant="primary" animation="border" role="status" />
+                  </Container>
                 )}
               </Form>
             )}

@@ -118,7 +118,10 @@ export default function TimesheetPageControls({
         autohide
         delay={3000}
       >
-        <Toast.Body className="d-flex justify-content-center align-items-center h-100">
+        <Toast.Body
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "150px" }}
+        >
           <Row className="align-items-center">
             <Col xs={10}>
               <p className="font-weight-bold" style={{ fontSize: 18 }}>

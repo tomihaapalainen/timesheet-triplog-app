@@ -40,8 +40,6 @@ const strings = new LocalizedStrings({
     tripEnd: "Trip end",
     errorSavingTrip: "Saving your trip failed. Please try again later.",
     tripSavedSuccessfully: "Trip saved successfully",
-    accountNoLongerActive:
-      "Your account is no longer active. Purchase again to keep using the application.",
     additionalInfo: "Additional info",
     additionalPassengers: "Number of passengers",
     explanation: "Explanation",
@@ -89,8 +87,6 @@ const strings = new LocalizedStrings({
     tripEnd: "Matkan lopetus",
     errorSavingTrip: "Matkan tallentaminen ei onnistunut. Yritä myöhemmin uudelleen.",
     tripSavedSuccessfully: "Matka tallennettu",
-    accountNoLongerActive:
-      "Tilisi ei ole enää aktiivinen. Osta sovelluksen käyttöoikeus jatkaaksesi käyttöä.",
     additionalInfo: "Lisätiedot",
     additionalPassengers: "Matkustajien lukumäärä",
     explanation: "Selite",

@@ -13,7 +13,6 @@ const strings = new LocalizedStrings({
       "Right to use the application is paid upfront for the selected duration, and the right will become effective immediately after a successful checkout. In case you are unable to use the application within 24 hours, please contact customer suppport at ",
     noRefunds: "Notice that paid subscriptions will not be refunded.",
     customerServiceEmail: "asiakaspalvelu@pulikka.fi",
-    unavailable: "Purchase unavailable.",
     purchaseInfo:
       "Order will be charged beforehand. The payment must be made again at the end of your billing period in order to keep using the application.",
     month: "month",
@@ -37,7 +36,6 @@ const strings = new LocalizedStrings({
       "Palvelun käyttöoikeus maksetaan ajanjaksolle ennakkoon, ja käyttöoikeus astuu voimaan välittömästi onnistuneen maksutapahtuman jälkeen. Mikäli et saa palvelua käyttöösi 24 tunnin sisällä, ota yhteyttä asiakaspalveluun: ",
     noRefunds: "Huomaa, että jo maksetulla käyttöoikeudella ei ole palautusoikeutta.",
     customerServiceEmail: "asiakaspalvelu@pulikka.fi",
-    unavailable: "Ostaminen ei ole käytössä.",
     purchaseInfo:
       "Maksu suoritetaan etukäteen kortilla. Tilausjakson päätyttyä maksu on suoritettava uudelleen mikäli sovelluksen käyttöä halutaan jatkaa.",
     month: "kk",

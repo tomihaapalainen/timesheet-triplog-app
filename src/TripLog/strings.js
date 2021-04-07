@@ -5,7 +5,6 @@ const strings = new LocalizedStrings({
     accountNoLongerActive:
       "Your account is no longer active. Purchase again to keep using the application.",
     errorSavingTrip: "Saving your trip failed. Please try again later.",
-    description: "Description",
     kilometerage: "Kilometerage",
     tripStarted: "Trip started",
     tripEnded: "Trip ended",
@@ -17,7 +16,6 @@ const strings = new LocalizedStrings({
     accountNoLongerActive:
       "Tilisi ei ole enää aktiivinen. Osta sovelluksen käyttöoikeus jatkaaksesi käyttöä.",
     errorSavingTrip: "Matkan tallentaminen ei onnistunut. Yritä myöhemmin uudelleen.",
-    description: "Kuvaus",
     kilometerage: "Mittarilukema",
     tripStarted: "Matka aloitettu",
     tripEnded: "Matka päättynyt",

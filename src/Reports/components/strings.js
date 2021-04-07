@@ -2,9 +2,7 @@ import LocalizedStrings from "react-localization";
 
 const strings = new LocalizedStrings({
   en: {
-    lastWeek: "Last week",
     lastMonth: "Last month",
-    thisWeek: "This week",
     thisMonth: "This month",
     startingDate: "Starting date",
     endingDate: "Ending date",
@@ -17,9 +15,7 @@ const strings = new LocalizedStrings({
     pleaseSelectReportFormat: "Please select a report format",
   },
   fi: {
-    lastWeek: "Viime viikko",
     lastMonth: "Viime kk",
-    thisWeek: "Tämä viikko",
     thisMonth: "Tämä kk",
     startingDate: "Alku pvm.",
     endingDate: "Loppu pvm.",
