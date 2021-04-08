@@ -11,6 +11,7 @@ import { baseUrl } from "../../config";
 import TimePicker from "react-rainbow-components/components/TimePicker";
 import Loading from "../../shared/Loading";
 import strings from "../../Timesheet/components/strings";
+import "./styles.css";
 
 export default function AddWorkingTime() {
   const { workTimes, setTimesheets, language, isActive } = useGSC();
@@ -55,15 +56,7 @@ export default function AddWorkingTime() {
   };
 
   return (
-    <Container
-      className="mt-3"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <Container className="mt-3 center-flex flex-column">
       {errorMessage && (
         <Container>
           <Row>
@@ -73,48 +66,30 @@ export default function AddWorkingTime() {
           </Row>
         </Container>
       )}
-      <Row
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          border: "1px solid lightgrey",
-          borderRadius: "25px",
-          padding: "15px",
-        }}
-      >
+      <Row className="center-flex flex-row add-working-time-row">
         <Col>
           <Row>
             <TimePicker
+              className="w-50"
               id="start-time-picker"
               value={start}
               label={strings.start}
               onChange={(t) => setStart(t)}
               placeholder="--"
               hour24
-              style={{ width: "50%" }}
             />
             <TimePicker
+              className="w-50"
               id="end-time-picker"
               value={end}
               label={strings.end}
               onChange={(t) => setEnd(t)}
               placeholder="--"
               hour24
-              style={{ width: "50%" }}
             />
           </Row>
         </Col>
-        <Container
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "10px",
-          }}
-        >
+        <Container className="center-flex flex-column mt-2">
           {loading ? (
             <Loading />
           ) : (

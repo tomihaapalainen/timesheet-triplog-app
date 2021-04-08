@@ -45,10 +45,7 @@ export default function ApplicationInformation() {
                   </p>
                 ))}
               </Col>
-              <Col
-                md={6}
-                className="d-flex flex-column justify-content-center align-items-center my-3"
-              >
+              <Col md={6} className="center-flex flex-column my-3">
                 <Image
                   className="carousel-image"
                   src={language === "en" ? enAppImage1 : fiAppImage1}
@@ -71,10 +68,7 @@ export default function ApplicationInformation() {
                   </p>
                 ))}
               </Col>
-              <Col
-                md={6}
-                className="d-flex flex-column justify-content-center align-items-center my-3"
-              >
+              <Col md={6} className="center-flex flex-column  my-3">
                 <Image
                   className="carousel-image"
                   src={language === "en" ? enAppImage2 : fiAppImage2}
@@ -97,10 +91,7 @@ export default function ApplicationInformation() {
                   </p>
                 ))}
               </Col>
-              <Col
-                md={6}
-                className="d-flex flex-column justify-content-center align-items-center my-3"
-              >
+              <Col md={6} className="center-flex flex-column my-3">
                 <Image
                   className="carousel-image"
                   src={language === "en" ? enAppImage3 : fiAppImage3}

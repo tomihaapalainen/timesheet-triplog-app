@@ -191,7 +191,7 @@ export default function ReviewAccordion() {
                     onChange={(event) => setDisplayName(event.target.value)}
                   ></Form.Control>
                   <Form.Label className="mt-2 mb-1">{strings.yourRating + "*"}</Form.Label>
-                  <Row className="w-100 mw-1024 d-flex justify-content-center align-items-center">
+                  <Row className="w-100 mw-1024 center-flex">
                     <Button
                       className="bg-light"
                       variant="light"
@@ -260,7 +260,7 @@ export default function ReviewAccordion() {
                   </Container>
                 )}
                 {loading && (
-                  <Container fluid className="d-flex justify-content-center align-items-center">
+                  <Container fluid className="center-flex">
                     <Spinner variant="primary" animation="border" role="status" />
                   </Container>
                 )}

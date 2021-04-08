@@ -45,17 +45,12 @@ export default function MeterInput({ kilometers, setCurrentKilometers }) {
       <Row>
         <p className="mx-auto mb-1">{strings.kilometerage}</p>
       </Row>
-      <Row className="mx-0 px-0 w-100 d-flex justify-content-center align-items-center">
+      <Row className="mx-0 px-0 w-100 center-flex">
         {kilometers.map((k) => (
-          <Col
-            xs={2}
-            key={k.count}
-            className="mx-0 px-0 d-flex justify-content-center align-items-center"
-          >
+          <Col xs={2} key={k.count} className="mx-0 px-0 center-flex">
             <Button
-              className="font-weight-bold d-flex justify-content-center align-items-center"
+              className="font-weight-bold center-flex mb-1"
               style={{
-                marginBottom: 10,
                 height: 75,
                 fontSize: 25,
                 width: "90%",

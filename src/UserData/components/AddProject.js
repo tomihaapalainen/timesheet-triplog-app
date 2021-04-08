@@ -95,7 +95,7 @@ export default function AddProject() {
                   {loading ? (
                     <Loading />
                   ) : (
-                    <Container className="d-flex flex-column justify-content-center align-items-center">
+                    <Container className="center-flex flex-column">
                       <Button
                         type="submit"
                         disabled={!isActive}

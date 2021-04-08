@@ -75,14 +75,7 @@ export default function SignUpForm({ language }) {
       <Col className="my-3">
         {loading && <Loading />}
         {!loading && (
-          <Form
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <Form className="center-flex flex-column">
             <Form.Group controlId="formBasicEmail">
               <Form.Control
                 className="my-1"
@@ -99,7 +92,12 @@ export default function SignUpForm({ language }) {
                 ref={passwordRef}
               />
             </Form.Group>
-            <Button type="submit" variant="primary" onClick={handleSubmit}>
+            <Button
+              className="text-uppercase"
+              type="submit"
+              variant="primary"
+              onClick={handleSubmit}
+            >
               {strings.signUp}
             </Button>
           </Form>

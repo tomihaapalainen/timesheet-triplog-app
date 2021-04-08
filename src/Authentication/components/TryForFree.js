@@ -24,8 +24,12 @@ export default function TryForFree() {
         <p className="my-4" style={{ fontSize: 17 }}>
           {strings.infoText1}
         </p>
-        <Button className="mt-3" variant="success" onClick={handleClick}>
-          <p style={{ fontWeight: "bold", textTransform: "uppercase" }}>{strings.startFreeTrial}</p>
+        <Button
+          className="mt-3 font-weight-bold text-uppercase"
+          variant="success"
+          onClick={handleClick}
+        >
+          <p>{strings.startFreeTrial}</p>
         </Button>
       </Jumbotron>
     </Container>

@@ -62,7 +62,7 @@ export default function Offerings({ setSelectedOffering }) {
     <Container className="mb-5 mx-auto mw-1024">
       <p className="my-3 lead">{strings.pickOrderDurationAndProceedToCheckout}</p>
       {loading && (
-        <Container fluid className="d-flex justify-content-center align-items-center">
+        <Container fluid className="center-flex">
           <Spinner variant="primary" animation="border" role="status" />
         </Container>
       )}

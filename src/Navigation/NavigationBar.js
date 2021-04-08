@@ -74,7 +74,7 @@ export default function NavigationBar() {
 
   return (
     <Navbar collapseOnSelect expand="md" bg="primary" variant="dark" className="my-0 py-1">
-      <Navbar.Brand className="m-0 p-0 d-flex flex-row justify-content-center align-items-center nav-brand">
+      <Navbar.Brand className="m-0 p-0 center-flex flex-row nav-brand">
         <Link
           to="/app"
           style={{ textDecoration: "none" }}
@@ -129,7 +129,7 @@ export default function NavigationBar() {
               onClick={handleLogout}
               as={Link}
               to="#"
-              className="bg-primary mx-1 my-1 px-3 d-flex align-items-center justify-content-center"
+              className="bg-primary mx-1 my-1 px-3 center-flex"
             >
               <FaSignOutAlt size={25} color="lightgrey" className="mx-1" />
             </Nav.Link>

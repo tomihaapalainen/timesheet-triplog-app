@@ -23,7 +23,7 @@ export default function LanguageSelection() {
   return (
     <Nav.Item className="my-0 border-primary">
       <Dropdown className="bg-primary">
-        <Dropdown.Toggle className="d-flex px-2 ml-2 justify-content-center align-items-center">
+        <Dropdown.Toggle className="center-flex px-2 ml-2">
           <Image
             src={language === "fi" ? finnishFlag : englishFlag}
             alt="lang"

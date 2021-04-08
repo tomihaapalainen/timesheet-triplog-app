@@ -215,7 +215,7 @@ export default function AddTripManually({
                 </FormGroup>
                 <Container className="d-flex justify-content-center">
                   {loading && (
-                    <Container fluid className="d-flex justify-content-center align-items-center">
+                    <Container fluid className="center-flex">
                       <Spinner variant="primary" animation="border" role="status" />
                     </Container>
                   )}
@@ -227,7 +227,7 @@ export default function AddTripManually({
                 </Container>
               </Form>
               <Toast
-                className="mx-0 px-0 bg-success text-white d-flex justify-content-center align-items-center"
+                className="mx-0 px-0 bg-success text-white center-flex"
                 style={{ position: "absolute", height: "80px", top: 45, zIndex: 100 }}
                 onClose={() => setShowSuccess(false)}
                 show={showSuccess}

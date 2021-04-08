@@ -107,7 +107,7 @@ export default function TimesheetPageControls({
   };
 
   return (
-    <Container className="px-0 mx-0 d-flex flex-column justify-content-center align-items-center">
+    <Container className="px-0 mx-0 center-flex flex-column">
       {errorMessage && <p className="text-danger">{errorMessage}</p>}
       {!isActive && <p className="text-danger">{strings.accountNoLongerActive}</p>}
       <Toast
@@ -118,7 +118,7 @@ export default function TimesheetPageControls({
         autohide
         delay={2500}
       >
-        <Toast.Body className="d-flex justify-content-center align-items-center h-100">
+        <Toast.Body className="center-flex h-100">
           <Row>
             <Col xs={10}>
               <p className="font-weight-bold" style={{ fontSize: 18 }}>

@@ -43,6 +43,7 @@ export default function ReferralAccordion() {
 
             <InputGroup>
               <Toast
+                className="bg-success text-white"
                 style={{ position: "absolute", top: -50, right: 0, height: 45 }}
                 onClose={() => setShowToast(false)}
                 show={showToast}

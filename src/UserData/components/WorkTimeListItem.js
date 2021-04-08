@@ -20,7 +20,7 @@ export default function WorkTimeListItem({ handleRemove, workTime }) {
 
   return (
     <Container>
-      <Row className="d-flex justify-content-center align-items-center">
+      <Row className="center-flex">
         <Col className="mx-0 px-0" xs={8}>
           <p className="m-0 p-0">
             {workTime.start} - {workTime.end}

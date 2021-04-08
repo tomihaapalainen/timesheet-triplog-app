@@ -13,11 +13,8 @@ const TermsPage = () => {
 
   return (
     <Container
+      className="center-flex flex-column"
       style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "flex-start",
         width: "90%",
         minWidth: "300px",
         maxWidth: "800px",

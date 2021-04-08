@@ -30,13 +30,13 @@ export default function CookieNote() {
     <Navbar className="cookie-nav bg-primary text-light border-success">
       <Container fluid className="align-items-center pb-4">
         <Row className="w-100">
-          <Col xs={12} md={10} className="my-4">
+          <Col xs={12} md={10} className="my-3 ">
             {strings.siteUsesCookies}
             <Link to="/terms" className="text-white" style={{ textDecoration: "underline" }}>
               {strings.here}
             </Link>
           </Col>
-          <Col xs={12} md={2} className="justify-content-center align-items-center">
+          <Col xs={12} md={2} className="center-flex">
             <Button
               variant="success"
               className="accept-cookies-btn my-4"

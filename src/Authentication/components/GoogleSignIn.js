@@ -24,10 +24,10 @@ export default function GoogleSignIn() {
       <Card className="google-sign-in-card" onClick={handleSignIn}>
         <Container fluid>
           <Row className="mx-0 px-0">
-            <Col xs={2} className="mx-0 px-0 d-flex justify-content-center align-items-center">
+            <Col xs={2} className="mx-0 px-0 center-flex">
               <FcGoogle size={30} />
             </Col>
-            <Col xs={10} className="mx-0 px-0 d-flex justify-content-center align-items-center">
+            <Col xs={10} className="mx-0 px-0 center-flex">
               <p>{strings.signInWithGoogle}</p>
             </Col>
           </Row>

@@ -19,7 +19,7 @@ export default function ConfirmRemoveProjectModal({ show, setShow, removeProject
         <Modal.Title>{strings.removeProject}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p style={{ fontSize: "17px" }}>{strings.removeProjectNote}</p>
+        <p style={{ fontSize: 16 }}>{strings.removeProjectNote}</p>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" className="text-uppercase float-start" onClick={handleClose}>
