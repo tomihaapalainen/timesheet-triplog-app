@@ -26,6 +26,7 @@ export default function ReferralAccordion() {
     linkTextarea.focus();
     linkTextarea.select();
     document.execCommand("copy");
+    linkTextarea.blur();
     setShowToast(true);
   };
 
