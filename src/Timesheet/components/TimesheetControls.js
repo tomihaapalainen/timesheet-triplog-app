@@ -52,7 +52,11 @@ export default function TimesheetControls({
           )}
         </Col>
         <Col xs={6}>
-          <Button onClick={handleEndNow} style={{ width: "120px" }} disabled={endTime !== null}>
+          <Button
+            onClick={handleEndNow}
+            style={{ width: "120px" }}
+            disabled={startTime === null || endTime !== null}
+          >
             {endTime === null ? strings.endNow : strings.ended}
           </Button>
         </Col>
