@@ -39,7 +39,7 @@ export default function Offering({ setSelectedOffering, offering }) {
           {(offering.price_per_month / 100).toFixed(2)} €/{strings.month}
         </p>
       </Card.Body>
-      <Card.Footer style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+      <Card.Footer className="d-flex justify-content-flex-end align-items-center">
         <Button onClick={() => setSelectedOffering(offering)}>{strings.choose}</Button>
       </Card.Footer>
     </Card>

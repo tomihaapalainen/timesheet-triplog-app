@@ -76,14 +76,7 @@ export default function SignInForm() {
       <Container id="focus-target" style={{ height: "50px" }} />
       <Row>
         <Col className="mb-3">
-          <Form
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <Form className="center-flex flex-column">
             <Form.Group controlId="formBasicEmail">
               <Form.Control
                 size="lg"

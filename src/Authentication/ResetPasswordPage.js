@@ -72,14 +72,7 @@ export default function ResetPasswordPage() {
           <FormGroup>
             <Form.Label className="my-3">{strings.requestPasswordResetEmail}</Form.Label>
             <Form.Control ref={emailRef} placeholder={strings.email + "..."} />
-            <Container
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: "20px",
-              }}
-            >
+            <Container className="center-flex mt-2">
               <Button type="submit">{strings.send}</Button>
             </Container>
           </FormGroup>

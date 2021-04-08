@@ -6,15 +6,6 @@ import Row from "react-bootstrap/Row";
 import { useHistory } from "react-router-dom";
 import { FaBusinessTime, FaCarAlt } from "react-icons/fa";
 
-const containerStyle = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-evenly",
-  alignItems: "center",
-  width: "100%",
-  height: "500px",
-};
-
 export default function AppPage() {
   const history = useHistory();
 
@@ -27,7 +18,10 @@ export default function AppPage() {
   };
 
   return (
-    <Container style={containerStyle}>
+    <Container
+      className="center-flex justify-content-space-evenly w-100"
+      style={{ height: "500px" }}
+    >
       <Row>
         <Col>
           <Button className="btn-lg bg-primary" onClick={handleTimesheetClick}>

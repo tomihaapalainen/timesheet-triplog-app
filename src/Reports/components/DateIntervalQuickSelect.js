@@ -31,11 +31,8 @@ export default function DateIntervalQuickSelect({ setStart, setEnd }) {
 
   return (
     <Container
+      className="center-flex flex-column"
       style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
         height: "75px",
       }}
     >

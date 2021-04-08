@@ -55,14 +55,7 @@ export default function DeleteUserAccordion() {
         <Accordion.Collapse eventKey="0">
           <Card.Body className="d-flex flex-column justify-content-center">
             <p className="mb-3">{strings.deleteNote}</p>
-            <Form
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <Form className="center-flex flex-column">
               <Form.Group controlId="formBasicPassword">
                 <Form.Control
                   className="my-1"

@@ -5,11 +5,8 @@ import Spinner from "react-bootstrap/Spinner";
 export default function Loading() {
   return (
     <Container
+      className="center-flex"
       style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
         marginTop: "25px",
       }}
     >

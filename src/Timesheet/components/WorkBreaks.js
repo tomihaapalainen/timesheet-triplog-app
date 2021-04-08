@@ -40,14 +40,7 @@ export default function WorkBreaks({
     <Container className="px-0 mx-0">
       <Card>
         <Card.Body className="my-1 py-2">
-          <Col
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
+          <Col className="center-flex" style={{ justifyContent: "space-between" }}>
             {errorMessage && <p className="text-danger">{errorMessage}</p>}
             <Row className="w-50" style={{ minWidth: "100px", maxWidth: "420px" }}>
               <FormLabel>{strings.lunch}</FormLabel>

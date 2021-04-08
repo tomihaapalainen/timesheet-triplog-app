@@ -31,15 +31,7 @@ export default function TimesheetControls({
   };
 
   return (
-    <Container
-      className="px-0 mx-0"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <Container className="px-0 mx-0 center-flex flex-column">
       <Row className="my-3" style={{ height: "45px" }}>
         <Col xs={6}>
           <Button onClick={handleStartNow} style={{ width: "120px" }} disabled={startTime !== null}>
