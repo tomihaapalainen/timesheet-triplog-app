@@ -36,11 +36,11 @@ export default function ApplicationInformation() {
           <Container className="w-75">
             <Row>
               <Col md={6} className="d-flex flex-column justify-content-center">
-                <p className="text-white mb-3" style={{ fontSize: 18 }}>
+                <h5 className="text-white mb-3" style={{ fontSize: 20 }}>
                   {strings.timesheets}
-                </p>
+                </h5>
                 {timesheetInfos.map((timesheetInfo, index) => (
-                  <p key={index} className="text-white pb-4">
+                  <p key={index} className="text-white pb-4" style={{ fontSize: 17 }}>
                     {timesheetInfo}
                   </p>
                 ))}
@@ -59,11 +59,11 @@ export default function ApplicationInformation() {
           <Container className="w-75">
             <Row>
               <Col md={6} className="d-flex flex-column justify-content-center">
-                <p className="text-white mb-3" style={{ fontSize: 18 }}>
+                <h5 className="text-white mb-3" style={{ fontSize: 20 }}>
                   {strings.triplogs}
-                </p>
+                </h5>
                 {tripLogInfos.map((tripLogInfo, index) => (
-                  <p key={index} className="text-white pb-4">
+                  <p key={index} className="text-white pb-4" style={{ fontSize: 17 }}>
                     {tripLogInfo}
                   </p>
                 ))}
@@ -82,11 +82,11 @@ export default function ApplicationInformation() {
           <Container className="w-75">
             <Row>
               <Col md={6} className="d-flex flex-column justify-content-center">
-                <p className="text-white mb-3" style={{ fontSize: 18 }}>
+                <h5 className="text-white mb-3" style={{ fontSize: 20 }}>
                   {strings.reports}
-                </p>
+                </h5>
                 {reportsInfos.map((reportsInfo, index) => (
-                  <p key={index} className="text-white pb-4">
+                  <p key={index} className="text-white pb-4" style={{ fontSize: 17 }}>
                     {reportsInfo}
                   </p>
                 ))}

@@ -21,15 +21,18 @@ export default function TryForFree() {
     <Container>
       <Jumbotron className="mt-4 text-light app-info-bg">
         <h1 style={{ fontSize: 21, fontWeight: "bold" }}>{strings.appTitle}</h1>
-        <p className="my-4" style={{ fontSize: 17 }}>
+        <h5 className="mt-4 mb-2" style={{ fontSize: 17 }}>
           {strings.infoText1}
-        </p>
+        </h5>
+        <h5 className="mt-4 mb-2" style={{ fontSize: 17 }}>
+          {strings.infoText2}
+        </h5>
         <Button
           className="mt-3 font-weight-bold text-uppercase"
           variant="success"
           onClick={handleClick}
         >
-          <p>{strings.startFreeTrial}</p>
+          {strings.startFreeTrial}
         </Button>
       </Jumbotron>
     </Container>

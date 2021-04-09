@@ -21,6 +21,7 @@ const strings = new LocalizedStrings({
     emailPasswordAccountsAreNotEnabled: "Email & Password accounts are not enabled",
     appTitle: "Easy to use timesheets and trip logging",
     infoText1: "Register for a free 30 day trial",
+    infoText2: "Only 29.90 €/year after trial!",
     startFreeTrial: "Start free trial",
     timesheets: "Timesheets",
     timesheetInfo1:
@@ -75,6 +76,7 @@ const strings = new LocalizedStrings({
       "Sähköpostilla ja salasanalla rekisteröitävät tilit eivät ole käytössä",
     appTitle: "Helppokäyttöinen työajanseuranta ja ajopäiväkirja",
     infoText1: "Rekisteröidy ja kokeile sovellusta 30 päivää ilmaiseksi",
+    infoText2: "Vain 29,90 €/vuosi kokeilun jälkeen!",
     startFreeTrial: "Aloita ilmainen kokeilu",
     timesheets: "Työajanseuranta",
     timesheetInfo1: "Käytä haluamallasi laitteella.",

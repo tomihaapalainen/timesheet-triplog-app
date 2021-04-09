@@ -11,9 +11,9 @@ export default function TryForFreeSignUp({ language }) {
     <Container>
       <Jumbotron className="mt-4 text-light app-info-bg">
         <h1 style={{ fontSize: 21, fontWeight: "bold" }}>{strings.appTitle}</h1>
-        <p className="my-4" style={{ fontSize: 17 }}>
+        <h5 className="my-4" style={{ fontSize: 17 }}>
           {strings.infoText1}
-        </p>
+        </h5>
       </Jumbotron>
     </Container>
   );
