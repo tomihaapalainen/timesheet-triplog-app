@@ -32,9 +32,13 @@ export default function TimesheetControls({
 
   return (
     <Container className="px-0 mx-0 center-flex flex-column">
-      <Row className="my-3" style={{ height: "45px" }}>
+      <Row className="mt-4 mb-3" style={{ height: "45px" }}>
         <Col xs={6}>
-          <Button onClick={handleStartNow} style={{ width: "120px" }} disabled={startTime !== null}>
+          <Button
+            onClick={handleStartNow}
+            style={{ minWidth: "125px" }}
+            disabled={startTime !== null}
+          >
             {startTime === null ? strings.startNow : strings.started}
           </Button>
           {startTime !== null && endTime === null && (
@@ -46,7 +50,7 @@ export default function TimesheetControls({
         <Col xs={6}>
           <Button
             onClick={handleEndNow}
-            style={{ width: "120px" }}
+            style={{ minWidth: "125px" }}
             disabled={startTime === null || endTime !== null}
           >
             {endTime === null ? strings.endNow : strings.ended}

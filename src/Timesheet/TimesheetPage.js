@@ -68,14 +68,6 @@ export default function TimesheetPage() {
         endTime={endTime}
         setEndTime={setEndTime}
       />
-      <TimesheetSummary
-        startDate={startDate || new Date()}
-        startTime={startTime}
-        endDate={endDate || new Date()}
-        endTime={endTime}
-        lunchDuration={lunchDuration}
-        breakDuration={breakDuration}
-      />
       <TimesheetPageControls
         startDate={startDate || new Date()}
         setStartDate={setStartDate}
@@ -89,6 +81,14 @@ export default function TimesheetPage() {
         breakDuration={breakDuration}
         dailyAllowance={dailyAllowance}
         selectedProject={selectedProject}
+      />
+      <TimesheetSummary
+        startDate={startDate || new Date()}
+        startTime={startTime}
+        endDate={endDate || new Date()}
+        endTime={endTime}
+        lunchDuration={lunchDuration}
+        breakDuration={breakDuration}
       />
       <Container style={{ height: "100px" }} />
     </Container>

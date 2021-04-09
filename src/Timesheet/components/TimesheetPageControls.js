@@ -138,10 +138,17 @@ export default function TimesheetPageControls({
       ) : (
         <Row className="my-3">
           <Col xs={6} className="d-flex justify-content-end">
-            <Button onClick={handleReset}>{strings.reset}</Button>
+            <Button
+              style={{ minWidth: "125px" }}
+              onClick={handleReset}
+              disabled={startTime === null && endTime === null}
+            >
+              {strings.reset}
+            </Button>
           </Col>
           <Col xs={6}>
             <Button
+              style={{ minWidth: "125px" }}
               onClick={handleSave}
               disabled={startTime === null || endTime === null || !selectedProject || !isActive}
             >

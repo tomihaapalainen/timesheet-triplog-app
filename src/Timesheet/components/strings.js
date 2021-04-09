@@ -31,6 +31,7 @@ const strings = new LocalizedStrings({
     duration: "Duration",
     accountNoLongerActive:
       "Your account is no longer active. Purchase again to keep using the application.",
+    summary: "Summary",
   },
   fi: {
     projectMustBeSelected: "Valitse projekti",
@@ -62,6 +63,7 @@ const strings = new LocalizedStrings({
     duration: "Kesto",
     accountNoLongerActive:
       "Tilisi ei ole enää aktiivinen. Osta sovelluksen käyttöoikeus jatkaaksesi käyttöä.",
+    summary: "Yhteenveto",
   },
 });
 

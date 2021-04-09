@@ -27,6 +27,20 @@ export default function TimesheetSelect({
     setEndDate(value);
   };
 
+  const onStartTimeChanged = (value) => {
+    setStartTime(value);
+    if (startDate === null) {
+      setStartDate(new Date());
+    }
+  };
+
+  const onEndTimeChanged = (value) => {
+    setEndTime(value);
+    if (endDate === null) {
+      setEndDate(new Date());
+    }
+  };
+
   return (
     <Container className="px-0 mx-0">
       <Card>
@@ -45,7 +59,7 @@ export default function TimesheetSelect({
               <TimePicker
                 label={strings.time}
                 value={startTime !== null ? startTime : currentTime()}
-                onChange={(val) => setStartTime(val)}
+                onChange={(val) => onStartTimeChanged(val)}
                 hour24
                 locale="fi-FI"
                 style={startTime && { backgroundColor: "#53aceb88", borderRadius: "25px" }}
@@ -66,7 +80,7 @@ export default function TimesheetSelect({
               <TimePicker
                 label={strings.time}
                 value={endTime !== null ? endTime : currentTime()}
-                onChange={(val) => setEndTime(val)}
+                onChange={(val) => onEndTimeChanged(val)}
                 hour24
                 locale="fi-FI"
                 style={endTime && { backgroundColor: "#53aceb88", borderRadius: "25px" }}

@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -46,39 +47,46 @@ export default function TimesheetSummary({
   return (
     <Container className="mw-1024">
       {startTime && endTime && (
-        <Container className="w-100 px-0 mx-auto">
-          <Row>
-            <Col className="summary-column">
-              <p className="m-1 p-0">
-                {datetimeAsDateString(startDate, language)}
-                {startDate.getDay() !== endDate.getDay() &&
-                  ` - ${datetimeAsDateString(endDate, language)}`}{" "}
-              </p>
-            </Col>
-            <Col className="summary-column">
-              <p className="m-1 p-0">
-                {startTime} - {endTime}
-              </p>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="summary-column">
-              <p className="m-1 p-0">
-                {strings.lunch}: {lunchDuration} min
-              </p>
-            </Col>
-            <Col className="summary-column">
-              <p className="m-1 p-0">
-                {strings.breaks}: {breakDuration} min
-              </p>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="summary-column">
-              <p className="m-1 p-0">{calculateDuration(startDate, startTime, endDate, endTime)}</p>
-            </Col>
-          </Row>
-        </Container>
+        <Card>
+          <Card.Header className="bg-primary text-white pb-0">
+            <Card.Title>{strings.summary}</Card.Title>
+          </Card.Header>
+          <Card.Body className="w-100">
+            <Row>
+              <Col xs={12} sm={6}>
+                <p>
+                  {datetimeAsDateString(startDate, language)}
+                  {startDate.getDay() !== endDate.getDay() &&
+                    ` - ${datetimeAsDateString(endDate, language)}`}{" "}
+                </p>
+              </Col>
+              <Col xs={12} sm={6}>
+                <p>
+                  {startTime} - {endTime}
+                </p>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <p>
+                  {strings.lunch}:<br />
+                  {lunchDuration} min
+                </p>
+              </Col>
+              <Col>
+                <p>
+                  {strings.breaks}:<br />
+                  {breakDuration} min
+                </p>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <p>{calculateDuration(startDate, startTime, endDate, endTime)}</p>
+              </Col>
+            </Row>
+          </Card.Body>
+        </Card>
       )}
     </Container>
   );
