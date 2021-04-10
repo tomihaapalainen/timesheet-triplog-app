@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import TryForFree from "./components/TryForFree";
-import GoogleSignIn from "./components/GoogleSignIn";
 import SignInForm from "./components/SignInForm";
 import ApplicationInformation from "./components/ApplicationInformation";
 import PricingInformation from "./components/PricingInformation";
@@ -33,7 +32,6 @@ export default function SignInPage() {
       </Container>
       <TryForFree />
       <SignInForm />
-      <GoogleSignIn />
       <ApplicationInformation />
       <PricingInformation />
       <CookieNote />

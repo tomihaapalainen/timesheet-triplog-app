@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { auth, googleAuthProvider } from "../firebase";
+import { auth } from "../firebase";
 import { baseUrl } from "../config";
 import strings from "./strings";
 import { useGSC } from "../store/GlobalStateProvider";
@@ -77,17 +77,12 @@ export function AuthProvider({ children }) {
     return unsubscribe;
   }, []);
 
-  const signInWithGoogle = async () => {
-    await auth.signInWithRedirect(googleAuthProvider);
-  };
-
   const value = {
     currentUser,
     signin,
     signout,
     signup,
     resetPassword,
-    signInWithGoogle,
   };
 
   return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;

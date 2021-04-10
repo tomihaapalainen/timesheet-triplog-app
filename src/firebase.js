@@ -13,7 +13,6 @@ const app = firebase.initializeApp({
 
 export const getCredential = (email, password) =>
   firebase.auth.EmailAuthProvider.credential(email, password);
-export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 export const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
 export const auth = app.auth();
 export default app;

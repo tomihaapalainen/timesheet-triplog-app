@@ -234,7 +234,7 @@ export default function AddTripManually({
                 autohide
                 delay={3000}
               >
-                <Toast.Body>
+                <Toast.Body className="center-flex">
                   <p className="p-3 lead">{strings.tripSavedSuccessfully}</p>
                 </Toast.Body>
               </Toast>
