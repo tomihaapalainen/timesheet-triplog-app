@@ -32,7 +32,7 @@ export default function ReferralAccordion() {
 
   return (
     <Accordion className="mw-1024 mx-auto">
-      <Card>
+      <Card className="invitation-border">
         <AccordionToggle title={strings.inviteUsers} />
         <Accordion.Collapse eventKey="0">
           <Card.Body className="mx-auto">

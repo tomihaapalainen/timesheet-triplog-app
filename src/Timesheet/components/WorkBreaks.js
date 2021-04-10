@@ -43,7 +43,7 @@ export default function WorkBreaks({
           <Col className="center-flex" style={{ justifyContent: "space-between" }}>
             {errorMessage && <p className="text-danger">{errorMessage}</p>}
             <Row className="w-50" style={{ minWidth: "100px", maxWidth: "420px" }}>
-              <FormLabel>{strings.lunch}</FormLabel>
+              <FormLabel className="mb-0">{strings.lunch}</FormLabel>
               <InputGroup>
                 <FormControl
                   type="number"
@@ -57,12 +57,12 @@ export default function WorkBreaks({
                   }}
                 />
                 <InputGroup.Append>
-                  <InputGroup.Text>min</InputGroup.Text>
+                  <InputGroup.Text className="mx-0 px-1">min</InputGroup.Text>
                 </InputGroup.Append>
               </InputGroup>
             </Row>
             <Row className="w-50" style={{ minWidth: "100px", maxWidth: "420px" }}>
-              <FormLabel>{strings.breaks}</FormLabel>
+              <FormLabel className="mb-0">{strings.breaks}</FormLabel>
               <InputGroup>
                 <FormControl
                   type="number"
@@ -76,7 +76,7 @@ export default function WorkBreaks({
                   }}
                 />
                 <InputGroup.Append>
-                  <InputGroup.Text>min</InputGroup.Text>
+                  <InputGroup.Text className="mx-0 px-1">min</InputGroup.Text>
                 </InputGroup.Append>
               </InputGroup>
             </Row>

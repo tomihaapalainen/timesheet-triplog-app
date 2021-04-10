@@ -52,7 +52,7 @@ export default function ReviewAccordion() {
           setDisplayName(response.data.display_name);
           setRating(response.data.rating);
           setReviewContent(response.data.review);
-          sessionStorage.setItem("user-review", JSON.stringify(response.data));
+          localStorage.setItem("user-review", JSON.stringify(response.data));
         }
       } catch (error) {
         if (error.response) {
@@ -61,7 +61,7 @@ export default function ReviewAccordion() {
       }
     };
 
-    let reviewData = sessionStorage.getItem("user-review");
+    let reviewData = localStorage.getItem("user-review");
     if (reviewData !== null) {
       reviewData = JSON.parse(reviewData);
       setHasReviewed(true);
@@ -121,7 +121,7 @@ export default function ReviewAccordion() {
 
       if (response.status === 200) {
         setMessage(strings.thanksForTheReview);
-        sessionStorage.removeItem("user-review");
+        localStorage.removeItem("user-review");
       }
     } catch (error) {
       if (error.response) {
@@ -148,7 +148,7 @@ export default function ReviewAccordion() {
 
   return (
     <Accordion className="mw-1024 mx-auto">
-      <Card style={!hasReviewed ? { border: "2px solid #11d3bc" } : {}}>
+      <Card className={`${!hasReviewed ? "review-border" : ""}`}>
         <AccordionToggle
           title={hasReviewed ? strings.updateReview : strings.reviewTheApplication}
         />

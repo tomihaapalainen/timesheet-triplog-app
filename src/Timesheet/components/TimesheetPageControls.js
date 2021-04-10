@@ -118,17 +118,11 @@ export default function TimesheetPageControls({
         autohide
         delay={2500}
       >
-        <Toast.Body className="center-flex h-100">
-          <Row>
-            <Col xs={10}>
-              <p className="font-weight-bold" style={{ fontSize: 18 }}>
-                {strings.worktimeSaved}
-              </p>
-            </Col>
-            <Col xs={2}>
-              <FaCheckCircle color="white" size={30} />
-            </Col>
-          </Row>
+        <Toast.Body className="center-flex flex-row">
+          <p className="font-weight-bold mr-2" style={{ fontSize: 18 }}>
+            {strings.worktimeSaved}
+          </p>
+          <FaCheckCircle color="white" size={30} />
         </Toast.Body>
       </Toast>
       {loading ? (

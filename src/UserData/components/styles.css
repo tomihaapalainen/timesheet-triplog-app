@@ -3,3 +3,11 @@
   border-radius: 25px;
   padding: 15px;
 }
+
+.review-border {
+  border: 2px solid #fbbe4b;
+}
+
+.invitation-border {
+  border: 2px solid #0ab46d;
+}
