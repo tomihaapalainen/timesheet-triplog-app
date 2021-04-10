@@ -31,9 +31,11 @@ export default function TripSummary({ tripData }) {
               <p>
                 {strings.route}: {tripData.route}
               </p>
-              <p>
-                {strings.description}: {tripData.description}
-              </p>
+              {tripData.description && (
+                <p>
+                  {strings.description}: {tripData.description}
+                </p>
+              )}
             </ListGroup.Item>
             <ListGroup.Item>
               <Row>

@@ -116,7 +116,7 @@ export default function TimesheetPageControls({
         variant="success"
         className="bg-success text-white toast"
         autohide
-        delay={2500}
+        delay={2000}
       >
         <Toast.Body className="center-flex flex-row">
           <p className="font-weight-bold mr-2" style={{ fontSize: 18 }}>

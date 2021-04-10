@@ -17,7 +17,7 @@ export default function CancelTripModal({ open, operation, close }) {
         <Modal.Title>{strings.confirmCancel}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>{strings.cancelInfo}</p>
+        <p style={{ fontSize: "16px" }}>{strings.cancelInfo}</p>
       </Modal.Body>
       <Modal.Footer>
         <Row>

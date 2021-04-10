@@ -19,7 +19,7 @@ import { useGSC } from "../../store/GlobalStateProvider";
 import { baseUrl } from "../../config";
 import { useAuth } from "../../contexts/AuthContext";
 import { datetimeToLocalISOString } from "../../utils/datetimeutils";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { FaAngleDown, FaAngleUp, FaCheckCircle } from "react-icons/fa";
 
 export default function AddTripManually({
   kilometers,
@@ -226,20 +226,23 @@ export default function AddTripManually({
                   )}
                 </Container>
               </Form>
-              <Toast
-                className="mx-0 px-0 bg-success text-white center-flex"
-                style={{ position: "absolute", height: "80px", top: 45, zIndex: 100 }}
-                onClose={() => setShowSuccess(false)}
-                show={showSuccess}
-                autohide
-                delay={3000}
-              >
-                <Toast.Body className="center-flex">
-                  <p className="p-3 lead">{strings.tripSavedSuccessfully}</p>
-                </Toast.Body>
-              </Toast>
             </Card.Body>
           </Accordion.Collapse>
+          <Container fluid className="center-flex">
+            <Toast
+              className="bg-success text-white"
+              style={{ position: "absolute", height: "80px", top: 45, zIndex: 100 }}
+              onClose={() => setShowSuccess(false)}
+              show={showSuccess}
+              autohide
+              delay={2000}
+            >
+              <Toast.Body className="center-flex h-100">
+                <p className="lead mr-2">{strings.tripSavedSuccessfully}</p>
+                <FaCheckCircle color="white" size={30} />
+              </Toast.Body>
+            </Toast>
+          </Container>
         </Card>
       </Accordion>
     </Container>
