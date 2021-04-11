@@ -27,9 +27,6 @@ export default function SignInPage() {
 
   return (
     <Container fluid className="p-0 m-0">
-      <Container fluid className="center-flex">
-        <p className="text-warning my-4 lead">{strings.serviceUnavailable}</p>
-      </Container>
       <TryForFree />
       <SignInForm />
       <ApplicationInformation />

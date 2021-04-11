@@ -79,7 +79,6 @@ export default function SignInForm() {
           <Form className="center-flex flex-column">
             <Form.Group controlId="formBasicEmail">
               <Form.Control
-                size="lg"
                 className="my-1"
                 type="email"
                 placeholder={strings.email + "..."}
@@ -89,7 +88,6 @@ export default function SignInForm() {
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
               <Form.Control
-                size="lg"
                 className="my-1"
                 type="password"
                 placeholder={strings.password + "..."}
