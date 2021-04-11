@@ -18,7 +18,7 @@ const strings = new LocalizedStrings({
     invalidEmail: "Invalid email address",
     passwordTooWeak: "Password is too weak. Must be atleast 6 characters.",
     emailPasswordAccountsAreNotEnabled: "Email & Password accounts are not enabled",
-    appTitle: "Easy to use timesheets and trip logging",
+    appTitle: "Easy to use timesheets and trip logging in one place",
     infoText1: "Register for a free 30 day trial",
     infoText2: "Only 29.90 €/year after free trial!",
     startFreeTrial: "Start free trial",
@@ -38,9 +38,10 @@ const strings = new LocalizedStrings({
     reports: "Reporting",
     reportInfo1: "Download comprehensive timesheets and trip logs in Excel or CSV format.",
     reportInfo2: "Set a date interval or quickly select one of the predefined intervals.",
+    reportInfo3: "Trip log fulfills tax authority requirements.",
     pricing: "Pricing",
     pricingInfo:
-      "Using the Pulikka app will not break the bank: affordable prices that can even be lowered by inviting new users to the application!",
+      "Using the Pulikka app will not break the bank: affordable prices that can even be lowered by inviting new users to the application! Lowest price only 19.90 € per year.",
     threeMonths: "3 months",
     twelveMonths: "12 months",
     serviceUnavailable: "Service is not yet available! Check back later.",
@@ -72,8 +73,8 @@ const strings = new LocalizedStrings({
     passwordTooWeak: "Salasana liian heikko. Salasanan tulee olla vähintään 6 merkkiä.",
     emailPasswordAccountsAreNotEnabled:
       "Sähköpostilla ja salasanalla rekisteröitävät tilit eivät ole käytössä",
-    appTitle: "Helppokäyttöinen työajanseuranta ja ajopäiväkirja",
-    infoText1: "Rekisteröidy ja kokeile sovellusta 30 päivää ilmaiseksi",
+    appTitle: "Helppo työajanseuranta ja ajopäiväkirja yhdessä paikassa",
+    infoText1: "Rekisteröidy ja aloita 30 päivän ilmainen kokeilu",
     infoText2: "Sen jälkeen vain 29,90 €/vuosi!",
     startFreeTrial: "Aloita ilmainen kokeilu",
     timesheets: "Työajanseuranta",
@@ -92,9 +93,10 @@ const strings = new LocalizedStrings({
     reportInfo1:
       "Lataa kattavat työaikakirjaukset tai ajopäiväkirja kätevänä Excel- tai CSV raporttina.",
     reportInfo2: "Käytä pikavalintoja tai aseta aikaväli haluamallasi tavalla.",
+    reportInfo3: "Verottajan vaatimukset täyttävä ajopäiväkirja.",
     pricing: "Hinnasto",
     pricingInfo:
-      "Pulikan käyttäminen ei tee lovea tuloihisi: edulliset hinnat mistä on lisäksi mahdollista saada pysyvää alennusta kutsumalla sovellukseen lisää käyttäjiä!",
+      "Pulikan käyttäminen ei tee lovea tuloihisi: edulliset hinnat ja mahdollisuus saada pysyvää alennusta kutsumalla sovellukseen lisää käyttäjiä! Vuosihinta alimmillaan vain 19,90 €.",
     threeMonths: "3 kuukautta",
     twelveMonths: "12 kuukautta",
     serviceUnavailable: "Palvelu ei ole vielä käytössä! Palaa myöhemmin.",

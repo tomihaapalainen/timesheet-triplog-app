@@ -27,7 +27,7 @@ export default function ApplicationInformation() {
 
   const tripLogInfos = [strings.triplogInfo1, strings.tripLogInfo2, strings.tripLogInfo3];
 
-  const reportsInfos = [strings.reportInfo1, strings.reportInfo2];
+  const reportsInfos = [strings.reportInfo1, strings.reportInfo2, strings.reportInfo3];
 
   return (
     <Container fluid className="mt-5 py-5 app-info-bg">
@@ -36,9 +36,9 @@ export default function ApplicationInformation() {
           <Container className="w-75">
             <Row>
               <Col md={6} className="d-flex flex-column justify-content-center">
-                <h5 className="text-white mb-3" style={{ fontSize: 20 }}>
+                <h2 className="text-white mb-3" style={{ fontSize: 20 }}>
                   {strings.timesheets}
-                </h5>
+                </h2>
                 {timesheetInfos.map((timesheetInfo, index) => (
                   <p key={index} className="text-white pb-4" style={{ fontSize: 17 }}>
                     {timesheetInfo}
@@ -49,7 +49,7 @@ export default function ApplicationInformation() {
                 <Image
                   className="carousel-image"
                   src={language === "en" ? enAppImage1 : fiAppImage1}
-                  alt="app-image-1"
+                  alt="Helppo työajanseuranta"
                 />
               </Col>
             </Row>
@@ -59,9 +59,9 @@ export default function ApplicationInformation() {
           <Container className="w-75">
             <Row>
               <Col md={6} className="d-flex flex-column justify-content-center">
-                <h5 className="text-white mb-3" style={{ fontSize: 20 }}>
+                <h2 className="text-white mb-3" style={{ fontSize: 20 }}>
                   {strings.triplogs}
-                </h5>
+                </h2>
                 {tripLogInfos.map((tripLogInfo, index) => (
                   <p key={index} className="text-white pb-4" style={{ fontSize: 17 }}>
                     {tripLogInfo}
@@ -72,7 +72,7 @@ export default function ApplicationInformation() {
                 <Image
                   className="carousel-image"
                   src={language === "en" ? enAppImage2 : fiAppImage2}
-                  alt="app-image-2"
+                  alt="Helppo ajopäiväkirja"
                 />
               </Col>
             </Row>
@@ -82,9 +82,9 @@ export default function ApplicationInformation() {
           <Container className="w-75">
             <Row>
               <Col md={6} className="d-flex flex-column justify-content-center">
-                <h5 className="text-white mb-3" style={{ fontSize: 20 }}>
+                <h2 className="text-white mb-3" style={{ fontSize: 20 }}>
                   {strings.reports}
-                </h5>
+                </h2>
                 {reportsInfos.map((reportsInfo, index) => (
                   <p key={index} className="text-white pb-4" style={{ fontSize: 17 }}>
                     {reportsInfo}
@@ -95,7 +95,7 @@ export default function ApplicationInformation() {
                 <Image
                   className="carousel-image"
                   src={language === "en" ? enAppImage3 : fiAppImage3}
-                  alt="app-image-3"
+                  alt="Kattavat raportit"
                 />
               </Col>
             </Row>
