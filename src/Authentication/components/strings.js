@@ -92,7 +92,7 @@ const strings = new LocalizedStrings({
     reports: "Raportit",
     reportInfo1:
       "Lataa kattavat työaikakirjaukset tai ajopäiväkirja kätevänä Excel- tai CSV raporttina.",
-    reportInfo2: "Käytä pikavalintoja tai aseta aikaväli haluamallasi tavalla.",
+    reportInfo2: "Käytä pikavalintoja tai aseta haluamasi aikaväli.",
     reportInfo3: "Verottajan vaatimukset täyttävä ajopäiväkirja.",
     pricing: "Hinnasto",
     pricingInfo:

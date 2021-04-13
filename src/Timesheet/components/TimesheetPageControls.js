@@ -135,7 +135,9 @@ export default function TimesheetPageControls({
             <Button
               style={{ minWidth: "125px" }}
               onClick={handleReset}
-              disabled={startTime === null && endTime === null}
+              disabled={
+                startDate === null && startTime === null && endDate === null && endTime === null
+              }
             >
               {strings.reset}
             </Button>
