@@ -24,9 +24,21 @@ export function timestampToDate(timestamp) {
 
 export function currentTime() {
   let d = new Date();
-  return `${d.getHours()}:${d.getMinutes().toString().padStart(2, "0")}`;
+  let hours = d.getHours().toString().padStart(2, "0");
+  let minutes = d.getMinutes().toString().padStart(2, "0");
+  return `${hours}:${minutes}`;
 }
 
 export function datetimeToLocalISOString(datetime) {
   return new Date(datetime - new Date().getTimezoneOffset() * 60000).toISOString().replace("Z", "");
+}
+
+export function currentHours() {
+  let d = new Date();
+  return `${d.getHours().toString().padStart(2, "0")}`;
+}
+
+export function currentMinutes() {
+  let d = new Date();
+  return `${d.getMinutes().toString().padStart(2, "0")}`;
 }

@@ -9,11 +9,15 @@ import { useGSC } from "../../store/GlobalStateProvider";
 
 export default function TimesheetControls({
   setStartDate,
-  startTime,
-  setStartTime,
   setEndDate,
-  endTime,
-  setEndTime,
+  startHours,
+  startMinutes,
+  endHours,
+  endMinutes,
+  setStartHours,
+  setStartMinutes,
+  setEndHours,
+  setEndMinutes,
 }) {
   const { language } = useGSC();
   strings.setLanguage(language);
@@ -21,39 +25,44 @@ export default function TimesheetControls({
   const handleStartNow = () => {
     let date = new Date();
     setStartDate(date);
-    setStartTime(currentTime());
+    let [shours, smins] = currentTime().split(":");
+    setStartHours(shours);
+    setStartMinutes(smins);
   };
 
   const handleEndNow = () => {
     let date = new Date();
     setEndDate(date);
-    setEndTime(currentTime());
+    let [ehours, emins] = currentTime().split(":");
+    setEndHours(ehours);
+    setEndMinutes(emins);
   };
 
   return (
     <Container className="px-0 mx-0 center-flex flex-column">
-      <Row className="mt-4 mb-3" style={{ height: "45px" }}>
-        <Col xs={6}>
+      <Row className="mt-4 mb-3 w-100">
+        <Col className="w-100" xs={6}>
           <Button
+            className="w-100"
             onClick={handleStartNow}
             style={{ minWidth: "125px" }}
-            disabled={startTime !== null}
+            disabled={startHours && startMinutes}
           >
-            {startTime === null ? strings.startNow : strings.started}
+            {!(startHours && startMinutes)
+              ? strings.startNow
+              : strings.started + `: ${startHours}:${startMinutes}`}
           </Button>
-          {startTime !== null && endTime === null && (
-            <Row>
-              <p className="mx-auto">{startTime}</p>
-            </Row>
-          )}
         </Col>
-        <Col xs={6}>
+        <Col className="w-100" xs={6}>
           <Button
+            className="w-100"
             onClick={handleEndNow}
             style={{ minWidth: "125px" }}
-            disabled={startTime === null || endTime !== null}
+            disabled={(!startHours && !startMinutes) || (endHours && endMinutes)}
           >
-            {endTime === null ? strings.endNow : strings.ended}
+            {!(endHours && endMinutes)
+              ? strings.endNow
+              : strings.ended + `: ${endHours}:${endMinutes}`}
           </Button>
         </Col>
       </Row>

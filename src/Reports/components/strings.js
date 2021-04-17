@@ -17,8 +17,8 @@ const strings = new LocalizedStrings({
   fi: {
     lastMonth: "Viime kk",
     thisMonth: "Tämä kk",
-    startingDate: "Alku pvm.",
-    endingDate: "Loppu pvm.",
+    startingDate: "Alku päivämäärä",
+    endingDate: "Loppu päivämäärä",
     tripLog: "ajopaivakirja",
     noTrips: "Ei matkoja",
     timesheet: "tyoajanseuranta",

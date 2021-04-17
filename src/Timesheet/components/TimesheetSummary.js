@@ -1,34 +1,32 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { datetimeAsDateString } from "../../utils/datetimeutils";
 import strings from "./strings";
 import { useGSC } from "../../store/GlobalStateProvider";
 
 export default function TimesheetSummary({
   startDate,
-  startTime,
   endDate,
-  endTime,
   lunchDuration,
   breakDuration,
+  startHours,
+  startMinutes,
+  endHours,
+  endMinutes,
 }) {
   const { language } = useGSC();
   strings.setLanguage(language);
 
-  const calculateDuration = (sDate, sTime, eDate, eTime) => {
-    if (sTime === null || eTime === null) {
+  const calculateDuration = (sDate, sHours, sMinutes, eDate, eHours, eMinutes) => {
+    if ((!sHours && sMinutes) || !(eHours && eMinutes)) {
       return "";
     }
 
-    let [startHours, startMins] = sTime.match(/\d\d/gi);
-    let [endHours, endMins] = eTime.match(/\d\d/gi);
     let startDatetime = new Date(sDate.getTime());
-    startDatetime.setHours(parseInt(startHours), parseInt(startMins), 0, 0);
+    startDatetime.setHours(parseInt(sHours), parseInt(sMinutes), 0, 0);
     let endDatetime = new Date(eDate.getTime());
-    endDatetime.setHours(parseInt(endHours), parseInt(endMins), 0, 0);
+    endDatetime.setHours(parseInt(eHours), parseInt(eMinutes), 0, 0);
 
     let diff = endDatetime.getTime() - startDatetime.getTime();
     if (lunchDuration) {
@@ -41,53 +39,27 @@ export default function TimesheetSummary({
     diff = Math.max(0, diff);
 
     let diffDate = new Date(diff);
-    return `${strings.duration}: ${diffDate.getUTCHours()}h ${diffDate.getUTCMinutes()}min`;
+    return `${strings.workingTime}: ${diffDate.getUTCHours()}h ${diffDate.getUTCMinutes()}min`;
   };
 
   return (
-    <Container className="mw-1024">
-      {startTime && endTime && (
-        <Card>
-          <Card.Header className="bg-primary text-white pb-0">
-            <Card.Title>{strings.summary}</Card.Title>
-          </Card.Header>
-          <Card.Body className="w-100">
-            <Row>
-              <Col xs={12} sm={6}>
-                <p>
-                  {datetimeAsDateString(startDate, language)}
-                  {startDate.getDay() !== endDate.getDay() &&
-                    ` - ${datetimeAsDateString(endDate, language)}`}{" "}
-                </p>
-              </Col>
-              <Col xs={12} sm={6}>
-                <p>
-                  {startTime} - {endTime}
-                </p>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <p>
-                  {strings.lunch}:<br />
-                  {lunchDuration} min
-                </p>
-              </Col>
-              <Col>
-                <p>
-                  {strings.breaks}:<br />
-                  {breakDuration} min
-                </p>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <p>{calculateDuration(startDate, startTime, endDate, endTime)}</p>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
-      )}
+    <Container fluid className="mw-1024 my-0 py-0 center-flex flex-column">
+      <Row className="my-0 py-0">
+        {startHours && startMinutes && endHours && endMinutes && (
+          <Col className="my-0 py-0">
+            <p className="font-weight-bold">
+              {calculateDuration(
+                startDate,
+                startHours,
+                startMinutes,
+                endDate,
+                endHours,
+                endMinutes
+              )}
+            </p>
+          </Col>
+        )}
+      </Row>
     </Container>
   );
 }

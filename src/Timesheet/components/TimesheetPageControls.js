@@ -17,16 +17,20 @@ import { datetimeToLocalISOString } from "../../utils/datetimeutils";
 export default function TimesheetPageControls({
   startDate,
   setStartDate,
-  startTime,
-  setStartTime,
   endDate,
   setEndDate,
-  endTime,
-  setEndTime,
   lunchDuration,
   breakDuration,
   dailyAllowance,
   selectedProject,
+  startHours,
+  startMinutes,
+  endHours,
+  endMinutes,
+  setStartHours,
+  setStartMinutes,
+  setEndHours,
+  setEndMinutes,
 }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -38,13 +42,11 @@ export default function TimesheetPageControls({
 
   const handleReset = () => {
     setStartDate(null);
-    setStartTime(null);
     setEndDate(null);
-    setEndTime(null);
-    localStorage.removeItem("current-start-date");
-    localStorage.removeItem("current-start-time");
-    localStorage.removeItem("current-end-date");
-    localStorage.removeItem("current-end-time");
+    setStartHours(null);
+    setStartMinutes(null);
+    setEndHours(null);
+    setEndMinutes(null);
   };
 
   const handleSave = async () => {
@@ -53,12 +55,10 @@ export default function TimesheetPageControls({
       return;
     }
 
-    let [startHours, startMins] = startTime.match(/\d\d/gi);
-    let [endHours, endMins] = endTime.match(/\d\d/gi);
     let startDatetime = new Date(startDate.getTime());
-    startDatetime.setHours(parseInt(startHours), parseInt(startMins), 0, 0);
+    startDatetime.setHours(parseInt(startHours), parseInt(startMinutes), 0, 0);
     let endDatetime = new Date(endDate.getTime());
-    endDatetime.setHours(parseInt(endHours), parseInt(endMins), 0, 0);
+    endDatetime.setHours(parseInt(endHours), parseInt(endMinutes), 0, 0);
     let allowance = parseInt(dailyAllowance);
     allowance = isNaN(allowance) ? 0 : allowance;
 
@@ -81,15 +81,14 @@ export default function TimesheetPageControls({
       });
 
       setStartDate(null);
-      setStartTime(null);
+      setStartHours(null);
+      setStartMinutes(null);
       setEndDate(null);
-      setEndTime(null);
-      localStorage.removeItem("current-start-date");
-      localStorage.removeItem("current-start-time");
-      localStorage.removeItem("current-end-date");
-      localStorage.removeItem("current-end-time");
+      setEndHours(null);
+      setEndMinutes(null);
       localStorage.setItem("previous-project", selectedProject);
       localStorage.setItem("previous-lunch-break", lunchDuration);
+      sessionStorage.removeItem("latest-workdata");
       setShowSuccess(true);
     } catch (error) {
       if (error.response) {
@@ -136,7 +135,10 @@ export default function TimesheetPageControls({
               style={{ minWidth: "125px" }}
               onClick={handleReset}
               disabled={
-                startDate === null && startTime === null && endDate === null && endTime === null
+                startDate === null &&
+                !(startHours && startMinutes) &&
+                endDate === null &&
+                !(endHours && endMinutes)
               }
             >
               {strings.reset}
@@ -146,7 +148,14 @@ export default function TimesheetPageControls({
             <Button
               style={{ minWidth: "125px" }}
               onClick={handleSave}
-              disabled={startTime === null || endTime === null || !selectedProject || !isActive}
+              disabled={
+                startHours === null ||
+                startMinutes === null ||
+                endHours === null ||
+                endMinutes === null ||
+                selectedProject === 0 ||
+                !isActive
+              }
             >
               {strings.save}
             </Button>

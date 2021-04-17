@@ -2,6 +2,7 @@ import LocalizedStrings from "react-localization";
 
 const strings = new LocalizedStrings({
   en: {
+    time: "Time",
     check: "Check",
     checkVehicle: "vehicle",
     checkProject: "project",
@@ -36,8 +37,8 @@ const strings = new LocalizedStrings({
     locationAtStart: "Starting address",
     locationAtEnd: "Ending address",
     kilometerageNow: "Kilometerage now",
-    tripStart: "Trip start",
-    tripEnd: "Trip end",
+    tripStartDate: "Start date",
+    tripEndDate: "End date",
     errorSavingTrip: "Saving your trip failed. Please try again later.",
     tripSavedSuccessfully: "Trip saved successfully",
     additionalInfo: "Additional info",
@@ -49,6 +50,7 @@ const strings = new LocalizedStrings({
     total: "Total",
   },
   fi: {
+    time: "Aika",
     check: "Tarkasta",
     checkVehicle: "ajoneuvon tiedot",
     checkProject: "projekti",
@@ -83,8 +85,8 @@ const strings = new LocalizedStrings({
     locationAtStart: "Osoite alussa",
     locationAtEnd: "Osoite lopussa",
     kilometerageNow: "Mittarilukema nyt",
-    tripStart: "Matkan alku",
-    tripEnd: "Matkan lopetus",
+    tripStartDate: "Aloitus päivämäärä",
+    tripEndDate: "Lopetus päivämäärä",
     errorSavingTrip: "Matkan tallentaminen ei onnistunut. Yritä myöhemmin uudelleen.",
     tripSavedSuccessfully: "Matka tallennettu",
     additionalInfo: "Lisätiedot",

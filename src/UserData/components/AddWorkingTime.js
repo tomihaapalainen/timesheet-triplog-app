@@ -6,12 +6,12 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { useGSC } from "../../store/GlobalStateProvider";
 import { useAuth } from "../../contexts/AuthContext";
-import { currentTime } from "../../utils/datetimeutils";
 import { baseUrl } from "../../config";
-import TimePicker from "react-rainbow-components/components/TimePicker";
 import Loading from "../../shared/Loading";
+import TimePicker from "../../shared/TimePicker";
 import strings from "../../Timesheet/components/strings";
 import "./styles.css";
+import { currentHours, currentMinutes } from "../../utils/datetimeutils";
 
 export default function AddWorkingTime() {
   const { workTimes, setTimesheets, language, isActive } = useGSC();
@@ -19,16 +19,21 @@ export default function AddWorkingTime() {
 
   const { currentUser } = useAuth();
 
-  const [start, setStart] = useState(currentTime());
-  const [end, setEnd] = useState(currentTime());
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [startHours, setStartHours] = useState(null);
+  const [startMinutes, setStartMinutes] = useState(null);
+  const [endHours, setEndHours] = useState(null);
+  const [endMinutes, setEndMinutes] = useState(null);
 
   const handleAddWorkingTime = async () => {
     setLoading(true);
-    if (!start || !end) {
+    if (!(startHours && startMinutes) || !(endHours && endMinutes)) {
       return;
     }
+
+    let start = `${startHours}:${startMinutes}`;
+    let end = `${endHours}:${endMinutes}`;
 
     let sameTime = workTimes.filter((w) => w.start === start && w.end === end);
     if (sameTime.length > 0) {
@@ -69,24 +74,26 @@ export default function AddWorkingTime() {
       <Row className="center-flex flex-row add-working-time-row">
         <Col>
           <Row>
-            <TimePicker
-              className="w-50"
-              id="start-time-picker"
-              value={start}
-              label={strings.start}
-              onChange={(t) => setStart(t)}
-              placeholder="--"
-              hour24
-            />
-            <TimePicker
-              className="w-50"
-              id="end-time-picker"
-              value={end}
-              label={strings.end}
-              onChange={(t) => setEnd(t)}
-              placeholder="--"
-              hour24
-            />
+            <Col>
+              <TimePicker
+                label={strings.start}
+                minsId="working-time-start-mins-input"
+                hours={startHours || currentHours()}
+                minutes={startMinutes || currentMinutes()}
+                setHours={setStartHours}
+                setMinutes={setStartMinutes}
+              />
+            </Col>
+            <Col>
+              <TimePicker
+                label={strings.end}
+                minsId="working-time-end-mins-input"
+                hours={endHours || currentHours()}
+                minutes={endMinutes || currentMinutes()}
+                setHours={setEndHours}
+                setMinutes={setEndMinutes}
+              />
+            </Col>
           </Row>
         </Col>
         <Container className="center-flex flex-column mt-2">

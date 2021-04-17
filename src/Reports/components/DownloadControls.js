@@ -137,31 +137,19 @@ export default function DownloadControls({ start, end, selectedFormat, selectedP
           {errorMessage && <p className="text-danger">{errorMessage}</p>}
           <Button
             disabled={getDisabled()}
-            className="my-3 py-2 download-btn"
+            className="download-btn"
             onClick={handleDownloadTimesheets}
           >
-            <Row>
-              <Col xs={9}>
-                <p className="pr-4">{strings.timesheetReport}</p>
-              </Col>
-              <Col xs={3} className="m-0 p-0">
-                <FaDownload color="white" size={15} />
-              </Col>
-            </Row>
+            <Container>
+              <p style={{ fontSize: "18px" }}>{strings.timesheetReport}</p>
+              <FaDownload color="white" size={25} />
+            </Container>
           </Button>
-          <Button
-            disabled={getDisabled()}
-            className="my-3 py-2 download-btn"
-            onClick={handleDownloadTripLog}
-          >
-            <Row>
-              <Col xs={9}>
-                <p className="pr-4">{strings.tripLogBtn}</p>
-              </Col>
-              <Col xs={3} className="m-0 p-0">
-                <FaDownload color="white" size={15} />
-              </Col>
-            </Row>
+          <Button disabled={getDisabled()} className="download-btn" onClick={handleDownloadTripLog}>
+            <Container fluid>
+              <p style={{ fontSize: "18px" }}>{strings.tripLogBtn}</p>
+              <FaDownload color="white" size={25} />
+            </Container>
           </Button>
         </Row>
       )}

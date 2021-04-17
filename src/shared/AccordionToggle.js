@@ -16,7 +16,7 @@ export default function AccordionToggle({ title }) {
       eventKey="0"
       className="bg-primary text-light pointer"
     >
-      <Container className="mx-0 px-0" eventKey="0">
+      <Container className="mx-0 px-0">
         <Row className="justify-content-space-between">
           <Col xs={10}>
             <p className="m-0 p-0 font-weight-bold">{title}</p>

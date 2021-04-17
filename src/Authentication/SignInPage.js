@@ -5,15 +5,9 @@ import SignInForm from "./components/SignInForm";
 import ApplicationInformation from "./components/ApplicationInformation";
 import PricingInformation from "./components/PricingInformation";
 import Footer from "../Navigation/Footer";
-import strings from "./components/strings";
-import { useGSC } from "../store/GlobalStateProvider";
 import CookieNote from "./components/CookieNote";
 
 export default function SignInPage() {
-  const { language } = useGSC();
-
-  strings.setLanguage(language);
-
   useEffect(() => {
     if (/\/[a-z0-9]+/.test(window.location.pathname)) {
       let referrerToken = window.location.pathname.substring(

@@ -12,13 +12,14 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import Toast from "react-bootstrap/Toast";
 import Spinner from "react-bootstrap/Spinner";
-import DateTimePicker from "react-rainbow-components/components/DateTimePicker";
+import DatePicker from "react-rainbow-components/components/DatePicker";
 
+import TimePicker from "../../shared/TimePicker";
 import strings from "./strings";
 import { useGSC } from "../../store/GlobalStateProvider";
 import { baseUrl } from "../../config";
 import { useAuth } from "../../contexts/AuthContext";
-import { datetimeToLocalISOString } from "../../utils/datetimeutils";
+import { currentHours, currentMinutes, datetimeToLocalISOString } from "../../utils/datetimeutils";
 import { FaAngleDown, FaAngleUp, FaCheckCircle } from "react-icons/fa";
 
 export default function AddTripManually({
@@ -27,6 +28,7 @@ export default function AddTripManually({
   vehicle,
   descriptionRef,
   route,
+  setRoute,
   compensationRef,
   setTripData,
 }) {
@@ -37,10 +39,15 @@ export default function AddTripManually({
 
   const [showSuccess, setShowSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [startDatetime, setStartDatetime] = useState(new Date());
-  const [endDatetime, setEndDatetime] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const [startHours, setStartHours] = useState(null);
+  const [startMinutes, setStartMinutes] = useState(null);
+  const [endHours, setEndHours] = useState(null);
+  const [endMinutes, setEndMinutes] = useState(null);
 
   const [distance, setDistance] = useState("");
 
@@ -80,11 +87,11 @@ export default function AddTripManually({
       return;
     }
 
-    let start = new Date(startDatetime.getTime());
-    let end = new Date(endDatetime.getTime());
+    let start = new Date(startDate.getTime());
+    let end = new Date(endDate.getTime());
 
-    start.setSeconds(0, 0);
-    end.setSeconds(0, 0);
+    start.setHours(startHours, startMinutes, 0, 0);
+    end.setHours(endHours, endMinutes, 0, 0);
 
     let compensationAmount = compensationRef.current.value;
     let data = {
@@ -111,6 +118,7 @@ export default function AddTripManually({
         sessionStorage.removeItem("last-trip-data");
         setShowSuccess(true);
         setDistance("");
+        setRoute("");
       }
     } catch (error) {
       if (error.response) {
@@ -122,11 +130,11 @@ export default function AddTripManually({
   };
 
   const handleStartChanged = (value) => {
-    setStartDatetime(value);
+    setStartDate(value);
     let x = new Date(value.getTime());
     let end = new Date();
     end.setFullYear(x.getFullYear(), x.getMonth(), x.getDate());
-    setEndDatetime(end);
+    setEndDate(end);
   };
 
   return (
@@ -179,24 +187,51 @@ export default function AddTripManually({
           </Alert>
           <Accordion.Collapse eventKey="0">
             <Card.Body className="w-100">
-              <Form onSubmit={handleSubmit}>
+              <Form>
                 <FormGroup>
-                  <DateTimePicker
-                    style={{ marginBottom: "5px" }}
-                    value={startDatetime}
-                    onChange={handleStartChanged}
-                    label={strings.tripStart}
-                    locale="fi-FI"
-                    hour24
-                  />
-                  <DateTimePicker
-                    style={{ marginBottom: "5px" }}
-                    value={endDatetime}
-                    onChange={(value) => setEndDatetime(value)}
-                    label={strings.tripEnd}
-                    locale="fi-FI"
-                    hour24
-                  />
+                  <Row className="w-100 mx-0 px-0">
+                    <Col className="w-100 mx-0 px-0 pt-1" xs={7}>
+                      <DatePicker
+                        value={startDate}
+                        onChange={handleStartChanged}
+                        label={strings.tripStartDate}
+                        locale="fi-FI"
+                        hour24
+                      />
+                    </Col>
+                    <Col className="w-100 mx-0 px-0" xs={5}>
+                      <TimePicker
+                        label={strings.time}
+                        minsId="manual-start-mins-input"
+                        hours={startHours || currentHours()}
+                        minutes={startMinutes || currentMinutes()}
+                        setHours={setStartHours}
+                        setMinutes={setStartMinutes}
+                      />
+                    </Col>
+                  </Row>
+                  <Row className="w-100 mx-0 px-0">
+                    <Col className="w-100 mx-0 px-0 pt-1" xs={7}>
+                      <DatePicker
+                        value={endDate}
+                        onChange={(value) => setEndDate(value)}
+                        label={strings.tripEndDate}
+                        locale="fi-FI"
+                        hour24
+                      />
+                    </Col>
+                    <Col className="w-100 mx-0 px-0" xs={5}>
+                      <TimePicker
+                        label={strings.time}
+                        minsId="manual-end-mins-input"
+                        hours={endHours || currentHours()}
+                        minutes={endMinutes || currentMinutes()}
+                        setHours={setEndHours}
+                        setMinutes={setEndMinutes}
+                      />
+                    </Col>
+                  </Row>
+
                   <Container className="mx-0 px-0 pt-2">
                     <Form.Label className="mr-2">{strings.kilometerage}:</Form.Label>
                     <Form.Label>{parseKilometers()}</Form.Label>
@@ -220,7 +255,7 @@ export default function AddTripManually({
                     </Container>
                   )}
                   {!loading && (
-                    <Button type="submit" disabled={!isActive}>
+                    <Button onClick={handleSubmit} disabled={!isActive}>
                       {strings.save}
                     </Button>
                   )}

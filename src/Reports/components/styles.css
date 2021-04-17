@@ -8,5 +8,6 @@
 
 .download-btn {
   width: 90%;
-  max-width: 240px;
+  max-width: 200px;
+  margin: 10px;
 }

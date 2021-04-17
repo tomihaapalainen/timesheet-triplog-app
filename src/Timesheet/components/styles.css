@@ -5,7 +5,7 @@
 }
 
 .quick-select-btn {
-  width: 31%;
-  margin-left: 5px;
-  margin-bottom: 5px;
+  width: 90%;
+  margin-bottom: 10px;
+  min-height: 40px;
 }

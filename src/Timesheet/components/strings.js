@@ -14,7 +14,7 @@ const strings = new LocalizedStrings({
     lunch: "Lunch",
     breaks: "Breaks",
     startNow: "Start now",
-    started: "Started",
+    started: "Start",
     endNow: "End Now",
     ended: "Ended",
     start: "Start",
@@ -32,6 +32,9 @@ const strings = new LocalizedStrings({
     accountNoLongerActive:
       "Your account is no longer active. Purchase again to keep using the application.",
     summary: "Summary",
+    workingTime: "Working time",
+    errorLoadingLatestWorkdata: "Error while loading latest workdata. Please, try again later.",
+    latestWorkingTime: "Latest working time",
   },
   fi: {
     projectMustBeSelected: "Valitse projekti",
@@ -46,9 +49,9 @@ const strings = new LocalizedStrings({
     lunch: "Lounas",
     breaks: "Muut tauot",
     startNow: "Aloita nyt",
-    started: "Aloitettu",
+    started: "Alku",
     endNow: "Lopeta nyt",
-    ended: "Lopetettu",
+    ended: "Loppu",
     start: "Aloitus",
     end: "Lopetus",
     worktimeSaved: "Työaika tallennettu",
@@ -57,13 +60,17 @@ const strings = new LocalizedStrings({
     reset: "Nollaa",
     save: "Tallenna",
     removingWorktimeFailed: "Työajan poistaminen ei onnistunut. Yritä myöhemmin uudelleen.",
-    startingDate: "Aloitus pvm",
+    startingDate: "Aloitus päivämäärä",
     time: "Aika",
-    endingDate: "Lopetus pvm",
+    endingDate: "Lopetus päivämäärä",
     duration: "Kesto",
     accountNoLongerActive:
       "Tilisi ei ole enää aktiivinen. Osta sovelluksen käyttöoikeus jatkaaksesi käyttöä.",
     summary: "Yhteenveto",
+    workingTime: "Työaika",
+    errorLoadingLatestWorkdata:
+      "Virhe ladattaessa viimeisintä työaikaa. Ole hyvä ja yritä myöhemmin uudelleen.",
+    latestWorkingTime: "Viimeisin työaika",
   },
 });
 

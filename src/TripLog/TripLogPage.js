@@ -309,6 +309,7 @@ export default function TripLogPage() {
       />
       <AddTripManually
         route={route}
+        setRoute={setRoute}
         kilometers={kilometers}
         selectedProject={selectedProject}
         vehicle={vehicle}

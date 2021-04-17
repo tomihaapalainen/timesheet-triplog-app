@@ -14,22 +14,28 @@ export default function SavedWorkTimes({
   startDate,
   endDate,
   setStartDate,
-  setStartTime,
   setEndDate,
-  setEndTime,
+  setStartHours,
+  setStartMinutes,
+  setEndHours,
+  setEndMinutes,
 }) {
   const { workTimes, language } = useGSC();
 
   strings.setLanguage(language);
 
-  const handleSavedTimesheetClicked = (workTime) => {
+  const handleSavedWorkTimeClicked = (workTime) => {
     let startingDate = startDate || new Date();
     let endingDate = endDate || new Date();
 
     setStartDate(startingDate);
-    setStartTime(workTime.start);
+    let [sHours, sMins] = workTime.start.split(":");
+    setStartHours(sHours);
+    setStartMinutes(sMins);
     setEndDate(endingDate);
-    setEndTime(workTime.end);
+    let [eHours, eMins] = workTime.end.split(":");
+    setEndHours(eHours);
+    setEndMinutes(eMins);
   };
 
   return (
@@ -45,21 +51,24 @@ export default function SavedWorkTimes({
                 </Col>
               )}
               {workTimes.length > 0 && (
-                <Row className="mx-0 px-0">
-                  <Col sm className="mx-0 px-0">
-                    {workTimes
-                      .sort((a, b) => (a.start < b.start ? -1 : 1))
-                      .map((workTime) => (
+                <Row className="w-100 mx-0 px-0">
+                  {workTimes
+                    .sort((a, b) => (a.start < b.start ? -1 : 1))
+                    .map((workTime) => (
+                      <Col
+                        xs={6}
+                        sm={4}
+                        className="mx-0 px-0"
+                        key={`${workTime.start}${workTime.end}`}
+                      >
                         <Button
-                          className="p-2 text-center quick-select-btn"
-                          key={`${workTime.start}${workTime.end}`}
-                          action
-                          onClick={() => handleSavedTimesheetClicked(workTime)}
+                          className="p-1 text-center quick-select-btn"
+                          onClick={() => handleSavedWorkTimeClicked(workTime)}
                         >
                           {workTime.start} - {workTime.end}
                         </Button>
-                      ))}
-                  </Col>
+                      </Col>
+                    ))}
                 </Row>
               )}
             </Card.Body>
