@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { datetimeAsTimeString } from "../../utils/datetimeutils";
+import { currentTime } from "../../utils/datetimeutils";
 import strings from "./strings";
 import { useGSC } from "../../store/GlobalStateProvider";
 
@@ -21,13 +21,13 @@ export default function TimesheetControls({
   const handleStartNow = () => {
     let date = new Date();
     setStartDate(date);
-    setStartTime(datetimeAsTimeString(date, language));
+    setStartTime(currentTime());
   };
 
   const handleEndNow = () => {
     let date = new Date();
     setEndDate(date);
-    setEndTime(datetimeAsTimeString(date, language));
+    setEndTime(currentTime());
   };
 
   return (
