@@ -43,7 +43,11 @@ export default function TimesheetSummary({
   };
 
   return (
-    <Container fluid className="mw-1024 my-0 py-0 center-flex flex-column">
+    <Container
+      fluid
+      className="mw-1024 my-0 py-0 center-flex flex-column"
+      style={{ height: "15px" }}
+    >
       <Row className="my-0 py-0">
         {startHours && startMinutes && endHours && endMinutes && (
           <Col className="my-0 py-0">

@@ -19,7 +19,7 @@ export default function TwoButtons({
             <Container>
               <Button
                 style={{ minWidth: "100px" }}
-                className="w-100 bg-danger text-uppercase"
+                className="w-100 bg-danger font-weight-bold"
                 onClick={leftAction}
               >
                 {leftLabel}
@@ -31,7 +31,7 @@ export default function TwoButtons({
           <Container>
             <Button
               style={{ minWidth: "100px" }}
-              className="w-100 bg-primary text-uppercase"
+              className="w-100 bg-primary font-weight-bold"
               onClick={rightAction}
               {...rightDisabled()}
             >

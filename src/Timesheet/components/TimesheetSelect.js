@@ -33,7 +33,7 @@ export default function TimesheetSelect({
   return (
     <Container className="px-0 mx-0">
       <Card>
-        <Card.Body className="my-1 py-1 mx-auto w-100" style={{ maxWidth: "600px" }}>
+        <Card.Body className="my-1 py-1 w-100" style={{ maxWidth: "600px" }}>
           <Row className="mb-2">
             <Col xs={7} className="mx-0 px-1 pt-1">
               <DatePicker

@@ -41,9 +41,9 @@ export default function TimesheetControls({
   return (
     <Container className="px-0 mx-0 center-flex flex-column">
       <Row className="mt-4 mb-3 w-100">
-        <Col className="w-100" xs={6}>
+        <Col className="w-100 mx-0 px-1" xs={6}>
           <Button
-            className="w-100"
+            className="w-100 font-weight-bold"
             onClick={handleStartNow}
             style={{ minWidth: "125px" }}
             disabled={startHours && startMinutes}
@@ -53,9 +53,9 @@ export default function TimesheetControls({
               : strings.started + `: ${startHours}:${startMinutes}`}
           </Button>
         </Col>
-        <Col className="w-100" xs={6}>
+        <Col className="w-100 mx-0 px-1" xs={6}>
           <Button
-            className="w-100"
+            className="w-100 font-weight-bold"
             onClick={handleEndNow}
             style={{ minWidth: "125px" }}
             disabled={(!startHours && !startMinutes) || (endHours && endMinutes)}

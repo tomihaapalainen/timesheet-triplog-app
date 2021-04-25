@@ -129,38 +129,44 @@ export default function TimesheetPageControls({
           <Loading />
         </Row>
       ) : (
-        <Row className="my-3">
-          <Col xs={6} className="d-flex justify-content-end">
-            <Button
-              style={{ minWidth: "125px" }}
-              onClick={handleReset}
-              disabled={
-                startDate === null &&
-                !(startHours && startMinutes) &&
-                endDate === null &&
-                !(endHours && endMinutes)
-              }
-            >
-              {strings.reset}
-            </Button>
-          </Col>
-          <Col xs={6}>
-            <Button
-              style={{ minWidth: "125px" }}
-              onClick={handleSave}
-              disabled={
-                startHours === null ||
-                startMinutes === null ||
-                endHours === null ||
-                endMinutes === null ||
-                selectedProject === 0 ||
-                !isActive
-              }
-            >
-              {strings.save}
-            </Button>
-          </Col>
-        </Row>
+        <Container className="px-0 mx-0 center-flex flex-column">
+          <Row className="my-3 w-100 mx-0 px-0">
+            <Col xs={6} className="w-100 mx-0 px-1">
+              <Button
+                className="w-100 mx-0 px-1 font-weight-bold text-white"
+                style={{ minWidth: "125px" }}
+                onClick={handleReset}
+                variant="warning"
+                disabled={
+                  startHours === null &&
+                  startMinutes === null &&
+                  endHours === null &&
+                  endMinutes === null
+                }
+              >
+                {strings.reset}
+              </Button>
+            </Col>
+            <Col xs={6} className="w-100 mx-0 px-1">
+              <Button
+                className="w-100 mx-0 px-1 font-weight-bold"
+                style={{ minWidth: "125px" }}
+                onClick={handleSave}
+                variant="success"
+                disabled={
+                  startHours === null ||
+                  startMinutes === null ||
+                  endHours === null ||
+                  endMinutes === null ||
+                  selectedProject === 0 ||
+                  !isActive
+                }
+              >
+                {strings.save}
+              </Button>
+            </Col>
+          </Row>
+        </Container>
       )}
     </Container>
   );
