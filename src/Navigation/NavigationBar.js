@@ -73,7 +73,7 @@ export default function NavigationBar() {
   };
 
   return (
-    <Navbar collapseOnSelect expand="md" bg="primary" variant="dark" className="my-0 py-1">
+    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark" className="my-0 py-1">
       <Navbar.Brand className="m-0 p-0 center-flex flex-row nav-brand">
         <Link
           to="/app"
@@ -112,6 +112,7 @@ export default function NavigationBar() {
           <Nav className="ml-auto">
             <NavigationLink eventKey="0" title={strings.timesheet} to="/app/worktime" />
             <NavigationLink eventKey="1" title={strings.tripLog} to="/app/triplog" />
+            <NavigationLink eventKey="2" title={strings.history} to="/app/history" />
             <NavigationLink eventKey="2" title={strings.reports} to="/app/reports" />
             <NavigationLink eventKey="3" title={strings.profile} to="/app/userdata" />
             <Nav.Link

@@ -15,7 +15,14 @@ export function datetimeAsDateISOString(date) {
 }
 
 export function datetimeAsTimeString(date, language) {
-  return date.toLocaleTimeString(language);
+  if (language === "fi") {
+    return `${date.getHours().toString().padStart(2, "0")}:${date
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")}`;
+  } else {
+    return date.toLocaleDateString(language);
+  }
 }
 
 export function timestampToDate(timestamp) {

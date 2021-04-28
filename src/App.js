@@ -19,6 +19,7 @@ import PurchasePage from "./Purchase/PurchasePage";
 import PrivacyStatementPage from "./TermsAndConditions/PrivacyStatementPage";
 import TermsPage from "./TermsAndConditions/TermsPage";
 import SuccessPage from "./Purchase/SuccessPage";
+import HistoryPage from "./History/HistoryPage";
 
 const theme = {
   rainbow: {
@@ -39,6 +40,7 @@ function App() {
               <Route path="/reset-password" component={ResetPasswordPage} />
               <Route path="/privacy-statement" component={PrivacyStatementPage} />
               <Route path="/terms" component={TermsPage} />
+              <PrivateRoute path="/app/history" component={HistoryPage} />
               <PrivateRoute path="/app/successful-purchase" component={SuccessPage} />
               <PrivateRoute path="/app/purchase" component={PurchasePage} />
               <PrivateRoute path="/app/reports" component={ReportsPage} />

@@ -12,6 +12,7 @@ const strings = new LocalizedStrings({
     privacyStatement2: "",
     terms1: "Terms and",
     terms2: "conditions",
+    history: "History",
   },
   fi: {
     timesheet: "Työajanseuranta",
@@ -24,6 +25,7 @@ const strings = new LocalizedStrings({
     privacyStatement2: "tietosuojaseloste",
     terms1: "Sopimusehdot",
     terms2: "",
+    history: "Historia",
   },
 });
 
