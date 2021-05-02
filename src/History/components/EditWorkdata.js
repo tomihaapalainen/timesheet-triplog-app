@@ -22,6 +22,7 @@ export default function EditWorkdata() {
 
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   const projectRef = useRef();
   const startRef = useRef();
@@ -32,6 +33,28 @@ export default function EditWorkdata() {
 
   const handleClose = () => {
     setOpenWorkdata(null);
+  };
+
+  const handleDelete = async (workdataId) => {
+    let mounted = true;
+    setDeleting(true);
+    try {
+      let idToken = await currentUser.getIdToken(true);
+      let response = await axios.delete(`${baseUrl}/workdata/delete/${workdataId}`, {
+        headers: { Authorization: `Bearer ${idToken}` },
+      });
+      if (response.status === 200) {
+        let filteredWorkdata = currentWorkdata.filter((w) => w.id !== workdataId);
+        setCurrentWorkdata(filteredWorkdata);
+        setOpenWorkdata(null);
+      }
+    } catch (error) {
+    } finally {
+      if (mounted) {
+        setDeleting(false);
+      }
+    }
+    return () => (mounted = false);
   };
 
   const handleSave = async () => {
@@ -117,7 +140,7 @@ export default function EditWorkdata() {
             defaultValue={openWorkdata.break_duration}
             ref={breakDurationRef}
           />
-          <Form.Label className="p-0 mt-1 mb-0">{strings.dailyAllowance}</Form.Label>
+          <Form.Label className="p-0 mt-1 mb-0">{strings.dailyAllowance} (€)</Form.Label>
           <Form.Control
             type="number"
             defaultValue={openWorkdata.daily_allowance}
@@ -128,13 +151,23 @@ export default function EditWorkdata() {
       <Modal.Footer>
         {errorMessage && <p className="lead text-warning">{errorMessage}</p>}
         {loading && <Spinner variant="warning" animation="border" role="status" />}
-        {!loading && (
+        {deleting && <Spinner variant="warning" animation="border" role="status" />}
+        {!loading && !deleting && (
+          <Button
+            variant="danger"
+            className="mx-1 px-1 mr-auto"
+            onClick={() => handleDelete(openWorkdata.id)}
+          >
+            {strings.delete}
+          </Button>
+        )}
+        {!loading && !deleting && (
           <Button variant="secondary" onClick={handleClose}>
             {strings.close}
           </Button>
         )}
-        {!loading && (
-          <Button variant="primary" onClick={handleSave}>
+        {!loading && !deleting && (
+          <Button variant="primary" className="mx-1 px-2" onClick={handleSave}>
             {strings.save}
           </Button>
         )}

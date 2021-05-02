@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Spinner from "react-bootstrap/Spinner";
 import { useGSC } from "../../store/GlobalStateProvider";
 import { useHistoryStateContext } from "../HistoryStateProvider";
 import {
@@ -12,18 +11,13 @@ import {
   timestampToDate,
 } from "../../utils/datetimeutils";
 import strings from "./strings";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
-import axios from "axios";
-import { baseUrl } from "../../config";
-import { useAuth } from "../../contexts/AuthContext";
+import { FaEdit } from "react-icons/fa";
 
 export default function WorkdataCard({ workdata }) {
   const { language, projects } = useGSC();
   strings.setLanguage(language);
 
-  const { currentUser } = useAuth();
-  const { currentWorkdata, setCurrentWorkdata, setOpenWorkdata } = useHistoryStateContext();
-  const [deleting, setDeleting] = useState(false);
+  const { setOpenWorkdata } = useHistoryStateContext();
 
   const getHeaderDates = (start, end) => {
     let startDate = timestampToDate(start);
@@ -51,46 +45,17 @@ export default function WorkdataCard({ workdata }) {
     return project.project_name;
   };
 
-  const handleDelete = async (workdataId) => {
-    let mounted = true;
-    setDeleting(true);
-    try {
-      let idToken = await currentUser.getIdToken(true);
-      let response = await axios.delete(`${baseUrl}/workdata/delete/${workdataId}`, {
-        headers: { Authorization: `Bearer ${idToken}` },
-      });
-      if (response.status === 200) {
-        let filteredWorkdata = currentWorkdata.filter((w) => w.id !== workdataId);
-        setCurrentWorkdata(filteredWorkdata);
-      }
-    } catch (error) {
-    } finally {
-      if (mounted) {
-        setDeleting(false);
-      }
-    }
-    return () => (mounted = false);
-  };
-
   return (
     <Card className="mt-1">
       <Card.Header className="bg-primary text-white py-1">
         <Row>
-          <Col xs={8} className="d-flex justify-content-flex-start align-items-center">
+          <Col xs={10} className="center-flex justify-content-start">
             <Card.Text>{getHeaderDates(workdata.start, workdata.end)}</Card.Text>
           </Col>
-          <Col xs={4} className="d-flex">
-            {deleting && <Spinner variant="warning" animation="border" role="status" />}
-            {!deleting && (
-              <Button className="m-0 p-1 mr-1 ml-auto" onClick={() => setOpenWorkdata(workdata)}>
-                <FaEdit size={25} />
-              </Button>
-            )}
-            {!deleting && (
-              <Button onClick={() => handleDelete(workdata.id)} className="m-0 p-1">
-                <FaTrashAlt size={25} />
-              </Button>
-            )}
+          <Col xs={2}>
+            <Button className="m-0 p-1 mr-1 ml-auto" onClick={() => setOpenWorkdata(workdata)}>
+              <FaEdit size={25} />
+            </Button>
           </Col>
         </Row>
       </Card.Header>
@@ -101,17 +66,17 @@ export default function WorkdataCard({ workdata }) {
         </Card.Text>
         {workdata.lunch_duration > 0 && (
           <Card.Text>
-            {strings.lunch}: {workdata.lunch_duration}
+            {strings.lunch}: {workdata.lunch_duration} min
           </Card.Text>
         )}
         {workdata.break_duration > 0 && (
           <Card.Text>
-            {strings.breaks}: {workdata.break_duration}
+            {strings.breaks}: {workdata.break_duration} min
           </Card.Text>
         )}
         {workdata.daily_allowance > 0 && (
           <Card.Text>
-            {strings.dailyAllowance}: {workdata.daily_allowance}
+            {strings.dailyAllowance}: {workdata.daily_allowance} €
           </Card.Text>
         )}
       </Card.Body>

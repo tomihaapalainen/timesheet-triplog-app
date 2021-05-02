@@ -22,6 +22,7 @@ export default function EditTripdata() {
 
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   const projectRef = useRef();
   const vehicleRef = useRef();
@@ -35,6 +36,28 @@ export default function EditTripdata() {
 
   const handleClose = () => {
     setOpenTripdata(null);
+  };
+
+  const handleDelete = async (tripdataId) => {
+    let mounted = true;
+    setDeleting(true);
+    try {
+      let idToken = await currentUser.getIdToken(true);
+      let response = await axios.delete(`${baseUrl}/trips/delete/${tripdataId}`, {
+        headers: { Authorization: `Bearer ${idToken}` },
+      });
+      if (response.status === 200) {
+        let filteredTripdata = currentTripdata.filter((t) => t.id !== tripdataId);
+        setOpenTripdata(null);
+        setCurrentTripdata(filteredTripdata);
+      }
+    } catch (error) {
+    } finally {
+      if (mounted) {
+        setDeleting(false);
+      }
+    }
+    return () => (mounted = false);
   };
 
   const handleSave = async () => {
@@ -133,16 +156,26 @@ export default function EditTripdata() {
           <Form.Control type="text" defaultValue={openTripdata.end_km} ref={endKmRef} />
         </Form.Group>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className="d-flex">
         {errorMessage && <p className="lead text-warning">{errorMessage}</p>}
         {loading && <Spinner variant="warning" animation="border" role="status" />}
-        {!loading && (
+        {deleting && <Spinner variant="warning" animation="border" role="status" />}
+        {!loading && !deleting && (
+          <Button
+            variant="danger"
+            className="mx-1 px-1 mr-auto"
+            onClick={() => handleDelete(openTripdata.id)}
+          >
+            {strings.delete}
+          </Button>
+        )}
+        {!loading && !deleting && (
           <Button variant="secondary" onClick={handleClose}>
             {strings.close}
           </Button>
         )}
-        {!loading && (
-          <Button variant="primary" onClick={handleSave}>
+        {!loading && !deleting && (
+          <Button variant="primary" className="mx-1 px-2" onClick={handleSave}>
             {strings.save}
           </Button>
         )}

@@ -1,12 +1,8 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Spinner from "react-bootstrap/Spinner";
-import { baseUrl } from "../../config";
-import { useAuth } from "../../contexts/AuthContext";
 import { useGSC } from "../../store/GlobalStateProvider";
 import {
   datetimeAsDateString,
@@ -15,17 +11,13 @@ import {
 } from "../../utils/datetimeutils";
 import { useHistoryStateContext } from "../HistoryStateProvider";
 import strings from "./strings";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 
 export default function TripdataCard({ tripdata }) {
   const { language, projects } = useGSC();
   strings.setLanguage(language);
 
-  const { currentTripdata, setCurrentTripdata, setOpenTripdata } = useHistoryStateContext();
-
-  const { currentUser } = useAuth();
-
-  const [deleting, setDeleting] = useState(false);
+  const { setOpenTripdata } = useHistoryStateContext();
 
   const getHeaderDates = (start, end) => {
     let startDate = timestampToDate(start);
@@ -53,46 +45,17 @@ export default function TripdataCard({ tripdata }) {
     return project.project_name;
   };
 
-  const handleDelete = async (tripdataId) => {
-    let mounted = true;
-    setDeleting(true);
-    try {
-      let idToken = await currentUser.getIdToken(true);
-      let response = await axios.delete(`${baseUrl}/trips/delete/${tripdataId}`, {
-        headers: { Authorization: `Bearer ${idToken}` },
-      });
-      if (response.status === 200) {
-        let filteredTripdata = currentTripdata.filter((t) => t.id !== tripdataId);
-        setCurrentTripdata(filteredTripdata);
-      }
-    } catch (error) {
-    } finally {
-      if (mounted) {
-        setDeleting(false);
-      }
-    }
-    return () => (mounted = false);
-  };
-
   return (
     <Card key={tripdata.id} className="mt-1">
       <Card.Header className="bg-primary text-white py-1">
         <Row>
-          <Col xs={8}>
+          <Col xs={10} className="center-flex justify-content-start">
             <Card.Text>{getHeaderDates(tripdata.start_datetime, tripdata.end_datetime)}</Card.Text>
           </Col>
-          <Col xs={4} className="d-flex">
-            {deleting && <Spinner variant="warning" animation="border" role="status" />}
-            {!deleting && (
-              <Button className="m-0 p-1 mr-1 ml-auto" onClick={() => setOpenTripdata(tripdata)}>
-                <FaEdit size={25} />
-              </Button>
-            )}
-            {!deleting && (
-              <Button onClick={() => handleDelete(tripdata.id)} className="m-0 p-0 ml-auto">
-                <FaTrashAlt size={25} />
-              </Button>
-            )}
+          <Col xs={2}>
+            <Button className="m-0 p-1 mr-1" onClick={() => setOpenTripdata(tripdata)}>
+              <FaEdit size={25} />
+            </Button>{" "}
           </Col>
         </Row>
       </Card.Header>

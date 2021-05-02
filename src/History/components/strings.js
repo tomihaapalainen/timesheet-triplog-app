@@ -32,6 +32,7 @@ const strings = new LocalizedStrings({
     unableToSaveWorkdata: "Unable to save workdata. Please try again later.",
     startKm: "Start km",
     endKm: "End km",
+    delete: "Delete",
   },
   fi: {
     workdata: "Työ",
@@ -66,6 +67,7 @@ const strings = new LocalizedStrings({
       "Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä myöhemmin uudelleen.",
     startKm: "Mittarilukema alussa",
     endKm: "Mittarilukema lopussa",
+    delete: "Poista",
   },
 });
 

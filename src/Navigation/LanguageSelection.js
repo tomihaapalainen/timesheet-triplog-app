@@ -28,19 +28,19 @@ export default function LanguageSelection() {
             src={language === "fi" ? finnishFlag : englishFlag}
             alt="lang"
             roundedCircle
-            style={{ width: 30, height: 30 }}
+            style={{ width: "22px", height: "22px" }}
           />
         </Dropdown.Toggle>
         <Dropdown.Menu className="bg-primary">
           <Dropdown.Item className="my-2">
             <Container className="m-0 p-0" onClick={() => onSelect("fi")}>
-              <Image src={finnishFlag} alt="fi" roundedCircle style={{ width: 30, height: 30 }} />
+              <Image src={finnishFlag} alt="fi" roundedCircle />
               <p style={{ color: "#fff", textTransform: "uppercase" }}>Suomi</p>
             </Container>
           </Dropdown.Item>
           <Dropdown.Item className="my-2">
             <Container className="m-0 p-0" onClick={() => onSelect("en")}>
-              <Image src={englishFlag} alt="en" roundedCircle style={{ width: 30, height: 30 }} />
+              <Image src={englishFlag} alt="en" roundedCircle />
               <p style={{ color: "#fff", textTransform: "uppercase" }}>English</p>
             </Container>
           </Dropdown.Item>
