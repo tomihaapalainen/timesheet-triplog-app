@@ -10,6 +10,7 @@ import Loading from "../../shared/Loading";
 import { useGSC } from "../../store/GlobalStateProvider";
 import { useHistoryStateContext } from "../HistoryStateProvider";
 import WorkdataCard from "./WorkdataCard";
+import EditWorkdata from "./EditWorkdata";
 
 export default function WorkdataContainer() {
   const { currentUser } = useAuth();
@@ -68,6 +69,7 @@ export default function WorkdataContainer() {
 
   return (
     <Container className="mx-0 px-0">
+      <EditWorkdata />
       {!loading && (
         <Container fluid className="center-flex my-2 w-100">
           <Button onClick={fetchLastMonth} className="mr-2 w-100">

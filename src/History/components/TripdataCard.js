@@ -15,13 +15,13 @@ import {
 } from "../../utils/datetimeutils";
 import { useHistoryStateContext } from "../HistoryStateProvider";
 import strings from "./strings";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 export default function TripdataCard({ tripdata }) {
   const { language, projects } = useGSC();
   strings.setLanguage(language);
 
-  const { currentTripdata, setCurrentTripdata } = useHistoryStateContext();
+  const { currentTripdata, setCurrentTripdata, setOpenTripdata } = useHistoryStateContext();
 
   const { currentUser } = useAuth();
 
@@ -78,11 +78,16 @@ export default function TripdataCard({ tripdata }) {
     <Card key={tripdata.id} className="mt-1">
       <Card.Header className="bg-primary text-white py-1">
         <Row>
-          <Col>
+          <Col xs={8}>
             <Card.Text>{getHeaderDates(tripdata.start_datetime, tripdata.end_datetime)}</Card.Text>
           </Col>
-          <Col xs={2} className="d-flex">
+          <Col xs={4} className="d-flex">
             {deleting && <Spinner variant="warning" animation="border" role="status" />}
+            {!deleting && (
+              <Button className="m-0 p-1 mr-1 ml-auto" onClick={() => setOpenTripdata(tripdata)}>
+                <FaEdit size={25} />
+              </Button>
+            )}
             {!deleting && (
               <Button onClick={() => handleDelete(tripdata.id)} className="m-0 p-0 ml-auto">
                 <FaTrashAlt size={25} />

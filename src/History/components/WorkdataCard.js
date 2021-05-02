@@ -12,7 +12,7 @@ import {
   timestampToDate,
 } from "../../utils/datetimeutils";
 import strings from "./strings";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import axios from "axios";
 import { baseUrl } from "../../config";
 import { useAuth } from "../../contexts/AuthContext";
@@ -22,7 +22,7 @@ export default function WorkdataCard({ workdata }) {
   strings.setLanguage(language);
 
   const { currentUser } = useAuth();
-  const { currentWorkdata, setCurrentWorkdata } = useHistoryStateContext();
+  const { currentWorkdata, setCurrentWorkdata, setOpenWorkdata } = useHistoryStateContext();
   const [deleting, setDeleting] = useState(false);
 
   const getHeaderDates = (start, end) => {
@@ -76,13 +76,18 @@ export default function WorkdataCard({ workdata }) {
     <Card className="mt-1">
       <Card.Header className="bg-primary text-white py-1">
         <Row>
-          <Col xs={10} className="d-flex justify-content-flex-start align-items-center">
+          <Col xs={8} className="d-flex justify-content-flex-start align-items-center">
             <Card.Text>{getHeaderDates(workdata.start, workdata.end)}</Card.Text>
           </Col>
-          <Col xs={2} className="d-flex">
+          <Col xs={4} className="d-flex">
             {deleting && <Spinner variant="warning" animation="border" role="status" />}
             {!deleting && (
-              <Button onClick={() => handleDelete(workdata.id)} className="m-0 p-0 ml-auto">
+              <Button className="m-0 p-1 mr-1 ml-auto" onClick={() => setOpenWorkdata(workdata)}>
+                <FaEdit size={25} />
+              </Button>
+            )}
+            {!deleting && (
+              <Button onClick={() => handleDelete(workdata.id)} className="m-0 p-1">
                 <FaTrashAlt size={25} />
               </Button>
             )}

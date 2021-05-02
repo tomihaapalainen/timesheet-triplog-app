@@ -10,6 +10,7 @@ import Loading from "../../shared/Loading";
 import { useGSC } from "../../store/GlobalStateProvider";
 import TripdataCard from "./TripdataCard";
 import { useHistoryStateContext } from "../HistoryStateProvider";
+import EditTripdata from "./EditTripdata";
 
 export default function TripdataContainer() {
   const { currentUser } = useAuth();
@@ -69,6 +70,7 @@ export default function TripdataContainer() {
 
   return (
     <Container className="mx-0 px-0">
+      <EditTripdata />
       {!loading && (
         <Container fluid className="center-flex my-2 w-100">
           <Button onClick={fetchLastMonth} className="mr-2 w-100">
