@@ -4,8 +4,6 @@ import ProjectsAccordion from "./components/ProjectsAccordion";
 import { useGSC } from "../store/GlobalStateProvider";
 import WorkingTimesAccordion from "./components/WorkingTimesAccordion";
 import ReferralAccordion from "./components/ReferralAccordion";
-import FeedbackAccordion from "./components/FeedbackAccordion";
-import ReviewAccordion from "./components/ReviewAccordion";
 import ActiveUntil from "./components/ActiveUntil";
 import DeleteUserAccordion from "./components/DeleteUserAccordion";
 
@@ -18,8 +16,6 @@ export default function UserDataPage() {
       <ProjectsAccordion projects={projects} setProjects={setProjects} />
       <WorkingTimesAccordion workTimes={workTimes} setTimesheets={setTimesheets} />
       <ReferralAccordion />
-      <FeedbackAccordion />
-      <ReviewAccordion />
       <DeleteUserAccordion />
       <Container style={{ height: "100px" }} />
     </Container>

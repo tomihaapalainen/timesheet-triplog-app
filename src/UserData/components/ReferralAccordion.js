@@ -2,16 +2,19 @@ import React, { useRef, useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
 import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
+import Row from "react-bootstrap/Row";
 import Toast from "react-bootstrap/Toast";
 import { useGSC } from "../../store/GlobalStateProvider";
-import AccordionToggle from "../../shared/AccordionToggle";
-import { FaCopy } from "react-icons/fa";
+import { FaCopy, FaAngleDown, FaAngleUp } from "react-icons/fa";
 import strings from "./strings";
 
 export default function ReferralAccordion() {
   const [showToast, setShowToast] = useState(false);
+  const [open, setOpen] = useState(true);
   const { invitationToken, language } = useGSC();
   const referralLinkRef = useRef();
 
@@ -31,9 +34,29 @@ export default function ReferralAccordion() {
   };
 
   return (
-    <Accordion className="mw-1024 mx-auto">
+    <Accordion className="mw-1024 mx-auto" defaultActiveKey="0">
       <Card className="invitation-border">
-        <AccordionToggle title={strings.inviteUsers} />
+        <Accordion.Toggle
+          as={Card.Header}
+          onClick={() => setOpen(!open)}
+          eventKey="0"
+          className="bg-primary text-light pointer"
+        >
+          <Container className="mx-0 px-0">
+            <Row className="justify-content-space-between">
+              <Col xs={10}>
+                <p className="m-0 p-0 font-weight-bold">{strings.inviteUsers}</p>
+              </Col>
+              <Col className="d-flex justify-content-end" xs={2}>
+                {open ? (
+                  <FaAngleUp color="#fff" size={20} />
+                ) : (
+                  <FaAngleDown color="#fff" size={20} />
+                )}
+              </Col>
+            </Row>
+          </Container>
+        </Accordion.Toggle>
         <Accordion.Collapse eventKey="0">
           <Card.Body className="mx-auto">
             <p className="mb-3">{strings.inviteInfo}</p>

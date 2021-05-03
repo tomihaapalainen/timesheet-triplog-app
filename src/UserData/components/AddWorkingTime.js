@@ -74,7 +74,7 @@ export default function AddWorkingTime() {
       <Row className="center-flex flex-row add-working-time-row">
         <Col>
           <Row>
-            <Col>
+            <Col className="mx-0 px-0">
               <TimePicker
                 label={strings.start}
                 minsId="working-time-start-mins-input"
@@ -84,7 +84,7 @@ export default function AddWorkingTime() {
                 setMinutes={setStartMinutes}
               />
             </Col>
-            <Col>
+            <Col className="mx-0 px-0">
               <TimePicker
                 label={strings.end}
                 minsId="working-time-end-mins-input"

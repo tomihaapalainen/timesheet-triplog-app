@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 
-export default function AccordionToggle({ title }) {
+export default function AccordionToggle({ title, variant }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -14,7 +14,7 @@ export default function AccordionToggle({ title }) {
       as={Card.Header}
       onClick={() => setOpen(!open)}
       eventKey="0"
-      className="bg-primary text-light pointer"
+      className={`bg-${variant ?? "primary"} text-light pointer`}
     >
       <Container className="mx-0 px-0">
         <Row className="justify-content-space-between">

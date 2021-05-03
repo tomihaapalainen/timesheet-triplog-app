@@ -51,7 +51,7 @@ export default function DeleteUserAccordion() {
   return (
     <Accordion className="mw-1024 mx-auto">
       <Card>
-        <AccordionToggle title={strings.deleteMyAccount} />
+        <AccordionToggle title={strings.deleteMyAccount} variant="danger" />
         <Accordion.Collapse eventKey="0">
           <Card.Body className="d-flex flex-column justify-content-center">
             <p className="mb-3">{strings.deleteNote}</p>

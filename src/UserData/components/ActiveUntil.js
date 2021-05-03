@@ -14,7 +14,9 @@ export default function ActiveUntil({ isActive, activeUntil }) {
   return (
     <Container fluid className="mx-0 px-0 pt-3">
       <Card className="w-100 mx-0 px-0">
-        <Card.Header className={`text-light ${isActive ? "bg-success" : "bg-warning"}`}>
+        <Card.Header
+          className={`text-light ${isActive ? "bg-success" : "bg-warning"} center-flex py-1`}
+        >
           {isActive ? (
             <p className="font-weight-bold">
               {strings.accountActive} {activeUntilDate}
