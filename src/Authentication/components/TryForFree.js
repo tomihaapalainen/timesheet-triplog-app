@@ -20,15 +20,9 @@ export default function TryForFree() {
   return (
     <Container>
       <Jumbotron className="mt-4 text-light app-info-bg">
-        <h1 style={{ fontSize: 21, fontWeight: "bold" }}>{strings.appTitle}</h1>
-        <h5 className="mt-4 mb-2" style={{ fontSize: 17 }}>
-          {strings.infoText1}
-        </h5>
-        <h5 className="mt-4 mb-2" style={{ fontSize: 17 }}>
-          {strings.infoText2}
-        </h5>
+        <h1 className="app-title-header">{strings.appTitle}</h1>
         <Button
-          className="mt-3 font-weight-bold text-uppercase"
+          className="mt-5 font-weight-bold text-uppercase"
           variant="success"
           onClick={handleClick}
         >

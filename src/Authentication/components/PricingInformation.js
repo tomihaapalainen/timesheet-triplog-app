@@ -11,7 +11,7 @@ export default function PricingInformation() {
     <Container className="mt-5 pb-5">
       <Container>
         <Container fluid>
-          <h2 className="text-center lead pb-2">{strings.pricing}</h2>
+          <h2 className="text-center pb-2 pricing-header">{strings.pricing}</h2>
           <p className="pb-4">{strings.pricingInfo}</p>
         </Container>
         <Row>
@@ -21,10 +21,7 @@ export default function PricingInformation() {
                 {strings.threeMonths}
               </Card.Header>
               <Card.Body>
-                <p style={{ fontSize: "17px" }}>
-                  <strong>{strings.threeMonthPrice}</strong> ({strings.only}{" "}
-                  {strings.threeMonthMonthlyPrice})
-                </p>
+                <p className="pricing-body text-center">{strings.threeMonthPrice}</p>
               </Card.Body>
             </Card>
           </Col>
@@ -34,10 +31,7 @@ export default function PricingInformation() {
                 {strings.twelveMonths}
               </Card.Header>
               <Card.Body>
-                <p style={{ fontSize: "17px" }}>
-                  <strong>{strings.twelveMonthPrice}</strong> ({strings.only}{" "}
-                  {strings.twelveMonthMonthlyPrice})
-                </p>
+                <p className="pricing-body text-center">{strings.twelveMonthPrice}</p>
               </Card.Body>
             </Card>
           </Col>

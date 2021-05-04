@@ -2,13 +2,11 @@ import React, { useRef, useState } from "react";
 import axios from "axios";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
+import Spinner from "react-bootstrap/Spinner";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { useGSC } from "../../store/GlobalStateProvider";
-import Loading from "../../shared/Loading";
 import strings from "./strings";
 import { baseUrl } from "../../config";
 
@@ -67,33 +65,31 @@ export default function SignInForm() {
     }
   };
 
-  if (loading) {
-    return <Loading />;
-  }
-
   return (
     <Container>
       <Container id="focus-target" style={{ height: "50px" }} />
-      <Row>
-        <Col className="mb-3">
-          <Form className="center-flex flex-column">
-            <Form.Group controlId="formBasicEmail">
-              <Form.Control
-                className="my-1"
-                type="email"
-                placeholder={strings.email + "..."}
-                ref={usernameRef}
-                onFocus={handleEmailFocus}
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-              <Form.Control
-                className="my-1"
-                type="password"
-                placeholder={strings.password + "..."}
-                ref={passwordRef}
-              />
-            </Form.Group>
+      <Form className="center-flex flex-column">
+        <Form.Group controlId="formBasicEmail">
+          <Form.Control
+            size="lg"
+            className="my-1 mx-1"
+            type="email"
+            placeholder={strings.email + "..."}
+            ref={usernameRef}
+            onFocus={handleEmailFocus}
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicPassword">
+          <Form.Control
+            size="lg"
+            className="my-1 mx-1"
+            type="password"
+            placeholder={strings.password + "..."}
+            ref={passwordRef}
+          />
+        </Form.Group>
+        <Container className="center-flex">
+          {!loading && (
             <Button
               className="text-uppercase"
               type="submit"
@@ -102,15 +98,16 @@ export default function SignInForm() {
             >
               {strings.signIn}
             </Button>
-          </Form>
-        </Col>
-      </Row>
+          )}
+          {loading && <Spinner variant="primary" animation="border" />}
+        </Container>
+      </Form>
       {showPasswordReset && (
-        <Row>
-          <Link className="mx-auto my-2 text-primary" to="/reset-password" color="secondary">
+        <Container fluid className="mt-4 center-flex">
+          <Link className="mx-auto text-primary" to="/reset-password" color="secondary">
             {strings.forgotPassword}
           </Link>
-        </Row>
+        </Container>
       )}
     </Container>
   );

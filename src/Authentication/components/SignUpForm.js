@@ -73,11 +73,13 @@ export default function SignUpForm({ language }) {
   return (
     <Container>
       <Col className="my-3">
+        <Container id="focus-target" style={{ height: "50px" }} />
         {loading && <Loading />}
         {!loading && (
           <Form className="center-flex flex-column">
             <Form.Group controlId="formBasicEmail">
               <Form.Control
+                size="lg"
                 className="my-1"
                 type="email"
                 placeholder={strings.email + "..."}
@@ -86,6 +88,7 @@ export default function SignUpForm({ language }) {
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
               <Form.Control
+                size="lg"
                 className="my-1"
                 type="password"
                 placeholder={strings.password + "..."}

@@ -36,9 +36,7 @@ export default function ApplicationInformation() {
           <Container className="w-75">
             <Row>
               <Col md={6} className="d-flex flex-column justify-content-center">
-                <h2 className="text-white mb-3" style={{ fontSize: 20 }}>
-                  {strings.timesheets}
-                </h2>
+                <h2 className="text-white mb-3 app-info-title">{strings.timesheets}</h2>
                 {timesheetInfos.map((timesheetInfo, index) => (
                   <p key={index} className="text-white pb-4" style={{ fontSize: 17 }}>
                     {timesheetInfo}
@@ -59,9 +57,7 @@ export default function ApplicationInformation() {
           <Container className="w-75">
             <Row>
               <Col md={6} className="d-flex flex-column justify-content-center">
-                <h2 className="text-white mb-3" style={{ fontSize: 20 }}>
-                  {strings.triplogs}
-                </h2>
+                <h2 className="text-white mb-3 app-info-title">{strings.triplogs}</h2>
                 {tripLogInfos.map((tripLogInfo, index) => (
                   <p key={index} className="text-white pb-4" style={{ fontSize: 17 }}>
                     {tripLogInfo}
@@ -82,9 +78,7 @@ export default function ApplicationInformation() {
           <Container className="w-75">
             <Row>
               <Col md={6} className="d-flex flex-column justify-content-center">
-                <h2 className="text-white mb-3" style={{ fontSize: 20 }}>
-                  {strings.reports}
-                </h2>
+                <h2 className="text-white mb-3 app-info-title">{strings.reports}</h2>
                 {reportsInfos.map((reportsInfo, index) => (
                   <p key={index} className="text-white pb-4" style={{ fontSize: 17 }}>
                     {reportsInfo}

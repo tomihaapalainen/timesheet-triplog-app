@@ -21,6 +21,14 @@
   border: 1px solid darkgrey;
 }
 
+.app-title-header {
+  font-size: clamp(2rem, -0.875rem + 8.333vw, 3.5rem);
+}
+
+.app-info-title {
+  font-size: clamp(2rem, -0.875rem + 8.333vw, 2.25rem);
+}
+
 .app-info-bg {
   background: linear-gradient(
     300deg,
@@ -30,6 +38,7 @@
     rgba(7, 104, 159, 1) 75%,
     rgba(0, 74, 116, 1) 100%
   );
+  box-shadow: 3px 3px 15px 2px #000000bb;
 }
 
 .carousel-image {
@@ -42,8 +51,12 @@
 }
 
 .pricing-header {
-  font-size: 18px;
+  font-size: clamp(1.5rem, -0.875rem + 8.333vw, 2rem);
   font-weight: bold;
+}
+
+.pricing-body {
+  font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.5rem);
 }
 
 .cookie-nav {

@@ -10,10 +10,7 @@ export default function TryForFreeSignUp({ language }) {
   return (
     <Container>
       <Jumbotron className="mt-4 text-light app-info-bg">
-        <h1 style={{ fontSize: 21, fontWeight: "bold" }}>{strings.appTitle}</h1>
-        <h5 className="my-4" style={{ fontSize: 17 }}>
-          {strings.infoText1}
-        </h5>
+        <h1 className="app-title-header">{strings.infoText1}</h1>
       </Jumbotron>
     </Container>
   );
