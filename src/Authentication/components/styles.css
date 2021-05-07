@@ -4,25 +4,13 @@
   align-items: center;
 }
 
-.google-sign-in-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 95%;
-  max-width: 300px;
-  padding: 5px;
-  cursor: pointer;
-  background-color: #f0f3f5;
-  border: 1px solid lightgrey;
-}
-
-.google-sign-in-card:hover {
-  border: 1px solid darkgrey;
-}
-
 .app-title-header {
-  font-size: clamp(2rem, -0.875rem + 8.333vw, 3.5rem);
+  font-size: clamp(1.75rem, -0.875rem + 8.333vw, 3.5rem);
+  text-transform: uppercase;
+}
+
+.h-container:h1 {
+  display: inline;
 }
 
 .app-info-title {
@@ -38,7 +26,6 @@
     rgba(7, 104, 159, 1) 75%,
     rgba(0, 74, 116, 1) 100%
   );
-  box-shadow: 3px 3px 15px 2px #000000bb;
 }
 
 .carousel-image {
@@ -51,12 +38,11 @@
 }
 
 .pricing-header {
-  font-size: clamp(1.5rem, -0.875rem + 8.333vw, 2rem);
-  font-weight: bold;
+  font-size: clamp(1rem, -0.875rem + 8.333vw, 1.5rem);
 }
 
 .pricing-body {
-  font-size: clamp(1.25rem, -0.875rem + 8.333vw, 1.5rem);
+  font-size: clamp(1rem, -0.875rem + 8.333vw, 1.25rem);
 }
 
 .cookie-nav {
@@ -70,4 +56,13 @@
 .accept-cookies-btn {
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.price-tag {
+  font-size: clamp(1rem, -0.875rem + 8.333vw, 1.5rem);
+}
+
+.sign-up-card {
+  width: clamp(280px, 95%, 500px);
+  height: clamp(300px, 50%, 400px);
 }

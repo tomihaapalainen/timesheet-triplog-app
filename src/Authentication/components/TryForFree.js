@@ -18,11 +18,15 @@ export default function TryForFree() {
   };
 
   return (
-    <Container>
-      <Jumbotron className="mt-4 text-light app-info-bg">
-        <h1 className="app-title-header">{strings.appTitle}</h1>
+    <Container fluid className="d-flex justify-content-center align-items-center">
+      <Jumbotron className="mt-4 text-primary bg-light">
+        <h1 className="app-title-header">
+          <strong>{strings.timesheets}</strong> {strings.and}
+          <br />
+          <strong>{strings.triplogs}</strong>
+        </h1>
         <Button
-          className="mt-5 font-weight-bold text-uppercase"
+          className="mt-3 font-weight-bold text-uppercase free-trial-btn"
           variant="success"
           onClick={handleClick}
         >

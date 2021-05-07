@@ -88,11 +88,11 @@ export default function NavigationBar() {
           {currentUser === null && (
             <p
               style={{
-                fontSize: 26,
+                fontSize: 32,
                 fontWeight: "bold",
               }}
             >
-              Pulikka.fi
+              PULIKKA
             </p>
           )}
         </Link>

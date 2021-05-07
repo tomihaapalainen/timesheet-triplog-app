@@ -11,27 +11,27 @@ export default function PricingInformation() {
     <Container className="mt-5 pb-5">
       <Container>
         <Container fluid>
-          <h2 className="text-center pb-2 pricing-header">{strings.pricing}</h2>
-          <p className="pb-4">{strings.pricingInfo}</p>
+          <h2 className="text-center pb-2 pricing-header font-weight-bold">{strings.pricing}</h2>
+          <p className="pb-4 pricing-body">{strings.pricingInfo}</p>
         </Container>
         <Row>
           <Col className="mb-4 justify-content-center align-items-center" sm={12} md={6}>
-            <Card>
-              <Card.Header className="bg-primary text-white pricing-header">
+            <Card className="border-radius-50">
+              <Card.Header className="bg-primary text-white font-weight-bold pricing-header">
                 {strings.threeMonths}
               </Card.Header>
               <Card.Body>
-                <p className="pricing-body text-center">{strings.threeMonthPrice}</p>
+                <p className="pricing-header text-center">{strings.threeMonthPrice}</p>
               </Card.Body>
             </Card>
           </Col>
           <Col className="mb-4 justify-content-center align-items-center" sm={12} md={6}>
             <Card>
-              <Card.Header className="bg-primary text-white pricing-header">
+              <Card.Header className="bg-primary text-white font-weight-bold pricing-header">
                 {strings.twelveMonths}
               </Card.Header>
               <Card.Body>
-                <p className="pricing-body text-center">{strings.twelveMonthPrice}</p>
+                <p className="pricing-header text-center">{strings.twelveMonthPrice}</p>
               </Card.Body>
             </Card>
           </Col>

@@ -9,6 +9,7 @@ import strings from "./strings";
 import { useAuth } from "../../contexts/AuthContext";
 import { baseUrl } from "../../config";
 import Loading from "../../shared/Loading";
+import { Card } from "react-bootstrap";
 
 export default function SignUpForm({ language }) {
   const [loading, setLoading] = useState(false);
@@ -71,46 +72,52 @@ export default function SignUpForm({ language }) {
   };
 
   return (
-    <Container>
-      <Col className="my-3">
-        <Container id="focus-target" style={{ height: "50px" }} />
-        {loading && <Loading />}
-        {!loading && (
-          <Form className="center-flex flex-column">
-            <Form.Group controlId="formBasicEmail">
-              <Form.Control
-                size="lg"
-                className="my-1"
-                type="email"
-                placeholder={strings.email + "..."}
-                ref={usernameRef}
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-              <Form.Control
-                size="lg"
-                className="my-1"
-                type="password"
-                placeholder={strings.password + "..."}
-                ref={passwordRef}
-              />
-            </Form.Group>
-            <Button
-              className="text-uppercase"
-              type="submit"
-              variant="primary"
-              onClick={handleSubmit}
-            >
-              {strings.signUp}
-            </Button>
-          </Form>
-        )}
-      </Col>
-      {errorMessage && (
-        <Container fluid>
-          <p className="text-center text-danger">{errorMessage}</p>
+    <Container className="center-flex mx-1 px-1 pt-5">
+      <Card className="sign-up-card bg-light">
+        <Container className="text-center mt-3">
+          <Card.Title>{strings.registration}</Card.Title>
+          <Card.Text>{strings.startYourFreeTrial}</Card.Text>
+          <Card.Text>{strings.noPaymentRequired}</Card.Text>
         </Container>
-      )}
+        <Card.Body className="bg-light">
+          {loading && <Loading />}
+          {!loading && (
+            <Form className="center-flex flex-column">
+              <Form.Group controlId="formBasicEmail">
+                <Form.Control
+                  size="lg"
+                  className="my-1"
+                  type="email"
+                  placeholder={strings.email + "..."}
+                  ref={usernameRef}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Control
+                  size="lg"
+                  className="my-1"
+                  type="password"
+                  placeholder={strings.password + "..."}
+                  ref={passwordRef}
+                />
+              </Form.Group>
+              <Button
+                className="text-uppercase"
+                type="submit"
+                variant="primary"
+                onClick={handleSubmit}
+              >
+                {strings.signUp}
+              </Button>
+            </Form>
+          )}
+          {errorMessage && (
+            <Container fluid>
+              <p className="text-center text-danger">{errorMessage}</p>
+            </Container>
+          )}
+        </Card.Body>
+      </Card>
     </Container>
   );
 }

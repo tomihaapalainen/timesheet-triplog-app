@@ -50,6 +50,10 @@ const strings = new LocalizedStrings({
     acceptCookies: "I accept",
     siteUsesCookies: "This site uses cookies to enable the correct operation. Read more from our ",
     here: "privacy statement",
+    and: " and",
+    registration: "Registering is free",
+    startYourFreeTrial: "Start your 30 day trial now",
+    noPaymentRequired: "No payment information required",
   },
   fi: {
     serverNotResponding: "Palvelin ei vastaa. Ole hyvä ja yritä myöhemmin uudelleen.",
@@ -101,6 +105,10 @@ const strings = new LocalizedStrings({
     acceptCookies: "Hyväksyn",
     siteUsesCookies: "Sivusto käyttää evästeitä toiminnallisuuden takaamiseksi. Lue lisää ",
     here: "rekisteri- ja tietosuojaselosteesta",
+    and: " ja",
+    registration: "Rekisteröityminen on ilmaista",
+    startYourFreeTrial: "Aloita 30 päivän kokeilujakso",
+    noPaymentRequired: "Kokeiluun ei tarvita maksutietoja",
   },
 });
 

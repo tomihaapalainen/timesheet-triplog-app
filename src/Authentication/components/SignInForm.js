@@ -67,7 +67,6 @@ export default function SignInForm() {
 
   return (
     <Container>
-      <Container id="focus-target" style={{ height: "50px" }} />
       <Form className="center-flex flex-column">
         <Form.Group controlId="formBasicEmail">
           <Form.Control
