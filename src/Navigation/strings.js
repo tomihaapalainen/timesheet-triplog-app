@@ -13,6 +13,8 @@ const strings = new LocalizedStrings({
     terms1: "Terms and",
     terms2: "conditions",
     history: "History",
+    signIn: "Sign in",
+    register: "Register",
   },
   fi: {
     timesheet: "Työajanseuranta",
@@ -26,6 +28,8 @@ const strings = new LocalizedStrings({
     terms1: "Sopimusehdot",
     terms2: "",
     history: "Historia",
+    signIn: "Kirjaudu",
+    register: "Rekisteröidy",
   },
 });
 

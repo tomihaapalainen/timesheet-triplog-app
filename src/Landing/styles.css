@@ -1,0 +1,21 @@
+.app-title-header {
+  font-size: clamp(1.75rem, -0.875rem + 8.333vw, 4.5rem);
+  color: #03466d;
+  text-transform: none;
+}
+
+.second-title {
+  font-size: clamp(1.5rem, -0.875rem + 8.333vw, 2.5rem);
+  color: #07689f;
+  text-transform: none;
+  opacity: 0.7;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}

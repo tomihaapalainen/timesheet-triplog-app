@@ -4,11 +4,6 @@
   align-items: center;
 }
 
-.app-title-header {
-  font-size: clamp(1.75rem, -0.875rem + 8.333vw, 3.5rem);
-  text-transform: uppercase;
-}
-
 .h-container:h1 {
   display: inline;
 }
@@ -65,4 +60,5 @@
 .sign-up-card {
   width: clamp(280px, 95%, 500px);
   height: clamp(300px, 50%, 400px);
+  border: none;
 }

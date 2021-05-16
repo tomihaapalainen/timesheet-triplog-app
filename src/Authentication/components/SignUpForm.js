@@ -3,7 +3,6 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import strings from "./strings";
 import { useAuth } from "../../contexts/AuthContext";
@@ -15,6 +14,7 @@ export default function SignUpForm({ language }) {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const { signup } = useAuth();
+  const nameRef = useRef();
   const usernameRef = useRef();
   const passwordRef = useRef();
   const history = useHistory();
@@ -26,6 +26,7 @@ export default function SignUpForm({ language }) {
     let mounted = true;
     setLoading(true);
     setErrorMessage("");
+    let name = nameRef.current.value;
     let username = usernameRef.current.value;
     let password = passwordRef.current.value;
 
@@ -34,6 +35,7 @@ export default function SignUpForm({ language }) {
         try {
           let referrerToken = sessionStorage.getItem("referrer_token");
           await axios.post(`${baseUrl}/users`, {
+            name: name,
             email: username,
             referrer_token: referrerToken || "",
           });
@@ -74,15 +76,19 @@ export default function SignUpForm({ language }) {
   return (
     <Container className="center-flex mx-1 px-1 pt-5">
       <Card className="sign-up-card bg-light">
-        <Container className="text-center mt-3">
-          <Card.Title>{strings.registration}</Card.Title>
-          <Card.Text>{strings.startYourFreeTrial}</Card.Text>
-          <Card.Text>{strings.noPaymentRequired}</Card.Text>
-        </Container>
-        <Card.Body className="bg-light">
+        <Card.Body className="bg-light center-flex">
           {loading && <Loading />}
           {!loading && (
             <Form className="center-flex flex-column">
+              <Form.Group controlId="formBasicEmail">
+                <Form.Control
+                  size="lg"
+                  className="my-1"
+                  type="text"
+                  placeholder={strings.name + "..."}
+                  ref={nameRef}
+                />
+              </Form.Group>
               <Form.Group controlId="formBasicEmail">
                 <Form.Control
                   size="lg"

@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { AuthProvider } from "./contexts/AuthContext";
+import AppLandingPage from "./Landing/AppLandingPage";
 import LandingPage from "./Landing/LandingPage";
 import SignInPage from "./Authentication/SignInPage";
 import SignUpPage from "./Authentication/SignUpPage";
@@ -47,9 +48,10 @@ function App() {
               <PrivateRoute path="/app/userdata" component={UserDataPage} />
               <PrivateRoute path="/app/worktime" component={TimesheetPage} />
               <PrivateRoute path="/app/triplog" component={TripLogPage} />
-              <PrivateRoute path="/app" component={LandingPage} />
+              <PrivateRoute path="/app" component={AppLandingPage} />
               <SignInRoute path="/register" component={SignUpPage} />
-              <SignInRoute path="/" component={SignInPage} />
+              <SignInRoute path="/signin" component={SignInPage} />
+              <SignInRoute path="/" component={LandingPage} />
             </Switch>
           </Application>
         </AuthProvider>

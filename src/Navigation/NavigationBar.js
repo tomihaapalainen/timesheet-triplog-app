@@ -24,14 +24,8 @@ const paragraphStyle = {
 
 export default function NavigationBar() {
   const { currentUser, signout } = useAuth();
-  const {
-    setActiveUntil,
-    setIsActive,
-    setProjects,
-    setTimesheets,
-    setInvitationToken,
-    language,
-  } = useGSC();
+  const { setActiveUntil, setIsActive, setProjects, setTimesheets, setInvitationToken, language } =
+    useGSC();
   const history = useHistory();
 
   strings.setLanguage(language);
@@ -80,11 +74,6 @@ export default function NavigationBar() {
           style={{ textDecoration: "none" }}
           className="d-flex flex-row align-items-center text-white"
         >
-          <Image
-            src={pulikkaIcon}
-            alt="logo"
-            style={{ width: 40, height: 40, marginRight: "10px" }}
-          />
           {currentUser === null && (
             <p
               style={{
@@ -92,13 +81,33 @@ export default function NavigationBar() {
                 fontWeight: "bold",
               }}
             >
-              PULIKKA
+              Pulikka
             </p>
           )}
         </Link>
 
         <LanguageSelection />
       </Navbar.Brand>
+
+      {!currentUser && (
+        <Navbar.Toggle aria-controls="responsive-navbar-nav">
+          <span>
+            <AiOutlineMenu color="white" size={30} />
+          </span>
+        </Navbar.Toggle>
+      )}
+
+      {!currentUser && (
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="ml-auto">
+            <NavigationLink eventKey="0" title={strings.timesheet} to="/#timesheet" />
+            <NavigationLink eventKey="1" title={strings.tripLog} to="/#timesheet" />
+            <NavigationLink eventKey="2" title={strings.reports} to="/#timesheet" />
+            <NavigationLink eventKey="2" title={strings.signIn} to="/signin" />
+            <NavigationLink eventKey="2" title={strings.register} to="/register" />
+          </Nav>
+        </Navbar.Collapse>
+      )}
 
       {currentUser && (
         <Navbar.Toggle aria-controls="responsive-navbar-nav">

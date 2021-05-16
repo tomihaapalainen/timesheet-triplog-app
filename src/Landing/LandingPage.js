@@ -1,39 +1,31 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import { useHistory } from "react-router-dom";
-import { FaBusinessTime, FaCarAlt } from "react-icons/fa";
+import Helmet from "react-helmet";
+import strings from "./strings";
+import "./styles.css";
+import { useGSC } from "../store/GlobalStateProvider";
 
-export default function AppPage() {
-  const history = useHistory();
-
-  const handleTimesheetClick = () => {
-    history.push("/app/worktime");
-  };
-
-  const handleTripLogClick = () => {
-    history.push("/app/triplog");
-  };
+export default function LandingPage() {
+  const { language } = useGSC();
+  strings.setLanguage(language);
 
   return (
-    <Container
-      className="center-flex justify-content-space-evenly w-100"
-      style={{ height: "500px" }}
-    >
-      <Row>
-        <Col>
-          <Button className="btn-lg bg-primary" onClick={handleTimesheetClick}>
-            <FaBusinessTime color="#fff" size={80} />
-          </Button>
-        </Col>
-        <Col>
-          <Button className="btn-lg bg-primary" onClick={handleTripLogClick}>
-            <FaCarAlt color="#fff" size={80} />
-          </Button>
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <Helmet>
+        <title>Pulikka.fi - Helppokäyttöinen ja halpa työajanseuranta ja ajopäiväkirja</title>
+        <meta
+          name="description"
+          content="Pulikka.fi on helppokäyttöinen ja halpa työajanseuranta ja ajopäiväkirja yhdessä paikassa. Tutustu 30 päivää ilmaiseksi."
+        />
+      </Helmet>
+      <Container className="landing-page">
+        <Container>
+          <h1 className="app-title-header">{strings.header}</h1>
+        </Container>
+        <Container>
+          <h2 className="second-title">{strings.header2}</h2>
+        </Container>
+      </Container>
+    </>
   );
 }

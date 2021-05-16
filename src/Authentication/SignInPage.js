@@ -1,11 +1,6 @@
 import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import TryForFree from "./components/TryForFree";
 import SignInForm from "./components/SignInForm";
-import ApplicationInformation from "./components/ApplicationInformation";
-import PricingInformation from "./components/PricingInformation";
-import Footer from "../Navigation/Footer";
-import CookieNote from "./components/CookieNote";
 import Helmet from "react-helmet";
 
 export default function SignInPage() {
@@ -21,7 +16,7 @@ export default function SignInPage() {
   }, []);
 
   return (
-    <Container fluid className="p-0 m-0">
+    <Container>
       <Helmet>
         <title>Pulikka.fi - Helppokäyttöinen ja halpa työajanseuranta ja ajopäiväkirja</title>
         <meta
@@ -29,12 +24,7 @@ export default function SignInPage() {
           content="Pulikka.fi on helppokäyttöinen ja halpa työajanseuranta ja ajopäiväkirja yhdessä paikassa. Tutustu 30 päivää ilmaiseksi."
         />
       </Helmet>
-      <TryForFree />
       <SignInForm />
-      <ApplicationInformation />
-      <PricingInformation />
-      <CookieNote />
-      <Footer />
     </Container>
   );
 }
