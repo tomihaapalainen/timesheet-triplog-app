@@ -3,7 +3,6 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import Image from "react-bootstrap/Image";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useGSC } from "../store/GlobalStateProvider";
@@ -12,7 +11,6 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { FaSignOutAlt } from "react-icons/fa";
 import LanguageSelection from "./LanguageSelection";
 import NavigationLink from "./NavigationLink";
-import pulikkaIcon from "../static/logos/logo192.png";
 import strings from "./strings";
 
 const paragraphStyle = {
@@ -100,11 +98,12 @@ export default function NavigationBar() {
       {!currentUser && (
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <NavigationLink eventKey="0" title={strings.timesheet} to="/#timesheet" />
-            <NavigationLink eventKey="1" title={strings.tripLog} to="/#timesheet" />
-            <NavigationLink eventKey="2" title={strings.reports} to="/#timesheet" />
-            <NavigationLink eventKey="2" title={strings.signIn} to="/signin" />
-            <NavigationLink eventKey="2" title={strings.register} to="/register" />
+            <NavigationLink eventKey="0" title={strings.timesheet} to="#timesheet" />
+            <NavigationLink eventKey="1" title={strings.tripLog} to="/#triplog" />
+            <NavigationLink eventKey="2" title={strings.reports} to="/#reports" />
+            <NavigationLink eventKey="3" title={strings.pricing} to="/#pricing" />
+            <NavigationLink eventKey="4" title={strings.signIn} to="/signin" />
+            <NavigationLink eventKey="5" title={strings.register} to="/register" />
           </Nav>
         </Navbar.Collapse>
       )}
@@ -122,8 +121,8 @@ export default function NavigationBar() {
             <NavigationLink eventKey="0" title={strings.timesheet} to="/app/worktime" />
             <NavigationLink eventKey="1" title={strings.tripLog} to="/app/triplog" />
             <NavigationLink eventKey="2" title={strings.history} to="/app/history" />
-            <NavigationLink eventKey="2" title={strings.reports} to="/app/reports" />
-            <NavigationLink eventKey="3" title={strings.profile} to="/app/userdata" />
+            <NavigationLink eventKey="3" title={strings.reports} to="/app/reports" />
+            <NavigationLink eventKey="4" title={strings.profile} to="/app/userdata" />
             <Nav.Link
               eventKey="4"
               as={Link}

@@ -15,6 +15,7 @@ const strings = new LocalizedStrings({
     history: "History",
     signIn: "Sign in",
     register: "Register",
+    pricing: "Pricing",
   },
   fi: {
     timesheet: "Työajanseuranta",
@@ -30,6 +31,7 @@ const strings = new LocalizedStrings({
     history: "Historia",
     signIn: "Kirjaudu",
     register: "Rekisteröidy",
+    pricing: "Hinnasto",
   },
 });
 
