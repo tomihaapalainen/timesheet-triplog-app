@@ -7,9 +7,9 @@ const strings = new LocalizedStrings({
     free: "Free",
     freeTrial: "30 trial. No payment information required.",
     threeMonths: "3 months usage with a single payment just 3,00 €/mo",
-    threeMonthPrice: "9.00 € / 3mo",
+    threeMonthPrice: "14.90 € / 3mo",
     twelveMonths: "12 months usage with a single payment just 2.49 €/mo",
-    twelveMonthPrice: "29.90 € / 12mo",
+    twelveMonthPrice: "49.90 € / 12mo",
     start: "Start",
     pricing: "Pricing",
     pricesIncludeVAT: "Prices include VAT 24%",
@@ -31,7 +31,7 @@ const strings = new LocalizedStrings({
     reportInfo2: "Set a date interval or quickly select one of the predefined intervals.",
     reportInfo3: "Trip log fulfills tax authority requirements.",
     pricingInfo:
-      "Using the Pulikka app will not break the bank: affordable prices that can even be lowered by inviting new users to the application! Lowest price only 19.90 € per year.",
+      "Using the Pulikka app will not break the bank: affordable prices that can even be lowered by inviting new users to the application! Lowest price only 29.90 € per year.",
   },
   fi: {
     header: "Yksinkertaista työajanseurantasi",
@@ -39,9 +39,9 @@ const strings = new LocalizedStrings({
     free: "Ilmainen",
     freeTrial: "30 päivän kokeilujakso. Maksutietoja ei tarvita.",
     threeMonths: "3 kuukauden käyttöoikeus kertamaksulla vain 3,00 €/kk",
-    threeMonthPrice: "9,00 € / 3kk",
+    threeMonthPrice: "14,90 € / 3kk",
     twelveMonths: "12 kuukauden käyttöoikeus kertamaksulla vain 2,49 €/kk",
-    twelveMonthPrice: "29,90 € / 12kk",
+    twelveMonthPrice: "49,90 € / 12kk",
     start: "Aloita",
     pricing: "Hinnasto",
     pricesIncludeVAT: "Hinnat sisältävät alv. 24%",
@@ -63,7 +63,7 @@ const strings = new LocalizedStrings({
     reportInfo2: "Käytä pikavalintoja tai aseta haluamasi aikaväli.",
     reportInfo3: "Verottajan vaatimukset täyttävä ajopäiväkirja.",
     pricingInfo:
-      "Pulikan käyttäminen ei tee lovea tuloihisi: edulliset hinnat ja mahdollisuus saada pysyvää alennusta kutsumalla sovellukseen lisää käyttäjiä! Vuosihinta alimmillaan vain 19,90 €.",
+      "Pulikan käyttäminen ei tee lovea tuloihisi: edulliset hinnat ja mahdollisuus saada pysyvää alennusta kutsumalla sovellukseen lisää käyttäjiä! Vuosihinta alimmillaan vain 29,90 €.",
   },
 });
 

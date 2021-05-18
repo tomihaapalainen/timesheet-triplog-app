@@ -18,11 +18,14 @@ export default function Footer() {
           </Col>
           <Col sm={12} md={6}></Col>
           <Col sm={12} md={3} className="d-flex flex-column">
-            <Link to="/privacy-statement" className="text-center mt-1">
+            <Link to="/privacy-statement" className="text-center mt-1 text-white">
               {strings.privacyStatement1} {strings.privacyStatement2}
             </Link>
-            <Link to="/terms" className="text-center mt-1">
+            <Link to="/terms" className="text-center mt-1 text-white">
               {strings.terms1} {strings.terms2}
+            </Link>
+            <Link to="/cookies" className="text-center mt-1 text-white">
+              {strings.aboutCookies}
             </Link>
           </Col>
         </Row>

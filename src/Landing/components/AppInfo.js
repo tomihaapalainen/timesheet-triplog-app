@@ -30,7 +30,7 @@ export default function AppInfo() {
   const reportsInfos = [strings.reportInfo1, strings.reportInfo2, strings.reportInfo3];
 
   return (
-    <Container fluid>
+    <Container fluid className="border-top border-bottom border-dark py-5">
       <Container id="timesheet" className="w-100 center-flex">
         <Row className="w-100">
           <Col md={6} className="d-flex flex-column justify-content-center">

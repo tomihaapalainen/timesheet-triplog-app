@@ -16,6 +16,7 @@ const strings = new LocalizedStrings({
     signIn: "Sign in",
     register: "Register",
     pricing: "Pricing",
+    aboutCookies: "About cookies",
   },
   fi: {
     timesheet: "Työajanseuranta",
@@ -32,6 +33,7 @@ const strings = new LocalizedStrings({
     signIn: "Kirjaudu",
     register: "Rekisteröidy",
     pricing: "Hinnasto",
+    aboutCookies: "Tietoja evästeistä",
   },
 });
 

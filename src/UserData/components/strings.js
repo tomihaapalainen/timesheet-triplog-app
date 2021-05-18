@@ -55,9 +55,9 @@ const strings = new LocalizedStrings({
     subject: "Subject",
     inviteUsers: "Invite users",
     inviteInfo:
-      "Send this link to a friend. You will receive a permanent 1.00 € discount on your annual price for each new user that has made a purchase in the application, if the invited user used your link to register to the application. The invited user receives a 20% discount on their first purchase as well.",
+      "Send this link to a friend. You will receive a permanent 2.00 € discount on your annual price for each new user that has made a purchase in the application, if the invited user used your link to register to the application. The invited user receives a 20% discount on their first purchase as well.",
     annualPriceInfo:
-      "Annual price minimum 19.90 €, when 10 users invited by you have made a purchase in the application.",
+      "Annual price minimum 29.90 €, when 10 users invited by you have made a purchase in the application.",
     linkCopied: "Link copied to clipboard",
     serverDidNotResponsd: "Server did not responsd. Please try again later.",
   },
@@ -117,9 +117,9 @@ const strings = new LocalizedStrings({
     subject: "Aihe",
     inviteUsers: "Kutsu käyttäjiä",
     inviteInfo:
-      "Lähetä tämä linkki tuttavillesi. Saat pysyvän 1,00 € alennuksen vuosihintaasi jokaista kutsumaasi oston tehnyttä käyttäjää kohden, jos käyttäjät rekisteröityvät antamasi linkin kautta! Kutsuttu käyttäjä saa 20% alennuksen ensimmäisestä ostoksestaan.",
+      "Lähetä tämä linkki tuttavillesi. Saat pysyvän 2,00 € alennuksen vuosihintaasi jokaista kutsumaasi oston tehnyttä käyttäjää kohden, jos käyttäjät rekisteröityvät antamasi linkin kautta! Kutsuttu käyttäjä saa 20% alennuksen ensimmäisestä ostoksestaan.",
     annualPriceInfo:
-      "Vuosihinta alimmillaan 19,90 €, kun 10 kutsumaasi käyttäjää on tehnyt sovelluksessa oston.",
+      "Vuosihinta alimmillaan 29,90 €, kun 10 kutsumaasi käyttäjää on tehnyt sovelluksessa oston.",
     linkCopied: "Linkki kopioitu",
     serverDidNotResponsd: "Palvelimeen ei saatu yhteyttä. Ole hyvä ja yritä myöhemmin uudelleen.",
   },

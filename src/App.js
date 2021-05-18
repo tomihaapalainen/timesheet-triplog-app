@@ -21,6 +21,7 @@ import PrivacyStatementPage from "./TermsAndConditions/PrivacyStatementPage";
 import TermsPage from "./TermsAndConditions/TermsPage";
 import SuccessPage from "./Purchase/SuccessPage";
 import HistoryPage from "./History/HistoryPage";
+import CookiesPage from "./TermsAndConditions/CookiesPage";
 
 const theme = {
   rainbow: {
@@ -39,6 +40,7 @@ function App() {
             <NavigationBar />
             <Switch position="fixed">
               <Route path="/reset-password" component={ResetPasswordPage} />
+              <Route path="/cookies" component={CookiesPage} />
               <Route path="/privacy-statement" component={PrivacyStatementPage} />
               <Route path="/terms" component={TermsPage} />
               <PrivateRoute path="/app/history" component={HistoryPage} />
