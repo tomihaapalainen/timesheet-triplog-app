@@ -14,10 +14,8 @@ import NavigationLink from "./NavigationLink";
 import strings from "./strings";
 
 const paragraphStyle = {
-  fontSize: "14px",
+  fontSize: "16px",
   fontWeight: "bolder",
-  textTransform: "uppercase",
-  color: "#00DD00",
 };
 
 export default function NavigationBar() {
@@ -72,16 +70,14 @@ export default function NavigationBar() {
           style={{ textDecoration: "none" }}
           className="d-flex flex-row align-items-center text-white"
         >
-          {currentUser === null && (
-            <p
-              style={{
-                fontSize: 32,
-                fontWeight: "bold",
-              }}
-            >
-              Pulikka
-            </p>
-          )}
+          <p
+            style={{
+              fontSize: 32,
+              fontWeight: "bold",
+            }}
+          >
+            Pulikka
+          </p>
         </Link>
 
         <LanguageSelection />
@@ -102,8 +98,26 @@ export default function NavigationBar() {
             <NavigationLink eventKey="1" title={strings.tripLog} to="/#triplog" />
             <NavigationLink eventKey="2" title={strings.reports} to="/#reports" />
             <NavigationLink eventKey="3" title={strings.pricing} to="/#pricing" />
-            <NavigationLink eventKey="4" title={strings.signIn} to="/signin" />
-            <NavigationLink eventKey="5" title={strings.register} to="/register" />
+            <Nav.Link
+              eventKey="4"
+              as={Link}
+              to="/signin"
+              className="mx-1 my-1 px-2 bg-light btn-pill bg-dark border-success d-flex flex-row align-items-center"
+            >
+              <p style={paragraphStyle} className="m-1 p-0 text-white">
+                {strings.signIn}
+              </p>
+            </Nav.Link>
+            <Nav.Link
+              eventKey="4"
+              as={Link}
+              to="/register"
+              className="mx-1 my-1 px-2 bg-light btn-pill bg-dark d-flex flex-row align-items-center"
+            >
+              <p style={paragraphStyle} className="m-1 p-0 text-white">
+                {strings.register}
+              </p>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       )}
@@ -127,9 +141,9 @@ export default function NavigationBar() {
               eventKey="4"
               as={Link}
               to="/app/purchase"
-              className="mx-1 my-1 px-2 bg-primary text-success border-success d-flex flex-row align-items-center"
+              className="mx-1 my-1 px-2 d-flex flex-row align-items-center"
             >
-              <p style={paragraphStyle} className="m-1 px-0">
+              <p style={paragraphStyle} className="m-1 px-0 text-white">
                 {strings.purchase}
               </p>
             </Nav.Link>
@@ -138,7 +152,7 @@ export default function NavigationBar() {
               onClick={handleLogout}
               as={Link}
               to="#"
-              className="bg-primary mx-1 my-1 px-3 center-flex"
+              className="mx-1 my-1 px-3 center-flex"
             >
               <FaSignOutAlt size={25} color="lightgrey" className="mx-1" />
             </Nav.Link>

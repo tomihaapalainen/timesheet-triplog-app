@@ -19,7 +19,7 @@ export default function AccordionToggle({ title, variant }) {
       <Container className="mx-0 px-0">
         <Row className="justify-content-space-between">
           <Col xs={10}>
-            <p className="m-0 p-0 font-weight-bold">{title}</p>
+            <p className="m-0 p-0 font-weight-bold accordion-title">{title}</p>
           </Col>
           <Col className="d-flex justify-content-end" xs={2}>
             {open ? <FaAngleUp color="#fff" size={20} /> : <FaAngleDown color="#fff" size={20} />}

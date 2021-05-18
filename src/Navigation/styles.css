@@ -9,3 +9,10 @@ a:active {
 link-p:hover {
   color: white;
 }
+
+.btn-pill {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+}

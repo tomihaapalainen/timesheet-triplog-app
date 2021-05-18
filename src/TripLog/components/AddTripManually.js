@@ -150,7 +150,7 @@ export default function AddTripManually({
             <Container fluid className="mx-0 px-0">
               <Row className="justify-content-space-between align-items-center">
                 <Col xs={10}>
-                  <p className="py-1 my-0">{strings.addTripManually}</p>
+                  <p className="py-1 my-0 accordion-title">{strings.addTripManually}</p>
                 </Col>
                 <Col className="d-flex justify-content-end" xs={2}>
                   {open ? (

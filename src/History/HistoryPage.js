@@ -15,11 +15,21 @@ export default function HistoryPage() {
   return (
     <HistoryStateProvider>
       <Container className="mt-3" style={{ maxWidth: "500px" }}>
-        <Tabs fill justify defaultActiveKey="workdata">
-          <Tab mountOnEnter eventKey="workdata" title={strings.workdata}>
+        <Tabs className="bg-secondary" fill justify defaultActiveKey="workdata">
+          <Tab
+            className="font-weight-bold"
+            mountOnEnter
+            eventKey="workdata"
+            title={strings.workdata}
+          >
             <WorkdataContainer />
           </Tab>
-          <Tab mountOnEnter eventKey="tripdata" title={strings.tripdata}>
+          <Tab
+            className="font-weight-bold"
+            mountOnEnter
+            eventKey="tripdata"
+            title={strings.tripdata}
+          >
             <TripdataContainer />
           </Tab>
         </Tabs>

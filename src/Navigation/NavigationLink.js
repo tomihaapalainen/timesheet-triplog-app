@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 
 const paragraphStyle = {
-  fontWeight: "bold",
-  textTransform: "uppercase",
-  fontSize: 14,
+  fontSize: 16,
 };
 
 export default function NavigationLink({ eventKey, title, to }) {
@@ -14,7 +12,7 @@ export default function NavigationLink({ eventKey, title, to }) {
       eventKey={eventKey}
       as={Link}
       to={to}
-      className="mx-1 my-1 px-2 bg-primary text-white border-success d-flex flex-row align-items-center"
+      className="mx-1 my-1 px-2 text-white border-success d-flex flex-row align-items-center"
     >
       <p style={paragraphStyle} className="m-1 p-0">
         {title}

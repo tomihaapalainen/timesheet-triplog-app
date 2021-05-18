@@ -18,7 +18,7 @@ export default function ActiveUntil({ isActive, activeUntil }) {
           className={`text-light ${isActive ? "bg-success" : "bg-warning"} center-flex py-1`}
         >
           {isActive ? (
-            <p className="font-weight-bold">
+            <p className="font-weight-bold accordion-title">
               {strings.accountActive} {activeUntilDate}
               {strings.until}
             </p>
