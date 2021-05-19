@@ -13,7 +13,7 @@ export default function Pricing({ language }) {
   const history = useHistory();
 
   return (
-    <Container id="pricing" fluid className="pricing-page my-5">
+    <Container id="pricing" fluid className="mw-1024 pricing-page my-5">
       <Row className="pb-3">
         <Container className="center-flex flex-column">
           <h2 className="pricing-title py-5">{strings.pricing}</h2>

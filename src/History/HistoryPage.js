@@ -15,7 +15,7 @@ export default function HistoryPage() {
   return (
     <HistoryStateProvider>
       <Container className="mt-3" style={{ maxWidth: "500px" }}>
-        <Tabs className="bg-secondary" fill justify defaultActiveKey="workdata">
+        <Tabs className="bg-info rounded" fill justify defaultActiveKey="workdata">
           <Tab
             className="font-weight-bold"
             mountOnEnter

@@ -94,7 +94,7 @@ export default function NavigationBar() {
       {!currentUser && (
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <NavigationLink eventKey="0" title={strings.timesheet} to="#timesheet" />
+            <NavigationLink eventKey="0" title={strings.timesheet} to="/#timesheet" />
             <NavigationLink eventKey="1" title={strings.tripLog} to="/#triplog" />
             <NavigationLink eventKey="2" title={strings.reports} to="/#reports" />
             <NavigationLink eventKey="3" title={strings.pricing} to="/#pricing" />
@@ -102,7 +102,7 @@ export default function NavigationBar() {
               eventKey="4"
               as={Link}
               to="/signin"
-              className="mx-1 my-1 px-2 bg-light btn-pill bg-dark border-success d-flex flex-row align-items-center"
+              className="mx-1 my-1 px-2 btn-pill bg-dark d-flex flex-row justify-content-center align-items-center"
             >
               <p style={paragraphStyle} className="m-1 p-0 text-white">
                 {strings.signIn}
@@ -112,7 +112,7 @@ export default function NavigationBar() {
               eventKey="4"
               as={Link}
               to="/register"
-              className="mx-1 my-1 px-2 bg-light btn-pill bg-dark d-flex flex-row align-items-center"
+              className="mx-1 my-1 px-2 btn-pill bg-dark d-flex flex-row justify-content-center align-items-center"
             >
               <p style={paragraphStyle} className="m-1 p-0 text-white">
                 {strings.register}

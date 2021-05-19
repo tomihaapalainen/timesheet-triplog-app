@@ -6,6 +6,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-input-placeholder {
