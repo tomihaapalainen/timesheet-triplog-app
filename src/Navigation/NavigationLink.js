@@ -1,12 +1,12 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import Nav from "react-bootstrap/Nav";
 import { useHistory } from "react-router-dom";
 
 const paragraphStyle = {
   fontSize: 16,
 };
 
-export default function NavigationLink({ title, to }) {
+export default function NavigationLink({ eventKey, title, to }) {
   const history = useHistory();
 
   const handleClick = (target) => {
@@ -25,10 +25,12 @@ export default function NavigationLink({ title, to }) {
   };
 
   return (
-    <Button onClick={() => handleClick(to)} className="mx-1 my-1 px-2 text-white">
-      <p style={paragraphStyle} className="m-1 p-0">
-        {title}
-      </p>
-    </Button>
+    <Nav.Link className="nav-link center-flex" eventKey={eventKey} onClick={() => handleClick(to)}>
+      <div className="mx-1 my-1 px-2 text-white">
+        <p style={paragraphStyle} className="m-1 p-0">
+          {title}
+        </p>
+      </div>
+    </Nav.Link>
   );
 }
