@@ -4,10 +4,10 @@ import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
+import Spinner from "react-bootstrap/Spinner";
 import strings from "./strings";
 import { useAuth } from "../../contexts/AuthContext";
 import { baseUrl } from "../../config";
-import Loading from "../../shared/Loading";
 import { Card } from "react-bootstrap";
 
 export default function SignUpForm({ language }) {
@@ -77,46 +77,46 @@ export default function SignUpForm({ language }) {
     <Container className="center-flex mx-1 px-1 pt-5">
       <Card className="sign-up-card bg-light">
         <Card.Body className="bg-light center-flex flex-column">
-          {loading && <Loading />}
-          {!loading && (
-            <>
-              <Container fluid className="center-flex mb-3 mx-0 px-0">
-                <p>{strings.register}</p>
-              </Container>
-              <Form className="center-flex flex-column">
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Control
-                    size="lg"
-                    className="my-1"
-                    type="text"
-                    placeholder={strings.name + "..."}
-                    ref={nameRef}
-                  />
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Control
-                    size="lg"
-                    className="my-1"
-                    type="email"
-                    placeholder={strings.email + "..."}
-                    ref={usernameRef}
-                  />
-                </Form.Group>
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Control
-                    size="lg"
-                    className="my-1"
-                    type="password"
-                    placeholder={strings.password + "..."}
-                    ref={passwordRef}
-                  />
-                </Form.Group>
+          <Container fluid className="center-flex mb-3 mx-0 px-0">
+            <p>{strings.register}</p>
+          </Container>
+          <Form className="center-flex flex-column">
+            <Form.Group controlId="formBasicEmail">
+              <Form.Control
+                size="lg"
+                className="my-1"
+                type="text"
+                placeholder={strings.name + "..."}
+                ref={nameRef}
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Control
+                size="lg"
+                className="my-1"
+                type="email"
+                placeholder={strings.email + "..."}
+                ref={usernameRef}
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Control
+                size="lg"
+                className="my-1"
+                type="password"
+                placeholder={strings.password + "..."}
+                ref={passwordRef}
+              />
+            </Form.Group>
+            <Container className="center-flex">
+              {!loading && (
                 <Button type="submit" variant="primary" onClick={handleSubmit}>
                   {strings.signUp}
                 </Button>
-              </Form>
-            </>
-          )}
+              )}
+              {loading && <Spinner variant="primary" animation="border" />}
+            </Container>
+          </Form>
           <Container fluid className="py-5 mx-0 px-0 center-flex">
             <Link to="/signin">{strings.alreadyRegistered}</Link>
           </Container>

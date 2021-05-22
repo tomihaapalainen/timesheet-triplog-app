@@ -141,7 +141,7 @@ export default function NavigationBar() {
               eventKey="4"
               as={Link}
               to="/app/purchase"
-              className="mx-1 my-1 px-2 d-flex flex-row align-items-center"
+              className="mx-1 my-1 px-2 center-flex"
             >
               <p style={paragraphStyle} className="m-1 px-0 text-white">
                 {strings.purchase}

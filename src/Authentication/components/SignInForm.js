@@ -64,41 +64,37 @@ export default function SignInForm() {
     <Container className="center-flex mx-1 px-1 pt-5">
       <Card className="sign-up-card bg-light">
         <Card.Body className="bg-light center-flex flex-column">
-          {!loading && (
-            <>
-              <Container fluid className="center-flex mb-3">
-                <p>{strings.signInToAccount}</p>
-              </Container>
-              <Form className="center-flex flex-column">
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Control
-                    size="lg"
-                    className="my-1"
-                    type="email"
-                    placeholder={strings.email + "..."}
-                    ref={usernameRef}
-                  />
-                </Form.Group>
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Control
-                    size="lg"
-                    className="my-1"
-                    type="password"
-                    placeholder={strings.password + "..."}
-                    ref={passwordRef}
-                  />
-                </Form.Group>
-                <Container className="center-flex">
-                  {!loading && (
-                    <Button type="submit" variant="primary" onClick={handleSubmit}>
-                      {strings.signIn}
-                    </Button>
-                  )}
-                  {loading && <Spinner variant="primary" animation="border" />}
-                </Container>
-              </Form>
-            </>
-          )}
+          <Container fluid className="center-flex mb-3">
+            <p>{strings.signInToAccount}</p>
+          </Container>
+          <Form className="center-flex flex-column">
+            <Form.Group controlId="formBasicEmail">
+              <Form.Control
+                size="lg"
+                className="my-1"
+                type="email"
+                placeholder={strings.email + "..."}
+                ref={usernameRef}
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Control
+                size="lg"
+                className="my-1"
+                type="password"
+                placeholder={strings.password + "..."}
+                ref={passwordRef}
+              />
+            </Form.Group>
+            <Container className="center-flex">
+              {!loading && (
+                <Button type="submit" variant="primary" onClick={handleSubmit}>
+                  {strings.signIn}
+                </Button>
+              )}
+              {loading && <Spinner variant="primary" animation="border" />}
+            </Container>
+          </Form>
           <Container fluid className="py-5 mx-0 px-0 center-flex">
             <Link to="/register">{strings.noAccountYet}</Link>
           </Container>
