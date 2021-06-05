@@ -83,8 +83,7 @@ export default function SignUpForm({ language }) {
           <Form className="center-flex flex-column">
             <Form.Group controlId="formBasicEmail">
               <Form.Control
-                size="lg"
-                className="my-1"
+                className="my-1 form-control-input"
                 type="text"
                 placeholder={strings.name + "..."}
                 ref={nameRef}
@@ -92,8 +91,7 @@ export default function SignUpForm({ language }) {
             </Form.Group>
             <Form.Group controlId="formBasicEmail">
               <Form.Control
-                size="lg"
-                className="my-1"
+                className="my-1 form-control-input"
                 type="email"
                 placeholder={strings.email + "..."}
                 ref={usernameRef}
@@ -101,8 +99,7 @@ export default function SignUpForm({ language }) {
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
               <Form.Control
-                size="lg"
-                className="my-1"
+                className="my-1 form-control-input"
                 type="password"
                 placeholder={strings.password + "..."}
                 ref={passwordRef}

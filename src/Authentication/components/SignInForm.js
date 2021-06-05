@@ -67,11 +67,10 @@ export default function SignInForm() {
           <Container fluid className="center-flex mb-3">
             <p>{strings.signInToAccount}</p>
           </Container>
-          <Form className="center-flex flex-column">
+          <Form className="w-100 center-flex flex-column">
             <Form.Group controlId="formBasicEmail">
               <Form.Control
-                size="lg"
-                className="my-1"
+                className="my-1 form-control-input"
                 type="email"
                 placeholder={strings.email + "..."}
                 ref={usernameRef}
@@ -79,8 +78,7 @@ export default function SignInForm() {
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
               <Form.Control
-                size="lg"
-                className="my-1"
+                className="my-1 form-control-input"
                 type="password"
                 placeholder={strings.password + "..."}
                 ref={passwordRef}

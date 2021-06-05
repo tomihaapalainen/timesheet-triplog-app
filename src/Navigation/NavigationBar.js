@@ -13,11 +13,6 @@ import LanguageSelection from "./LanguageSelection";
 import NavigationLink from "./NavigationLink";
 import strings from "./strings";
 
-const paragraphStyle = {
-  fontSize: "16px",
-  fontWeight: "bolder",
-};
-
 export default function NavigationBar() {
   const { currentUser, signout } = useAuth();
   const { setActiveUntil, setIsActive, setProjects, setTimesheets, setInvitationToken, language } =
@@ -98,26 +93,8 @@ export default function NavigationBar() {
             <NavigationLink eventKey="1" title={strings.tripLog} to="/#triplog" />
             <NavigationLink eventKey="2" title={strings.reports} to="/#reports" />
             <NavigationLink eventKey="3" title={strings.pricing} to="/#pricing" />
-            <Nav.Link
-              eventKey="4"
-              as={Link}
-              to="/signin"
-              className="mx-1 my-1 px-2 btn-pill bg-dark d-flex flex-row justify-content-center align-items-center"
-            >
-              <p style={paragraphStyle} className="m-1 p-0 text-white">
-                {strings.signIn}
-              </p>
-            </Nav.Link>
-            <Nav.Link
-              eventKey="4"
-              as={Link}
-              to="/register"
-              className="mx-1 my-1 px-2 btn-pill bg-dark d-flex flex-row justify-content-center align-items-center"
-            >
-              <p style={paragraphStyle} className="m-1 p-0 text-white">
-                {strings.register}
-              </p>
-            </Nav.Link>
+            <NavigationLink eventKey="4" title={strings.signIn} to="/signin" />
+            <NavigationLink eventKey="5" title={strings.register} to="/register" />
           </Nav>
         </Navbar.Collapse>
       )}
@@ -143,9 +120,7 @@ export default function NavigationBar() {
               to="/app/purchase"
               className="mx-1 my-1 px-2 center-flex"
             >
-              <p style={paragraphStyle} className="m-1 px-0 text-white">
-                {strings.purchase}
-              </p>
+              <p className="m-1 px-0 text-white">{strings.purchase}</p>
             </Nav.Link>
             <Nav.Link
               eventKey="6"

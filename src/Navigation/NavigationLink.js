@@ -25,9 +25,13 @@ export default function NavigationLink({ eventKey, title, to }) {
   };
 
   return (
-    <Nav.Link className="nav-link center-flex" eventKey={eventKey} onClick={() => handleClick(to)}>
-      <div className="mx-1 my-1 px-2 text-white">
-        <p style={paragraphStyle} className="m-1 p-0">
+    <Nav.Link
+      className="navbar-navlink center-flex mx-2"
+      eventKey={eventKey}
+      onClick={() => handleClick(to)}
+    >
+      <div className="my-1 py-1 text-white">
+        <p style={paragraphStyle} className="p-1">
           {title}
         </p>
       </div>

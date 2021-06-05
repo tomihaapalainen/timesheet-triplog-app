@@ -17,6 +17,6 @@ link-p:hover {
   border-bottom-right-radius: 9999px;
 }
 
-.nav-link:hover {
-  font-weight: bold;
+.navbar-navlink:hover {
+  box-shadow: inset 0px -2px white;
 }

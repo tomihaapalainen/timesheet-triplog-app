@@ -21,7 +21,7 @@ export default function Pricing({ language }) {
         </Container>
       </Row>
       <Row className="w-100">
-        <Col sm={12} md={4} className="my-4 px-3">
+        <Col xs={12} md={4} className="my-4 px-3">
           <Card className="h-100">
             <Card.Header className="bg-primary text-white center-flex">
               <Card.Title className="bg-primary border-0 font-weight-bold card-header">
@@ -41,7 +41,7 @@ export default function Pricing({ language }) {
             </Card.Footer>
           </Card>
         </Col>
-        <Col sm={12} md={4} className="my-4">
+        <Col xs={12} md={4} className="my-4">
           <Card className="h-100">
             <Card.Header className="bg-primary text-white center-flex">
               <Card.Title className="bg-primary border-0 font-weight-bold card-header">
@@ -53,7 +53,7 @@ export default function Pricing({ language }) {
             </Card.Body>
           </Card>
         </Col>
-        <Col sm={12} md={4} className="my-4">
+        <Col xs={12} md={4} className="my-4">
           <Card className="h-100">
             <Card.Header className="bg-primary text-white center-flex">
               <Card.Title className="bg-primary border-0 font-weight-bold card-header">

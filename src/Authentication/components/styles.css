@@ -62,3 +62,9 @@
   height: clamp(300px, 50%, 400px);
   border: none;
 }
+
+.form-control-input {
+  width: 75%;
+  min-width: 280px;
+  max-width: 400px;
+}

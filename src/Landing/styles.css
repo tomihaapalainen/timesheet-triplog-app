@@ -28,17 +28,17 @@
 }
 
 .card-header {
-  font-size: clamp(1rem, -0.875rem + 8.333vw, 1.5rem);
+  font-size: clamp(1rem, -0.875rem + 8.333vw, 1.3rem);
 }
 
 .card-text {
-  font-size: clamp(0.75rem, -0.875rem + 8.333vw, 1.1rem);
+  font-size: clamp(0.75rem, -0.875rem + 8.333vw, 1rem);
 }
 
 .free-trial-btn {
   position: relative;
   top: 35px;
-  font-size: 20px;
+  font-size: 18px;
   min-width: 120px;
 }
 
